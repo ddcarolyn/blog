@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const fmt = (d: Date) =>
+  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(
+    d.getDate()
+  ).padStart(2, '0')}`;
+---
+
+<BaseLayout active="home">
+  {
+    posts.length === 0 ? (
+      <p class="empty">还没有文章 — 今晚一起来写第一篇 ✍️</p>
+    ) : (
+      <ul class="post-list">
+        {posts.map((post) => (
+          <li class="post-item">
+            <h2 class="post-title">
+              <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
+            </h2>
+            <div class="post-meta">{fmt(post.data.date)}</div>
+            {post.data.description && (
+              <p class="post-excerpt">{post.data.description}</p>
+            )}
+            {post.data.tags.length > 0 && (
+              <div class="post-tags">
+                {post.data.tags.map((t) => (
+                  <span class="tag">{t}</span>
+                ))}
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</BaseLayout>
