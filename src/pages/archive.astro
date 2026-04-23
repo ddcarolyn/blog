@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const byYear = new Map<number, typeof posts>();
+for (const p of posts) {
+  const y = p.data.date.getFullYear();
+  if (!byYear.has(y)) byYear.set(y, []);
+  byYear.get(y)!.push(p);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
+
+const mdDay = (d: Date) =>
+  `${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(
+    2,
+    '0'
+  )}`;
+---
+
+<BaseLayout title="归档" active="archive">
+  {
+    posts.length === 0 ? (
+      <p class="empty">暂无归档</p>
+    ) : (
+      years.map((y) => (
+        <section>
+          <h2 class="archive-year">{y}</h2>
+          <ul class="archive-list">
+            {byYear.get(y)!.map((p) => (
+              <li class="archive-item">
+                <span class="archive-date">{mdDay(p.data.date)}</span>
+                <a href={`/posts/${p.slug}/`}>{p.data.title}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    )
+  }
+</BaseLayout>

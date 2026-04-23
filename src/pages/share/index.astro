@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const shares = (await getCollection('shares')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const fmt = (d: Date) =>
+  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(
+    d.getDate()
+  ).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(
+    d.getMinutes()
+  ).padStart(2, '0')}`;
+---
+
+<BaseLayout title="Share" description="碎片分享" active="share">
+  {
+    shares.length === 0 ? (
+      <p class="empty">还没有分享</p>
+    ) : (
+      <ul class="post-list">
+        {shares.map(async (s) => {
+          const { Content } = await s.render();
+          return (
+            <li class="share-item">
+              <div class="share-date">{fmt(s.data.date)}</div>
+              <div class="share-content">
+                <Content />
+              </div>
+              {s.data.tags.length > 0 && (
+                <div class="post-tags" style="margin-top:8px">
+                  {s.data.tags.map((t) => (
+                    <span class="tag">{t}</span>
+                  ))}
+                </div>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    )
+  }
+</BaseLayout>

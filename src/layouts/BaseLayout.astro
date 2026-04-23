@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  active?: 'home' | 'archive' | 'share' | 'about' | 'rss';
+}
+
+const {
+  title = 'ddcarolyn',
+  description = 'Carolyn 的个人博客',
+  active,
+} = Astro.props;
+
+const fullTitle =
+  title === 'ddcarolyn' ? title : `${title} · ddcarolyn`;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{fullTitle}</title>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="ddcarolyn"
+      href="/rss.xml"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="site-header">
+        <h1 class="site-title">
+          <a href="/">ddcarolyn</a>
+        </h1>
+        <p class="site-subtitle">记录与思考</p>
+        <nav class="site-nav">
+          <a href="/" class={active === 'home' ? 'active' : ''}>首页</a>
+          <a href="/archive/" class={active === 'archive' ? 'active' : ''}>归档</a>
+          <a href="/share/" class={active === 'share' ? 'active' : ''}>Share</a>
+          <a href="/about/" class={active === 'about' ? 'active' : ''}>关于</a>
+          <a href="/rss.xml">RSS</a>
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <p>© {new Date().getFullYear()} ddcarolyn · Built with Astro</p>
+      </footer>
+    </div>
+  </body>
+</html>
