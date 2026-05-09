@@ -10,33 +10,102 @@ const fmt = (d: Date) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(
     d.getDate()
   ).padStart(2, '0')}`;
+
+const recent = posts.slice(0, 6);
+
+const tagCounts = new Map<string, number>();
+for (const p of posts) {
+  for (const t of p.data.tags) {
+    tagCounts.set(t, (tagCounts.get(t) || 0) + 1);
+  }
+}
+const tags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
 ---
 
-<BaseLayout active="home">
-  {
-    posts.length === 0 ? (
-      <p class="empty">还没有文章 — 今晚一起来写第一篇 ✍️</p>
-    ) : (
-      <ul class="post-list">
-        {posts.map((post) => (
-          <li class="post-item">
-            <h2 class="post-title">
-              <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
-            </h2>
-            <div class="post-meta">{fmt(post.data.date)}</div>
-            {post.data.description && (
-              <p class="post-excerpt">{post.data.description}</p>
-            )}
-            {post.data.tags.length > 0 && (
-              <div class="post-tags">
-                {post.data.tags.map((t) => (
-                  <span class="tag">{t}</span>
-                ))}
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
-    )
-  }
+<BaseLayout active="home" wide>
+  <div class="layout-with-sidebar">
+    <div>
+      <section class="hero">
+        <h1>Carolyn 的出海线索</h1>
+        <p>
+          像侦探一样追踪出海商业里的冷门信号——跨境电商、独立站、AI 调研、新产品增长。这里持续公开我的研究过程：发现问题、整理线索、形成判断，靠近那些还没被充分看见的机会。
+        </p>
+        <p class="hero-cta">
+          想交流或聊合作 →
+          <a href="mailto:gracerosedd@gmail.com">gracerosedd@gmail.com</a>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="section-heading">文章</h2>
+        {
+          posts.length === 0 ? (
+            <p class="empty">还没有文章 — 今晚一起来写第一篇 ✍️</p>
+          ) : (
+            <ul class="post-list">
+              {posts.map((post) => (
+                <li class="post-item">
+                  <h3 class="post-title">
+                    <a href={`/posts/${post.slug}/`}>{post.data.title}</a>
+                  </h3>
+                  <div class="post-meta">
+                    {fmt(post.data.date)}
+                    {post.data.tags.length > 0 && (
+                      <span class="meta-tags">
+                        ·{' '}
+                        {post.data.tags.map((t, i) => (
+                          <>
+                            {i > 0 && ' '}#{t}
+                          </>
+                        ))}
+                      </span>
+                    )}
+                  </div>
+                  {post.data.description && (
+                    <p class="post-excerpt">{post.data.description}</p>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </section>
+    </div>
+
+    <aside class="sidebar">
+      {
+        recent.length > 0 && (
+          <section class="sidebar-section">
+            <h3 class="sidebar-heading">近期文章</h3>
+            <ul class="sidebar-list">
+              {recent.map((p) => (
+                <li>
+                  <a href={`/posts/${p.slug}/`}>{p.data.title}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+
+      {
+        tags.length > 0 && (
+          <section class="sidebar-section">
+            <h3 class="sidebar-heading">标签</h3>
+            <div class="tag-cloud">
+              {tags.map(([t, n]) => (
+                <a
+                  href={`/archive/#tag-${encodeURIComponent(t)}`}
+                  class="tag-chip"
+                  title={`${n} 篇`}
+                >
+                  {t}
+                </a>
+              ))}
+            </div>
+          </section>
+        )
+      }
+    </aside>
+  </div>
 </BaseLayout>
