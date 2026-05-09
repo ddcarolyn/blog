@@ -26,7 +26,7 @@ const fmt = (d: Date) =>
       <div class="article-meta">
         {fmt(post.data.date)}
         {post.data.tags.length > 0 && (
-          <span> · {post.data.tags.join(' / ')}</span>
+          <span> · {post.data.tags.map((t) => `#${t}`).join(' ')}</span>
         )}
       </div>
     </header>
