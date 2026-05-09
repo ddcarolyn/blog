@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB',sans-serif">
+  <style>
+    .title { fill: #1f2937; font-size: 16px; font-weight: 600; }
+    .label { fill: #1f2937; font-size: 14px; }
+    .desc  { fill: #6b7280; font-size: 12px; }
+    .l1 { fill: #fef3c7; stroke: #d97706; }
+    .l2 { fill: #fde2cc; stroke: #ea580c; }
+    .l3 { fill: #fbcfe8; stroke: #be185d; }
+    @media (prefers-color-scheme: dark) {
+      .title { fill: #f3f4f6; }
+      .label { fill: #e5e7eb; }
+      .desc  { fill: #9ca3af; }
+      .l1 { fill: rgba(217,119,6,0.18); }
+      .l2 { fill: rgba(234,88,12,0.18); }
+      .l3 { fill: rgba(190,24,93,0.20); }
+    }
+  </style>
+
+  <text class="title" x="380" y="32" text-anchor="middle">三层注意力消耗机制（从可见 → 不可见）</text>
+
+  <!-- Layer 1 -->
+  <rect class="l1" x="80" y="60" width="600" height="78" rx="10" stroke-width="1.5"/>
+  <text class="label" x="100" y="92" font-size="15" font-weight="600">L1 · 外部中断</text>
+  <text class="desc" x="100" y="115" font-size="13">IM 弹出、审批、有人拍肩 — 可见、可统计、可关闭</text>
+  <text class="desc" x="660" y="92" text-anchor="end" font-size="13">最常被讨论的一层</text>
+
+  <!-- Layer 2 -->
+  <rect class="l2" x="80" y="155" width="600" height="78" rx="10" stroke-width="1.5"/>
+  <text class="label" x="100" y="187" font-size="15" font-weight="600">L2 · 注意力残留（Attention Residue）</text>
+  <text class="desc" x="100" y="210" font-size="13">上一任务的认知占用没散，新任务表现下降 — Sophie Leroy 2009</text>
+  <text class="desc" x="660" y="187" text-anchor="end" font-size="13">关通知也救不了</text>
+
+  <!-- Layer 3 -->
+  <rect class="l3" x="80" y="250" width="600" height="78" rx="10" stroke-width="1.5"/>
+  <text class="label" x="100" y="282" font-size="15" font-weight="600">L3 · 等待被打扰的容量</text>
+  <text class="desc" x="100" y="305" font-size="13">即使没人打扰，预期被中断本身已在持续消耗精力</text>
+  <text class="desc" x="660" y="282" text-anchor="end" font-size="13">最隐形 · 最致命</text>
+</svg>
