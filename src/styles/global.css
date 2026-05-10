@@ -347,6 +347,27 @@ body.wide .container {
   padding: 0;
   color: inherit;
 }
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-size: 0.95rem;
+}
+.article-body th {
+  background: var(--table-header-bg);
+  padding: 0.7em 0.9em;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border);
+}
+.article-body td {
+  padding: 0.7em 0.9em;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.article-body tr:last-child td {
+  border-bottom: none;
+}
 
 /* ---------- Share feed ---------- */
 .share-item {
