@@ -18,6 +18,13 @@
   --blockquote-border: #b0834a;
   --excerpt-fg: #3a3a3a;
   --max-w: 720px;
+  --diagram-text: #1f2937;
+  --diagram-text-muted: #6b7280;
+  --diagram-l1-bg: #fef3c7;
+  --diagram-l2-bg: #fde2cc;
+  --diagram-l3-bg: #fbcfe8;
+  --diagram-r-bg: #fef3c7;
+  --diagram-b-bg: #dbeafe;
 }
 
 [data-theme='dark'] {
@@ -37,6 +44,13 @@
   --blockquote-bg: #171717;
   --blockquote-border: #444;
   --excerpt-fg: #c0c0c0;
+  --diagram-text: #e5e7eb;
+  --diagram-text-muted: #9ca3af;
+  --diagram-l1-bg: rgba(217,119,6,0.18);
+  --diagram-l2-bg: rgba(234,88,12,0.18);
+  --diagram-l3-bg: rgba(190,24,93,0.20);
+  --diagram-r-bg: rgba(217,119,6,0.18);
+  --diagram-b-bg: rgba(37,99,235,0.18);
 }
 
 /* ---------- Base ---------- */

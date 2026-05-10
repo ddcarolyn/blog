@@ -70,7 +70,60 @@ category: Carolyn Log
 
 打个比方：让你选眼前的 10 块和 1 个月后的 100 块，大脑每次都会选眼前的。短任务就是"眼前的 10 块"，长任务是"1 个月后的 100 块"。只是大脑这种交换发生在你不知道的层面——你觉得你是在专注工作，其实你的注意力一直在被换掉。
 
-![短反馈环 vs 长反馈环：短的天然压制长的](/attention-feedback-loops.svg)
+<svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="短反馈环 vs 长反馈环：短的天然压制长的" style="width:100%;height:auto;max-width:760px;display:block;margin:1.5em auto;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB',sans-serif;">
+  <style>
+    .fb-title { fill: var(--diagram-text); font-size: 16px; font-weight: 600; }
+    .fb-label { fill: var(--diagram-text); font-size: 14px; }
+    .fb-sub   { fill: var(--diagram-text-muted); font-size: 12px; }
+    .fb-node-r { fill: var(--diagram-r-bg); stroke: #d97706; }
+    .fb-node-b { fill: var(--diagram-b-bg); stroke: #2563eb; }
+  </style>
+  <defs>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+  <text class="fb-title" x="180" y="28" text-anchor="middle">R1 短反馈环（秒级 · 增强）</text>
+  <text class="fb-sub" x="180" y="46" text-anchor="middle">通知 → 多巴胺 → 更需要通知</text>
+  <g>
+    <rect class="fb-node-r" x="80" y="80" width="200" height="44" rx="22" stroke-width="1.5"/>
+    <text class="fb-label" x="180" y="108" text-anchor="middle">IM 弹出 / 邮件 / 红点</text>
+    <rect class="fb-node-r" x="40" y="170" width="160" height="44" rx="22" stroke-width="1.5"/>
+    <text class="fb-label" x="120" y="198" text-anchor="middle">多巴胺微反馈</text>
+    <rect class="fb-node-r" x="160" y="260" width="220" height="44" rx="22" stroke-width="1.5"/>
+    <text class="fb-label" x="270" y="288" text-anchor="middle">注意力进一步散</text>
+    <rect class="fb-node-r" x="240" y="170" width="160" height="44" rx="22" stroke-width="1.5"/>
+    <text class="fb-label" x="320" y="198" text-anchor="middle">更依赖通知</text>
+    <path d="M 145 124 Q 100 145 110 168" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrR)"/>
+    <path d="M 150 214 Q 175 240 200 258" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrR)"/>
+    <path d="M 320 260 Q 340 235 320 216" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrR)"/>
+    <path d="M 290 170 Q 240 130 250 124" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrR)"/>
+    <circle class="fb-node-r" cx="200" cy="192" r="22" stroke-width="1.5"/>
+    <text x="200" y="198" text-anchor="middle" font-size="18" font-weight="600" fill="#d97706">R</text>
+  </g>
+  <text class="fb-title" x="580" y="28" text-anchor="middle">B1 长反馈环（天/周级 · 平衡）</text>
+  <text class="fb-sub" x="580" y="46" text-anchor="middle">长任务 → 完成 → 成就感 → 投入</text>
+  <g>
+    <rect class="fb-node-b" x="490" y="80" width="180" height="44" rx="22" stroke-width="1.5"/>
+    <text class="fb-label" x="580" y="108" text-anchor="middle">长程任务（数天/周）</text>
+    <rect class="fb-node-b" x="440" y="170" width="140" height="44" rx="22" stroke-width="1.5"/>
+    <text class="fb-label" x="510" y="198" text-anchor="middle">终于完成</text>
+    <rect class="fb-node-b" x="560" y="260" width="180" height="44" rx="22" stroke-width="1.5"/>
+    <text class="fb-label" x="650" y="288" text-anchor="middle">大成就感（迟到）</text>
+    <rect class="fb-node-b" x="620" y="170" width="120" height="44" rx="22" stroke-width="1.5"/>
+    <text class="fb-label" x="680" y="198" text-anchor="middle">继续投入</text>
+    <path d="M 540 124 Q 500 145 510 168" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrB)"/>
+    <path d="M 540 214 Q 580 240 600 258" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrB)"/>
+    <path d="M 700 260 Q 720 235 700 216" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrB)"/>
+    <path d="M 660 170 Q 620 135 630 124" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arrB)"/>
+    <circle class="fb-node-b" cx="600" cy="192" r="22" stroke-width="1.5"/>
+    <text x="600" y="198" text-anchor="middle" font-size="18" font-weight="600" fill="#2563eb">B</text>
+  </g>
+  <text class="fb-sub" x="380" y="350" text-anchor="middle">短反馈环周期 ≈ 秒，长反馈环周期 ≈ 天/周 — 短环天然压制长环</text>
+</svg>
 
 这就是基础机制：长任务今天给不出回报，大脑就自动把注意力换给能给秒级回报的小任务。一整天下来，你最重要的那部分注意力就这样被一笔笔换出去了。
 
@@ -84,7 +137,29 @@ category: Carolyn Log
 
 不行。这里还有两层东西在拦着你——而且都跟"通知"无关。
 
-![三层注意力消耗机制](/three-layers.svg)
+<svg viewBox="0 0 760 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="三层注意力消耗机制：从可见到不可见" style="width:100%;height:auto;max-width:760px;display:block;margin:1.5em auto;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB',sans-serif;">
+  <style>
+    .tl-title { fill: var(--diagram-text); font-size: 16px; font-weight: 600; }
+    .tl-label { fill: var(--diagram-text); font-size: 15px; font-weight: 600; }
+    .tl-desc  { fill: var(--diagram-text-muted); font-size: 13px; }
+    .tl-l1 { fill: var(--diagram-l1-bg); stroke: #d97706; }
+    .tl-l2 { fill: var(--diagram-l2-bg); stroke: #ea580c; }
+    .tl-l3 { fill: var(--diagram-l3-bg); stroke: #be185d; }
+  </style>
+  <text class="tl-title" x="380" y="32" text-anchor="middle">三层注意力消耗机制（从可见 → 不可见）</text>
+  <rect class="tl-l1" x="80" y="60" width="600" height="78" rx="10" stroke-width="1.5"/>
+  <text class="tl-label" x="100" y="92">L1 · 外部中断</text>
+  <text class="tl-desc" x="100" y="115">IM 弹出、审批、有人拍肩 — 可见、可统计、可关闭</text>
+  <text class="tl-desc" x="660" y="92" text-anchor="end">最常被讨论的一层</text>
+  <rect class="tl-l2" x="80" y="155" width="600" height="78" rx="10" stroke-width="1.5"/>
+  <text class="tl-label" x="100" y="187">L2 · 注意力残留（Attention Residue）</text>
+  <text class="tl-desc" x="100" y="210">上一任务的认知占用没散，新任务表现下降 — Sophie Leroy 2009</text>
+  <text class="tl-desc" x="660" y="187" text-anchor="end">关通知也救不了</text>
+  <rect class="tl-l3" x="80" y="250" width="600" height="78" rx="10" stroke-width="1.5"/>
+  <text class="tl-label" x="100" y="282">L3 · 等待被打扰的容量</text>
+  <text class="tl-desc" x="100" y="305">即使没人打扰，预期被中断本身已在持续消耗精力</text>
+  <text class="tl-desc" x="660" y="282" text-anchor="end">最隐形 · 最致命</text>
+</svg>
 
 ### 第一层：注意力残留（attention residue）
 
