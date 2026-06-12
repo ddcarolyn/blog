@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 2.5：争议——Topre 到底算不算机械？</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.switch-svg{width:100%;height:auto;display:block;background:#fff;border-radius:8px}
+.miniref{font-size:.82rem;color:#667;margin:.3rem 0 0}
+.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:760px){.vs-grid{grid-template-columns:1fr}}
+.vs-pro{border-top:4px solid #16a085}
+.vs-con{border-top:4px solid #c0392b}
+.q-name{font-weight:700;color:#2b6cb0}
+.verdict{border-left:5px solid #2b6cb0;background:#f3f7fc}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块2 · Task 2.5</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块2 · TASK 2.5 · 键盘类型横评</span>
+  <h1>争议：Topre 到底算不算「机械」？</h1>
+  <p class="lede">这是机械键盘圈十几年没吵完的口水战。本页把「算机械/半机械」与「不算、是电容式/橡胶碗」两方的具名论据全摆出来，逐条核证，再给出本调研的判定与理由——结论不替你下，但证据替你摆齐。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（geekhack / Deskthority / Quora / Reddit r/MK）&gt; 第三方评测 &gt; 官方话术<br>
+  主要来源：Deskthority wiki、geekhack 经典论战帖(#88817)、HHKB 官方博客、thocc exchange EC 指南、Micro Center / Lenovo「机械键盘定义」资料、ThereminGoat / Quora 社区原声</p>
+</div></header>
+
+<main class="wrap">
+
+  <section>
+    <div class="callout">
+      <strong>一句话先看懂：</strong>争论的根子不在 Topre 本身，而在「机械键盘」这个词到底指<em>感应方式（金属触点 vs 电容/薄膜）</em>，还是指<em>结构体验（每键独立、有弹簧、有触觉、可换轴）</em>。两套定义各自自洽，于是同一个 Topre 在一套里「算」、在另一套里「不算」。下面把每一条论据拆到这个层面看。
+    </div>
+  </section>
+
+  <!-- 1. 技术事实：Topre 到底是什么结构 -->
+  <section>
+    <h2>1. 先把技术事实钉死：Topre 内部到底有什么</h2>
+    <h3>论述</h3>
+    <p>争论之前必须先对齐事实，否则两方各说各的。Topre（以及其专利术语「静电容 / Electrostatic Capacitive，简称 EC」）的单键结构由四件套构成：<b>滑柱（plunger）→ 橡胶碗（rubber dome，提供绝大部分阻力与触觉）→ 锥形弹簧（conical spring）→ PCB 上的电容感应电极</b>。按下时滑柱压缩橡胶碗，碗内的锥形弹簧随之被压扁，弹簧与 PCB 介质面的<b>正对面积随按压深度近似线性增大</b>，电容值随之变化；当电容跨过阈值，电路即判定为一次按键——<b>全程没有任何金属触点相碰</b>。这三点（橡胶碗给力、弹簧只改电容不给主阻力、无接触感应）是两方都不否认的客观事实，分歧只在于「这算不算机械」。</p>
+    <h3>自绘结构图（电容感应原理）</h3>
+    <figure class="framed">
+      <svg class="switch-svg" viewBox="0 0 520 230" role="img" aria-label="Topre 静电容开关四件套结构与电容感应原理剖面图">
+        <rect x="0" y="0" width="520" height="230" fill="#fff"/>
+        <!-- 左：静止态 -->
+        <text x="130" y="20" font-size="12" text-anchor="middle" fill="#2b6cb0" font-weight="bold">① 静止（未按）</text>
+        <!-- 滑柱 -->
+        <rect x="110" y="30" width="40" height="26" rx="3" fill="#2b6cb0"/>
+        <text x="130" y="47" font-size="9" text-anchor="middle" fill="#fff">滑柱</text>
+        <!-- 橡胶碗 -->
+        <path d="M70 130 Q130 35 190 130" fill="none" stroke="#8e44ad" stroke-width="4"/>
+        <text x="205" y="95" font-size="9" fill="#8e44ad">橡胶碗</text>
+        <!-- 锥形弹簧(舒展) -->
+        <path d="M114 95 l32 0 -7 14 -18 0 -3 14 24 0 -3 13 -16 0" fill="none" stroke="#e07b39" stroke-width="2"/>
+        <text x="60" y="120" font-size="9" fill="#e07b39" text-anchor="end">锥形弹簧</text>
+        <!-- PCB 电极 -->
+        <rect x="60" y="148" width="140" height="10" fill="#2b6cb0" opacity=".18"/>
+        <rect x="118" y="150" width="24" height="6" fill="#16a085"/>
+        <text x="130" y="178" font-size="9" text-anchor="middle" fill="#16a085">PCB 电容电极</text>
+        <text x="130" y="200" font-size="10" text-anchor="middle" fill="#445">电极正对面积小 → 电容低</text>
+        <text x="130" y="216" font-size="10" text-anchor="middle" fill="#445">→ 判定「未按」</text>
+        <!-- 分隔线 -->
+        <line x1="270" y1="20" x2="270" y2="215" stroke="#ddd" stroke-width="1"/>
+        <!-- 右：按下态 -->
+        <text x="395" y="20" font-size="12" text-anchor="middle" fill="#c0392b" font-weight="bold">② 按下</text>
+        <rect x="375" y="48" width="40" height="26" rx="3" fill="#2b6cb0"/>
+        <text x="395" y="65" font-size="9" text-anchor="middle" fill="#fff">滑柱↓</text>
+        <!-- 橡胶碗(被压扁) -->
+        <path d="M335 130 Q395 95 455 130" fill="none" stroke="#8e44ad" stroke-width="4"/>
+        <!-- 锥形弹簧(压扁，正对面积变大) -->
+        <path d="M375 110 l40 0 -4 9 -32 0 -2 9 36 0" fill="none" stroke="#e07b39" stroke-width="2.4"/>
+        <rect x="335" y="148" width="140" height="10" fill="#2b6cb0" opacity=".18"/>
+        <rect x="368" y="150" width="56" height="6" fill="#16a085"/>
+        <text x="395" y="178" font-size="9" text-anchor="middle" fill="#16a085">电极正对面积↑</text>
+        <text x="395" y="200" font-size="10" text-anchor="middle" fill="#c0392b">电容跨过阈值 → 触发</text>
+        <text x="395" y="216" font-size="10" text-anchor="middle" fill="#c0392b">全程无金属相碰</text>
+      </svg>
+      <figcaption>图1（本页）Topre/EC 工作原理：按下时锥形弹簧被压扁，与 PCB 电极的「正对面积」增大、电容值升高，跨过阈值即触发——<b>无任何金属触点相碰</b>。可与 M2 图1（机械轴金属叶片相碰）对照。<span class="src">结构据 Topre 专利 US 4,529,848 + Deskthority wiki + HHKB 官方，2026-06；自绘示意（非按比例）</span></figcaption>
+    </figure>
+    <h3>证据</h3>
+    <div class="ugc"><p>"The conical coil spring forms the 'contractible electrode,' and the facing area between the electrodes changes by compressing the spring via the plunger, with the facing area changing substantially in direct proportion to the depth of depression."（锥形弹簧充当「可收缩电极」，弹簧被滑柱压缩时电极间正对面积随按压深度近似正比变化。）</p><span class="src">— Topre 原始专利说明（US 4529848「Switch with conical spring actuator」）经 thocc exchange / 多源转述 · <a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4529848">USPTO 专利原文</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Because of the capacitive sensor design, no contact need be made to register a key press, which distinguishes them from traditional mechanical switches."（因电容感应设计，按键无需任何触点接触即可触发，这一点把它和传统机械轴区分开。）</p><span class="src">— HHKB 官方博客《Topre Switches Guide》（注意：HHKB 是 Topre 阵营厂商，此处却主动承认「与传统机械轴有别」）· <a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us/blog/topre-switches</a> · 采集 2026-06-10</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>阻力主来源：</b>橡胶碗（≈占手感主体），锥形弹簧主要功能是改变电容、提供回弹辅助，<b>而非像 MX 那样由弹簧承担主阻力</b>。</li>
+      <li><b>感应方式：</b>电容（非接触），与机械的「两片金属叶片相碰导通」根本不同（见上方本页图1，及 M2 图1 机械轴对照）。</li>
+      <li><b>标称寿命：</b>~5000 万次/键，与中高端机械轴同档，远高于普通橡胶碗薄膜（500 万–1000 万次）。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>事实层面已无争议——Topre = 橡胶碗(主阻力) + 锥形弹簧(改电容) + 电容感应(无接触)。它<b>既不是纯橡胶碗</b>（有弹簧、有电容、寿命高），<b>也不是 MX 式金属触点机械</b>（无金属相碰、阻力来自碗）。这个「两不像」正是后面所有口水战的源头。</p>
+  </section>
+
+  <!-- 2. 两方论据对峙 -->
+  <section>
+    <h2>2. 两方论据正面对峙（具名来源逐条摆出）</h2>
+    <p>下面左右各列，<b>每条关键论战原声均配具名链接（可定位到 geekhack #88817 对应分页/楼层）+ 采集时间</b>。论战发生在 2017 年 4 月的经典帖《<a href="https://geekhack.org/index.php?topic=88817.0">Topre is not just a better, expensive rubber dome keyboard</a>》。可注意：连 Topre 厂商 HHKB 自己都用「semi-mechanical」措辞，而最激烈的「就是橡胶碗」攻击恰恰来自资深评测者 chyros 自己。</p>
+    <div class="vs-grid">
+      <div class="card vs-pro">
+        <h3>🟢 「算机械 / 半机械」一方</h3>
+        <ul>
+          <li><b>有真实弹簧，不是纯橡胶碗。</b> 玩家 <span class="q-name">digi</span> 在论战中一句话怼回去："<i>Uhhh, Topre has springs jack.</i>"（喂，Topre 是有弹簧的。）<span class="src">— digi · geekhack #88817 · 发帖 2017-04-11 13:16 · <a href="https://geekhack.org/index.php?topic=88817.0">topic 88817（第1页）</a> · 采集 2026-06-10</span></li>
+          <li><b>每键独立触发，非共享膜。</b> 机械键盘的核心定义之一是「每键一个独立开关」；Topre 虽共享一张橡胶膜，但<b>每键有独立的碗+弹簧+电极</b>，区别于普通薄膜「一整张共享导电膜」。Micro Center 官方定义即："<i>Mechanical keyboards assign individual switches to every single key, instead of using a one-piece rubber membrane.</i>"（机械键盘给每个键一个独立开关，而非用一整张橡胶膜。）按「每键独立」这条，Topre 反而沾边。<span class="src">— Micro Center《Keyboard 101: What Keyboard Switches are Right for Me?》· <a href="https://www.microcenter.com/site/mc-news/article/keyboard-101-switches.aspx">microcenter.com</a> · 采集 2026-06-10</span></li>
+          <li><b>提供机械级体验：</b>明确触觉、非糊底、~5000 万次寿命、NKRO + 中程可调 actuation——连反方的 chyros 也承认它有「the added advantage of NKRO and mid-stroke actuation」。<span class="src">— chyros · geekhack #88817 · 发帖 2017-04-11 01:46 · <a href="https://geekhack.org/index.php?topic=88817.0">topic 88817（第1页）</a> · 采集 2026-06-10</span></li>
+          <li><b>「就是橡胶碗」是抬杠不是技术批评。</b> <span class="q-name">zslane</span> 直接点破："<i>'It's just another rubber dome' isn't really a valid criticism, it's just trollbait for Topre fans.</i>"（「不过是另一种橡胶碗」算不上有效批评，只是钓 Topre 粉的口水。）<span class="src">— zslane · geekhack #88817 · 发帖 2017-04-11 15:42 · <a href="https://geekhack.org/index.php?topic=88817.0">topic 88817（第1页）</a> · 采集 2026-06-10</span></li>
+          <li><b>厂商与零售归类便利：</b>HHKB 官方站点首页即自称「Superior Topre <b>Mechanical</b> Keyboards」，长期把产品放进机械品类售卖。<span class="src">— HHKB 官方首页标题 · <a href="https://hhkeyboard.us/">hhkeyboard.us</a> · 采集 2026-06-10（注：厂商归类含营销动机）</span></li>
+        </ul>
+      </div>
+      <div class="card vs-con">
+        <h3>🔴 「不算纯机械 / 是电容式」一方</h3>
+        <ul>
+          <li><b>感应靠电容，不是金属触点——这是「机械」的硬定义边界。</b> 多数技术资料把「机械」定义为「每键一个含金属触点/弹簧的自包含开关、按到 actuation point 即金属导通」；Micro Center 同篇即写道按下时「<i>two metal contacts to touch, registering the keystroke</i>」。Topre 无金属相碰，按这条被划在外。<span class="src">— Micro Center《Keyboard 101》· <a href="https://www.microcenter.com/site/mc-news/article/keyboard-101-switches.aspx">microcenter.com</a> · 采集 2026-06-10</span></li>
+          <li><b>阻力主体是橡胶碗，本质更接近「高级橡胶碗」。</b> 资深评测者 <span class="q-name">chyros</span> 长期用后下结论："<i>I simply feel the more I use it, that it's just another rubber dome, with the added advantage of NKRO and mid-stroke actuation.</i>"（用得越久越觉得它就是另一种橡胶碗，只是多了 NKRO 和中程触发。）<span class="src">— chyros · geekhack #88817 · 发帖 2017-04-11 01:46 · <a href="https://geekhack.org/index.php?topic=88817.0">topic 88817（第1页）</a> · 采集 2026-06-10</span></li>
+          <li><b>机械稳定性不如 MX。</b> <span class="q-name">tp4tissue</span>："<i>if we step back and evaluate the mechanical stability of the Topre design, it is inferior to mx style switches.</i>"（论结构稳定性，Topre 不如 MX 式轴体。）<span class="src">— tp4tissue · geekhack #88817 · 发帖 2017-04-12 13:18 · <a href="https://geekhack.org/index.php?topic=88817.30">topic 88817（第3页）</a> · 采集 2026-06-10</span></li>
+          <li><b>无法换轴、专有结构、键重不均。</b> 与「机械=可热插拔/可折腾」的玩家共识相悖；连为它辩护的 <span class="q-name">dante</span> 也承认橡胶碗键重存在 ±15g 量级的容差波动（"<i>I'm going to say +/- 15g</i>"）。<span class="src">— dante · geekhack #88817 · 发帖 2017-04-12 · <a href="https://geekhack.org/index.php?topic=88817.30">topic 88817（第3页）</a> · 采集 2026-06-10</span></li>
+          <li><b>社区与多数指南单列一类：</b>Deskthority、thocc exchange 等都用「electrostatic capacitive (EC) / electrocapacitive」单独命名，刻意与 Cherry MX 式机械分开；thocc 直言 Topre 是 "<i>a hybrid of rubber dome and mechanical engineering</i>"——是混血，不是机械。<span class="src">— thocc exchange《The Ultimate Topre Keyboard Guide》· <a href="https://thoccexchange.com/blogs/news/the-ultimate-topre-keyboard-guide-from-electrocapacitive-basics-to-expert-mods">thoccexchange.com</a> · 采集 2026-06-10</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:14px">
+      <strong>注意一个微妙之处：</strong>连最权威的 Topre 厂商 HHKB 自己都在官方博客承认社区分歧——「some considering Topre mechanical, some calling them <b>semi-mechanical</b>, and a small minority thinking they fall outside that definition altogether」（有人当机械、有人叫半机械、少数人认为完全不算）。<b>厂商主动用「semi-mechanical」而非纯「mechanical」</b>，本身就是对「纯机械」说法的让步，值得作为判定权重。
+      <span class="src">— HHKB 官方博客《Topre Switches Guide: Why They Are Still the Gold Standard in 2026》· <a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us/blog/topre-switches</a> · 采集 2026-06-10</span>
+    </div>
+  </section>
+
+  <!-- 3. 分歧的根：定义之争 -->
+  <section>
+    <h2>3. 分歧的根：两套「机械」定义在打架</h2>
+    <h3>论述</h3>
+    <p>把上面所有论据归拢，会发现两方其实没在反驳对方的事实，而是<b>用了两套不同的「机械」判据</b>：</p>
+    <ul>
+      <li><b>定义A（感应方式派 / 严格派）：</b>「机械」= 用<b>独立的物理金属触点</b>感应按键。按此，Topre 的电容感应一票否决，归 EC，不算机械。这是技术资料与 Deskthority 的主流口径。</li>
+      <li><b>定义B（结构体验派 / 宽松派）：</b>「机械」= <b>每键独立、有弹簧、有明确触觉、非糊底</b>的高级开关体验。按此，Topre 有弹簧、per-key 独立、寿命高，「够格」算（半）机械。这是 HHKB 营销与部分手感党的口径。</li>
+    </ul>
+    <p>没有任何一方拿得出「行业标准定义」一锤定音——因为<b>「机械键盘」从来不是被标准化组织定义的术语，而是社区约定俗成</b>。这也是为什么 fbadge 给这条「仍开放」。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"A mechanical keyboard uses individual mechanical switches under every key… one key, one switch, one precise input… fundamentally different from a rubber-dome keyboard where all keys share a soft rubber layer."（机械键盘每键一个独立机械开关……与所有键共享一张橡胶层的橡胶碗键盘本质不同。）</p><span class="src">— Micro Center《Keyboard 101: What Keyboard Switches are Right for Me?》（注意此定义强调「每键独立」，按这条 Topre 反而沾边；但同类资料强调「金属触点」时又把它排除——足见定义本身不统一）· <a href="https://www.microcenter.com/site/mc-news/article/keyboard-101-switches.aspx">microcenter.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Topre uses electrocapacitive switches, a hybrid of rubber dome and mechanical engineering… not just a fancy rubber dome."（Topre 用的是电容开关，是橡胶碗与机械工程的混血……但也不只是个花哨橡胶碗。）</p><span class="src">— thocc exchange《The Ultimate Topre Keyboard Guide》（明确把它定位成「混血/独立一类 EC」，两边都不靠死）· <a href="https://thoccexchange.com/blogs/news/the-ultimate-topre-keyboard-guide-from-electrocapacitive-basics-to-expert-mods">thoccexchange.com</a> · 采集 2026-06-10</span></div>
+    <p class="callout"><b>小结：</b>这不是「谁对谁错」，而是「你采哪套定义」。<b>采感应方式做主轴 → Topre 不算纯机械（EC 独立类）；采结构体验做主轴 → 可算半机械。</b>本调研倾向前者作硬分类、后者作体验描述，理由见第 5 节判定。</p>
+  </section>
+
+  <!-- 4. 对比矩阵 -->
+  <section>
+    <h2>4. 对比矩阵：Topre vs 纯机械(MX) vs 普通橡胶碗薄膜</h2>
+    <p>把 Topre 放在「纯机械」和「普通橡胶碗」之间逐维度对照，最能看清它「两不像、自成一类」。点击表头可高亮整列。</p>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1 三类对照——为什么 Topre 既非纯机械也非普通橡胶碗 · 采集 2026-06</caption>
+      <thead><tr><th>维度</th><th>纯机械(Cherry MX 式)</th><th>Topre / 静电容(EC)</th><th>普通橡胶碗薄膜</th></tr></thead>
+      <tbody>
+        <tr><td>感应方式</td><td>金属触点相碰导通</td><td><span class="pill mid">电容感应(无接触)</span></td><td>薄膜上下层透孔相触</td></tr>
+        <tr><td>主阻力来源</td><td>弹簧</td><td><span class="pill mid">橡胶碗(弹簧只改电容)</span></td><td>橡胶碗</td></tr>
+        <tr><td>是否有弹簧</td><td><span class="pill good">有</span></td><td><span class="pill good">有(锥形弹簧)</span></td><td><span class="pill bad">通常无</span></td></tr>
+        <tr><td>每键是否独立</td><td><span class="pill good">独立开关</span></td><td><span class="pill mid">碗/弹簧/电极独立，膜片共享</span></td><td><span class="pill bad">共享一整张膜</span></td></tr>
+        <tr><td>触感终点</td><td>可硬可软(看轴)</td><td><span class="pill good">软着陆「肉感」</span></td><td><span class="pill bad">糊/软烂</span></td></tr>
+        <tr><td>标称寿命(次/键)</td><td><span class="pill good">5000万–1亿</span></td><td><span class="pill good">~5000万</span></td><td><span class="pill bad">500万–1000万</span></td></tr>
+        <tr><td>可换轴/可折腾</td><td><span class="pill good">极高</span></td><td><span class="pill bad">很低(专有)</span></td><td><span class="pill bad">几乎无</span></td></tr>
+        <tr><td>社区主流命名</td><td>Mechanical</td><td><span class="pill mid">EC / Electrostatic Capacitive / 半机械</span></td><td>Membrane / Rubber dome</td></tr>
+        <tr><td>整机价格带(USD)</td><td>$30–$300+</td><td><span class="pill bad">$230–$600</span></td><td><span class="pill good">$10–$40</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="miniref">读法：中间列大量出现「mid」黄标，正是它「两不像」的可视化——感应/阻力像橡胶碗，弹簧/寿命/独立性像机械。价格反而比纯机械还贵，说明体验被高度认可、却又稀缺专有。</p>
+  </section>
+
+  <!-- 5. 本调研判定 -->
+  <section>
+    <h2>5. 本调研判定与理由</h2>
+    <div class="callout verdict">
+      <p style="margin-top:0"><strong>判定：Topre 应单列为「静电容（EC）」独立一类；在体验语境下可称「半机械（semi-mechanical）」；不等同于 Cherry MX 式纯机械。</strong></p>
+      <p><b>三条理由（按证据权重）：</b></p>
+      <ol style="margin:.4rem 0 0 1.1rem">
+        <li><b>硬分类应以感应方式为主轴（与 M2 全篇分类逻辑一致）。</b> 六类键盘的第一分类轴就是「机器怎么知道你按了」。Topre 是电容、非金属触点，按此与机械、薄膜、光轴、磁轴并列为独立一类，逻辑自洽——若把它塞进「机械」，分类体系反而崩。</li>
+        <li><b>连 Topre 厂商都用「semi-mechanical」并承认争议。</b> HHKB 官方主动让步到「半机械」，说明「纯机械」连营销方都不敢硬认。采「半机械」作体验标签，是双方都能接受的最大公约数。</li>
+        <li><b>「就是橡胶碗」一说也被证伪。</b> digi「Topre 有弹簧」、5000 万次寿命、per-key 独立、软着陆触感——这些都把它和「普通橡胶碗薄膜」拉开。所以它既不能并入机械，也不能贬为橡胶碗，<b>EC 独立一类是唯一不打架的归法</b>。</li>
+      </ol>
+      <p style="margin-bottom:0"><b>一句话：</b>问「算不算机械」是个伪命题——它在「感应方式」维度上明确不算（是 EC），在「结构体验」维度上够格叫半机械。<b>本页与 M2 横评保持一致：单列为六大类型之一。</b></p>
+    </div>
+  </section>
+
+  <!-- 6. 关键洞察与产品机会 -->
+  <section>
+    <h2>6. 关键洞察与产品机会</h2>
+    <p class="callout">
+      <b>洞察1：争议本身就是 Topre 的护城河与营销资产。</b>「算不算机械」十几年吵不完，反而让 Topre 长期占据「神秘/高端/懂的人才懂」心智，支撑了 $230–$600 的溢价。内容方向上，「Topre 到底算不算机械」是天然高搜索、高互动的钩子题。<br><br>
+      <b>洞察2：定义之争=新手认知最大痛点。</b>新手被「机械/半机械/电容/橡胶碗」四个词绕晕，不敢下手。产品机会：做一张「按你在意什么来选」的<b>决策图</b>——在意可折腾选机械、在意码字软着陆选 EC、在意预算选薄膜——绕开定义直接给场景。<br><br>
+      <b>洞察3：EC 平价克隆（NiZ / Plum / Varmilo EC）是被低估的入口。</b> 既然「Topre 体验」被高度认可而专有溢价高，平价 EC 克隆($60–$150)是把「想试 Topre 又嫌贵」人群接住的产品/内容空白带。可做「平价 Topre 替代横评 + 手感差距实测」。<br><br>
+      <b>洞察4：内容选题——别写「Topre 是不是机械」，写「为什么这问题没有答案」。</b> 把「两套定义打架」讲清楚，比站队任一方更有信息增量，也更难被反驳，符合证据密集型调研的差异化定位。
+    </p>
+  </section>
+
+  <!-- Caveats -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge open">仍开放</span> 核心命题 H2.5「Topre 是否算机械」：<b>无单一权威定论</b>，因「机械键盘」非标准化术语、两套定义各自自洽。本页采「EC 独立一类 / 体验上半机械」的社区主流口径，置信中。（来源 1/2/4/6）</li>
+      <li><span class="fbadge confirmed">已证伪失败=成立</span> 「Topre ≠ 普通橡胶碗」：digi「有弹簧」+ ~5000万寿命 + per-key 独立 + 软着陆触感四重证据，把「就是橡胶碗」一说证伪。成立，置信高。（来源 3/5）</li>
+      <li><span class="fbadge confirmed">已证伪失败=成立</span> 「Topre 感应靠电容、无金属触点」：专利原文 + HHKB 官方 + Deskthority 三源一致。成立，置信高。（来源 1/4/2）</li>
+      <li><span class="fbadge partial">部分</span> 「厂商一律自称 mechanical」：被部分证伪——HHKB 官方实际用「semi-mechanical」并承认社区分歧，营销口径比想象中诚实。置信中。（来源 4）</li>
+      <li><span class="fbadge open">仍开放</span> 数据缺口：geekhack #88817 部分发言为多年前论战，措辞带情绪，已标注为「论战原声」而非定论；平价 EC 克隆与正版 Topre 的手感差距缺独立盲测数据，洞察3 为推断。</li>
+    </ul>
+  </section>
+
+  <!-- 来源 -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>Topre 原始专利 US 4,529,848「Switch with conical spring actuator」（锥形弹簧改变电容的机制原文）：<a href="https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4529848">image-ppubs.uspto.gov/.../4529848</a>（采集 2026-06-10）</li>
+      <li>Deskthority wiki — Topre switch（社区技术资料，EC / 静电容视角）：<a href="https://deskthority.net/wiki/Topre_switch">deskthority.net/wiki/Topre_switch</a>（采集 2026-06-10）</li>
+      <li>geekhack 论战帖 #88817《Topre is not just a better, expensive rubber dome keyboard》（2017-04，digi / zslane / chyros / tp4tissue / dante 等具名原声；第1页 .0、第3页 .30）：<a href="https://geekhack.org/index.php?topic=88817.0">geekhack.org/index.php?topic=88817.0</a>（采集 2026-06-10）</li>
+      <li>HHKB 官方博客 — Topre Switches Guide（厂商自述「semi-mechanical」+ 承认社区分歧 + 无接触感应）：<a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us/blog/topre-switches</a>（采集 2026-06-10）</li>
+      <li>thocc exchange — The Ultimate Topre Keyboard Guide（EC / electrocapacitive 命名、混血定位、NiZ/Plum 克隆）：<a href="https://thoccexchange.com/blogs/news/the-ultimate-topre-keyboard-guide-from-electrocapacitive-basics-to-expert-mods">thoccexchange.com/.../topre-keyboard-guide</a>（采集 2026-06-10）</li>
+      <li>Micro Center — Keyboard 101: What Keyboard Switches are Right for Me?（「机械=每键独立开关」定义口径）：<a href="https://www.microcenter.com/site/mc-news/article/keyboard-101-switches.aspx">microcenter.com/.../keyboard-101-switches</a>（采集 2026-06-10）</li>
+      <li>Kotaku — Topre Realforce RGB Review: Life Beyond The Rubber Dome（第三方评测，体验层视角）：<a href="https://kotaku.com/topre-realforce-rgb-keyboard-review-life-beyond-the-ru-1795217305">kotaku.com/.../topre-realforce-rgb-review</a>（采集 2026-06-10）</li>
+      <li>Engadget — Topre Realforce R2 IRL（长期使用主观体验，「回不去了」）：<a href="https://www.engadget.com/topre-realforce-r2-pfu-keyboard-irl-153030722.html">engadget.com/.../topre-realforce-r2-irl</a>（采集 2026-06-10）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块2 Task 2.5 · 采集时点 2026-06 · 价格/型号以原文为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

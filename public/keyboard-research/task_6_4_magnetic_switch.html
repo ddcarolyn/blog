@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 6.4：磁轴 + Rapid Trigger + SOCD 争议</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块六 · Task 6.4</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块六 · TASK 6.4</span>
+  <h1>新兴技术变量：磁轴 + Rapid Trigger + SOCD 争议</h1>
+  <p class="lede">霍尔磁轴（Hall Effect）是机械键盘十年来最实质的一次技术拐点。它怎么工作？Rapid Trigger 为什么让 FPS 玩家上瘾？为什么 Snap Tap / SOCD 被 Valve 封了、而 Rapid Trigger 却合法？这一页只回答这一组互相缠绕的窄问题——并给一个关键锚：这件事<strong>主要影响竞技人群，纯办公关系不大</strong>。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit r/GlobalOffensive、ResetEra）&gt; 第三方评测（PC Gamer、esports.gg、MKBGuide）&gt; 官方话术（Wooting、Corsair、Razer）<br>
+  主要来源：Valve CS2 2024-08 官方更新说明 · PC Gamer · esports.gg · ResetEra · Wooting《What are Hall Effect switches》《CS2 Guide》 · Corsair Explorer · 多家 HE 专项市调（DataIntelo / Verified Market Reports / Mordor / Technavio）</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ============ 1. 霍尔磁轴原理 ============ -->
+  <section>
+    <h2>1. 霍尔磁轴到底怎么工作：从"开关"到"模拟尺"</h2>
+    <h3>论述</h3>
+    <p>传统机械轴是一个<strong>数字开关</strong>：金属触点接通=1，断开=0，触发点固定在某一深度（如 Cherry MX Red 约 2.0mm）。霍尔磁轴（Hall Effect switch，业内也叫"磁轴 / HE 轴 / 模拟轴 / analog switch"）换了一套物理：轴芯底部装一块<strong>永磁体</strong>，PCB 上对应位置是一颗<strong>霍尔传感器</strong>。你按得越深，磁铁离传感器越近、磁场越强，传感器读出的是一个<strong>连续的模拟电压值</strong>——也就是说，键盘随时知道这颗键被按下了几毫米，而不只是"按了/没按"。</p>
+    <p>这带来两个一阶后果：(1) <strong>无金属触点</strong>——没有触点氧化、抖动、磨损，厂商普遍宣称寿命更长、无需消抖；(2) <strong>触发点可在软件里任意调</strong>——同一把键盘，你可以把 WASD 调成 0.1mm 触发（极灵敏），把 Shift 调成 3mm 触发（防误触），甚至一颗键设两个触发深度（actuation 双段）。这两点是后面 Rapid Trigger 与 SOCD 的物理前提：没有"连续模拟值"，这些花活都做不出来。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"霍尔效应轴用磁铁和传感器代替物理金属触点……因为按键深度被读成一个模拟信号，你可以自定义触发点，甚至让一颗键有多个触发深度。没有触点意味着理论上更耐用、也不需要消抖（debounce）。"</p><span class="src">— Wooting《What are Hall Effect keyboard switches》· 厂商技术科普（注：开创者，有立场） · <a href="https://wooting.io/post/what-are-hall-effect-keyboard-switches">wooting.io</a> · 采集 2026-06</span></div>
+    <div class="callout"><span class="lbl">区分营销与事实</span>"无触点=几乎永不磨损"是厂商话术的乐观侧：磁轴的<strong>弹簧、轴芯导轨、键帽十字柱</strong>仍会磨损，外壳积灰、磁体退磁（虽极慢）也存在。"连续模拟值 + 可调触发点"是可验证的硬事实；"寿命碾压机械轴"则缺乏长期第三方耐久实测背书，归为待验证。</div>
+    <h3>SVG：磁轴剖面原理</h3>
+    <figure class="framed">
+      <svg viewBox="0 0 720 300" width="720" role="img" aria-label="霍尔磁轴剖面原理示意">
+        <style>
+          .t{font:13px -apple-system,sans-serif;font-weight:800;fill:#1c1a17}
+          .s{font:11px -apple-system,sans-serif;fill:#4a463f}.sm{font:10px -apple-system,sans-serif;fill:#8a8478}
+          .mag{fill:#b0472b}.sensor{fill:#2f6f6a}.cap{fill:#8a8478}
+        </style>
+        <text class="t" x="20" y="26">霍尔磁轴：按下深度 → 磁场强度 → 连续模拟读数</text>
+        <!-- 未按 -->
+        <text class="s" x="60" y="58" text-anchor="middle">未按 (0mm)</text>
+        <rect x="20" y="66" width="80" height="170" rx="6" fill="#f0ece5" stroke="#e2dcd1"/>
+        <rect class="cap" x="40" y="76" width="40" height="22" rx="4"/>
+        <rect class="mag" x="45" y="104" width="30" height="22" rx="3"/>
+        <rect class="sensor" x="35" y="208" width="50" height="16" rx="3"/>
+        <text class="sm" x="60" y="220" text-anchor="middle" fill="#fff" style="font-size:8px">传感器</text>
+        <text class="sm" x="60" y="252" text-anchor="middle">读数≈低</text>
+        <!-- 半按 -->
+        <text class="s" x="200" y="58" text-anchor="middle">半按 (1.5mm)</text>
+        <rect x="160" y="66" width="80" height="170" rx="6" fill="#f0ece5" stroke="#e2dcd1"/>
+        <rect class="cap" x="180" y="110" width="40" height="22" rx="4"/>
+        <rect class="mag" x="185" y="138" width="30" height="22" rx="3"/>
+        <rect class="sensor" x="175" y="208" width="50" height="16" rx="3"/>
+        <text class="sm" x="200" y="220" text-anchor="middle" fill="#fff" style="font-size:8px">传感器</text>
+        <text class="sm" x="200" y="252" text-anchor="middle">读数≈中</text>
+        <!-- 全按 -->
+        <text class="s" x="340" y="58" text-anchor="middle">触底 (4mm)</text>
+        <rect x="300" y="66" width="80" height="170" rx="6" fill="#f0ece5" stroke="#e2dcd1"/>
+        <rect class="cap" x="320" y="150" width="40" height="22" rx="4"/>
+        <rect class="mag" x="325" y="178" width="30" height="22" rx="3"/>
+        <rect class="sensor" x="315" y="208" width="50" height="16" rx="3"/>
+        <text class="sm" x="340" y="220" text-anchor="middle" fill="#fff" style="font-size:8px">传感器</text>
+        <text class="sm" x="340" y="252" text-anchor="middle">读数≈高</text>
+        <!-- 曲线 -->
+        <text class="s" x="430" y="58">磁场强度（模拟输出）随深度连续上升：</text>
+        <line x1="430" y1="220" x2="690" y2="220" stroke="#e2dcd1"/>
+        <line x1="430" y1="220" x2="430" y2="80" stroke="#e2dcd1"/>
+        <path d="M430 215 Q560 200 690 100" stroke="#c8731f" fill="none" stroke-width="2.5"/>
+        <text class="sm" x="430" y="240">浅 ←  按键深度  → 深</text>
+        <text class="sm" x="500" y="120" fill="#c8731f">↑ 不是 0/1，而是一条连续曲线</text>
+        <text class="sm" x="430" y="288" style="font-weight:700;fill:#2f6f6a">正因为是"连续曲线"，软件才能在任意深度自定义触发点 / 做 Rapid Trigger。</text>
+      </svg>
+      <figcaption>图1：霍尔磁轴剖面原理。剖面为示意图，非工程精度。<span class="src">原理依据：Wooting《What are Hall Effect switches》，采集 2026-06</span></figcaption>
+    </figure>
+    <p class="callout"><b>小结：</b>磁轴 = 把键盘从"开关阵列"升级成"模拟尺阵列"。它本身手感未必比顶级机械/静电容好（很多评测说润度仍逊于高端线性轴），它的杀手锏是<strong>"连续模拟值 + 软件可调触发"</strong>带来的功能空间——这才是后面所有争议的源头。</p>
+  </section>
+
+  <!-- ============ 2. Rapid Trigger ============ -->
+  <section>
+    <h2>2. Rapid Trigger：为什么 FPS 玩家觉得"回不去了"</h2>
+    <h3>论述</h3>
+    <p>传统轴有两个固定点：<strong>触发点</strong>（按下到这里=输入）和<strong>复位点</strong>（抬到这里=松开），且复位点通常比触发点高。问题是：你想连续两次触发同一颗键，必须先把键抬过复位点，再重新按过触发点——中间有一段"死行程"。在 FPS 里这一段死行程要命：CS2 的核心技巧 <strong>counter-strafe（反向急停）</strong>，要求你松开 D 的<em>瞬间</em>点一下 A 让人物立刻刹停才能精准射击，死行程每多 1ms，你"能开枪"的时机就晚 1ms。</p>
+    <p><strong>Rapid Trigger（RT）</strong>抛弃固定复位点，改成<strong>动态跟随</strong>：键往下走一点点就触发，往上抬一丝就立刻复位，下一次往下又随时再触发——触发/复位跟着你手指的<em>方向变化</em>实时走，而不是等你回到某个固定深度。结果就是急停更干净、点射更跟手。Wooting 2022 年用 60HE 把 RT 带火，如今几乎所有磁轴键盘都标配 RT。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Rapid Trigger 在你打算按下的瞬间激活按键、在你打算松开的瞬间停用按键……它消除了由轴体物理行程造成的全部延迟，靠行程距离而非固定触发点来动态激活/停用。2022 年 Wooting 随 60HE 出货 RT 后，游戏社区才意识到这个功能的重要性。"</p><span class="src">— Wooting《Rapid Trigger - A Must for Games》· 厂商（开创者，有立场） · <a href="https://wooting.io/rapid-trigger">wooting.io</a> · 采集 2026-06</span></div>
+    <div class="ugc"><p>"你在 CS2 里只有<strong>完全停下</strong>时才准；从你决定停下到你的按键真正注销之间的每一毫秒，都是你打不准的毫秒。Rapid Trigger 确实帮到 counter-strafe——你的移动键在你刚开始抬起的瞬间就注销，瞄准精度更快重置。"</p><span class="src">— Wooting《CS2 Guide》转述社区共识 · <a href="https://wooting.io/post/wooting-cs2-guide-in-game-benefits-rapid-trigger-settings-and-pro-profiles">wooting.io</a> · 采集 2026-06</span></div>
+    <h3>SVG：传统轴 vs Rapid Trigger</h3>
+    <figure class="framed">
+      <svg viewBox="0 0 720 260" width="720" role="img" aria-label="传统轴与Rapid Trigger对比示意">
+        <style>
+          .t{font:13px -apple-system,sans-serif;font-weight:800;fill:#1c1a17}
+          .s{font:11px -apple-system,sans-serif;fill:#4a463f}.sm{font:10px -apple-system,sans-serif;fill:#8a8478}
+        </style>
+        <!-- 传统 -->
+        <text class="t" x="20" y="26">传统轴：固定触发点 + 更高的固定复位点 → 中间一段"死行程"</text>
+        <line x1="40" y1="50" x2="40" y2="120" stroke="#8a8478"/>
+        <text class="sm" x="46" y="56">浅</text><text class="sm" x="46" y="118">深</text>
+        <line x1="40" y1="70" x2="680" y2="70" stroke="#b0472b" stroke-dasharray="5 4"/>
+        <text class="sm" x="600" y="66" fill="#b0472b">复位点（抬到这才算松开）</text>
+        <line x1="40" y1="100" x2="680" y2="100" stroke="#2f6f6a" stroke-dasharray="5 4"/>
+        <text class="sm" x="600" y="114" fill="#2f6f6a">触发点（按到这才算按下）</text>
+        <!-- 手指轨迹 -->
+        <path d="M70 120 Q140 55 210 78 Q280 110 350 60 Q420 120 490 80" stroke="#1c1a17" fill="none" stroke-width="2"/>
+        <rect x="78" y="70" width="62" height="30" fill="#b0472b" opacity=".12"/>
+        <text class="sm" x="150" y="90" fill="#b0472b">↑死行程：抬不过复位点就无法再次触发</text>
+        <!-- RT -->
+        <text class="t" x="20" y="172">Rapid Trigger：触发/复位跟随方向变化，随按随触发、随抬随复位</text>
+        <line x1="40" y1="190" x2="40" y2="240" stroke="#8a8478"/>
+        <path d="M70 240 Q140 195 210 215 Q280 235 350 198 Q420 240 490 205" stroke="#c8731f" fill="none" stroke-width="2.5"/>
+        <text class="sm" x="120" y="200" fill="#c8731f">↓按 → 立即触发</text>
+        <text class="sm" x="240" y="250" fill="#c8731f">↑抬一丝 → 立即复位 → 再按又触发（无死行程）</text>
+      </svg>
+      <figcaption>图2：传统轴 vs Rapid Trigger。轨迹为示意，非真实位移数据。<span class="src">机制依据：Wooting / Corsair / AttackShark 评测，采集 2026-06</span></figcaption>
+    </figure>
+    <p class="callout"><b>小结：</b>Rapid Trigger 解决的是"死行程延迟"，它<strong>仍然是你的手指在操作</strong>——只是更高保真地、更快地把你的物理动作转成输入。记住这句话，它是下一节判定"合法/违规"的分水岭。</p>
+  </section>
+
+  <!-- ============ 3. Snap Tap / SOCD 争议 ============ -->
+  <section>
+    <h2>3. Snap Tap / SOCD：从"提速"越界到"替你做决定"</h2>
+    <h3>论述</h3>
+    <p>Rapid Trigger 帮你按得更快，但 counter-strafe 仍要你<strong>自己</strong>在松 D 的同时点 A。厂商接着把这一步也自动化了：<strong>SOCD</strong>（Simultaneous Opposing Cardinal Directions，同时反向输入处理）/ Razer 命名的 <strong>Snap Tap</strong> / Wooting 的 null-bind：当你同时按住 A 和 D（左右反向），键盘<strong>自动只保留最后按下的那一个方向</strong>，把另一个清掉。于是"松开 D 的同一帧人物就向 A 急停"变成硬件自动完成——你甚至不用先松 D。这把 counter-strafe 从一个需要练的手速技巧，压缩成"按住对向键"的零延迟自动操作。</p>
+    <p>这一步越过了 Rapid Trigger 没越的线：RT 是<strong>如实上报你做的事</strong>，SOCD/Snap Tap 是<strong>替你决定该上报什么</strong>。争议由此爆发——这究竟是合法的输入优化，还是变相宏/作弊？这与格斗游戏圈早年的 SOCD 摇杆争议如出一辙。</p>
+    <h3>证据：2024-08 Valve 一刀切</h3>
+    <div class="callout warn"><span class="lbl">Valve 官方裁决（CS2，2024 年 8 月更新）</span>
+    Valve 在更新说明中写道：在 Valve 官方服务器上，<strong>"某些类型的移动/射击输入自动化，例如硬件辅助的 counter-strafing（hardware-assisted counter strafing），现在将被检测到，并导致被踢出比赛（result in a kick from the match）。"</strong> 同时表态"<em>we've decided to draw a clear line</em>（我们决定划一条清晰的界线）"。带 Snap Tap 类功能的键盘玩家<strong>必须在进比赛前关掉该功能</strong>，否则会被踢。</div>
+    <div class="ugc"><p>"在 2024 年 8 月，Valve 在其服务器上禁止了硬件辅助的 SOCD resolution……Snappy Tappy / Rappy Snappy 这类功能落在禁令内，必须在上 Valve 服务器前关闭，否则会被踢出比赛。<strong>Rapid Trigger — 允许（Allowed）</strong>。"</p><span class="src">— Wooting《CS2 Guide》官方明确区分 · <a href="https://wooting.io/post/wooting-cs2-guide-in-game-benefits-rapid-trigger-settings-and-pro-profiles">wooting.io</a> · 采集 2026-06</span></div>
+    <div class="ugc"><p>"Razer 曾专门为 CS2 打广告宣传 Snap Tap，IEM Cologne 上几乎所有顶尖战队都在用 Snap Tap 或同类功能（夺冠的 Vitality 除外）。Wooting 在 Razer 发布功能后不久也通过投票给 60HE 加了类似功能。这和格斗游戏里 SOCD 的剧情几乎一模一样——大厂封禁、硬件厂只好加上'可关闭'选项。"</p><span class="src">— ResetEra 社区帖（聚合 UGC 讨论）· <a href="https://www.resetera.com/threads/valve-bans-keyboard-automation-razer-snap-tap-etc-from-counter-strike-2-in-the-latest-update.957534/">resetera.com</a> · 2024-08 · 真实玩家/行业反应</span></div>
+    <div class="ugc"><p>PC Gamer 标题直引 Valve："<strong>'we've decided to draw a clear line'</strong> and bans Snap Tap keyboard automation from Counter-Strike 2."</p><span class="src">— PC Gamer 报道（第三方媒体）· <a href="https://www.pcgamer.com/games/fps/valve-says-weve-decided-to-draw-a-clear-line-and-bans-snap-tap-keyboard-automation-from-counter-strike-2/">pcgamer.com</a> · 2024-08 · 采集 2026-06</span></div>
+    <h3>这条线划在哪：保真 vs 代劳</h3>
+    <p>Valve 的逻辑可以一句话概括：<strong>"提高输入保真度"允许，"用软件代替你做操作决策"禁止。</strong> Rapid Trigger 落在前者（它只是把你的物理状态更快更准地上报），Snap Tap/SOCD 落在后者（它替你解决了反向键冲突、替你做了"该往哪停"的决定）。这条线也解释了为什么同一把磁轴键盘，开 RT 没事、开 Snap Tap 会被踢。</p>
+    <p class="callout"><b>小结：</b>2024-08 不是小众论坛吵架，是<strong>官方层面、影响主流电竞（含 IEM 级赛事）的实锤裁决</strong>，且至 2026 年仍是 baseline 规则。它把磁轴的功能集硬生生切成"合法区"与"违规区"，直接重写了游戏键盘厂商的功能取舍。</p>
+  </section>
+
+  <!-- ============ 4. 重构游戏键盘需求 ============ -->
+  <section>
+    <h2>4. 磁轴如何重构需求：从"高端差异化"到"2026 新品 baseline"</h2>
+    <h3>论述</h3>
+    <p>2022 年磁轴还是 Wooting 一家小众极客货（Lekker 轴最初由中国微动厂 Huano 代工）。2024–2025 年 Razer、Corsair、SteelSeries、Keychron、出海白牌（RK、Aula、Epomaker）全面跟进磁轴线，<strong>Rapid Trigger + 可调触发点</strong>从"花高价才有的差异化卖点"变成<strong>主打游戏键盘的标配/baseline</strong>——2026 年一款宣称面向 FPS 的新品如果没有磁轴 + RT，几乎无法在产品页上立足。这是真正的需求重构：把"是否磁轴"从加分项变成了游戏品类的入场券。</p>
+    <p>反讽的是，Snap Tap/SOCD 被封反而<strong>加速</strong>了这一进程：因为 RT 仍合法、且被证明确有竞技收益，厂商把营销重心从"Snap Tap 自动急停"转向"RT + 超低触发 + 8000Hz 回报率"，磁轴的正当性不降反升。</p>
+    <h3>增速量级：HE 专项 CAGR 口径打架，只取量级</h3>
+    <p>HE/磁轴专项的市场增速，各家口径差到没法精确引用——从个位数到双位数都有，定义（是"磁轴键盘"还是"霍尔开关器件"，是否含游戏外设）各不相同。<strong>统一结论只取量级：HE 显著快于机械键盘行业整体（行业整体约 8–12% CAGR，见 Task 6.1），是全行业增速最快的一块。</strong></p>
+    <h3>证据</h3>
+    <ul>
+      <li><b>DataIntelo（磁轴键盘专项）：</b>2024 年约 15.6 亿美元，CAGR <strong>17.2%</strong>，2033 年达 47.8 亿美元。<span class="src">— DataIntelo《Magnetic Hall Switch Keyboard Market》 · <a href="https://dataintelo.com/report/magnetic-hall-switch-keyboard-market">dataintelo.com</a> · 采集 2026-06</span></li>
+      <li><b>Verified Market Reports（霍尔开关器件口径，含非键盘）：</b>2024 年 21 亿美元，CAGR <strong>9.1%</strong>（2026–2033），2033 年 45 亿美元——口径更宽、增速更低。<span class="src">— Verified Market Reports《Hall-Effect / Omnipolar Hall Switch》 · <a href="https://www.verifiedmarketreports.com/product/omnipolar-hall-effect-switch-market/">verifiedmarketreports.com</a> · 采集 2026-06</span></li>
+      <li><b>区域更激进口径：</b>有报告给亚太 HE 游戏键盘 <strong>19.6%–21.3%</strong> 区间 CAGR。<span class="src">— 检索聚合（accio 等行业摘要）· 采集 2026-06</span></li>
+      <li><b>行业整体内细分口径：</b>另有报告把机械键盘里"光学+霍尔"细分给到约 <strong>7.6%</strong> CAGR（口径最保守）。<span class="src">— Mordor / 检索聚合 · 采集 2026-06</span></li>
+    </ul>
+    <div class="callout warn"><span class="lbl">数字怎么读</span>同一件事，专项报告（磁轴键盘）给 17%、宽口径（霍尔器件）给 9%、细分口径给 7.6%、区域口径给 20%+——<strong>区间 ~9%–17%（极端到 20%+）完全打架，谁都不可精确引用</strong>。本调研只保留一个可靠判断：<strong>HE 量级上明显快于行业整体 8–12%</strong>，方向一致即可。</div>
+  </section>
+
+  <!-- ============ 对比矩阵 ============ -->
+  <section>
+    <h2>对比矩阵：三大磁轴功能的电竞合法性（以 CS2 为准）</h2>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1：磁轴三大功能 · 做什么 / 本质 / CS2 2024-08 裁决（点击表头高亮列）</caption>
+      <thead><tr><th>功能</th><th>它做什么</th><th>本质</th><th>谁带火的</th><th>CS2 裁决（2024-08）</th></tr></thead>
+      <tbody>
+        <tr><td>可调触发点 (Actuation)</td><td>软件自定义每键触发深度</td><td>个性化设置</td><td>Wooting</td><td><span class="pill good">合法（无关公平）</span></td></tr>
+        <tr><td>Rapid Trigger</td><td>按多深报多深、抬一丝即复位、消除死行程</td><td>1:1 如实上报物理状态</td><td>Wooting (2022, 60HE)</td><td><span class="pill good">合法</span></td></tr>
+        <tr><td>Snap Tap (Razer)</td><td>同按 A/D 时自动只取最后按下的方向</td><td>软件替你做反向急停决策</td><td>Razer（曾为 CS2 打广告）</td><td><span class="pill bad">禁用 · 检测到即踢</span></td></tr>
+        <tr><td>SOCD / null-bind (Wooting 等)</td><td>反向键同按时自动清除冲突</td><td>软件替你做反向急停决策</td><td>Wooting（跟进 Razer）</td><td><span class="pill bad">禁用 · 检测到即踢</span></td></tr>
+      </tbody>
+    </table></div>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表2：磁轴 vs 传统机械轴 vs 静电容（信仰位）——给小白的取舍速查（点击表头高亮列）</caption>
+      <thead><tr><th>维度</th><th>霍尔磁轴 (HE)</th><th>传统机械轴</th><th>静电容 (Topre/HHKB)</th></tr></thead>
+      <tbody>
+        <tr><td>触发机制</td><td>磁场连续模拟值</td><td>金属触点 0/1</td><td>电容变化 + 锥形弹簧</td></tr>
+        <tr><td>可调触发点</td><td><span class="pill good">可，软件任意调</span></td><td><span class="pill bad">固定</span></td><td><span class="pill bad">固定</span></td></tr>
+        <tr><td>Rapid Trigger</td><td><span class="pill good">支持</span></td><td><span class="pill bad">不支持</span></td><td><span class="pill bad">不支持</span></td></tr>
+        <tr><td>核心受众</td><td>竞技 FPS 玩家</td><td>通用 / 客制玩家</td><td>打字党 / "thock"信徒</td></tr>
+        <tr><td>对纯办公的意义</td><td><span class="pill mid">几乎为零</span></td><td>足够好用</td><td>手感党最爱</td></tr>
+        <tr><td>价格带</td><td>中高（白牌已下探）</td><td>全价位</td><td>高、量小</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- ============ 关键洞察 ============ -->
+  <section>
+    <h2>关键洞察与产品机会</h2>
+    <p class="callout"><span class="lbl">洞察 1 · 人群锚（最重要）</span>磁轴/RT/SOCD 这套<strong>主要影响竞技游戏人群</strong>，对纯办公、码字、写作读者<strong>关系不大</strong>——别因为"没上磁轴"就觉得落伍。给小白的一句话建议：打 CS2/Valorant 且认真练枪 → 磁轴 + RT 值得；其余场景，钱花在键帽/轴体手感/配列上回报更高。</p>
+    <p class="callout"><span class="lbl">洞察 2 · "合法区"才是真长期赛道</span>Snap Tap/SOCD 被封反而净化了赛道：合法的 RT + 可调触发被证明有竞技价值且不会被踢，成了厂商可持续主打的卖点。押注"违规功能"的营销（Razer Snap Tap 广告）是短命的。</p>
+    <p class="callout"><span class="lbl">产品机会 A · 内容/导购</span>市场极度缺一篇中文的"<strong>磁轴键盘合规设置指南</strong>"：哪些功能开了会被 CS2/VAC 踢、怎么在驱动里一键切"赛事合规档"。这正是高搜索意图、低供给的 SEO 蓝海（"snap tap 会被封吗""rapid trigger 合法吗"）。</p>
+    <p class="callout"><span class="lbl">产品机会 B · 硬件/驱动</span>键盘驱动做一个"<strong>Tournament / 赛事合规模式</strong>"一键开关（自动关 SOCD/Snap Tap、保留 RT），是低成本高信任度的差异化点；目前多数厂商把合规责任丢给用户手动关。</p>
+    <p class="callout"><span class="lbl">产品机会 C · 错位定位</span>对非竞技人群，可主打磁轴的"<strong>可调触发=防误触/无障碍/儿童模式</strong>"等非电竞价值，把这块被电竞叙事垄断的技术，迁移到办公/创作场景，避开红海。</p>
+  </section>
+
+  <!-- ============ Caveats ============ -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge confirmed">已核实</span> <strong>H6.4-1 CS2 封禁 Snap Tap/SOCD、保留 Rapid Trigger</strong>：Valve 2024-08 官方更新明确"硬件辅助 counter-strafing 检测到即踢"，PC Gamer / esports.gg / ResetEra / Wooting 官方四方互证，RT 被官方与社区一致认定合法。结论成立。</li>
+      <li><span class="fbadge confirmed">已核实</span> <strong>H6.4-2 争议非小众、仍在持续</strong>：涉及 IEM Cologne 级赛事、Razer 官方广告、主流媒体报道，至 2026 仍是 baseline 规则——不降级，应作为核心行业变量保留。</li>
+      <li><span class="fbadge confirmed">已核实</span> <strong>H6.4-3 磁轴已成 2026 游戏新品 baseline</strong>：Razer/Corsair/SteelSeries/Keychron/出海白牌全面跟进磁轴 + RT，与源模块判断一致。</li>
+      <li><span class="fbadge partial">部分</span> <strong>H6.4-4 HE CAGR 量级</strong>：专项 17.2%（DataIntelo）/ 宽口径 9.1%（Verified）/ 细分 7.6% / 区域 20%+，口径打架无法精确引用；仅"显著快于行业 8–12%"这一量级判断成立。数据缺口：统一口径的 HE 键盘出货量、一手厂商销量拆分。</li>
+      <li><span class="fbadge partial">部分</span> <strong>磁轴耐久性"碾压机械轴"</strong>：弹簧/导轨/键帽柱仍磨损，缺长期第三方耐久实测；"无金属触点"为事实，"寿命碾压"为待验证营销侧。</li>
+      <li><span class="fbadge open">仍开放</span> <strong>VAC/反作弊检测精度</strong>：Valve 如何区分"硬件 SOCD"与"玩家手速极快"、误判率多少，官方未公开，玩家社区有零星误踢抱怨但无系统数据。</li>
+      <li><span class="fbadge open">仍开放</span> <strong>其他游戏的裁决</strong>：本页结论以 CS2 为准；Valorant（Riot）、各 FPS 对 SOCD/Snap Tap 的政策不完全一致，跨游戏一致性待补。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 来源 ============ -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>PC Gamer — Valve says 'we've decided to draw a clear line' and bans Snap Tap keyboard automation from Counter-Strike 2：<a href="https://www.pcgamer.com/games/fps/valve-says-weve-decided-to-draw-a-clear-line-and-bans-snap-tap-keyboard-automation-from-counter-strike-2/">pcgamer.com</a>（2024-08，采集 2026-06）</li>
+      <li>esports.gg — Valve ban Snap Tap and other movement automations in CS2：<a href="https://esports.gg/news/counter-strike-2/valve-ban-snap-tap-and-other-movement-automations-in-cs2/">esports.gg</a>（2024-08，采集 2026-06）</li>
+      <li>ResetEra — Valve bans keyboard automation (Razer Snap Tap etc.) from Counter-Strike 2（UGC 讨论 + IEM Cologne 背景）：<a href="https://www.resetera.com/threads/valve-bans-keyboard-automation-razer-snap-tap-etc-from-counter-strike-2-in-the-latest-update.957534/">resetera.com</a>（2024-08，采集 2026-06）</li>
+      <li>Wooting — What are Hall Effect keyboard switches（磁轴原理）：<a href="https://wooting.io/post/what-are-hall-effect-keyboard-switches">wooting.io</a>（采集 2026-06）</li>
+      <li>Wooting — Rapid Trigger - A Must for Games：<a href="https://wooting.io/rapid-trigger">wooting.io</a>（采集 2026-06）</li>
+      <li>Wooting — CS2 Guide: In-Game Benefits, Rapid Trigger Settings &amp; Pro Profiles（RT 合法 / SOCD 禁用官方区分）：<a href="https://wooting.io/post/wooting-cs2-guide-in-game-benefits-rapid-trigger-settings-and-pro-profiles">wooting.io</a>（采集 2026-06）</li>
+      <li>Corsair Explorer — Are Rapid Trigger keyboards banned in CS2?：<a href="https://www.corsair.com/us/en/explorer/gamer/keyboards/are-rapid-trigger-keyboards-banned-in-cs2/">corsair.com</a>（采集 2026-06）</li>
+      <li>DataIntelo — Magnetic Hall Switch Keyboard Market（专项 CAGR 17.2%）：<a href="https://dataintelo.com/report/magnetic-hall-switch-keyboard-market">dataintelo.com</a>（采集 2026-06）</li>
+      <li>Verified Market Reports — Omnipolar Hall Effect Switch Market（宽口径 CAGR 9.1%）：<a href="https://www.verifiedmarketreports.com/product/omnipolar-hall-effect-switch-market/">verifiedmarketreports.com</a>（采集 2026-06）</li>
+      <li>Mordor Intelligence — Mechanical Keyboard Market（光学+霍尔细分约 7.6%）：<a href="https://www.mordorintelligence.com/industry-reports/mechanical-keyboard-market">mordorintelligence.com</a>（采集 2026-06）</li>
+      <li>AttackShark — Counter-Strafing &amp; Rapid Trigger in CS2 Meta：<a href="https://attackshark.com/blogs/knowledges/counter-strafing-rapid-trigger-cs2-meta">attackshark.com</a>（采集 2026-06）</li>
+      <li>Steam Community — Snap-tap and SOCD but what about rapid trigger?（玩家 UGC 讨论）：<a href="https://steamcommunity.com/app/730/discussions/0/6462189214456371801/">steamcommunity.com</a>（采集 2026-06）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块六 Task 6.4 · 采集时点 2026-06 · CS2 规则以 Valve 官方为准、HE CAGR 口径不一仅取量级 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

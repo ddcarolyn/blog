@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 3.4：结构件——定位板 / PCB / 热插拔 / 稳定器 / gasket / 填充</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.svg-wrap{overflow-x:auto;margin:18px 0}
+.svg-wrap svg{display:block;margin:0 auto;max-width:100%;height:auto}
+.mini-note{font-size:13px;color:var(--muted,#8a8478);margin-top:6px}
+figure.framed{border:1px solid #e2dcd1;border-radius:10px;padding:14px;margin:18px 0;background:#fff}
+figure.framed figcaption{font-size:13px;color:#4a463f;margin-top:8px;line-height:1.5}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块三 · Task 3.4</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块三 · TASK 3.4 · 机械键盘解剖</span>
+  <h1>结构件：把"轴和键帽以外的一切"拆开</h1>
+  <p class="lede">同样的轴、同样的键帽，装进两块不同的键盘，声音和手感能差出两个世界——差的就是这一层：<strong>定位板、PCB、热插拔座、稳定器、gasket、填充棉</strong>。这一页只回答一个窄问题：<strong>这些"看不见的结构件"各自改变了什么，谁是手感/声音/旷量/咔哒的真正源头，哪些是营销叙事、哪些是 UGC 实测共识。</strong></p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards、KeebTalk、Geekhack）&gt; 第三方评测（MKBGuide / Kineticlabs / Toronto KeyboardMan / LumeKeebs）&gt; 官方话术<br>
+  主要来源：MKBGuide（稳定器/foam/mounting）、Kineticlabs（plate / hotswap / stabilizer）、Attack Shark（hotswap 100-cycle）、Toronto KeyboardMan & LumeKeebs（plate 材质）、KeebTalk / Geekhack（UGC）</p>
+</div></header>
+
+<main class="wrap">
+
+<!-- 全景图 -->
+<section>
+  <h2>0. 一张图：结构件在键盘里的位置</h2>
+  <p>结构件不是孤立部件，而是一个<strong>声学/力学叠层系统</strong>。轴敲下去产生的振动，要穿过定位板→PCB→填充→外壳，每一层都在"过滤"这股振动。先把层级关系摆清楚，后面每一节都是在讲"这一层动了，整条声学链路怎么变"。</p>
+  <figure class="framed">
+    <div class="svg-wrap">
+    <svg viewBox="0 0 760 360" role="img" aria-label="结构件声学叠层示意">
+      <rect width="760" height="360" fill="#fff"/>
+      <g font-family="sans-serif" font-size="13">
+        <!-- 振动源 -->
+        <circle cx="120" cy="40" r="16" fill="#b0472b"/>
+        <text x="120" y="44" text-anchor="middle" fill="#fff" font-size="11">敲击</text>
+        <text x="120" y="74" text-anchor="middle" fill="#1c1a17" font-size="11">振动源(轴+键帽)</text>
+        <!-- 层级条 -->
+        <g>
+          <rect x="260" y="20" width="380" height="40" rx="6" fill="#dfe3e6" stroke="#4a463f"/>
+          <text x="450" y="45" text-anchor="middle" fill="#1c1a17">① 定位板 Plate · 决定软硬+音高</text>
+
+          <rect x="260" y="75" width="380" height="40" rx="6" fill="#cfe2df" stroke="#2f6f6a"/>
+          <text x="450" y="100" text-anchor="middle" fill="#1c1a17">② PCB(+热插拔座) · 走线/换轴方式</text>
+
+          <rect x="260" y="130" width="380" height="40" rx="6" fill="#fbeee8" stroke="#b0472b"/>
+          <text x="450" y="155" text-anchor="middle" fill="#1c1a17">③ 稳定器 · 长键防晃(旷量+咔哒源)</text>
+
+          <rect x="260" y="185" width="380" height="40" rx="6" fill="#f6ecd6" stroke="#9c6b1a"/>
+          <text x="450" y="210" text-anchor="middle" fill="#1c1a17">④ 填充棉/foam · 填空腔→thock</text>
+
+          <rect x="260" y="240" width="380" height="40" rx="6" fill="#e6e2d8" stroke="#8a8478"/>
+          <text x="450" y="265" text-anchor="middle" fill="#1c1a17">⑤ Gasket 垫圈 · 板壳之间→软弹隔振</text>
+
+          <rect x="260" y="295" width="380" height="40" rx="6" fill="#f0ece5" stroke="#1c1a17"/>
+          <text x="450" y="320" text-anchor="middle" fill="#1c1a17">⑥ 外壳 Case · 重量+终端声学(本页略,见 3.5)</text>
+        </g>
+        <!-- 箭头 -->
+        <path d="M138 40 C 200 40, 210 40, 256 40" fill="none" stroke="#8a8478" stroke-width="2"/>
+        <path d="M450 60 L450 73" stroke="#8a8478" stroke-width="2"/>
+        <path d="M450 115 L450 128" stroke="#8a8478" stroke-width="2"/>
+        <path d="M450 170 L450 183" stroke="#8a8478" stroke-width="2"/>
+        <path d="M450 225 L450 238" stroke="#8a8478" stroke-width="2"/>
+        <path d="M450 280 L450 293" stroke="#8a8478" stroke-width="2"/>
+        <text x="120" y="200" font-size="12" fill="#8a8478" transform="rotate(-90 120 200)">振动逐层被"染色 / 过滤"</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>图：结构件声学叠层——同一股敲击振动逐层被定位板染色、被填充吸收、被 gasket 隔离，最终经外壳输出。"thock vs clack"是整条链路的合力，不是单一部件。<span class="src">自绘示意图，原理依据 Kineticlabs / MKBGuide 声学说明，2026-06</span></figcaption>
+  </figure>
+</section>
+
+<!-- 1. 定位板 -->
+<section>
+  <h2>1. 定位板（Plate）：软硬与音高的第一调节钮</h2>
+  <h3>论述</h3>
+  <p>定位板是夹在轴和 PCB 之间的一块开孔板，作用是<strong>固定轴的位置、提供按压的"地基"</strong>。它的材质决定了两件事：<strong>(a) 整板的弹性</strong>（敲下去是硬碰硬还是有微微下沉），<strong>(b) 振动的音高</strong>（金属越多越高频清脆，塑料越多越低沉闷）。这是一个连续光谱——从最硬最响的钢/黄铜，到最软最闷的 POM，FR4 玻纤恰好卡在金属与塑料之间。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"Stiffer plate materials like brass and aluminum create a more rigid typing experience with a higher pitched sound, while more flexible plate materials like polycarbonate (PC) or polyoxymethylene (POM) create a softer typing feel with a deeper and dampened sound."（更硬的黄铜/铝→更刚性、音更高；更软的 PC/POM→更软、声音更深更闷。）</p><span class="src">— Kineticlabs《Comparing Mechanical Keyboard Plate Materials》· <a href="https://kineticlabs.com/blog/comparing-mechanical-keyboard-plate-materials">kineticlabs.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>逐材质点评："Aluminum: best for elegant sound, leaning towards clacky / Brass: too pingy, but enhances tactile feedback / FR4: best all-rounder, perfect upgrade to default plates, more marbley but can be tuned to anything / POM: soft typing feel, pleasant deep sound, leans towards thocky / PC: slightly worse POM in my opinion—less bouncy, more plasticky."（铝=优雅偏 clacky；黄铜=太 pingy 但触感强；FR4=最佳全能；POM=软、深、thocky；PC=略逊于 POM。）</p><span class="src">— LumeKeebs《Plate Material Guide》转述评测共识 · <a href="https://lumekeebs.com/blogs/blog/plate-materials-does-it-make-a-difference">lumekeebs.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>"Aluminum plates deliver a firmer typing feel than FR4 but softer than something like a copper or brass plate. FR4 ... hits the sweet spot between metal and plastic plates ... If you're indecisive or want a bit of everything, this is your plate. POM plates ... like typing on a trampoline, in a good way."（铝比 FR4 硬、比黄铜软；FR4 是金属与塑料的甜点；POM 像在蹦床上打字。）</p><span class="src">— Toronto KeyboardMan《Keyboard Plate Comparisons》· <a href="https://torontokeyboardman.ca/blogs/news/keyboard-plate-comparisons">torontokeyboardman.ca</a> · 采集 2026-06</span></div>
+  <h3>具体数据 / 排序</h3>
+  <ul>
+    <li><b>硬度排序（高→低）：</b>黄铜/铜 &gt; 钢 &gt; 铝 &gt; 碳纤维 ≈ FR4 &gt; PC &gt; POM。</li>
+    <li><b>音高排序（高→低，即"越往后越 thocky"）：</b>黄铜（pingy）&gt; 钢（清脆易 ping）&gt; 铝（clacky）&gt; FR4（marbley 均衡）&gt; PC（muted）&gt; POM（deep / trampoline）。</li>
+    <li><b>"ping"金属余响</b>是钢/黄铜板的典型缺陷，社区常用 plate foam / 调润压制——这正是下面"填充"一节存在的部分原因。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>定位板是你<strong>第一个该调的"音色旋钮"</strong>。原厂大多给铝或 FR4（安全均衡）；想更软更低沉换 PC/POM，想更扎实更脆换钢/黄铜（代价是要处理 ping）。它不改变手感的"克数"，只改变"地基的回弹与音高"。</p>
+</section>
+
+<!-- 2. PCB + 热插拔 -->
+<section>
+  <h2>2. PCB 与热插拔：试轴民主化的杠杆 vs 硬核 endgame</h2>
+  <h3>论述</h3>
+  <p>PCB 是负责扫描按键的电路板。对结构而言，它最大的分叉是<strong>轴怎么固定上去</strong>：</p>
+  <ul>
+    <li><b>焊接（soldered）：</b>轴脚焊死在 PCB 上，最稳、最不晃、可支持任意异形布局（分裂空格、stepped Caps）；换轴要电烙铁拆焊，门槛高。</li>
+    <li><b>热插拔（hotswap）：</b>PCB 预装金属插座（Kailh socket 最主流），轴脚直接插拔、<strong>免焊</strong>。这是新手"买一块板试遍各种轴"的核心便利——把"换轴=学焊接"这道墙拆掉了，是机械键盘试轴体验<strong>民主化</strong>的最大杠杆。</li>
+  </ul>
+  <p>关键认知纠偏（承接源模块 H3.1 的证伪）：热插拔的便利，<strong>不等于</strong>它在严肃客制圈占主流。焊接在硬核玩家眼里仍是"endgame / 承诺式 build"——一旦轴定了就焊死，求的是最大稳定性和异形布局自由。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"You are locked to only certain layouts as most hot-swap PCBs do not support more than the layout provided to you originally."（热插拔板大多锁死出厂布局，不支持分裂空格/stepped Caps 等异形键位——焊接才有这种自由。）</p><span class="src">— Kineticlabs《Hot-Swap vs Solderable Keyboard PCBs》· <a href="https://kineticlabs.com/blog/hot-swap-vs-solderable-keyboard-pcbs">kineticlabs.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>关于稳定性的真实分歧："some people do say the soldered switches are more secure than hot-swap keyboards, but I have never really noticed this myself."（有人说焊接更牢，但作者自己没真感觉出差别。）—— 即"焊接更稳"在日常使用里更多是<strong>信念而非可测差异</strong>。</p><span class="src">— Kineticlabs，同上 · 采集 2026-06</span></div>
+  <div class="ugc"><p>插座寿命的真相："The 100-cycle limit is a frequently cited technical specification ... However, 2nd generation Kailh sockets announced in 2021 have a mechanical life rated for 6000 cycles. ... If you install a set of switches and leave them for three years, you have consumed exactly zero cycles."（坊间常引用"100 次"，其实那是早期 datasheet 数字；2021 年二代 Kailh 插座标称 6000 次；插上不动=消耗 0 次。）</p><span class="src">— Attack Shark《The 100-Cycle Limit: Hot-Swap Socket Durability》· <a href="https://attackshark.com/blogs/knowledges/hot-swap-socket-100-cycle-limit-durability-guide">attackshark.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>真正的脆弱点不在插座本身："the primary failure point is actually the solder joint anchoring the socket to the PCB, rather than the internal leaf spring ... over time, these micro-stresses lead to pad lifting or hairline fractures."（廉价 PCB 的首要失效点是"插座焊在 PCB 上的那个焊点"被反复插拔的横向力撬裂/拉脱焊盘，而不是插座内部弹片。建议每插拔 5–10 次做一次"轻晃测试"。）</p><span class="src">— Attack Shark，同上 · 采集 2026-06</span></div>
+  <h3>具体数据</h3>
+  <ul>
+    <li><b>插座寿命：</b>早期常引"100 次"、二代 Kailh 标称 <b>6000 次</b>（厂商实验室口径）。日常用户极少触及。</li>
+    <li><b>真实失效模式：</b>插座焊点处<b>焊盘撬裂 / 微裂纹</b>（廉价 PCB 上更早出现），而非插座弹片磨损。</li>
+    <li><b>布局自由：</b>焊接=任意（分裂空格、ISO、stepped Caps、7u 空格…）；热插拔=锁死出厂 footprint。</li>
+    <li><b>插轴风险：</b>插轴前必须<b>检查轴脚笔直</b>，否则歪脚顶弯插座/顶到 PCB；"用力过猛可能直接捅坏插座"。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>热插拔=<strong>新手试轴的民主化杠杆</strong>（免焊、快速换轴），代价是布局锁死+插座焊点是长期隐患点；焊接=<strong>硬核 endgame</strong>（最稳、布局全自由），代价是不可逆+需要烙铁。"焊接更稳"在多数日常场景里是信念多于可测差异——但在异形布局和"一次定终身"的心理承诺上，焊接确有不可替代性。</p>
+</section>
+
+<!-- 3. 稳定器 -->
+<section>
+  <h2>3. 稳定器 / 卫星轴：旷量与"咔哒"的头号源头</h2>
+  <h3>论述</h3>
+  <p>稳定器装在空格、回车、Shift、退格这些<strong>长键</strong>下面，靠一根金属丝把键帽两端连起来，防止按一端时另一端翘起来。它是机械键盘里<strong>最容易出毛病、也是杂音投诉第一名</strong>的部件——你听到的"咔哒/叮/旷量晃响"，绝大多数不是轴，是稳定器。社区的标准操作是"调校 + 上润 + band-aid/holee mod"。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"Stabilizer rattle results from poor factory lubing, loose tolerances, wire-to-housing contact, and stem-to-wire contact creating vibrations."——并给出量化占比：<b>wire-to-housing contact 是最常见来源（40% 的案例）</b>，<b>stem-to-wire contact 第二（30%）</b>。</p><span class="src">— MKBGuide《How to Fix Rattly Stabilizers (2026)》· <a href="https://mkbguide.com/blog/fix-rattly-stabilizers-guide">mkbguide.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>各 mod 对应修哪种声："Band-Aid Mod ... prevents wire slapping housing—most effective single rattle fix"（贴创可贴垫住铁丝撞壳，单项最有效消旷）；"Holee Mod eliminates upstroke tick"（用一小条布塞进 stem 槽，消上行"嗒"声）；"Clip Mod (plate-mount only) ... makes stabilizer sit more solidly"（剪掉塑料腿让 plate 稳更服帖）。</p><span class="src">— MKBGuide，同上 · 采集 2026-06</span></div>
+  <div class="ugc"><p>性价比建议："Fix factory stabilizers first (costs $5-10 for supplies versus $15-25 for replacement). Proper modding transforms even cheap stabilizers."——先调原厂稳（耗材 $5–10）；仍不满意再换 Durock V2 / TX / C³Equalz（$15–25/套）。</p><span class="src">— MKBGuide，同上 · 采集 2026-06</span></div>
+  <div class="ugc"><p>装法之争（UGC 原帖）："In theory, PCB mounted stabilizers will be more stable ... screw-in stabs have more stem rattle and wire ticking because they're made of nylon ... Plate mounted stabilizers are easier to remove."（理论上 PCB/螺丝固定更稳；但有人反馈尼龙螺丝稳 stem rattle 更明显；plate 稳更易拆。）</p><span class="src">— KeebTalk 论坛讨论《Stabilizers: Plate mount vs PCB mount vs Screw in》· <a href="https://www.keebtalk.com/t/stabilizers-plate-mount-vs-pcb-mount-vs-screw-in/3265">keebtalk.com</a> · 采集 2026-06</span></div>
+  <h3>具体数据</h3>
+  <ul>
+    <li><b>旷量/杂音占比：</b>铁丝撞壳 40% · stem 与铁丝接触 30% · 其余为公差松/润不足/铁丝不平。</li>
+    <li><b>润油分工：</b>铁丝两端 → 介电润滑脂（dielectric grease，黏稠减振）；stem 内壁 → Krytox 205g0（减摩）。</li>
+    <li><b>装法：</b>screw-in（螺丝固定 PCB）= 最稳、可拧紧、但需 PCB 支持且难拆；plate-mount（卡入定位板）= 最常见、易拆易调。</li>
+    <li><b>预算阶梯：</b>调原厂稳 $5–10（band-aid + 润）→ 不满意再上 Durock V2 / TX / C³Equalz $15–25/套。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>稳定器是<strong>"高投诉、低成本、高回报"</strong>的折腾点——花 $5–10 调原厂稳，往往比换一套高级稳收益更大。新手买键盘看到"差评说有咔哒/旷量"，几乎都指向出厂稳没调好，而非键盘本身废。</p>
+</section>
+
+<!-- 4. Gasket -->
+<section>
+  <h2>4. Gasket 结构：真有用，但被营销放大了</h2>
+  <h3>论述</h3>
+  <p>Gasket mount 指<strong>定位板不直接拧死在外壳上，而是用软胶条（gasket）夹在板与壳之间</strong>，按键时整板能微微下沉回弹，手感更软、更"包裹"，并隔离一部分振动。它是近年最被反复强调的"高端卖点"。但 UGC/评测共识更冷静：它带来的是"<strong>不同</strong>"，未必是"<strong>更好</strong>"，且它在影响手感的诸多变量里只是一环。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"A gasket-mounted keyboard doesn't necessarily feel 'better'—it feels different. Whether that difference is an improvement depends entirely on your typing habits and personal preference."（gasket 不必然更好，只是不同，是否算改进取决于你自己。）"A poorly designed gasket mount keyboard can feel uneven, overly soft, or hollow. A well-designed top mount keyboard can feel refined, consistent, and comfortable."（设计差的 gasket 会软塌空洞；设计好的 top mount 反而精致一致。）</p><span class="src">— MKBGuide《Gasket Mount vs Tray Mount》/ Womier mounting 指南综合 · <a href="https://mkbguide.com/blog/gasket-mount-vs-tray-mount-keyboard">mkbguide.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>"Mounting style is one variable among many ... The quality of your switches, the keycap material, the case construction, and your personal preferences all matter significantly ... Gasket mount does matter, but build quality and personal preference matter more."（装配方式只是众多变量之一，轴/键帽/外壳/个人偏好都重要；gasket 有用，但整体做工和个人偏好更重要。）</p><span class="src">— Womier《Gasket Mount vs Top Mount Explained》· <a href="https://womierkeyboard.com/blogs/news/mechanical-keyboard-mounting-styles-gasket-mount-vs-top-mount-explained">womierkeyboard.com</a> · 采集 2026-06</span></div>
+  <h3>具体数据 / 区分</h3>
+  <ul>
+    <li><b>手感差异方向：</b>top mount = 更硬更稳定；gasket = 更软更隔离、有"floating 浮动感"。</li>
+    <li><b>声学：</b>gasket 能压一部分外壳共振，让声音更"干净"地呈现轴本身——这是真实优点，但幅度被营销放大。</li>
+    <li><b>失败模式：</b>劣质 gasket = 软塌、不均、空洞；即"有 gasket"≠"手感好"，做工才是关键。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>把 gasket 当成"<strong>一种风味</strong>"而非"<strong>一个等级</strong>"。它确实让板软弹、隔振、声音更干净，但"是否有 gasket"远不如"做工好不好、你喜不喜欢软板"重要。营销话术把它包装成"高端=必有 gasket"，是这一环最该警惕的地方。</p>
+</section>
+
+<!-- 5. 填充 -->
+<section>
+  <h2>5. 填充 / foam：thock 的来源，也是"闷死"的风险</h2>
+  <h3>论述</h3>
+  <p>填充棉（plate foam、case/底棉、PE foam）和各种 mod（tape mod、force break）做的是同一件事：<strong>填掉键盘内部的空腔，吸掉空响、高频回声和金属 ping</strong>，让声音更低沉、集中——也就是社区追捧的"thock"。核心规律一句话：<strong>空腔多→clacky 空洞；填得满→full-bodied thocky</strong>。但过犹不及，填太满会把声音"闷死"，失去层次。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"The general rule is that more space in between each keyboard part makes a keyboard clackier and more hollow, while to make it sound more full-bodied and thocky, you need to add stuff to fill in those hollow spaces."（空腔越多越 clacky 空洞；想 full-bodied thocky 就得把空腔填满。）</p><span class="src">— Thock King《Modding 101》/ MKBGuide foam 指南综合 · <a href="https://www.thockking.com/blogs/learn/modding-101">thockking.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>PE foam 不是单纯消音，而是"调色"："PE foam acts as a dampening layer between switch and PCB, absorbing specific frequencies while allowing others through, resulting in ... a satisfying 'pop' sound on keypress."（PE 棉夹在轴与 PCB 之间选择性吸频，造出"poppy/creamy"的爆音感。）</p><span class="src">— MKBGuide《PE Foam Mod Guide (2026)》· <a href="https://mkbguide.com/blog/pe-foam-mod-guide">mkbguide.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>tape mod 是性价比之王："Tape mod transforms keyboard acoustics by applying layers of tape to PCB bottom ... creating a deeper fuller sound ... one of the easiest and most effective sound mods."（在 PCB 背面贴几层胶带，深化声音，是最易最有效的声音 mod 之一。）但作者也强调："some enthusiasts absolutely love deep thocky tape mod sound, while others prefer brighter natural acoustics—there is no objectively 'better' option."（thock 与 clack 没有客观更好，纯偏好。）</p><span class="src">— MKBGuide《Tape Mod Guide (2026)》· <a href="https://mkbguide.com/blog/tape-mod-guide">mkbguide.com</a> · 采集 2026-06</span></div>
+  <h3>具体数据 / 手段</h3>
+  <ul>
+    <li><b>tape mod：</b>PCB 背面贴 1–3 层美纹/电工胶带，封住底部空腔→更深更满。0 成本、可逆，新手首选。</li>
+    <li><b>PE foam mod：</b>轴与 PCB 之间垫一层 PE 薄膜→"poppy/creamy"爆音；改变音色而非纯消音。</li>
+    <li><b>case/plate foam：</b>原厂常自带；吸空响、压金属 ping，但<strong>填太满→闷</strong>。</li>
+    <li><b>force break mod：</b>在板/壳接触点垫薄料，改变 flex 行为与接触异响，属进阶微调。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>"thock"不是买来的，是<strong>叠出来的</strong>：软板(PC/POM)+厚 PBT 键帽+填充+gasket 才是系统结果；单加 foam 只是其中一味。新手最划算的入门 mod 是 <strong>tape mod（0 成本、可逆）</strong>，先听听"填空腔"对声音的改变，再决定要不要往深里走。</p>
+</section>
+
+<!-- 对比矩阵 -->
+<section>
+  <h2>6. 对比矩阵</h2>
+  <h3>表1：定位板材质（点击表头高亮该列）</h3>
+  <div class="table-scroll"><table class="matrix">
+    <thead><tr><th>材质</th><th>软硬</th><th>音高/音色</th><th>典型缺陷</th><th>适合谁</th></tr></thead>
+    <tbody>
+      <tr><td>黄铜 Brass</td><td><span class="pill bad">最硬</span></td><td>密实、高频、resonant</td><td>太 pingy、重、贵</td><td>要触感扎实+独特音色</td></tr>
+      <tr><td>钢 Steel</td><td><span class="pill bad">很硬</span></td><td>清脆偏吵</td><td>易金属 ping</td><td>要直接扎实手感</td></tr>
+      <tr><td>铝 Aluminum</td><td><span class="pill mid">较硬·均衡</td><td>elegant、偏 clacky</td><td>偏脆、可能 ping</td><td>全能默认(原厂常见)</td></tr>
+      <tr><td>FR4 玻纤</td><td><span class="pill mid">中等偏弹</td><td>marbley 均衡、可调</td><td>无明显短板</td><td>"什么都要一点"的甜点</td></tr>
+      <tr><td>PC 聚碳酸酯</td><td><span class="pill good">软·有弹</td><td>muted 低沉</td><td>比 POM 略"塑料感"</td><td>长打字、求软</td></tr>
+      <tr><td>POM</td><td><span class="pill good">最软·蹦床感</td><td>deep / thocky</td><td>过软者嫌"肉"</td><td>追软弹+低沉</td></tr>
+    </tbody>
+  </table></div>
+  <p class="mini-note">来源：Kineticlabs / LumeKeebs / Toronto KeyboardMan 综合，2026-06。规律：越硬越脆响、越软越低沉。</p>
+
+  <h3>表2：焊接 vs 热插拔（点击表头高亮该列）</h3>
+  <div class="table-scroll"><table class="matrix">
+    <thead><tr><th>维度</th><th>热插拔 Hotswap</th><th>焊接 Soldered</th></tr></thead>
+    <tbody>
+      <tr><td>换轴门槛</td><td><span class="pill good">免焊·秒换</span></td><td><span class="pill bad">需烙铁拆焊</span></td></tr>
+      <tr><td>试轴友好度</td><td><span class="pill good">新手民主化杠杆</span></td><td><span class="pill bad">不适合频繁试</span></td></tr>
+      <tr><td>布局自由</td><td><span class="pill bad">锁死出厂 footprint</span></td><td><span class="pill good">异形全自由</span></td></tr>
+      <tr><td>稳定性(实测)</td><td>日常足够</td><td>略稳(更多是信念差)</td></tr>
+      <tr><td>长期隐患</td><td>插座焊盘可能撬裂</td><td>焊点更耐久</td></tr>
+      <tr><td>定位</td><td>新手入门/试轴</td><td><span class="pill good">硬核 endgame</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="mini-note">来源：Kineticlabs / Attack Shark，2026-06。承接源模块 H3.1 证伪修正。</p>
+
+  <h3>表3：折腾性价比阶梯（投入/回报）</h3>
+  <div class="table-scroll"><table class="matrix">
+    <thead><tr><th>折腾项</th><th>成本</th><th>难度</th><th>收益</th><th>可逆?</th></tr></thead>
+    <tbody>
+      <tr><td>tape mod(PCB背胶带)</td><td><span class="pill good">~$0</span></td><td>极低</td><td>声音变深变满</td><td>是</td></tr>
+      <tr><td>调原厂稳(band-aid+润)</td><td><span class="pill good">$5–10</span></td><td>低</td><td><span class="pill good">消旷消咔哒,最高回报</span></td><td>是</td></tr>
+      <tr><td>PE foam mod</td><td>$5–15</td><td>中</td><td>poppy/creamy 音色</td><td>是</td></tr>
+      <tr><td>换软定位板(PC/POM)</td><td>$15–40</td><td>中</td><td>整体软弹+低沉</td><td>是</td></tr>
+      <tr><td>换高级稳(Durock/TX)</td><td>$15–25</td><td>中</td><td>底子更好(仍需润)</td><td>是</td></tr>
+      <tr><td>焊接换轴</td><td>烙铁+耗材</td><td><span class="pill bad">高</span></td><td>最稳/异形布局</td><td><span class="pill bad">否</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="mini-note">来源：MKBGuide foam/稳定器指南综合，2026-06。新手建议从上往下走。</p>
+</section>
+
+<!-- 关键洞察 -->
+<section>
+  <h2>7. 关键洞察与产品机会</h2>
+  <p class="callout"><b>洞察① 投诉的真凶可被"翻译"成卖点。</b> 新手差评里的"有咔哒/旷量/空洞声"，结构上 70% 指向<strong>出厂稳没调好</strong>（铁丝撞壳 40% + stem 接触 30%）。这意味着一个品牌只要把"出厂调校好的稳定器"做实，就能直接消灭最高频的差评——比堆 gasket、堆材质更治本、更便宜。</p>
+  <p class="callout"><b>洞察② "thock"是系统结果，可做成"可调档位"产品。</b> thock = 软板+厚 PBT+填充+gasket 的合力，没有单一开关。机会：把这套变量做成<strong>用户可换、带"声音档位"的模块化套件</strong>（如"clack 板 / thock 板"两块定位板 + 两套 foam），让用户在一块键盘上切换音色——把"换键盘才能换声音"变成"换模块换声音"。</p>
+  <p class="callout"><b>洞察③ 热插拔是获客漏斗的入口，焊接是留存的天花板。</b> 热插拔降低试轴门槛=拉新；但硬核用户最终追焊接的"承诺感+异形布局"。产品线机会：用热插拔款做<strong>入门引流</strong>，再用同壳同配色的焊接/客制款承接进阶用户的"endgame 仪式感"，形成升级路径而非流失。</p>
+  <p class="callout"><b>洞察④ "可逆、0 成本"的引导式 mod 是最佳教育内容。</b> tape mod、band-aid 这类"$0–10、可逆、立竿见影"的操作，是把新手转化为"折腾党"的钩子。机会：随键盘附一张<strong>"5 分钟改音色"卡片/视频</strong>（tape mod + 调稳），用最低风险的成功体验建立品牌黏性。</p>
+</section>
+
+<!-- Caveats -->
+<section class="caveats">
+  <h2>Caveats &amp; 证伪状态</h2>
+  <ul>
+    <li><span class="fbadge falsified">已证伪</span> <strong>"热插拔=机械键盘普及/高端关键"被部分推翻：</strong>热插拔的真实定位是<strong>新手试轴的民主化杠杆</strong>；在硬核客制圈，焊接因"最稳+异形布局自由+一次定终身的承诺感"仍是 endgame 主流。已据 Kineticlabs 修正措辞。</li>
+    <li><span class="fbadge falsified">已证伪</span> <strong>"焊接显著比热插拔稳"被弱化：</strong>Kineticlabs 作者明言日常使用中"never really noticed"差异；"更稳"更多是信念而非可测差异。真实长期隐患反而在<strong>廉价热插拔板的插座焊盘撬裂</strong>（Attack Shark），而非焊接本身。</li>
+    <li><span class="fbadge falsified">已证伪</span> <strong>"热插拔插座只有 100 次寿命"被纠正：</strong>"100 次"是早期/特定 datasheet 口径；二代 Kailh 标称 <b>6000 次</b>，且"插上不动=消耗 0 次"。寿命焦虑被夸大。来源 Attack Shark，2026-06。</li>
+    <li><span class="fbadge partial">部分成立</span> <strong>"gasket mount=高端/更好"：</strong>gasket 确能带来软弹+隔振+更干净声音（成立），但"更好"是偏好不是等级，劣质 gasket 会软塌空洞；做工 &gt; 是否有 gasket。营销话术放大了它。</li>
+    <li><span class="fbadge confirmed">已核实</span> <strong>稳定器是杂音第一源：</strong>MKBGuide 给出量化——铁丝撞壳 40% + stem 接触 30%；band-aid 为单项最有效消旷 mod；调原厂稳($5–10)性价比高于换高级稳($15–25)。多源一致。</li>
+    <li><span class="fbadge confirmed">已核实</span> <strong>定位板软硬→音高的连续光谱：</strong>黄铜/钢(硬/高频/ping) → 铝/FR4(均衡) → PC/POM(软/低沉/thock)。Kineticlabs+LumeKeebs+Toronto KeyboardMan 三源互证。</li>
+    <li><span class="fbadge open">仍开放</span> r/MechanicalKeyboards / Geekhack 原始贴文的<strong>具体 URL 与赞数/热度</strong>本轮未稳定检索到（KeebTalk 讨论串有具体链接，Reddit 共识多经第三方站二手转述）。原始 UGC 热度数据缺口待补。</li>
+    <li><span class="fbadge open">仍开放</span> 各品牌出厂稳"已调校程度"无统一公开测评口径，"出厂稳好坏"目前只能靠零散 UGC 个案判断，缺乏横向量化对比。</li>
+  </ul>
+</section>
+
+<!-- 来源 -->
+<section class="sources">
+  <h2>参考来源索引</h2>
+  <ol>
+    <li>Kineticlabs — Comparing Mechanical Keyboard Plate Materials：<a href="https://kineticlabs.com/blog/comparing-mechanical-keyboard-plate-materials">kineticlabs.com/blog/comparing-mechanical-keyboard-plate-materials</a>（采集 2026-06）</li>
+    <li>LumeKeebs — Plate Materials: Does It Make a Difference?：<a href="https://lumekeebs.com/blogs/blog/plate-materials-does-it-make-a-difference">lumekeebs.com/blogs/blog/plate-materials-does-it-make-a-difference</a>（采集 2026-06）</li>
+    <li>Toronto KeyboardMan — Keyboard Plate Comparisons：<a href="https://torontokeyboardman.ca/blogs/news/keyboard-plate-comparisons">torontokeyboardman.ca/blogs/news/keyboard-plate-comparisons</a>（采集 2026-06）</li>
+    <li>Kineticlabs — Hot-Swap vs Solderable Keyboard PCBs：<a href="https://kineticlabs.com/blog/hot-swap-vs-solderable-keyboard-pcbs">kineticlabs.com/blog/hot-swap-vs-solderable-keyboard-pcbs</a>（采集 2026-06）</li>
+    <li>Attack Shark — The 100-Cycle Limit: Hot-Swap Socket Durability Guide：<a href="https://attackshark.com/blogs/knowledges/hot-swap-socket-100-cycle-limit-durability-guide">attackshark.com/blogs/knowledges/hot-swap-socket-100-cycle-limit-durability-guide</a>（采集 2026-06）</li>
+    <li>Geekhack — Kailh hot swap socket commonly found problems（UGC 论坛）：<a href="https://geekhack.org/index.php?topic=99758.0">geekhack.org/index.php?topic=99758.0</a>（采集 2026-06）</li>
+    <li>MKBGuide — How to Fix Rattly Stabilizers: Complete Modding Guide (2026)：<a href="https://mkbguide.com/blog/fix-rattly-stabilizers-guide">mkbguide.com/blog/fix-rattly-stabilizers-guide</a>（采集 2026-06）</li>
+    <li>KeebTalk — Stabilizers: Plate mount vs PCB mount vs Screw in（UGC 论坛）：<a href="https://www.keebtalk.com/t/stabilizers-plate-mount-vs-pcb-mount-vs-screw-in/3265">keebtalk.com/t/stabilizers-plate-mount-vs-pcb-mount-vs-screw-in/3265</a>（采集 2026-06）</li>
+    <li>Kineticlabs — Plate-Mount vs. PCB-Mount Stabilizers：<a href="https://kineticlabs.com/blog/plate-mount-vs-pcb-mount-stabilizers">kineticlabs.com/blog/plate-mount-vs-pcb-mount-stabilizers</a>（采集 2026-06）</li>
+    <li>MKBGuide — Gasket Mount vs Tray Mount Keyboard：<a href="https://mkbguide.com/blog/gasket-mount-vs-tray-mount-keyboard">mkbguide.com/blog/gasket-mount-vs-tray-mount-keyboard</a>（采集 2026-06）</li>
+    <li>Womier — Mounting Styles: Gasket Mount vs Top Mount Explained：<a href="https://womierkeyboard.com/blogs/news/mechanical-keyboard-mounting-styles-gasket-mount-vs-top-mount-explained">womierkeyboard.com/blogs/news/...gasket-mount-vs-top-mount-explained</a>（采集 2026-06）</li>
+    <li>MKBGuide — PE Foam Mod Guide (2026)：<a href="https://mkbguide.com/blog/pe-foam-mod-guide">mkbguide.com/blog/pe-foam-mod-guide</a>（采集 2026-06）</li>
+    <li>MKBGuide — Tape Mod Guide (2026)：<a href="https://mkbguide.com/blog/tape-mod-guide">mkbguide.com/blog/tape-mod-guide</a>（采集 2026-06）</li>
+    <li>Thock King — Modding Mechanical Keyboards 101：<a href="https://www.thockking.com/blogs/learn/modding-101">thockking.com/blogs/learn/modding-101</a>（采集 2026-06）</li>
+  </ol>
+</section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块三 Task 3.4 结构件 · 采集时点 2026-06 · 行业迭代极快，价格/型号/参数以原文 datasheet 为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

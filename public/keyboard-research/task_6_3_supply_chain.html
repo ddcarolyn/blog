@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 6.3：供应链地理——为什么价格战是结构性的</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块6 · Task 6.3</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块6 · TASK 6.3 · 竞争格局与行业现状</span>
+  <h1>供应链地理：为什么价格战是结构性的</h1>
+  <p class="lede">同一颗轴、同一块 PCB、同一套键帽——全球三大轴厂（Gateron / Kailh / TTC）总部与主产能挤在广东惠州、东莞方圆百公里内。本页只回答一个窄问题：<strong>这种地理高度集中，如何在机制上把"同质化"和"价格战"变成行业的结构性宿命，而不是某家公司的策略选择。</strong></p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards / Hacker News）&gt; 第三方评测/产业报道（Tom's Hardware / 南方日报）&gt; 官方话术（轴厂公司简介）<br>
+  主要来源：Gateron 公司简介、Kailh/凯华官网、TTC/Trantek 官网+南方日报、MKBGuide 轴指南、Tom's Hardware（Cherry 财务危机）、Hacker News（MX 专利讨论）、Alibaba/Shenzhen 采购指南</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ============ 1. 轴厂地理 ============ -->
+  <section>
+    <h2>1. 三大轴厂坐标实锤：不是"在广东"，是"挤在惠州+东莞"</h2>
+    <h3>论述</h3>
+    <p>"国产轴厂在中国"是一句正确但无用的废话。把坐标钉死才有解释力：机械键盘最核心、最难标准化的零件是<strong>轴体（switch）</strong>，而能在全球市场叫得上名的三家——Gateron、Kailh（凯华）、TTC（Trantek/天可）——总部与主产能不是分散在中国各省，而是<strong>集中在珠三角东岸的惠州、东莞两座相邻城市</strong>，直线距离不过五六十公里。再加上做 PCB/组装的深圳、做注塑/键帽的广州，整条"轴—板—帽—壳—组装"链条压在一个一小时车程的圈里。这是后文所有结论的物理前提。</p>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"Gateron is located in Zhongkai High-tech Zone, Huizhou, Guangdong... established in Huizhou in 2000... Kaihua Electronics Co., Ltd. is located at No.1 Lindong 2 Road, Lincun, Tangxia Town, Dongguan... China's Guangdong Province dominates switch manufacturing, specifically within industrial clusters in Huizhou, Dongguan, and Shenzhen."</p><span class="src">— Gateron 公司简介 / Kailh 官网（kailhswitch.com）综合 · <a href="https://en.gateron.cn/intro/1.html">en.gateron.cn</a> / <a href="https://www.kailhswitch.com/">kailhswitch.com</a> · 采集 2026-06</span></div>
+
+    <div class="ugc"><p>"TTC (Trantek) was founded in 1998 in Huizhou, Guangdong... The Huizhou factory spans 32,000 square meters with Swiss-imported precision mold processing... When TTC entered MX-style keyboard switch production after Cherry's patent expired in 2014, it already operated Swiss mold centers, a UL/ENEC-accredited test lab, and 200+ patents."</p><span class="src">— MKBGuide《TTC Switches Complete Guide》 · <a href="https://mkbguide.com/blog/ttc-switches-complete-guide">mkbguide.com</a> · 2026 更新</span></div>
+
+    <p>关键细节：TTC 入局键盘轴前已是 Logitech、Razer、SteelSeries、Dell、HP、Lenovo、Kingston 的<strong>鼠标微动/编码器供应商</strong>（来源同上）。也就是说，这些欧美大厂在"自研轴"叙事之前，零件早就来自惠州。供应链同源不是新鲜事，而是行业出厂设置。</p>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>Gateron</b>：惠州仲恺高新区，2000 年创立；厂房 &gt;10,000 ㎡、员工 &gt;500（来源：Gateron 公司简介，采集 2026-06）。</li>
+      <li><b>Kailh / 凯华（Kaihua Electronics）</b>：东莞塘厦镇（Tangxia Town）林村；母公司 1990 年成立，专精精密电子开关（来源：kailhswitch.com，采集 2026-06）。</li>
+      <li><b>TTC / Trantek（惠州天可）</b>：惠州，1998 年创立；厂房 32,000 ㎡，瑞士进口精密模具、UL/ENEC 双认证测试实验室、200+ 专利；工信部"小巨人"（来源：MKBGuide / 南方日报转载 ttc9.com，采集 2026-06）。</li>
+      <li><b>地理半径</b>：惠州—东莞直线 ~50–60 km，含深圳/广州配套全部落在珠三角一小时经济圈内。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>三大轴厂不是"都在中国"，而是"挤在惠州+东莞"，且其中两家（Gateron、TTC）同城。供应链集中度的真实颗粒度是<strong>城市级、甚至工业园级</strong>，这才是结构性同质化的物理起点。</p>
+  </section>
+
+  <!-- 集群地图 SVG -->
+  <section>
+    <h2>2. 珠三角"轴—板—帽—壳"集群地图</h2>
+    <h3>论述</h3>
+    <p>把坐标画到一张图上，逻辑会自己跳出来：上游（轴）在惠州/东莞，中游（PCB、组装、电子元件）在深圳，注塑/键帽/物流在广州/东莞，彼此都在卡车半日可达的范围。任何一个新品牌要做键盘，不需要建立任何上游能力——它只需在这张图里"拼乐高"。下图按真实城市相对方位重绘（示意，非地理精度）。</p>
+
+    <figure class="framed">
+      <svg viewBox="0 0 720 420" width="720" role="img" aria-label="珠三角轴厂与代工集群地图">
+        <style>
+          .reg{fill:#eaf2f1;stroke:#2f6f6a;stroke-width:1.5}
+          .city{font:12.5px -apple-system,sans-serif;font-weight:700;fill:#1c1a17}
+          .fac{font:10.5px -apple-system,sans-serif;fill:#4a463f}
+          .dot{fill:#c8731f}.dot2{fill:#2f6f6a}
+          .ttl{font:14px -apple-system,sans-serif;font-weight:800;fill:#1c1a17}
+          .note{font:11px -apple-system,sans-serif;fill:#8a8478}
+          .lk{stroke:#c8731f;stroke-dasharray:5 3;stroke-width:1.2;opacity:.7}
+        </style>
+        <text class="ttl" x="20" y="28">珠江三角洲东岸："轴—板—帽—壳—组装"一小时圈（示意图，非测绘精度）</text>
+        <!-- 珠三角区域块 -->
+        <path class="reg" d="M90 80 Q300 55 540 95 Q585 200 510 320 Q300 360 130 305 Q70 190 90 80 Z"/>
+        <text class="note" x="300" y="385" text-anchor="middle" style="font-size:12px;fill:#2f6f6a;font-weight:700">广东省 · 珠江三角洲东岸</text>
+
+        <!-- 广州 -->
+        <circle class="dot2" cx="150" cy="120" r="7"/><text class="city" x="165" y="118">广州 Guangzhou</text>
+        <text class="fac" x="165" y="134">注塑 / 键帽 / 物流枢纽</text>
+
+        <!-- 东莞 Kailh -->
+        <circle class="dot" cx="285" cy="175" r="9"/><text class="city" x="300" y="172">东莞 Dongguan（塘厦镇）</text>
+        <text class="fac" x="300" y="188">Kailh / 凯华（母公司 1990）· 整机代工集群</text>
+
+        <!-- 惠州 Gateron + TTC -->
+        <circle class="dot" cx="470" cy="150" r="11"/><text class="city" x="487" y="148">惠州 Huizhou（仲恺高新区）</text>
+        <text class="fac" x="487" y="164">Gateron（2000）· TTC/Trantek（1998，32,000㎡）</text>
+        <text class="fac" x="487" y="178" style="fill:#b0472b;font-weight:700">两大轴厂同城</text>
+
+        <!-- 深圳 -->
+        <circle class="dot2" cx="370" cy="285" r="8"/><text class="city" x="385" y="283">深圳 Shenzhen（华强北）</text>
+        <text class="fac" x="385" y="299">PCB / 热插拔 / 电子元件 / 小批量组装</text>
+        <text class="fac" x="385" y="313" style="fill:#8a8478">全球最大电子元件集散地</text>
+
+        <!-- 距离标注 -->
+        <line class="lk" x1="470" y1="150" x2="285" y2="175"/>
+        <text class="note" x="365" y="150">惠州↔东莞 ~50–60km</text>
+        <line class="lk" x1="285" y1="175" x2="370" y2="285"/>
+        <line class="lk" x1="470" y1="150" x2="370" y2="285"/>
+        <line class="lk" x1="150" y1="120" x2="285" y2="175"/>
+
+        <!-- 右侧因果框 -->
+        <rect x="555" y="220" width="150" height="170" rx="10" fill="#fbf6ee" stroke="#c8731f"/>
+        <text class="city" x="568" y="242" style="fill:#c8731f;font-size:11.5px">链条压在一个圈里</text>
+        <text class="fac" x="568" y="262">轴 → 惠州/东莞</text>
+        <text class="fac" x="568" y="278">PCB/组装 → 深圳</text>
+        <text class="fac" x="568" y="294">键帽/注塑 → 广州</text>
+        <text class="fac" x="568" y="314" style="fill:#b0472b;font-weight:700">→ 新品牌不需建</text>
+        <text class="fac" x="568" y="328" style="fill:#b0472b;font-weight:700">  任何上游能力</text>
+        <text class="fac" x="568" y="346">只需在图里"拼乐高"</text>
+        <text class="fac" x="568" y="366" style="fill:#8a8478">→ 准入门槛趋近于</text>
+        <text class="fac" x="568" y="380" style="fill:#8a8478">  下单能力</text>
+      </svg>
+      <figcaption>图1：珠三角东岸轴厂—代工集群示意。Gateron/TTC 同处惠州仲恺，Kailh 在东莞塘厦，深圳做 PCB/组装、广州做注塑/键帽。<span class="src">来源：Gateron 公司简介、kailhswitch.com、MKBGuide TTC 指南、Shenzhen 采购指南综合，采集 2026-06</span></figcaption>
+    </figure>
+    <p class="callout"><b>小结：</b>这张图的杀伤力在于：它把"造一把键盘"从"制造问题"降级成了"采购+组装问题"。当上游能力可以整租，<strong>品牌的护城河就只剩下游的营销、设计与渠道</strong>——硬件层面，大家天然同源。</p>
+  </section>
+
+  <!-- ============ 3. Cherry 专利 ============ -->
+  <section>
+    <h2>3. 历史扳机：2014 年 Cherry MX 专利到期，把"造轴"变成公共能力</h2>
+    <h3>论述</h3>
+    <p>地理集中是空间条件，但还需要一个时间扳机才能引爆同质化——那就是 <strong>2014 年 Cherry MX 专利到期</strong>。在此之前，MX 十字轴心的形制受专利保护，轴是"难"的；之后，惠州/东莞的轴厂可以合法量产兼容 MX 的轴，于是 Gateron、Kailh、Outemu 等集体涌入。"造轴"从一项专有技术，变成了珠三角的公共能力。最锋利的反证是 Cherry 自己：发明者如今深陷财务危机、考虑出售外设部门——专利红利消失后，原创者也守不住溢价。</p>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"Once the Cherry MX patent expired in 2014, it led to an explosion of competing switch brands, like Gateron, Kailh, and Outemu... Since the original MX patent expired in 2014, Cherry has faced relentless competition from Asian manufacturers like Gateron and Kailh... the market has been flooded with switches that resemble the established MX switches in both appearance and design."</p><span class="src">— Keyboards Expert《History of Cherry MX》/ WebSearch 综合 · <a href="https://keyboardsexpert.com/the-history-of-cherry-mx-keyboard-switches/">keyboardsexpert.com</a> · 采集 2026-06</span></div>
+
+    <div class="ugc"><p>"Iconic mechanical keyboard switch maker Cherry is in deep financial trouble — the company is considering selling its peripherals division to stay afloat."</p><span class="src">— Tom's Hardware（产业报道，非营销）· <a href="https://www.tomshardware.com/peripherals/keyboards/iconic-mechanical-keyboard-switch-maker-cherry-is-in-deep-financial-trouble-the-company-is-considering-selling-its-peripherals-division-to-stay-afloat">tomshardware.com</a> · 采集 2026-06</span></div>
+
+    <p>这条因果链很干净：专利墙倒 → 造轴能力公共化 → 集群里谁都能拿到合格轴 → 轴本身不再是差异点。连 Cherry 原版"often copied, never reached"的营销话术（cherry.de），也敌不过"copied 得足够便宜、足够好用"的市场现实。注意区分：Cherry 的"无法企及"是<strong>营销话术</strong>；而 Gateron/TTC 在 smoothness benchmark 上已与之比肩，是<strong>第三方评测口径</strong>（MKBGuide）。</p>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>1973/1984</b>：Cherry MX 设计/专利保护起点（来源：Adafruit / Cherry blog）。</li>
+      <li><b>2014</b>：MX 专利到期，TTC 等正是此节点切入 MX 键盘轴（来源：MKBGuide）。</li>
+      <li><b>到期后涌入者</b>：Gateron、Kailh、Outemu、Akko（自研/代工）等——全部珠三角系。</li>
+      <li><b>原创者结局</b>：Cherry 考虑出售外设部门以求生（Tom's Hardware，2025–2026 报道）。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>地理集中（空间）× 专利到期（时间）= 造轴能力彻底公共化。这一步把"硬件差异化"这个变量从竞争方程里基本消掉了，剩下的只能在别处分胜负。</p>
+  </section>
+
+  <!-- ============ 4. 成本结构与价格战机制 ============ -->
+  <section>
+    <h2>4. 价格战的引擎：B2B 出厂价 vs 零售价的鸿沟</h2>
+    <h3>论述</h3>
+    <p>当上游能力可整租、零件高度同源，最后一根稻草是<strong>成本透明</strong>。珠三角采购指南直接把底牌摊在桌上：一把热插拔机械键盘的 B2B 出厂单价（随 MOQ）低至 35 美元，而同类零售要价 55–220 美元。这个鸿沟意味着：任何拿得到集群报价的新进者，都能用一个看似"腰斩"、实则仍有毛利的价格切入。当成千上万的白牌都掌握同一份成本表，价格就成了唯一还能往下压的变量——这不是谁"打"价格战，而是结构逼着所有人跳水。</p>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>预制成品零售："$55–$180"；B2B 平台出厂："$35–$110/unit (MOQ-dependent)"；手工客制工坊："$70–$220"。"Hot-swap sockets (3-pin/5-pin), TRRS audio passthrough, and USB-C detachable cables are now baseline — not premium add-ons."</p><span class="src">— Alibaba《Shenzhen Mechanical Keyboard Guide》· <a href="https://electronics.alibaba.com/buyingguides/shenzhen-mechanical-keyboard-guide-how-to-choose-wisely">electronics.alibaba.com</a> · 采集 2026-06</span></div>
+
+    <div class="ugc"><p>"Guangdong Province serving as the epicenter... mature supply chains for key components like switches, PCBs, and keycaps, reducing production lead times by 30-50% compared to other locations."</p><span class="src">— WebSearch 产业综述（OEM/ODM 集群）· 采集 2026-06 ｜ <span class="pill mid">注：30–50% 缩短为产业方常用宣称值，无一手测量，见证伪状态</span></span></div>
+
+    <p>三句话把机制说透：(1) 出厂价低至 35 美元 → 入场资金门槛极低；(2) 热插拔/USB-C/无线已是 baseline 而非卖点 → 规格无法拉开差距；(3) 交期据称比别处快 30–50% → 上新速度成了仅存的另一个战场。于是出海白牌层的竞争被压成两个维度：<strong>更便宜</strong>，和<strong>更快上新</strong>。</p>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>B2B 出厂价</b>：$35–$110/unit（MOQ 越大越低）。</li>
+      <li><b>预制零售价</b>：$55–$180；客制工坊 $70–$220。</li>
+      <li><b>"价值甜点"</b>：$75–$130（指南口径）。</li>
+      <li><b>规格 baseline</b>：热插拔（3/5-pin）、TRRS、USB-C 可拆线已是标配，非溢价点。</li>
+      <li><b>迭代周期</b>：新布局每 3–6 个月一轮（同指南）。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>低出厂价 + 规格同质 + 快迭代 = 价格与上新速度成为仅剩的两个竞争维度。这就是"价格战是结构性的"最直接的财务证据：成本表人人共享，差异化无处安放。</p>
+  </section>
+
+  <!-- ============ 5. 对比矩阵 ============ -->
+  <section>
+    <h2>5. 对比矩阵：集群"压扁"了哪些差异？</h2>
+    <p>把三大轴厂横向摆开，再看"什么能差异化、什么被集群抹平"。点击表头可高亮列。</p>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1：三大轴厂坐标与定位对照（采集 2026-06，坐标为公开公司信息）</caption>
+      <thead><tr><th>维度</th><th>Gateron</th><th>Kailh / 凯华</th><th>TTC / Trantek</th></tr></thead>
+      <tbody>
+        <tr><td>总部/主产能</td><td>惠州 仲恺高新区</td><td>东莞 塘厦镇林村</td><td>惠州（与 Gateron 同城）</td></tr>
+        <tr><td>创立/母公司</td><td>2000</td><td>母公司 1990</td><td>1998</td></tr>
+        <tr><td>切入键盘轴时机</td><td>MX 专利后（~2014 起放量）</td><td>MX 专利后</td><td>2014（专利到期当年）</td></tr>
+        <tr><td>原始基因</td><td>键盘轴起家</td><td>鼠标微动/工业开关</td><td>鼠标微动/编码器（供 Logitech/Razer 等）</td></tr>
+        <tr><td>差异点（还能打的）</td><td>规模/性价比/铺货广</td><td>Box 结构防尘/工业资历</td><td>32,000㎡+瑞士模具+UL/ENEC 实验室+200 专利</td></tr>
+        <tr><td>是否被集群抹平</td><td colspan="3" style="text-align:center"><span class="pill bad">兼容 MX、互可替换、品牌可任选其一拿货 → 对终端"轴"层面差异趋零</span></td></tr>
+      </tbody>
+    </table></div>
+
+    <div class="table-scroll"><table class="matrix">
+      <caption>表2：什么能差异化 vs 什么被广东集群"压扁"</caption>
+      <thead><tr><th>竞争要素</th><th>集群效应</th><th>结果</th></tr></thead>
+      <tbody>
+        <tr><td>轴体</td><td>三厂同省、兼容 MX、可互换</td><td><span class="pill bad">同质化</span></td></tr>
+        <tr><td>PCB/热插拔/无线方案</td><td>深圳成熟方案、已成 baseline</td><td><span class="pill bad">同质化</span></td></tr>
+        <tr><td>键帽/外壳</td><td>广州/东莞注塑可代工</td><td><span class="pill mid">半同质（材质/工艺可微调）</span></td></tr>
+        <tr><td>出厂成本</td><td>成本表人人共享（$35 起）</td><td><span class="pill bad">逼向价格战</span></td></tr>
+        <tr><td>上新速度</td><td>交期称快 30–50%、3–6 月一轮</td><td><span class="pill mid">少数仍能拼的维度</span></td></tr>
+        <tr><td>品牌/营销/社区/设计语言</td><td>不在广东、无法被代工</td><td><span class="pill good">真护城河所在</span></td></tr>
+        <tr><td>软件/磁轴算法/调校</td><td>需自研，集群不提供</td><td><span class="pill good">真护城河所在</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="callout"><b>小结：</b>集群抹平了"硬件层"，但抹不平"品牌/软件/设计语言"。<strong>同质化是真的，但它只发生在硬件这一层</strong>——这正好指向逃离价格战的出口。</p>
+  </section>
+
+  <!-- ============ 6. 洞察与机会 ============ -->
+  <section>
+    <h2>6. 关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察 1 · 价格战不是道德问题，是地理问题。</b>当三大轴厂同省、造轴能力 2014 后公共化、出厂成本表人人共享，出海白牌层除了价格与上新速度<strong>没有第二个能打的硬件维度</strong>。指望靠"用料更好"在这一层突围，等于在结构里逆水行舟。</p>
+    <p class="callout"><b>洞察 2 · 真护城河全在"集群造不出来的东西"。</b>广东能代工轴、板、帽、壳，但代工不了品牌叙事、社区、软件调校与磁轴算法。Cherry 的衰落（原创轴也守不住溢价）反证：<strong>护城河早已从"零件"迁移到"零件之外"。</strong></p>
+    <p class="callout"><b>机会 A · 软件/调校层做差异。</b>同一颗集群轴，配上自研的 Rapid Trigger 调校、按键级 actuation 自定义、跨设备同步固件，就能在硬件同源下卖出溢价（Wooting 路径）。这是集群够不到的层。</p>
+    <p class="callout"><b>机会 B · 把"上新速度"反向用成品牌资产。</b>既然集群让 3–6 月一轮成为可能，与其追平价格，不如把高频迭代做成"限量/联名/季节款"的内容化运营，把速度优势从价格战转成社区粘性。</p>
+    <p class="callout"><b>机会 C · 服务与体验层。</b>退换、保修、社区、教程、生态配件——这些不进集群成本表，却是白牌普遍缺失的，恰是中腰品牌（Keychron 式）抬高客单与复购的缺口。</p>
+    <p class="callout"><b>对小白的实操含义：</b>同价位白牌的"轴"大概率同源，纠结哪家轴厂意义不大；真正拉开体验的是<strong>外壳/键帽工艺、软件可玩性、品牌的售后与社区</strong>。买之前看这些，而不是看"用了谁家轴"。</p>
+  </section>
+
+  <!-- ============ Caveats ============ -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge confirmed">已核实=成立</span> <strong>H6.3-轴厂集中</strong>：Gateron（惠州仲恺）、TTC（惠州）、Kailh（东莞塘厦）三大轴厂确实高度集中于珠三角东岸，惠州+东莞两城为核心，Gateron 与 TTC 同城。坐标来自各家公开公司信息，结论站得住。</li>
+      <li><span class="fbadge confirmed">已核实=成立</span> <strong>专利扳机</strong>：2014 Cherry MX 专利到期触发 Gateron/Kailh/Outemu 集体涌入，"造轴公共化"获多源佐证；原创者 Cherry 财务危机（Tom's Hardware）反向印证。</li>
+      <li><span class="fbadge confirmed">已核实=成立</span> <strong>成本鸿沟</strong>：B2B 出厂 $35–$110 vs 零售 $55–$220 的鸿沟，且热插拔/USB-C/无线已 baseline，支撑"价格与上新速度是仅存战场"的机制论。</li>
+      <li><span class="fbadge partial">部分</span> <strong>"交期快 30–50%"</strong>：该数字为产业方/采购指南常用宣称，多处复现但无一手测量或对照基准，仅作量级参考，不可精确引用。</li>
+      <li><span class="fbadge open">仍开放</span> <strong>整机代工地理</strong>：轴厂集中已确认，但成品键盘 OEM/ODM 是否同样集中于广东、抑或已外溢至江浙/越南，缺一手产能与产值数据。搜索显示 Keyceo（深圳+东莞）、Womier（深圳+东莞）等仍在珠三角，但样本不足以定量。</li>
+      <li><span class="fbadge open">仍开放</span> <strong>"自研轴=同源代工"的覆盖率</strong>：欧美大厂"自研轴"中究竟多大比例由珠三角三厂代工/同源，无逐厂披露，TTC 供 Logitech/Razer 鼠标微动是已知事实，但键盘轴层面的代工占比无一手数据。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 来源 ============ -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>GATERON — 公司简介（惠州仲恺，2000 创立）：<a href="https://en.gateron.cn/intro/1.html">en.gateron.cn/intro/1.html</a>（采集 2026-06）</li>
+      <li>Kaihua Electronics（Kailh/凯华）— 官网（东莞塘厦镇）：<a href="https://www.kailhswitch.com/">kailhswitch.com</a>（采集 2026-06）</li>
+      <li>MKBGuide — TTC Switches Complete Guide（惠州 Trantek，1998，32,000㎡，供 Logitech/Razer 等）：<a href="https://mkbguide.com/blog/ttc-switches-complete-guide">mkbguide.com/blog/ttc-switches-complete-guide</a>（采集 2026-06）</li>
+      <li>Huizhou Zhengpai/Trantek（TTC）— 南方日报转载《从产品制造者到标准制定者》：<a href="http://en.ttc9.com/news/48.html">en.ttc9.com/news/48.html</a>（采集 2026-06）</li>
+      <li>Keyboards Expert — The History of Cherry MX Keyboard Switches（2014 专利到期与 Gateron/Kailh/Outemu 涌入）：<a href="https://keyboardsexpert.com/the-history-of-cherry-mx-keyboard-switches/">keyboardsexpert.com</a>（采集 2026-06）</li>
+      <li>Tom's Hardware — Cherry in deep financial trouble, considering selling peripherals division：<a href="https://www.tomshardware.com/peripherals/keyboards/iconic-mechanical-keyboard-switch-maker-cherry-is-in-deep-financial-trouble-the-company-is-considering-selling-its-peripherals-division-to-stay-afloat">tomshardware.com</a>（采集 2026-06）</li>
+      <li>Hacker News — 讨论：Cherry MX 专利 2014 到期对市场的影响：<a href="https://news.ycombinator.com/item?id=46073031">news.ycombinator.com/item?id=46073031</a>（采集 2026-06）</li>
+      <li>Alibaba — Shenzhen Mechanical Keyboard Guide（B2B 出厂价 $35–110、热插拔/USB-C baseline、3–6 月迭代、华强北集群）：<a href="https://electronics.alibaba.com/buyingguides/shenzhen-mechanical-keyboard-guide-how-to-choose-wisely">electronics.alibaba.com</a>（采集 2026-06）</li>
+      <li>Keyceo — OEM Keyboard &amp; Mouse Manufacturer（深圳办公室+东莞工厂，整机代工样本）：<a href="https://www.keyceo.com/">keyceo.com</a>（采集 2026-06）</li>
+      <li>LumeKeebs — Gateron Factory Tour（轴体制造工艺一手见闻）：<a href="https://lumekeebs.com/blogs/blog/gateron-factory-tour-learn-how-mechanical-keyboard-switches-are-made">lumekeebs.com</a>（采集 2026-06）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块6 Task 6.3 · 采集时点 2026-06 · 价格/型号/产能随行业迭代变化，以原文为准；轴厂坐标为公开公司信息 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

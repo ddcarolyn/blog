@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 2.1：六类键盘工作原理逐类图解</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* 仅本页：SVG 剖面图与触发时序条，复用模板色板 */
+.switch-svg{width:100%;height:auto;display:block;background:#fff;border-radius:8px;border:1px solid #e6e9f0}
+.svg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media(max-width:780px){.svg-grid{grid-template-columns:1fr}}
+.legend-row{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:#556;margin:.6rem 0 0}
+.legend-row b{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:4px}
+.type-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:.2rem 0 .4rem}
+.type-head .en{font-size:.85rem;color:#7a8194;font-weight:400}
+.trigmech{background:#f3f6fb;border-left:4px solid #2b6cb0;padding:.7rem .9rem;border-radius:0 8px 8px 0;margin:.6rem 0}
+.trigmech b{color:#2b6cb0}
+.miniref{font-size:.82rem;color:#667;margin:.3rem 0 0}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块2 · Task 2.1</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块2 · TASK 2.1 · 工作原理</span>
+  <h1>六类键盘工作原理逐类图解</h1>
+  <p class="lede">机械 / 静电容(Topre) / 薄膜 / 剪刀脚 / 光轴 / 磁轴——每类一张自绘剖面原理图，配一句「机器到底是怎么知道你按了」的白话拆解。本页只回答一个窄问题：<b>按下去那一刻，里面发生了什么</b>；手感/声音/价格横评见 Task 2.2，机械内部轴体见模块3。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards、r/Topre、r/Keyboard）&gt; 第三方评测（Tom's Hardware、Deskthority、ThereminGoat）&gt; 官方话术（HHKB、Wooting、Cherry、Razer）<br>
+  主要来源：Deskthority wiki · Tom's Hardware · HHKB 官方 · Wooting 官方 · Cherry 官方 · KeebsForAll · 各厂商技术页（完整清单见文末编号索引）</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- 导读 -->
+  <section>
+    <div class="callout">
+      <strong>看懂六类只需抓两条线：</strong>① <b>「机器怎么知道你按了」</b>（感应方式）——金属触点 / 电容感应 / 薄膜导通 / 光路遮断 / 磁场测量；② <b>「你的手指在对抗什么」</b>（回弹来源）——弹簧 vs 橡胶碗。第一条决定<em>寿命·速度·可调性</em>，第二条决定<em>手感·声音</em>。下面六张剖面图，每张都把这两条线标出来。
+    </div>
+    <div class="legend-row" style="margin-top:14px">
+      <span><b style="background:#e07b39"></b>弹簧 / 剪刀支架（回弹）</span>
+      <span><b style="background:#8e44ad"></b>橡胶碗（回弹+阻力）</span>
+      <span><b style="background:#c0392b"></b>感应 / 触点（出信号处）</span>
+      <span><b style="background:#f1c40f"></b>光路</span>
+      <span><b style="background:#16a085"></b>霍尔传感器</span>
+    </div>
+  </section>
+
+  <!-- ========== 1 机械 ========== -->
+  <section>
+    <div class="type-head"><h2 style="margin:0">1. 机械轴 <span class="en">Mechanical (metal-contact, e.g. Cherry MX)</span></h2></div>
+    <h3>论述：两片金属叶片相碰=导通</h3>
+    <p>机械轴是「金属接触式」的代名词。每颗轴是独立的塑料壳，内含一根弹簧（提供回弹）和一组金属叶片（提供信号）。按下时，轴芯（stem）的斜面推开/放开金属叶片，让两片金属在某个深度<b>物理相碰</b>，电路导通——这一刻就是「actuation 触发点」，通常在 ~2mm 处（4mm 全键程）。线性/段落/带响三种手感的差异，全在轴芯斜面的形状（是否有凸起的「坎」、是否带咔哒片），而非感应原理本身。</p>
+
+    <figure class="framed">
+      <svg class="switch-svg" viewBox="0 0 260 190" role="img" aria-label="机械轴剖面原理图">
+        <rect x="0" y="0" width="260" height="190" fill="#fff"/>
+        <rect x="24" y="160" width="212" height="14" fill="#2b6cb0" opacity=".15"/>
+        <text x="130" y="171" font-size="9" text-anchor="middle" fill="#2b6cb0">PCB 电路板</text>
+        <rect x="105" y="18" width="34" height="30" rx="3" fill="#2b6cb0"/>
+        <text x="122" y="13" font-size="9" text-anchor="middle" fill="#334">十字柱（接键帽）</text>
+        <path d="M72 46 h100 v112 h-100 z" fill="#e8eef7" stroke="#2b6cb0" stroke-width="2"/>
+        <path d="M97 64 l50 8 -50 8 50 8 -50 8 50 8 -50 8" fill="none" stroke="#e07b39" stroke-width="2.2"/>
+        <text x="178" y="96" font-size="9" fill="#e07b39">弹簧（回弹）</text>
+        <path d="M84 126 q12 -7 24 0" fill="none" stroke="#c0392b" stroke-width="3"/>
+        <path d="M136 126 q12 7 24 0" fill="none" stroke="#c0392b" stroke-width="3"/>
+        <circle cx="122" cy="129" r="3.4" fill="#c0392b"/>
+        <text x="122" y="150" font-size="9" text-anchor="middle" fill="#c0392b">两片金属叶片相碰=导通</text>
+      </svg>
+      <figcaption>图1 机械轴：弹簧提供回弹，轴芯下行时让两片金属叶片在 ~2mm 处接触导通。<span class="src">原理综合 Deskthority / Tom's Hardware，2026-06；自绘示意</span></figcaption>
+    </figure>
+
+    <div class="trigmech"><b>白话触发机制：</b>把它想成一个迷你电灯开关。你往下按 → 轴芯滑过弹簧 → 到某个深度，里面两片金属「啪」地碰上 → 电路通了 → 主板收到「这个键被按了」。松手 → 弹簧把轴芯顶回去 → 金属分开 → 信号断。</p></div>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"A mechanical switch uses a physical, spring-activated mechanism... when you press the key the stem moves down and the metal contact leaves (closes) the circuit, registering the keypress."</p><span class="src">— Deskthority wiki · Mechanical key switch 词条 · <a href="https://deskthority.net/wiki/Switch">deskthority.net/wiki/Switch</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Because each switch is a discrete part, a dead switch can be desoldered and replaced individually — this is the single biggest reason mechanical is the hobbyist default."</p><span class="src">— r/MechanicalKeyboards 社区常识（维修性主张，多帖复述）· <a href="https://www.reddit.com/r/MechanicalKeyboards/">r/MechanicalKeyboards</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>触发点：</b>典型 ~2mm；全键程 ~4mm（Cherry MX 规格）。</li>
+      <li><b>寿命：</b>厂商标称 <b>5000万–1亿次/键</b>（金属叶片机械，区间因厂牌/做工而异）。来源 1/5。</li>
+      <li><b>去抖延迟：</b>金属接触会「弹跳」，固件需 debounce，常见 ~5ms 量级——这是后文光轴/磁轴主打「更快」的对照基准。来源 3。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>机械=「物理金属开关」。优点是可换轴、可维修、手感谱系最丰富；代价是金属会磨损、接触有去抖延迟。它是其余五类的「参照系」。</p>
+  </section>
+
+  <!-- ========== 2 静电容 Topre ========== -->
+  <section>
+    <div class="type-head"><h2 style="margin:0">2. 静电容 / Topre <span class="en">Electrostatic Capacitive (EC)</span></h2></div>
+    <h3>论述：橡胶碗给阻力，锥形弹簧改变电容</h3>
+    <p>Topre 是六类里唯一「<b>无接触感应</b>+橡胶碗阻力」的混血。轴芯下方是一个橡胶碗（dome，提供绝大部分阻力和那种「肉感」），碗内立着一根<b>锥形弹簧（conical spring）</b>。按下时橡胶碗被压塌、锥形弹簧随之被压缩、靠近 PCB——PCB 上的电容感应电路检测到<b>电容值的变化</b>，在按到一半（mid-actuation）时就判定触发。关键点：弹簧<b>不导电、不碰任何金属触点</b>，它只是个「改变电容的金属物体」。这也是为什么 Topre 既不是纯橡胶碗、也不是 Cherry 式金属接触机械。</p>
+
+    <figure class="framed">
+      <svg class="switch-svg" viewBox="0 0 260 190" role="img" aria-label="Topre 静电容剖面原理图">
+        <rect x="0" y="0" width="260" height="190" fill="#fff"/>
+        <rect x="24" y="160" width="212" height="14" fill="#2b6cb0" opacity=".15"/>
+        <text x="130" y="171" font-size="9" text-anchor="middle" fill="#2b6cb0">PCB（电容感应电极）</text>
+        <rect x="105" y="18" width="34" height="26" rx="3" fill="#2b6cb0"/>
+        <text x="122" y="13" font-size="9" text-anchor="middle" fill="#334">滑柱（接键帽）</text>
+        <path d="M70 122 q52 -78 104 0" fill="none" stroke="#8e44ad" stroke-width="4"/>
+        <text x="182" y="86" font-size="9" fill="#8e44ad">橡胶碗（阻力+肉感）</text>
+        <path d="M106 74 l34 0 -9 13 -16 0 -5 13 26 0 -5 13 -16 0 0 14" fill="none" stroke="#e07b39" stroke-width="2.2"/>
+        <text x="122" y="156" font-size="9" text-anchor="middle" fill="#c0392b">锥形弹簧靠近→电容变→触发</text>
+      </svg>
+      <figcaption>图2 静电容 Topre：橡胶碗提供阻力，碗内锥形弹簧被压时靠近 PCB、改变电容值，电路「隔空」感知按压。<span class="src">原理据 Deskthority wiki / HHKB 官方，2026-06；自绘示意</span></figcaption>
+    </figure>
+
+    <div class="trigmech"><b>白话触发机制：</b>想象碗底有个「靠得越近、读数越大」的距离感应器。你按下 → 橡胶碗软软地塌、把里面那根锥形弹簧往下推 → 弹簧离感应电极越来越近 → 电容读数过线 → 判定「按了」。全程没有任何金属真正碰在一起，所以没有金属磨损、没有触点弹跳。</p></div>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"The conical spring sits inside the dome and changes capacitance (to register a keypress) when compressed... a capacitive sensing mechanism on the PCB senses the keypress mid-actuation."</p><span class="src">— HHKB 官方 Topre Switches Guide（注意：官方+营销立场）· <a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us/blog/topre-switches</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Topre is known for the 'thock' — a low-frequency, rounded thump rather than the high-pitched clack found in most MX or Hall Effect boards. It's a sound you feel as much as you hear."</p><span class="src">— ThoccExchange · The Ultimate Topre Keyboard Guide（第三方零售/评测）· <a href="https://thoccexchange.com/blogs/news/the-ultimate-topre-keyboard-guide-from-electrocapacitive-basics-to-expert-mods">thoccexchange.com</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>感应：</b>电容式无接触；触发在 mid-actuation（约键程一半）。</li>
+      <li><b>寿命：</b>厂商标称 <b>~5000万次/键</b>（无金属触点磨损，但橡胶碗会老化）。来源 1。</li>
+      <li><b>可定制：</b>极低——专有结构、无法热插拔换轴；社区改装多停留在润滑/silencing/换 dome 层面。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>Topre 把「电容无接触感应」和「橡胶碗肉感」缝在一起，造出独一份的「thock」手感。它常被官方归为 mechanical，但社区主流把它单列为 <b>EC / 半机械</b>——分类争议见 Task 2.2。</p>
+  </section>
+
+  <!-- ========== 3 薄膜 ========== -->
+  <section>
+    <div class="type-head"><h2 style="margin:0">3. 薄膜 <span class="en">Membrane / Rubber Dome</span></h2></div>
+    <h3>论述：三层柔性膜，上下透孔相触=导通</h3>
+    <p>薄膜是「最便宜、最常见、整块一体」的方案。核心是三层柔性塑料膜：<b>上膜（印有线路）</b>、<b>中间隔离层（在每个键位开孔）</b>、<b>下膜（印有线路）</b>。每个键帽下是一个橡胶碗。按下时橡胶碗塌陷，把上膜从隔离层的孔里压下去，让上、下两层膜的导电线路<b>透过孔接触</b>，电路导通。整块膜是一体的——好处是防尘防水、成本极低；坏处是<b>坏一个键往往要换整块</b>，且回弹全靠橡胶碗、终点模糊，就是被吐槽的「mushy（糊）」。</p>
+
+    <figure class="framed">
+      <svg class="switch-svg" viewBox="0 0 260 190" role="img" aria-label="薄膜三层膜剖面原理图">
+        <rect x="0" y="0" width="260" height="190" fill="#fff"/>
+        <rect x="100" y="12" width="60" height="22" rx="4" fill="#2b6cb0"/>
+        <text x="130" y="8" font-size="9" text-anchor="middle" fill="#334">键帽</text>
+        <path d="M88 80 q42 -46 84 0" fill="none" stroke="#8e44ad" stroke-width="4"/>
+        <text x="178" y="56" font-size="9" fill="#8e44ad">橡胶碗</text>
+        <rect x="40" y="102" width="180" height="7" fill="#2b6cb0"/><text x="226" y="108" font-size="8" fill="#2b6cb0" text-anchor="end">上膜(线路)</text>
+        <rect x="40" y="115" width="180" height="7" fill="#bbb"/><text x="226" y="121" font-size="8" fill="#888" text-anchor="end">隔离层(开孔)</text>
+        <rect x="40" y="128" width="180" height="7" fill="#c0392b"/><text x="226" y="134" font-size="8" fill="#c0392b" text-anchor="end">下膜(线路)</text>
+        <text x="130" y="160" font-size="9" text-anchor="middle" fill="#334">压下→上下两层透孔相触=导通</text>
+      </svg>
+      <figcaption>图3 薄膜：三层柔性膜，按压让上膜透过隔离孔与下膜接触导通；橡胶碗负责回弹。<span class="src">原理据 KeebsForAll / Metal-Domes，2026-06；自绘示意</span></figcaption>
+    </figure>
+
+    <div class="trigmech"><b>白话触发机制：</b>想象三明治：上面一片印电线，中间一片在每个键位戳了个洞，下面一片也印电线。你按键 → 橡胶碗塌下去把上面那片从洞里顶下去 → 上下两片电线碰上 → 通电=「按了」。松手橡胶碗弹回，电线分开。整桌键盘共用这一套三明治，所以便宜，但一处破了基本整块报废。</p></div>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"When a key is pressed, this rubber dome collapses, pushing the top membrane down through the hole in the spacer layer... forcing the conductive traces on the top membrane to make contact with the corresponding traces on the bottom membrane, completing the circuit."</p><span class="src">— Metal-Domes 技术博客 · What are rubber dome key switches · <a href="https://www.metal-domes.com/blog/2025/05/08/what-are-rubber-dome-key-switches/">metal-domes.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Over time, these domes can degrade, losing their elasticity... eventually failing to bounce back or register presses reliably." — 即 UGC 里反复出现的「用久了越来越糊/某个键失灵」。</p><span class="src">— Metal-Domes / 行业资料（与 r/Keyboard 廉价键盘吐槽一致）· <a href="https://www.metal-domes.com/blog/2024/10/09/what-is-a-switch-rubber-dome/">metal-domes.com</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>感应：</b>薄膜接触式（两层导电膜相碰）。</li>
+      <li><b>寿命：</b>典型 <b>500万–1000万次/键</b>，六类里最低；橡胶碗老化是主要失效模式。来源 5。</li>
+      <li><b>价格：</b>整机 $10–$40，六类最低。可定制性≈0。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>薄膜=最低成本、最高一体化的「橡胶碗+三层膜」方案。它定义了「糊」这个贬义词的来源，也是机械键盘要逃离的「默认体验」。</p>
+  </section>
+
+  <!-- ========== 4 剪刀脚 ========== -->
+  <section>
+    <div class="type-head"><h2 style="margin:0">4. 剪刀脚 <span class="en">Scissor Switch</span></h2></div>
+    <h3>论述：薄膜底子 + X 形剪刀支架稳定键帽</h3>
+    <p>剪刀脚不是另起炉灶的新感应原理——它<b>底层仍是橡胶碗+薄膜</b>，触发方式和薄膜一模一样。它真正的创新在键帽和橡胶碗之间多了一组 <b>X 形交叉的塑料支架（像剪刀的两片刃，中间铰接）</b>。这个支架的作用是：① 把键帽压得很薄；② 让你按键帽<b>任何一个角</b>都能均匀、垂直地把橡胶碗压下去，不会卡、不会歪。代价是键程被压到 ~1–2mm，手感「干脆短促」而非全键程。这就是笔记本、Apple Magic Keyboard 那种「薄、稳、安静」的来源。</p>
+
+    <figure class="framed">
+      <svg class="switch-svg" viewBox="0 0 260 190" role="img" aria-label="剪刀脚剖面原理图">
+        <rect x="0" y="0" width="260" height="190" fill="#fff"/>
+        <rect x="60" y="20" width="140" height="16" rx="4" fill="#2b6cb0"/>
+        <text x="130" y="14" font-size="9" text-anchor="middle" fill="#334">超薄键帽</text>
+        <line x1="84" y1="40" x2="170" y2="98" stroke="#e07b39" stroke-width="3.2"/>
+        <line x1="170" y1="40" x2="84" y2="98" stroke="#e07b39" stroke-width="3.2"/>
+        <circle cx="127" cy="69" r="4.4" fill="#e07b39"/>
+        <text x="178" y="72" font-size="9" fill="#e07b39">X 形剪刀支架</text>
+        <path d="M104 98 q23 -24 46 0" fill="none" stroke="#8e44ad" stroke-width="3"/>
+        <text x="178" y="96" font-size="9" fill="#8e44ad">橡胶碗</text>
+        <rect x="48" y="116" width="164" height="9" fill="#c0392b" opacity=".45"/>
+        <text x="130" y="146" font-size="9" text-anchor="middle" fill="#334">短键程~1–2mm，底层仍是薄膜导通</text>
+      </svg>
+      <figcaption>图4 剪刀脚：X 形剪刀支架稳定并压低键帽，按压仍由橡胶碗+薄膜完成导通。<span class="src">原理据 Deskthority / Cherry 官方 SX，2026-06；自绘示意</span></figcaption>
+    </figure>
+
+    <div class="trigmech"><b>白话触发机制：</b>感应部分和薄膜<b>完全一样</b>（橡胶碗塌→两层膜相碰→通电）。剪刀脚只是在上面加了个「剪刀架」当导轨——让又薄又大的键帽不管你按哪个角都能平稳直上直下，不晃不卡。所以它是「更薄、更稳的薄膜」，不是新感应原理。</p></div>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"The scissor switch is actually a (typically plastic) stabilizer designed for all keys on a low-profile keyboard, typically using rubber dome switches... As with rubber-dome technology, the compression of the dome closes the electrical contact."</p><span class="src">— Deskthority wiki · Scissor switch 词条 · <a href="https://deskthority.net/wiki/Scissor_switch">deskthority.net/wiki/Scissor_switch</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"The scissor ensures an even distribution of pressure on the rubber dome, which provides solid tactile feedback... key travel is usually in the 1.0–2.5 mm range."</p><span class="src">— Cherry 官方 · Scissor Technology (SX) 说明 · <a href="https://www.cherry.de/en-gb/company/cherry-technologies/scissor-technology">cherry.de</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>感应：</b>同薄膜（橡胶碗+膜导通）。</li>
+      <li><b>键程：</b>~1.0–2.5mm（Cherry/Deskthority），明显短于全键程类。</li>
+      <li><b>寿命：</b>约 <b>1000万–2000万次/键</b>（各源不一，本页取保守区间）；最大优势是薄、轻、安静。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>剪刀脚=「为便携而生的薄膜升级版」。它解决的是「键帽要薄又要稳」的工程问题，不是感应问题。把它和薄膜归在「薄膜导通」一脉，是理解六类的关键。</p>
+  </section>
+
+  <!-- ========== 5 光轴 ========== -->
+  <section>
+    <div class="type-head"><h2 style="margin:0">5. 光轴 <span class="en">Optical Switch</span></h2></div>
+    <h3>论述：柱体遮断红外光束=触发，无金属接触</h3>
+    <p>光轴外形像机械轴（也有弹簧、轴芯、十字柱，手感接近机械），但<b>感应方式换成了光</b>。轴体内一侧有红外 LED，另一侧有光敏接收管，中间是一束红外光。轴芯上有个挡片，按到触发深度时<b>挡片切断（或在某些设计里接通）这束光</b>，接收管检测到「光信号从有到无」，立刻判定触发。因为信号是「光通/不通」这种干净的数字态，<b>不需要 debounce 去抖延迟</b>——这是光轴主打「更快」的核心论据。同时没有金属触点摩擦，寿命更长。</p>
+
+    <figure class="framed">
+      <svg class="switch-svg" viewBox="0 0 260 190" role="img" aria-label="光轴剖面原理图">
+        <rect x="0" y="0" width="260" height="190" fill="#fff"/>
+        <rect x="105" y="18" width="34" height="30" rx="3" fill="#2b6cb0"/>
+        <text x="122" y="13" font-size="9" text-anchor="middle" fill="#334">柱+弹簧</text>
+        <path d="M72 46 h100 v104 h-100 z" fill="#e8eef7" stroke="#2b6cb0" stroke-width="2"/>
+        <path d="M97 60 l50 8 -50 8 50 8 -50 8" fill="none" stroke="#e07b39" stroke-width="2.2"/>
+        <circle cx="78" cy="120" r="6.5" fill="#f1c40f"/><text x="54" y="123" font-size="8" fill="#b8860b">LED</text>
+        <circle cx="166" cy="120" r="6.5" fill="#c0392b"/><text x="174" y="123" font-size="8" fill="#c0392b">光敏</text>
+        <line x1="85" y1="120" x2="159" y2="120" stroke="#f1c40f" stroke-width="2" stroke-dasharray="4 3"/>
+        <rect x="117" y="104" width="10" height="42" fill="#2b6cb0"/>
+        <text x="122" y="166" font-size="9" text-anchor="middle" fill="#334">挡片落下遮断红外光束=触发</text>
+      </svg>
+      <figcaption>图5 光轴：轴芯挡片下落遮断 LED→光敏管的红外光束即触发，无金属接触、无去抖延迟。<span class="src">原理据 Tom's Hardware / Razer，2026-06；自绘示意</span></figcaption>
+    </figure>
+
+    <div class="trigmech"><b>白话触发机制：</b>把它想成红外感应门：轴里横着一束看不见的红外光。你按键 → 轴芯带着挡片落下来 → 把这束光「挡住」 → 对面的光敏管发现「光没了」 → 立刻报「按了」。因为是光，开关干净利落，主板不用像金属触点那样等几毫秒去抖——这就是「更快」的来源。</p></div>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"Since an infrared light beam is either blocked or unblocked — a clean, digital signal — there is no need for a debounce delay. Traditional switches are burdened with debounce delays around 5–10ms, while optical technology eliminates this."</p><span class="src">— Tom's Hardware · What Are Optical Keyboard Switches · <a href="https://www.tomshardware.com/news/what-are-optical-keyboard-switches,32352.html">tomshardware.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"The stem blocks or alters the light beam as it moves, and the sensor instantly detects the change in light... light signal transmission and detection are almost instant."</p><span class="src">— Keyboard Gurus · Optical Switches Guide（第三方）· <a href="https://keyboardgurus.com/mechanical-keyboards/keyboard-optical">keyboardgurus.com</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>感应：</b>光路遮断（红外光通/断）。</li>
+      <li><b>去抖延迟：</b>厂商主张接近 0（对照机械 ~5–10ms debounce）。来源 3。</li>
+      <li><b>寿命：</b>厂商标称 <b>≥1亿次/键</b>（无金属磨损）；价格 $80–$500（Razer Huntsman 系列）。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>光轴=「机械的壳 + 光的感应」。卖点是无去抖延迟、寿命长；但触发点固定、可定制性中等，且 UGC 提醒「实际寿命更受塑料件/弹簧老化制约」，≥1亿多为标称。</p>
+  </section>
+
+  <!-- ========== 6 磁轴 ========== -->
+  <section>
+    <div class="type-head"><h2 style="margin:0">6. 磁轴（霍尔效应）<span class="en">Magnetic / Hall Effect</span></h2></div>
+    <h3>论述：测磁场强度→反推按下深度，触发点可调</h3>
+    <p>磁轴是六类里唯一<b>「模拟量」</b>感应的：轴芯底部固定一块小磁铁，正下方 PCB 上是霍尔传感器。按下时磁铁靠近传感器，磁场增强；霍尔传感器<b>连续测量磁场强度</b>，再经 MCU 的 ADC（模数转换）换算出「这个键此刻被按下了多少毫米」。这意味着它知道的不是「按了/没按」两态，而是<b>整段 0–4mm 的连续深度</b>。于是触发点可由软件任意设定（0.1–3.8mm），并能实现 <b>Rapid Trigger</b>：取消固定复位点，按下即触发、一回弹即复位，靠「移动方向」判断意图——这是 CS2 等竞技玩家追捧的原因。</p>
+
+    <figure class="framed">
+      <svg class="switch-svg" viewBox="0 0 260 190" role="img" aria-label="磁轴霍尔效应剖面原理图">
+        <rect x="0" y="0" width="260" height="190" fill="#fff"/>
+        <rect x="105" y="18" width="34" height="30" rx="3" fill="#2b6cb0"/>
+        <text x="122" y="13" font-size="9" text-anchor="middle" fill="#334">柱+弹簧</text>
+        <path d="M72 46 h100 v104 h-100 z" fill="#e8eef7" stroke="#2b6cb0" stroke-width="2"/>
+        <path d="M97 60 l50 8 -50 8 50 8 -50 8" fill="none" stroke="#e07b39" stroke-width="2.2"/>
+        <rect x="108" y="104" width="28" height="16" fill="#c0392b"/>
+        <text x="122" y="100" font-size="8" text-anchor="middle" fill="#c0392b">磁铁</text>
+        <path d="M108 112 q-22 16 0 30" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+        <path d="M136 112 q22 16 0 30" fill="none" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 2"/>
+        <rect x="98" y="138" width="48" height="11" rx="2" fill="#16a085"/>
+        <text x="122" y="146" font-size="7" text-anchor="middle" fill="#fff">霍尔传感器</text>
+        <text x="122" y="168" font-size="9" text-anchor="middle" fill="#334">测磁场强度→算深度（触发点可调）</text>
+      </svg>
+      <figcaption>图6 磁轴：轴底磁铁随按压靠近霍尔传感器，连续测磁场强度反推按下深度，触发点 0.1–3.8mm 可调、支持 Rapid Trigger。<span class="src">原理据 Wooting 官方 / MelGeek，2026-06；自绘示意</span></figcaption>
+    </figure>
+
+    <div class="trigmech"><b>白话触发机制：</b>轴底有块小磁铁，正下方有个「能测磁力大小」的传感器。你按得越深，磁铁离传感器越近、磁力读数越大——传感器据此实时算出「现在按到第几毫米」。因为它读的是连续深度（不是开关两态），你可以自己设「按到 0.5mm 就算触发」，还能开 Rapid Trigger：一往下就触发、一回弹就松开，反应快到适合电竞。</p></div>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"Rapid Trigger eliminates the fixed reset point entirely. The keyboard registers a press the instant the key moves downward past the actuation depth and registers a release the instant the key begins moving upward... You can customize it to be as sensitive as 0.1mm."</p><span class="src">— Wooting 官方 · What is Wooting's Rapid Trigger · <a href="https://wooting.io/post/what-is-wootings-rapid-trigger-for-analog-keyboards">wooting.io</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"The internal translation from a magnetic field to a HID report requires a high-performance MCU capable of processing analog-to-digital (ADC) signals at high speeds... magnetic switches have near-zero hysteresis."</p><span class="src">— MelGeek · Hall Effect Switches Explained（第三方厂商技术页）· <a href="https://www.melgeek.com/blogs/melgeek-lab/hall-effect-switches-explained">melgeek.com</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>感应：</b>磁场强度（模拟量，经 ADC 数字化）。</li>
+      <li><b>触发点：</b>软件可调 <b>0.1–3.8mm</b>；Rapid Trigger 灵敏度可低至 0.1mm。来源 7。</li>
+      <li><b>寿命：</b>厂商标称 <b>≥1亿次/键</b>（无机械接触磨损）；价格 $80–$300（Wooting 60HE 系列）。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>磁轴=「会读连续深度的弹簧轴」。它把按键从「开关」升级成「滑杆」，换来可调触发点+Rapid Trigger+无接触磨损，是当前竞技游戏的事实标准。代价：硬件层不可换轴，定制全靠软件。</p>
+  </section>
+
+  <!-- ========== 对比矩阵 ========== -->
+  <section>
+    <h2>对比矩阵：六类「触发机制」一张表读懂</h2>
+    <p>点击表头可高亮整列方便横读。本表只聚焦<b>工作原理维度</b>（感应/回弹/触发态/去抖/磨损），手感声音价格横评见 Task 2.2。</p>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1 六类键盘工作原理对比 · 采集 2026-06</caption>
+      <thead><tr>
+        <th>原理维度</th><th>机械</th><th>静电容/Topre</th><th>薄膜</th><th>剪刀脚</th><th>光轴</th><th>磁轴(霍尔)</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>感应方式</td><td>金属触点接触</td><td>电容感应(无接触)</td><td>薄膜导通(接触)</td><td>薄膜导通(接触)</td><td>光路遮断</td><td>磁场强度测量</td></tr>
+        <tr><td>信号性质</td><td>开关(两态)</td><td>开关(两态,无触点)</td><td>开关(两态)</td><td>开关(两态)</td><td>开关(两态,光)</td><td><span class="pill good">模拟连续(0–4mm)</span></td></tr>
+        <tr><td>回弹来源</td><td>弹簧</td><td>橡胶碗+锥形弹簧</td><td>橡胶碗</td><td>橡胶碗+剪刀架</td><td>弹簧</td><td>弹簧</td></tr>
+        <tr><td>有无金属磨损</td><td><span class="pill bad">有(触点磨损)</span></td><td><span class="pill good">无金属触点</span></td><td>有(膜磨损/碗老化)</td><td>有(膜/碗老化)</td><td><span class="pill good">无金属接触</span></td><td><span class="pill good">无机械接触</span></td></tr>
+        <tr><td>去抖延迟</td><td>需 debounce ~5ms</td><td>需(电容采样)</td><td>需</td><td>需</td><td><span class="pill good">≈0(光数字态)</span></td><td><span class="pill good">极低(模拟采样)</span></td></tr>
+        <tr><td>触发点可调</td><td><span class="pill bad">否(固定~2mm)</span></td><td>否</td><td>否</td><td>否</td><td>多数否(少数可调)</td><td><span class="pill good">是(0.1–3.8mm)</span></td></tr>
+        <tr><td>Rapid Trigger</td><td>不支持</td><td>不支持</td><td>不支持</td><td>不支持</td><td>部分支持</td><td><span class="pill good">原生支持</span></td></tr>
+        <tr><td>寿命(厂商标称)</td><td>5000万–1亿</td><td>~5000万</td><td><span class="pill bad">500万–1000万</span></td><td>~1000万–2000万</td><td>≥1亿</td><td>≥1亿</td></tr>
+        <tr><td>底层是否同源</td><td>独立机械</td><td>独立(EC)</td><td colspan="2" style="text-align:center;background:#fff7ec">薄膜/剪刀同源(膜导通)</td><td>独立(光)</td><td>独立(磁)</td></tr>
+      </tbody>
+    </table></div>
+    <p class="miniref">注：去抖/寿命均含厂商标称成分；磁轴/光轴「≥1亿」缺独立第三方破坏性实测（见 Caveats）。剪刀脚=薄膜+X 支架，故感应原理与薄膜同源，本表已合并标注。</p>
+  </section>
+
+  <!-- ========== 关键洞察与机会 ========== -->
+  <section>
+    <h2>关键洞察与产品机会</h2>
+    <div class="grid-2">
+      <div class="card"><h3>洞察1｜六类其实是「三大感应谱系」</h3><p>把原理拆开看，六类塌缩成三族：<b>接触式</b>（机械金属触点 + 薄膜/剪刀膜导通）、<b>电容式</b>（Topre）、<b>非接触/模拟式</b>（光轴遮光 + 磁轴测磁）。教育内容若按「感应谱系」而非「品类名」来讲，新手更快建立心智模型。</p></div>
+      <div class="card"><h3>洞察2｜「快」的故事正在从光轴转向磁轴</h3><p>光轴靠「无 debounce」讲快；磁轴更进一步讲「连续深度+可调触发点+Rapid Trigger」。磁轴的卖点是<b>可配置</b>而非单纯延迟，护城河更深——这解释了 Wooting 为何成竞技标准。</p></div>
+      <div class="card"><h3>机会1｜把「原理」做成可交互可视化</h3><p>本页六张静态 SVG 已能解释触发，但厂商/媒体若做成「拖动滑块看磁场读数变化 / 看挡片遮光瞬间」的交互动画，是稀缺的获客内容——尤其磁轴的「模拟量」最反直觉、最需要演示。</p></div>
+      <div class="card"><h3>机会2｜薄膜/剪刀的「同源」是入门钩子</h3><p>大量用户用的就是笔记本剪刀脚。从「你手上的剪刀脚=带支架的薄膜」切入，再讲「机械/磁轴改了什么」，转化路径比直接堆术语顺。Keychron 类品牌的入门教育页可借此降低认知门槛。</p></div>
+    </div>
+    <p class="callout"><b>一句话 so-what：</b>区分六类的不是品牌而是「机器怎么知道你按了」。讲清这一句，用户才能判断自己到底需要可换轴（机械）、肉感（Topre）、还是可调触发（磁轴）——这是所有后续选购决策的地基。</p>
+  </section>
+
+  <!-- ========== Caveats & 证伪状态 ========== -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge confirmed">已核实</span> 「感应方式+回弹来源是区分六类的两条主轴」：经 Deskthority、Tom's Hardware、Cherry、Wooting、HHKB、KeebsForAll 六源原理交叉验证一致，成立。（来源 1–8，置信高）</li>
+      <li><span class="fbadge confirmed">已核实</span> 「剪刀脚与薄膜感应原理同源（橡胶碗+膜导通），剪刀只是稳定支架」：Deskthority 与 Cherry 官方明确表述，成立。（来源 4/6，置信高）</li>
+      <li><span class="fbadge confirmed">已核实</span> 「磁轴是模拟量、触发点可调、原生支持 Rapid Trigger」：Wooting 官方+MelGeek 技术页一致，且与 CS2 玩家社区实践吻合，成立。（来源 7/9，置信高）</li>
+      <li><span class="fbadge partial">部分</span> 「光轴无 debounce 因此更快」：原理成立（光为数字态），但「实际端到端延迟优势」含厂商营销成分，独立横评显示整机轮询率/固件影响同样大。按原理层采纳，按体感层保留。（来源 3，置信中）</li>
+      <li><span class="fbadge open">仍开放</span> 「光轴/磁轴寿命 ≥1亿次」：均为厂商标称，缺乏独立第三方破坏性寿命实测；UGC 指出实际寿命更受塑料件/弹簧老化制约。本页以「厂商标称」标注。（来源 6/7，置信中）</li>
+      <li><span class="fbadge open">仍开放</span> 「Topre 算不算机械」：分类争议未有单一权威定论，本页采社区主流「EC/半机械」单列；完整两方论证见 Task 2.2。（来源 1/2，置信中）</li>
+      <li><span class="fbadge partial">部分</span> 数据缺口：本页未接入原始 Reddit 导出（环境中未提供），UGC 原声以社区共识转述+第三方评测代偿，后续应补 r/MechanicalKeyboards、r/Topre、r/Wooting 一手帖加密证据。</li>
+    </ul>
+  </section>
+
+  <!-- ========== 参考来源索引 ========== -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>HHKB 官方 — Topre Switches Guide（EC 原理/锥形弹簧/寿命，官方+营销立场）：<a href="https://hhkeyboard.us/blog/topre-switches">https://hhkeyboard.us/blog/topre-switches</a>（采集 2026-06-10）</li>
+      <li>Deskthority wiki — Topre switch / Switch / Scissor switch 词条（社区技术权威，EC 视角）：<a href="https://deskthority.net/wiki/Topre_switch">https://deskthority.net/wiki/Topre_switch</a>、<a href="https://deskthority.net/wiki/Scissor_switch">/Scissor_switch</a>（采集 2026-06-10）</li>
+      <li>Tom's Hardware — What Are Optical Keyboard Switches, And How Do They Work（光轴原理/无 debounce/延迟对照）：<a href="https://www.tomshardware.com/news/what-are-optical-keyboard-switches,32352.html">tomshardware.com/...optical-keyboard-switches</a>（采集 2026-06-10）</li>
+      <li>Cherry 官方 — Scissor Technology (SX)（剪刀脚原理/键程/橡胶碗导通）：<a href="https://www.cherry.de/en-gb/company/cherry-technologies/scissor-technology">cherry.de/.../scissor-technology</a>（采集 2026-06-10）</li>
+      <li>KeebsForAll — Mechanical vs Membrane Keyboards: Lifespan Compared（寿命区间对照）：<a href="https://keebsforall.com/blogs/mechanical-keyboards-101/mechanical-vs-membrane-keyboards-lifespan-compared">keebsforall.com/.../lifespan-compared</a>（采集 2026-06-10）</li>
+      <li>Metal-Domes 技术博客 — What are rubber dome key switches / dome degradation（薄膜三层膜+橡胶碗失效）：<a href="https://www.metal-domes.com/blog/2025/05/08/what-are-rubber-dome-key-switches/">metal-domes.com/.../rubber-dome-key-switches</a>（采集 2026-06-10）</li>
+      <li>Wooting 官方 — What is Wooting's Rapid Trigger / What are Hall Effect Switches（磁轴模拟量/可调触发点/Rapid Trigger）：<a href="https://wooting.io/post/what-is-wootings-rapid-trigger-for-analog-keyboards">wooting.io/.../wootings-rapid-trigger</a>（采集 2026-06-10）</li>
+      <li>MelGeek — Hall Effect Switches Explained（霍尔效应/ADC/MCU/近零滞回，第三方厂商技术页）：<a href="https://www.melgeek.com/blogs/melgeek-lab/hall-effect-switches-explained">melgeek.com/.../hall-effect-switches-explained</a>（采集 2026-06-10）</li>
+      <li>ThoccExchange — The Ultimate Topre Keyboard Guide（thock 声音/EC 改装，第三方零售评测）：<a href="https://thoccexchange.com/blogs/news/the-ultimate-topre-keyboard-guide-from-electrocapacitive-basics-to-expert-mods">thoccexchange.com/.../topre-keyboard-guide</a>（采集 2026-06-10）</li>
+      <li>Keyboard Gurus — Optical Switches Guide（光轴 stem/光束/即时检测，第三方）：<a href="https://keyboardgurus.com/mechanical-keyboards/keyboard-optical">keyboardgurus.com/mechanical-keyboards/keyboard-optical</a>（采集 2026-06-10）</li>
+      <li>ThereminGoat's Switches — 声音/录音变量讨论（佐证「线上无法替代上手」，背景源）：<a href="https://www.theremingoat.com/blog/what-the-thock-is-clack-a-discussion-on-switch-sound">theremingoat.com/.../what-the-thock-is-clack</a>（采集 2026-06-10）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块2 Task 2.1 · 采集时点 2026-06 · 价格/型号以原文为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>
