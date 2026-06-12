@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 3.3：键帽 — 材质 / 工艺 / profile</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.svg-wrap{overflow-x:auto}
+.svg-wrap svg{display:block;margin:0 auto;max-width:100%;height:auto}
+.mini-note{font-size:13px;color:var(--muted);margin-top:4px}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:13px;color:var(--ink-2);margin-top:8px}
+.legend-row span{display:inline-flex;align-items:center;gap:6px}
+.legend-row i{width:13px;height:13px;border-radius:3px;display:inline-block}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块3 · Task 3.3</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块3 · 机械键盘解剖 · TASK 3.3</span>
+  <h1>键帽：材质 / 工艺 / profile</h1>
+  <p class="lede">键帽不参与"按下/触发"这件事，却决定了你 90% 的指腹触感、键盘是<strong>"清脆 clack"还是"低沉 thock"</strong>、用半年后会不会<strong>打油发亮</strong>、以及字符会不会被磨掉。本页只回答一个窄问题：<strong>ABS vs PBT、double-shot vs dye-sub、OEM/Cherry/SA 三套坐标，到底各自换来什么、牺牲什么——并把营销话术和真实手感拆开。</strong></p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（KeebTalk / Deskthority / r/MechanicalKeyboards 共识）&gt; 第三方评测（MKBGuide / Switch and Click / Kineticlabs）&gt; 官方话术（CORSAIR / GMK 经销商页）<br>
+  主要来源：KeebTalk 论坛原帖、rgbkeys、MKBGuide、Kineticlabs、Switch and Click、CORSAIR、HHKB 官方博客（详见文末编号索引）</p>
+</div></header>
+
+<main class="wrap">
+
+<!-- ============ 1. 材质：ABS vs PBT ============ -->
+<section>
+  <h2>1. 材质轴：ABS vs PBT，争的是"耐久 vs 上色自由"</h2>
+
+  <h3>论述</h3>
+  <p>键帽材质之争表面上是"哪个更好"，本质是<strong>两条工程曲线的取舍</strong>：PBT（聚对苯二甲酸丁二醇酯）更硬、更密、抗磨抗黄、不易打油，但收缩率高、难做鲜艳大色块；ABS（丙烯腈-丁二烯-苯乙烯）更软、上色自由、能做 double-shot 透光与饱和配色，代价是几个月就开始<strong>"打油"（shine，表面被指腹磨出油亮反光）</strong>。</p>
+  <p>需要先打掉一个常见误解：<strong>"PBT 一定比 ABS 声音好/手感好"是把材质和厚度混为一谈。</strong>真正影响声音的第一变量往往是<strong>键帽壁厚</strong>而不是材质——这点社区评测高度一致。</p>
+
+  <h3>证据</h3>
+  <div class="ugc"><p>"PBT 材料密度更高（比 ABS 高约 30%），这导致了不同的声音传播特性……在 profile 和厚度相同的前提下，PBT 版本会比 ABS 吸收更多声波。"</p><span class="src">— 用户 Surefoot · KeebTalk 论坛《Does Thick ABS perform the same as Thick PBT?》 · <a href="https://www.keebtalk.com/t/does-thick-abs-perform-the-same-as-thick-pbt/20286">keebtalk.com/t/...20286</a> · 采集 2026-06-10</span></div>
+  <div class="ugc"><p>"ABS 通常音调更高（higher in pitch）但比 PBT 更闷（more muted）。"</p><span class="src">— 用户 ventamora · 同一 KeebTalk 帖 · <a href="https://www.keebtalk.com/t/does-thick-abs-perform-the-same-as-thick-pbt/20286">keebtalk.com/t/...20286</a> · 采集 2026-06-10</span></div>
+  <div class="ugc"><p>"它（PBT）比 ABS 硬，所以其他条件相同的话本应音调更高——但其他条件通常并不相同。"（点破了"thock 全靠 PBT"的简化叙事）</p><span class="src">— 用户 fanf · 同一 KeebTalk 帖 · <a href="https://www.keebtalk.com/t/does-thick-abs-perform-the-same-as-thick-pbt/20286">keebtalk.com/t/...20286</a> · 采集 2026-06-10</span></div>
+  <p>第三方评测把"厚度才是关键"说得更直接：</p>
+  <div class="ugc"><p>"键帽厚度是影响声音的关键变量，与材质无关——更厚的键帽通常声音更好、更扎实……预算套件无论 ABS 还是 PBT 常为压成本而偷薄，这往往才是声音让人失望的真正原因，而不是材质本身。"</p><span class="src">— MKBGuide《PBT vs ABS Keycaps》 · <a href="https://mkbguide.com/blog/pbt-vs-abs-keycaps">mkbguide.com/blog/pbt-vs-abs-keycaps</a> · 采集 2026-06-10</span></div>
+
+  <h3>具体数据</h3>
+  <ul>
+    <li><b>PBT 密度比 ABS 高约 30%</b>（Surefoot / KeebTalk）→ 同厚度同 profile 下 PBT 音调更低、共振更少。</li>
+    <li><b>ABS 打油时间：数月</b>；<b>PBT 保持磨砂：5 年以上</b>（rgbkeys、makeuseof 与 r/MK 共识）。</li>
+    <li><b>GMK（行业标杆 ABS 厂）键帽壁厚约 1.5mm</b>——证明高端 ABS 靠"厚 + double-shot"打出"creamy/thocky"声，而非材质天生输。来源：UniKeys / mechanical-keyboard.com。</li>
+    <li>厚度档差感知阈：<b>1.0mm 与 1.5mm 之间差异明显可闻</b>（MKBGuide）。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>材质决定的是"耐久 + 上色路线"，<strong>不是简单的"谁声音好"</strong>。PBT 抗磨抗油、天生偏低沉，适合"买一套用很久、深色键帽党"；ABS 上色自由、可做透光与饱和配色（GMK 生态），用厚壁 + double-shot 把声音和质感拉到高端，代价是会打油。买之前先看<strong>壁厚</strong>，再看材质。</p>
+</section>
+
+<!-- 图1：ABS vs PBT 多维对比 -->
+<section>
+  <figure class="framed">
+    <div class="svg-wrap">
+    <svg viewBox="0 0 760 300" role="img" aria-label="ABS与PBT键帽多维对比图">
+      <rect width="760" height="300" fill="#fff"/>
+      <g font-family="sans-serif">
+        <text x="190" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#1c1a17">ABS</text>
+        <text x="570" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#1c1a17">PBT</text>
+        <line x1="380" y1="20" x2="380" y2="280" stroke="#e2dcd1" stroke-dasharray="4 4"/>
+        <!-- ABS 新→旧 -->
+        <g transform="translate(70,50)">
+          <rect x="0" y="0" width="80" height="62" rx="8" fill="#f0ece5" stroke="#c8731f"/>
+          <text x="40" y="80" text-anchor="middle" font-size="11" fill="#4a463f">新·光滑哑光</text>
+        </g>
+        <text x="195" y="86" font-size="20" fill="#8a8478">→</text>
+        <g transform="translate(225,50)">
+          <rect x="0" y="0" width="80" height="62" rx="8" fill="#d8cdba" stroke="#b0472b"/>
+          <ellipse cx="40" cy="18" rx="27" ry="9" fill="#fff" opacity=".55"/>
+          <text x="40" y="80" text-anchor="middle" font-size="11" fill="#b0472b">数月后·打油发亮</text>
+        </g>
+        <!-- PBT 新→旧 -->
+        <g transform="translate(450,50)">
+          <rect x="0" y="0" width="80" height="62" rx="8" fill="#efe9df" stroke="#2f6f6a"/>
+          <text x="40" y="80" text-anchor="middle" font-size="11" fill="#4a463f">新·颗粒磨砂</text>
+        </g>
+        <text x="575" y="86" font-size="20" fill="#8a8478">→</text>
+        <g transform="translate(605,50)">
+          <rect x="0" y="0" width="80" height="62" rx="8" fill="#ece6db" stroke="#3d7a4e"/>
+          <text x="40" y="80" text-anchor="middle" font-size="11" fill="#3d7a4e">5年+·几乎不变</text>
+        </g>
+        <!-- 维度条 -->
+        <g font-size="12" fill="#4a463f" transform="translate(0,160)">
+          <text x="60" y="0" font-weight="700" fill="#1c1a17">耐磨/抗油</text>
+          <rect x="150" y="-11" width="60" height="12" rx="3" fill="#b0472b" opacity=".4"/><text x="215" y="-1" font-size="10" fill="#b0472b">弱</text>
+          <rect x="450" y="-11" width="160" height="12" rx="3" fill="#3d7a4e" opacity=".6"/><text x="615" y="-1" font-size="10" fill="#3d7a4e">强</text>
+
+          <text x="60" y="30" font-weight="700" fill="#1c1a17">声音倾向</text>
+          <text x="150" y="30" font-size="11" fill="#b0472b">偏高频·clacky（更"亮"）</text>
+          <text x="450" y="30" font-size="11" fill="#3d7a4e">偏低频·thocky（密度高+30%）</text>
+
+          <text x="60" y="60" font-weight="700" fill="#1c1a17">上色自由</text>
+          <rect x="150" y="49" width="160" height="12" rx="3" fill="#c8731f" opacity=".6"/><text x="315" y="59" font-size="10" fill="#c8731f">高·饱和/透光</text>
+          <rect x="450" y="49" width="80" height="12" rx="3" fill="#2f6f6a" opacity=".4"/><text x="535" y="59" font-size="10" fill="#2f6f6a">受限·偏暗</text>
+
+          <text x="60" y="90" font-weight="700" fill="#1c1a17">指腹手感</text>
+          <text x="150" y="90" font-size="11" fill="#b0472b">温润·偏滑</text>
+          <text x="450" y="90" font-size="11" fill="#3d7a4e">干爽·颗粒感</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+    <figcaption>图1：ABS 上色自由、温润但易打油、声偏亮；PBT 抗磨抗黄、干爽颗粒、声偏低（密度高约 30%）。注意：声音差异需在"同厚度"前提下才成立。<span class="src">自绘示意图，数据依据 KeebTalk 用户帖 + MKBGuide，2026-06</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============ 2. 工艺：double-shot vs dye-sub ============ -->
+<section>
+  <h2>2. 工艺轴：double-shot vs dye-sub，争的是"字符永不掉 vs 图案随便印"</h2>
+
+  <h3>论述</h3>
+  <p>这一轴决定<strong>字符（legend）怎么上去、能撑多久、能不能透光、能做多复杂的图案</strong>，且与材质<strong>正交</strong>（ABS/PBT 都能 double-shot，PBT 更常 dye-sub）。</p>
+  <ul>
+    <li><strong>Double-shot（二色注塑）</strong>：两层塑料分别注塑，字符是"实体嵌进键帽本体"，物理上磨不掉、可做 RGB 透光；但每个颜色要一套模具，<strong>颜色组合受限、成本高</strong>。</li>
+    <li><strong>Dye-sub（热升华染色）</strong>：染料受热渗入键帽表层，像高分辨率打印机，<strong>能印任意图案/渐变/多色</strong>；但染料只能"深处走"，<strong>通常只能深底浅字</strong>（浅底深字难做，需反向工艺），且染料挡光，<strong>基本不支持 RGB 透光</strong>。</li>
+  </ul>
+
+  <h3>证据</h3>
+  <div class="ugc"><p>"Double-shot 在耐久上占上风，因为字符在物理意义上就是键帽的一部分，几乎不可能被磨掉。Dye-sub 虽然非常耐用，但在多年重度使用、尤其接触强清洁剂或过度摩擦后，可能轻微褪色。"</p><span class="src">— Kineticlabs《Dye-Sublimation vs Double-Shot Legends》 · <a href="https://kineticlabs.com/blog/dye-sublimation-vs-double-shot-legends-in-keyboard-keycaps">kineticlabs.com/blog/...double-shot-legends</a> · 采集 2026-06-10</span></div>
+  <div class="ugc"><p>"Dye-sub 能像高分辨率打印一样印出任意图像、渐变、图案或多色设计；而 double-shot 每个颜色都需要一套独立塑料模具，因此每颗键帽被限制在一到两种纯色。"</p><span class="src">— Switch and Click《Double-Shot vs Dye-Sub Keycaps》 · <a href="https://switchandclick.com/double-shot-vs-dye-sub-keycaps-whats-the-difference/">switchandclick.com/double-shot-vs-dye-sub-keycaps</a> · 采集 2026-06-10</span></div>
+  <div class="ugc"><p>"Dye-sub 键帽通常不支持 RGB 灯光，因为染料会挡住光线穿过键帽，最适合无 RGB 的配置。"</p><span class="src">— 多家评测共识，原句出自 Switch and Click / Kineticlabs · 采集 2026-06-10</span></div>
+  <p>需要识别的<strong>营销话术</strong>：经销商常把 dye-sub 与 double-shot 都笼统称"耐用、字符不掉"。事实更细——dye-sub 字符<strong>会随整个键帽顶面一起缓慢磨损/褪色</strong>，只有 double-shot 是"字符永不掉"。</p>
+
+  <h3>具体数据</h3>
+  <ul>
+    <li>字符锐利度：<b>double-shot &gt; dye-sub</b>（dye-sub 受热扩散，边缘略糊）。来源：Switch and Click。</li>
+    <li>颜色方向：double-shot <b>任意配色 + 可透光</b>；dye-sub <b>基本只能深底浅字、不透光</b>。</li>
+    <li>成本：<b>dye-sub 通常更便宜</b>（无需多套模具），double-shot 偏贵且随键数/布局复杂度上升。来源：Switch and Click / Kineticlabs。</li>
+    <li>耐久排序：<b>double-shot（永不掉）&gt; dye-sub（极耐用、超长期可能褪）&gt; pad-print/激光（最易掉）</b>。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>要 <strong>RGB 透光 / 饱和撞色 / 字符绝对不掉</strong> → double-shot（GMK 生态典型）。要 <strong>复杂图案、渐变、主题套、预算友好</strong> → dye-sub（多在 PBT 上）。两者都远胜激光刻/丝印这类"几个月掉字"的廉价工艺。</p>
+</section>
+
+<!-- ============ 3. profile 高度弧度 ============ -->
+<section>
+  <h2>3. profile 轴：OEM / Cherry / SA，争的是"上手即用 vs 极致声音/复古"</h2>
+
+  <h3>论述</h3>
+  <p>profile = 键帽的<strong>高度 + 弧面形状 + 是否分行雕刻（sculpted）</strong>。它直接改变手指落点、打字角度、误触率和声音音调。三套最有代表性的坐标：</p>
+  <ul>
+    <li><strong>OEM</strong>：出厂默认最常见（Corsair/Razer/Logitech 等预装都用它），中等高度、分行雕刻、顶面微凹带角度——<strong>"标准、零学习成本"</strong>，但在客制圈被视为"平庸/出厂感"。</li>
+    <li><strong>Cherry</strong>：比 OEM 矮约 2mm，同样分行雕刻。<strong>客制圈最爱</strong>——矮 = 更少 wobble、打字角度更舒服。MKBGuide 称其在客制市场占约 80% 份额。</li>
+    <li><strong>SA</strong>：球面顶（Spherical）、最高、复古打字机外观。声音更低沉饱满、爽感强，但<strong>学习曲线陡（1–2 周适应、初期降速）</strong>，且高度放大噪音、长打可能疲劳——典型的<strong>"两极分化"profile</strong>。</li>
+  </ul>
+
+  <h3>证据</h3>
+  <div class="ugc"><p>"Cherry profile 在客制和发烧友市场占主导，约 80% 市场份额……OEM 因与出厂/预装绑定，在发烧友眼里显得平庸（pedestrian）。"</p><span class="src">— MKBGuide《Keycap Profiles Explained》 · <a href="https://mkbguide.com/blog/keycap-profiles-explained">mkbguide.com/blog/keycap-profiles-explained</a> · 采集 2026-06-10</span></div>
+  <div class="ugc"><p>"SA 引发两极反应，因为它学习曲线陡峭：需要 1–2 周适应，你的打字速度会明显下降。"</p><span class="src">— MKBGuide《Keycap Profiles Explained》 · <a href="https://mkbguide.com/blog/keycap-profiles-explained">mkbguide.com/blog/keycap-profiles-explained</a> · 采集 2026-06-10</span></div>
+  <div class="ugc"><p>"由于高度原因，SA 键帽可能不如其他选项舒适，也不是为速度优化的……高大的 SA 倾向于放大轴的噪音，产生更响、音调更高的 clack，吸引喜欢复古、强反馈的发烧友。"</p><span class="src">— Keychron / apos.audio 综合 profile 指南 · <a href="https://www.keychron.com/blogs/news/keycap-profiles">keychron.com/blogs/news/keycap-profiles</a> · 采集 2026-06-10</span></div>
+  <p class="mini-note">关于"SA 更响/更高频" vs "更低沉"——评测口径有分歧：球面高 profile 本体共振低沉，但放大了轴和敲击的高频 clack，主观体验取决于整机配置。本页如实并列，不替读者下定论。</p>
+
+  <h3>具体数据（高度区间，注意不同来源略有出入）</h3>
+  <div class="table-scroll"><table class="matrix">
+    <caption>表1：主流 profile 高度对照（点击表头高亮该列；mm 为大致顶面高度）</caption>
+    <thead><tr><th>Profile</th><th>高度区间</th><th>弧面</th><th>是否分行雕刻</th><th>定位</th></tr></thead>
+    <tbody>
+      <tr><td>SA</td><td><span class="pill bad">~13–16.5mm（最高）</span></td><td>球面 concave</td><td>是</td><td>复古/极致声音·学习曲线陡</td></tr>
+      <tr><td>OEM</td><td><span class="pill mid">~9.5–11.9mm</span></td><td>柱面微凹</td><td>是</td><td>出厂默认·零学习成本</td></tr>
+      <tr><td>Cherry</td><td><span class="pill good">~7.5–9.4mm</span></td><td>柱面微凹</td><td>是</td><td>客制圈最爱·约80%份额</td></tr>
+      <tr><td>XDA</td><td>~8mm</td><td>球面浅</td><td><span class="pill bad">否(均匀)</span></td><td>极简/复古·各行同高</td></tr>
+      <tr><td>DSA</td><td><span class="pill good">~7–7.5mm（矮）</span></td><td>球面浅</td><td><span class="pill bad">否(均匀)</span></td><td>矮均匀·盲打友好</td></tr>
+    </tbody>
+  </table></div>
+  <p class="mini-note">高度数字跨来源不一致：Cherry 顶面有标 9.4mm 也有标 7.5–8.5mm，SA 有标 16.5mm 也有标 13–15mm——量取基准（最高行 vs 主行、含/不含轴）不同所致。来源：apos.audio、HHKB 官方博客、MKBGuide，2026-06。不编造单一"权威值"，给区间。</p>
+</section>
+
+<!-- 图2：profile 高度对比 -->
+<section>
+  <figure class="framed">
+    <div class="svg-wrap">
+    <svg viewBox="0 0 760 280" role="img" aria-label="键帽profile高度弧度对比图">
+      <rect width="760" height="280" fill="#fff"/>
+      <line x1="40" y1="220" x2="720" y2="220" stroke="#8a8478"/>
+      <text x="712" y="216" text-anchor="end" font-size="11" fill="#8a8478">桌面基准线</text>
+      <g font-family="sans-serif" font-size="13">
+        <!-- DSA 矮均匀 -->
+        <g transform="translate(70,0)">
+          <path d="M0 220 L0 188 Q0 182 8 182 L56 182 Q64 182 64 188 L64 220 Z" fill="#e3f0e6" stroke="#3d7a4e"/>
+          <path d="M0 188 Q32 176 64 188" fill="none" stroke="#3d7a4e" stroke-width="2"/>
+          <text x="32" y="240" text-anchor="middle" font-weight="700">DSA</text>
+          <text x="32" y="256" text-anchor="middle" font-size="10.5" fill="#8a8478">~7mm·球面浅</text>
+        </g>
+        <!-- Cherry -->
+        <g transform="translate(210,0)">
+          <path d="M0 220 L0 176 Q0 170 8 170 L56 170 Q64 170 64 176 L64 220 Z" fill="#eef6f0" stroke="#3d7a4e"/>
+          <path d="M0 176 Q32 162 64 176" fill="none" stroke="#3d7a4e" stroke-width="2"/>
+          <text x="32" y="240" text-anchor="middle" font-weight="700">Cherry</text>
+          <text x="32" y="256" text-anchor="middle" font-size="10.5" fill="#8a8478">~8–9mm·客制最爱</text>
+        </g>
+        <!-- OEM -->
+        <g transform="translate(350,0)">
+          <path d="M0 220 L0 158 Q0 152 8 152 L56 152 Q64 152 64 158 L64 220 Z" fill="#f5e4cf" stroke="#c8731f"/>
+          <path d="M0 158 Q32 142 64 158" fill="none" stroke="#c8731f" stroke-width="2"/>
+          <text x="32" y="240" text-anchor="middle" font-weight="700">OEM</text>
+          <text x="32" y="256" text-anchor="middle" font-size="10.5" fill="#8a8478">~10–12mm·出厂默认</text>
+        </g>
+        <!-- XDA -->
+        <g transform="translate(490,0)">
+          <path d="M0 220 L0 182 Q0 176 8 176 L56 176 Q64 176 64 182 L64 220 Z" fill="#f6ecd6" stroke="#9c6b1a"/>
+          <path d="M0 182 Q32 168 64 182" fill="none" stroke="#9c6b1a" stroke-width="2"/>
+          <text x="32" y="240" text-anchor="middle" font-weight="700">XDA</text>
+          <text x="32" y="256" text-anchor="middle" font-size="10.5" fill="#8a8478">~8mm·均匀</text>
+        </g>
+        <!-- SA -->
+        <g transform="translate(630,0)">
+          <path d="M0 220 L0 108 Q0 100 8 100 L56 100 Q64 100 64 108 L64 220 Z" fill="#eaf2f1" stroke="#2f6f6a"/>
+          <path d="M0 108 Q32 80 64 108" fill="none" stroke="#2f6f6a" stroke-width="2.5"/>
+          <text x="32" y="240" text-anchor="middle" font-weight="700">SA</text>
+          <text x="32" y="256" text-anchor="middle" font-size="10.5" fill="#8a8478">~13–16mm·球面复古</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+    <figcaption>图2：五种 profile 同基准线高度/弧度对比。DSA/XDA 矮且各行同高（无 sculpt），Cherry/OEM/SA 分行雕刻；SA 接近 Cherry 两倍高。<span class="src">自绘比例示意图，高度依据 apos.audio / HHKB / MKBGuide 区间，2026-06</span></figcaption>
+  </figure>
+</section>
+
+<!-- ============ 对比矩阵 ============ -->
+<section>
+  <h2>4. 三轴交叉决策矩阵</h2>
+  <p>材质 / 工艺 / profile 是三条<strong>正交</strong>坐标，下面把"你最在意什么 → 应该怎么选"对齐成一张表。</p>
+  <div class="table-scroll"><table class="matrix">
+    <caption>表2：键帽三轴选购决策矩阵（点击表头高亮该列）</caption>
+    <thead><tr><th>你最在意</th><th>材质选</th><th>工艺选</th><th>profile选</th><th>典型代表</th></tr></thead>
+    <tbody>
+      <tr><td>用很久不打油</td><td><span class="pill good">PBT</span></td><td>dye-sub / double-shot 皆可</td><td>看喜好</td><td>各厂 PBT dye-sub 套</td></tr>
+      <tr><td>RGB 透光 + 饱和撞色</td><td>ABS</td><td><span class="pill good">double-shot</span></td><td>OEM / Cherry</td><td>GMK 系（ABS double-shot）</td></tr>
+      <tr><td>复杂图案/渐变/主题套</td><td>PBT</td><td><span class="pill good">dye-sub</span></td><td>XDA / Cherry</td><td>PBT dye-sub 主题套</td></tr>
+      <tr><td>字符绝对不掉</td><td>任意</td><td><span class="pill good">double-shot</span></td><td>任意</td><td>double-shot 套</td></tr>
+      <tr><td>零学习成本/换帽即用</td><td>任意</td><td>任意</td><td><span class="pill good">OEM</span></td><td>出厂默认帽</td></tr>
+      <tr><td>客制审美 + 舒适角度</td><td>任意</td><td>任意</td><td><span class="pill good">Cherry</span></td><td>Cherry profile 套（主流）</td></tr>
+      <tr><td>极致声音/复古爽感(不怕折腾)</td><td>PBT 厚壁</td><td>dye-sub</td><td><span class="pill bad">SA</span>（学习曲线陡）</td><td>SA / MT3 套</td></tr>
+      <tr><td>预算优先</td><td>看壁厚而非材质</td><td>dye-sub 偏便宜</td><td>OEM</td><td>厚壁优先，别只看材质</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 关键洞察与产品机会 ============ -->
+<section>
+  <h2>5. 关键洞察与产品机会</h2>
+  <p class="callout"><b>洞察 1 · "PBT vs ABS 谁声音好"是个伪命题，真变量是壁厚。</b> 多个 KeebTalk 资深用户与 MKBGuide 都指出：预算套件偷薄才是声音差的真因。<strong>产品机会：</strong>预算/中端键帽把"壁厚 ≥1.4mm"做成显性卖点（像轴标克数一样标厚度），能在一片"PBT/ABS"口水仗里建立差异化信任。</p>
+  <p class="callout"><b>洞察 2 · 工艺的真实痛点是"dye-sub 只能深底浅字 + 不透光"。</b> 想要浅色键帽 + RGB 的用户被结构性卡住，只能贵价 double-shot。<strong>产品机会：</strong>主推"浅底深字 reverse dye-sub + 半透 PBT 配方"或"PBT double-shot 透光"套件，吃下"既要 PBT 耐久、又要浅色 RGB"这块被忽视的需求。</p>
+  <p class="callout"><b>洞察 3 · profile 是退货/二手流转的高发区——SA 学习曲线陡、OEM 被嫌平庸。</b> 新手常因不知道 profile 会改变手感而买错。<strong>产品机会：</strong>预装键盘默认上 <strong>Cherry profile</strong>（客制圈 80% 偏好、矮舒适）即可显著提升开箱好评；同时卖"profile 体验小样卡"（每种 profile 几颗）降低试错成本。</p>
+  <p class="callout"><b>洞察 4 · 教育缺口=内容机会。</b> 营销页普遍把 dye-sub/double-shot 笼统说成"耐用不掉字"，掩盖了 dye-sub 会随顶面缓慢褪、SA 会放大噪音等真相。<strong>产品机会：</strong>诚实的"三轴对照 + 壁厚透明 + profile 体验"内容/导购，正是 ddcarolyn 这类"给模板不给作业"的差异化切口。</p>
+</section>
+
+<!-- ============ Caveats & 证伪状态 ============ -->
+<section class="caveats">
+  <h2>Caveats &amp; 证伪状态</h2>
+  <ul>
+    <li><span class="fbadge falsified">已证伪</span> <strong>"PBT 一定比 ABS 声音更好/手感更好"被推翻：</strong>KeebTalk 用户（fanf、Surefoot）与 MKBGuide 一致指出，<strong>壁厚才是声音第一变量</strong>，材质只在"同厚同 profile"时才比较有意义；GMK 用 1.5mm 厚 ABS double-shot 做出公认高端"creamy/thocky"声即反例。</li>
+    <li><span class="fbadge falsified">已证伪</span> <strong>"PBT 永不打油/永不变"被推翻：</strong>rgbkeys 明确写"没有塑料完全免疫磨损"，PBT 只是"很慢"，Deskthority 用户观察到<strong>极重度使用下空格等键仍会被磨亮</strong>。准确说法是"PBT 抗油远强于 ABS、可保磨砂 5 年+"，而非绝对。</li>
+    <li><span class="fbadge falsified">已证伪</span> <strong>"dye-sub 和 double-shot 一样字符永不掉"被推翻：</strong>Kineticlabs 指出 dye-sub 字符<strong>会随整个顶面缓慢磨损/褪色</strong>，只有 double-shot 是物理永久。经销商话术常模糊这一点。</li>
+    <li><span class="fbadge partial">部分成立</span> profile 高度数值跨来源不一致（Cherry 7.5–9.4mm、SA 13–16.5mm），因量取基准不同。本页给区间不给单一"权威值"，图2 为比例示意而非精确测绘。</li>
+    <li><span class="fbadge confirmed">已核实</span> Cherry profile 在客制圈占主导（MKBGuide 称约 80%），OEM 为预装默认、SA 学习曲线 1–2 周——多源一致。</li>
+    <li><span class="fbadge open">仍开放</span> 直接 r/MechanicalKeyboards 原帖 URL 本轮未稳定检索到；UGC 一手原话主要取自 KeebTalk 论坛（同属硬核客制社区，可溯源到具体用户名与帖），r/MK 共识为第三方评测站转述，原帖热度/赞数缺口待补。</li>
+  </ul>
+</section>
+
+<!-- ============ 参考来源索引 ============ -->
+<section class="sources">
+  <h2>参考来源索引</h2>
+  <ol>
+    <li>KeebTalk 论坛用户帖（Surefoot / ventamora / fanf / Deadeye）《Does Thick ABS perform the same as Thick PBT?》— 一手 UGC：<a href="https://www.keebtalk.com/t/does-thick-abs-perform-the-same-as-thick-pbt/20286">keebtalk.com/t/does-thick-abs-perform-the-same-as-thick-pbt/20286</a>（采集 2026-06-10）</li>
+    <li>MKBGuide — 《PBT vs ABS Keycaps: Which Material is Better?》（壁厚才是声音关键）：<a href="https://mkbguide.com/blog/pbt-vs-abs-keycaps">mkbguide.com/blog/pbt-vs-abs-keycaps</a>（采集 2026-06-10）</li>
+    <li>rgbkeys — 《Do PBT Keycaps Get Shiny Over Time?》（PBT 非绝对免打油）：<a href="https://rgbkeys.com/en/blogs/keycaps-blog/do-pbt-keycaps-get-shiny-over-time">rgbkeys.com/en/blogs/keycaps-blog/do-pbt-keycaps-get-shiny-over-time</a>（采集 2026-06-10）</li>
+    <li>Kineticlabs — 《Dye-Sublimation vs Double-Shot Legends in Keyboard Keycaps》（耐久与褪色真相）：<a href="https://kineticlabs.com/blog/dye-sublimation-vs-double-shot-legends-in-keyboard-keycaps">kineticlabs.com/blog/...double-shot-legends</a>（采集 2026-06-10）</li>
+    <li>Switch and Click — 《Double-Shot vs Dye-Sub Keycaps: What's the Difference?》（工艺/RGB/成本）：<a href="https://switchandclick.com/double-shot-vs-dye-sub-keycaps-whats-the-difference/">switchandclick.com/double-shot-vs-dye-sub-keycaps-whats-the-difference</a>（采集 2026-06-10）</li>
+    <li>MKBGuide — 《Keycap Profiles Explained: Cherry, OEM, SA, DSA & More》（Cherry≈80%份额、SA 学习曲线）：<a href="https://mkbguide.com/blog/keycap-profiles-explained">mkbguide.com/blog/keycap-profiles-explained</a>（采集 2026-06-10）</li>
+    <li>apos.audio — 《A Closer Look at Keycap Profiles: Cherry, OEM, SA, DSA, XDA》（高度数值）：<a href="https://apos.audio/blogs/news/keycap-types-explained-compared">apos.audio/blogs/news/keycap-types-explained-compared</a>（采集 2026-06-10）</li>
+    <li>HHKB 官方博客 — 《Keycap Profiles Explained: A 2026 Guide to Feel, Sound & Ergonomics》：<a href="https://hhkeyboard.us/blog/keycap-profiles">hhkeyboard.us/blog/keycap-profiles</a>（采集 2026-06-10）</li>
+    <li>UniKeys — 《Are GMK Keycaps ABS or PBT?》（GMK ≈1.5mm 厚 ABS double-shot、creamy 声）：<a href="https://unikeyboards.com/blogs/weekeebpedia/are-gmk-keycaps-abs-or-pbt-a-complete-guide-to-gmk-materials-sound-and-typing-feel">unikeyboards.com/blogs/weekeebpedia/are-gmk-keycaps-abs-or-pbt</a>（采集 2026-06-10）</li>
+    <li>CORSAIR — 《ABS vs PBT Keycaps: Which is Better?》（官方话术对照样本）：<a href="https://www.corsair.com/us/en/explorer/gamer/keyboards/abs-vs-pbt-keycaps/">corsair.com/us/en/explorer/gamer/keyboards/abs-vs-pbt-keycaps</a>（采集 2026-06-10）</li>
+    <li>Keychron — 《Keycap Profiles Comparison》（SA 放大噪音/舒适度）：<a href="https://www.keychron.com/blogs/news/keycap-profiles">keychron.com/blogs/news/keycap-profiles</a>（采集 2026-06-10）</li>
+  </ol>
+</section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块3 Task 3.3 键帽：材质/工艺/profile · 采集时点 2026-06 · 价格/型号/参数以原文 datasheet 与经销商页为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

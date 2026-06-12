@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 3.5：布局尺寸 100%→40% + 人体工学</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.svg-wrap{overflow-x:auto}
+.svg-wrap svg{display:block;margin:0 auto;max-width:100%;height:auto}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--ink-2,#4a463f);margin-top:12px}
+.legend-row span{display:inline-flex;align-items:center;gap:6px}
+.legend-row i{width:14px;height:14px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.15)}
+.mini-note{font-size:13px;color:var(--muted,#8a8478);margin-top:6px}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块3 · Task 3.5</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块3 · TASK 3.5 · 机械键盘解剖</span>
+  <h1>布局尺寸：100% → 40% + 人体工学</h1>
+  <p class="lede">一个窄问题：从 <strong>100% 全尺寸一路砍到 40%</strong>，再到 <strong>Alice / 分体</strong>，<strong>每一档到底牺牲了什么、换回了什么、适合谁</strong>？本页核心是一张<strong>同比例左对齐叠放的尺寸对照图（SVG）</strong>——让你一眼看清"缩一档=砍掉一个键区"，并用具名评测与用户原声把每个权衡钉死。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit、长测博客、评测站用户反馈）&gt; 第三方评测（RTINGS / MKBGuide / KeebsForAll）&gt; 官方话术（Keychron / ZSA）<br>
+  主要来源：MKBGuide「65 vs 75」「40% Guide」「Alice Guide」、KeebsForAll「60/65/75」、RTINGS 尺寸指南、Josh Collinsworth Moonlander 长测、AppleInsider/PCWorld/Digital Trends/MakeUseOf 的 Keychron Q8 Alice 评测、remoteworkgeek 分体横评。</p>
+</div></header>
+
+<main class="wrap">
+
+<!-- ============ 1. 核心交付物：同比例叠放图 ============ -->
+<section>
+  <h2>1. 核心图：同比例叠放，看清"缩一档砍一个键区"</h2>
+  <h3>论述</h3>
+  <p>"百分比"是个口语化的相对说法，指<strong>相对 100% 全尺寸还保留了多少键 / 多少宽度</strong>，不是精确数学比例。真正的逻辑是<strong>分层砍键区</strong>：每往下缩一档，就整片砍掉一个功能区——<strong>数字小键盘 → F 功能行 → 导航/编辑簇 → 方向键 → 数字行</strong>。理解了这条"砍键顺序"，所有尺寸名词就都串起来了。下图把六档主流尺寸<strong>按同一左上角对齐、按真实宽度比例叠放</strong>，缩进的右侧/上方阴影就是被砍掉的键区。</p>
+
+  <figure class="framed">
+    <div class="svg-wrap">
+    <svg viewBox="0 0 760 470" role="img" aria-label="键盘布局尺寸同比例左对齐叠放对照图">
+      <rect width="760" height="470" fill="#fff"/>
+      <defs>
+        <pattern id="cut" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="8" height="8" fill="#fbeee8"/><line x1="0" y1="0" x2="0" y2="8" stroke="#d9a08c" stroke-width="2"/>
+        </pattern>
+      </defs>
+      <g font-family="sans-serif" font-size="12">
+        <!-- 基准：100% 宽度=600px 对应实测 ~440mm；按各布局真实宽度比例缩放，左上角(40,40)对齐 -->
+        <!-- 顶部行：F 行带；图中所有框共享同一左上角 -->
+
+        <!-- 被砍区域阴影（先画在底，逐层覆盖） -->
+        <!-- 小键盘区（100%独有，约占右侧 130px） -->
+        <rect x="510" y="40" width="130" height="150" fill="url(#cut)" stroke="#d9a08c" stroke-dasharray="3 3"/>
+        <text x="575" y="120" text-anchor="middle" font-size="10.5" fill="#b0472b">数字小键盘</text>
+        <text x="575" y="135" text-anchor="middle" font-size="9" fill="#b0472b">96%起首批被砍</text>
+
+        <!-- 各档外框：左对齐 (x=40,y=40)，宽度按比例 -->
+        <!-- 100% 全尺寸：104键 ~440mm → 600px -->
+        <rect x="40" y="40" width="600" height="150" rx="6" fill="none" stroke="#1c1a17" stroke-width="2.5"/>
+        <text x="648" y="56" fill="#1c1a17" font-weight="700" font-size="13">100% 全尺寸</text>
+        <text x="648" y="71" fill="#8a8478" font-size="10">~104键 · ~440mm</text>
+
+        <!-- 96%/1800：~98键，压缩间距仍含小键盘 ~395mm → 540px -->
+        <rect x="40" y="40" width="540" height="150" rx="6" fill="none" stroke="#9c6b1a" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="648" y="92" fill="#9c6b1a" font-weight="700" font-size="13">96% / 1800</text>
+        <text x="648" y="107" fill="#8a8478" font-size="10">~98键 · 挤掉缝隙</text>
+
+        <!-- TKL/80%：87键 去小键盘 ~360mm → 490px -->
+        <rect x="40" y="40" width="490" height="150" rx="6" fill="none" stroke="#2f6f6a" stroke-width="2"/>
+        <text x="270" y="208" fill="#2f6f6a" font-weight="700" font-size="13">80% TKL（去小键盘）· ~87键 · ~360mm</text>
+        <!-- F 行带 -->
+        <rect x="40" y="40" width="490" height="26" fill="#eaf2f1" opacity=".7"/>
+        <text x="52" y="57" font-size="10" fill="#2f6f6a">F1–F12 功能行</text>
+        <!-- 导航簇阴影（65%起被压缩/砍） -->
+        <rect x="430" y="68" width="60" height="58" fill="url(#cut)" stroke="#d9a08c" stroke-dasharray="2 2"/>
+        <text x="460" y="100" text-anchor="middle" font-size="8.5" fill="#b0472b">导航簇</text>
+
+        <!-- 75%：82–84键 紧凑保留F行+方向 ~325mm → 445px -->
+        <rect x="40" y="40" width="445" height="150" rx="6" fill="none" stroke="#c8731f" stroke-width="2" stroke-dasharray="4 3"/>
+        <text x="270" y="232" fill="#c8731f" font-weight="700" font-size="13">75%（F行+方向贴主区）· ~82–84键 · ~330mm</text>
+
+        <!-- 65%：67–68键 去F行 留方向 ~320mm → 437px ; 但去掉F行=高度上少一行 -->
+        <rect x="40" y="66" width="370" height="124" rx="6" fill="none" stroke="#b0472b" stroke-width="2"/>
+        <text x="225" y="84" fill="#b0472b" font-weight="700" font-size="12">65%（无F行·留方向键）· ~67–68键</text>
+        <!-- 方向键小块 -->
+        <rect x="360" y="160" width="44" height="28" fill="#f6dcd4" opacity=".85" stroke="#b0472b"/>
+        <text x="382" y="178" text-anchor="middle" font-size="9" fill="#b0472b">方向</text>
+
+        <!-- 60%：61键 无F行无方向 ~290mm → 312px -->
+        <rect x="40" y="66" width="312" height="124" rx="6" fill="none" stroke="#3d7a4e" stroke-width="2.5"/>
+        <text x="120" y="100" fill="#3d7a4e" font-weight="700" font-size="12">60%（无F行·无方向键）· ~61键</text>
+
+        <!-- 40%：~47键 连数字行也砍 ~250mm → 230px ; 高度也矮一行 -->
+        <rect x="40" y="92" width="230" height="98" rx="6" fill="#e3f0e6" opacity=".55" stroke="#3d7a4e" stroke-width="2" stroke-dasharray="3 3"/>
+        <text x="155" y="125" text-anchor="middle" font-size="12" fill="#2f6f6a" font-weight="700">40% 极简 · ~47键</text>
+        <text x="155" y="143" text-anchor="middle" font-size="9.5" fill="#3d7a4e">数字行/符号全靠 Fn 层</text>
+
+        <!-- 砍键顺序注解条 -->
+        <g transform="translate(40,250)">
+          <text x="0" y="0" font-size="12.5" font-weight="700" fill="#1c1a17">↓ 缩一档 = 砍一个键区（从右往左 / 从上往下）</text>
+          <text x="0" y="20" font-size="11.5" fill="#4a463f">①小键盘（96%↘）→ ②F功能行（65%↘）→ ③导航/编辑簇（65%压缩）→ ④方向键（60%↘）→ ⑤数字行（40%↘）</text>
+        </g>
+      </g>
+    </svg>
+    </div>
+    <figcaption>图①（核心交付物）：六档布局同一左上角、按真实宽度比例叠放——斜纹阴影=被砍掉的键区。注意 65%/40% 在<strong>高度上也矮一行</strong>（少了 F 行 / 数字行）。<span class="src">自绘比例对照图。键数/宽度依据 MKBGuide、KeebsForAll、RTINGS 公开数据交叉核对，2026-06</span></figcaption>
+  </figure>
+  <div class="legend-row">
+    <span><i style="background:#fff;border-color:#1c1a17"></i>100%</span>
+    <span><i style="background:#fff;border-color:#9c6b1a"></i>96%/1800</span>
+    <span><i style="background:#fff;border-color:#2f6f6a"></i>80% TKL</span>
+    <span><i style="background:#fff;border-color:#c8731f"></i>75%</span>
+    <span><i style="background:#fff;border-color:#b0472b"></i>65%</span>
+    <span><i style="background:#fff;border-color:#3d7a4e"></i>60% / 40%</span>
+    <span><i style="background:url(#cut);background-color:#fbeee8"></i>被砍键区</span>
+  </div>
+
+  <h3>具体数据（键数/宽度，2026-06 采集）</h3>
+  <ul>
+    <li><b>100% 全尺寸</b>：约 <b>104 键</b>，宽 ~440mm。占地最大、鼠标被推远。</li>
+    <li><b>96% / 1800 紧凑</b>：约 <b>98–100 键</b>。"塞满式"——保留小键盘但<strong>压掉键区间所有缝隙</strong>，看着像 TKL 却多了一整个数字区。</li>
+    <li><b>80% TKL（Tenkeyless）</b>：约 <b>87 键</b>，宽 ~360mm。去掉小键盘，省地 ~35%。</li>
+    <li><b>75%</b>：约 <b>82–84 键</b>，宽 ~330mm。保留 F 行+方向键但全部贴紧主区，<strong>比 65% 仅宽 ~10mm 却多一整条 F 行</strong>（MKBGuide 实测 65%≈320mm vs 75%≈330mm）。</li>
+    <li><b>65%</b>：约 <b>67–68 键</b>，宽 ~320mm，省地 ~40%。砍掉整条 F 行，<strong>保留方向键</strong>+部分导航键。</li>
+    <li><b>60%</b>：约 <b>61 键</b>，宽 ~290mm。在 65% 基础上<strong>再砍方向键</strong>。</li>
+    <li><b>40%</b>：约 <b>47 键</b>，宽 ~250mm。连<strong>数字行</strong>都砍，数字/符号全进 Fn 层。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>尺寸不是连续滑块，而是<strong>离散的"砍键区"台阶</strong>。最反直觉的一档是 <b>75% vs 65%</b>——宽度只差 ~10mm，但功能上差了"整条 F 行"，这是后面选购的关键岔路口。</p>
+</section>
+
+<!-- ============ 2. 大尺寸端 ============ -->
+<section>
+  <h2>2. 大尺寸端（100% / 96% / TKL）：保留 vs 桌面/鼠标空间</h2>
+  <h3>论述</h3>
+  <p>大尺寸端的核心权衡不是"功能够不够"（它们都够），而是<strong>桌面占地与"鼠标右移距离"</strong>。100% 把鼠标推到很远，长期会增加肩颈外展角度；TKL 砍掉小键盘后，鼠标可以回到肩线正下方。96%/1800 是个"既要又要"的妥协——想保小键盘又想省地的人专属。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"Full-size keyboards take up the most desk space and push the mouse furthest away. Removing the numpad (TKL) lets the mouse sit closer to the body's centerline, which many users find more comfortable for long sessions."</p><span class="src">— RTINGS · Keyboard Size Guide · <a href="https://www.rtings.com/keyboard/learn/keyboard-size-guide">rtings.com/keyboard/learn/keyboard-size-guide</a> · 2026-06 采集</span></div>
+  <div class="ugc"><p>"The 1800/96% compresses everything into a smaller footprint while still keeping the numpad—it's for people who need numbers but hate how far a full-size pushes the mouse."</p><span class="src">— KeebsForAll · 60 vs 65 vs 75 指南（衍生 96% 说明） · <a href="https://keebsforall.com/blogs/mechanical-keyboards-101/keyboards-60-vs-65-vs-75">keebsforall.com</a> · 2026-06 采集</span></div>
+  <h3>具体数据</h3>
+  <ul>
+    <li>TKL 相对全尺寸<strong>省地约 35%</strong>（RTINGS / MKBGuide 一致口径）。</li>
+    <li>96%/1800 牺牲的是<strong>键区间隙</strong>而非键位——代价是误触率略升（相邻键区贴太紧，PrintScreen/Delete 容易按错），社区常见吐槽点。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>财会/数据录入选 100% 或 96%；普通人想要"全功能又省地"，<strong>TKL 是最稳的默认</strong>——不学习成本、鼠标回得来。</p>
+</section>
+
+<!-- ============ 3. 甜点区 ============ -->
+<section>
+  <h2>3. 甜点区（75% / 65%）：那条 F 行值不值 10mm</h2>
+  <h3>论述</h3>
+  <p>这是整个尺寸谱里<strong>最值得细抠的岔路</strong>。75% 和 65% 宽度仅差约 10mm，但 75% 多了一整条 F 行。决策不看"喜不喜欢小"，而看你<strong>每天按 F 键的真实频率</strong>：程序员/设计师/Adobe 重度用户按 75%；游戏玩家、不碰 IDE 的人按 65% 几乎无痛。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"Programmers report the Fn layer creates persistent speed loss with 65%, while gamers rarely notice the adaptation. F-keys aren't luxuries—they're core tools for IDE, Adobe, productivity software."</p><span class="src">— MKBGuide · 65% vs 75% Keyboard Layout · <a href="https://mkbguide.com/blog/65-vs-75-keyboard-layout">mkbguide.com/blog/65-vs-75-keyboard-layout</a> · 2026-06 采集</span></div>
+  <div class="ugc"><p>"The difference between pressing Fn+5 and directly pressing F5 seems minor in theory—but when you're doing it 50+ times daily, it becomes a genuine usability bottleneck."</p><span class="src">— 65% 选购指南综合（搜索聚合自 RK/Redragon/Higround 等评测站用户反馈） · 2026-06 采集</span></div>
+  <h3>具体数据</h3>
+  <ul>
+    <li>65%：~67–68 键，~320mm；75%：~82–84 键，~330mm。<strong>差 ~14 键 / ~10mm</strong>。</li>
+    <li>65% 仍保留方向键，这是它和 60% 的关键分水岭——"省地但不丢方向键"是它最大的卖点。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>把"每天按 F 键多少次"当成唯一判据。≥几十次 → 75%；几乎不按 → 65% 更省地更好看。<strong>不确定就选 75%</strong>，它是"小而不残"的安全牌。</p>
+</section>
+
+<!-- ============ 4. 极简端 ============ -->
+<section>
+  <h2>4. 极简端（60% / 40%）：用学习曲线换极致便携</h2>
+  <h3>论述</h3>
+  <p>60% 砍掉方向键，靠 Fn 层；40% 再砍数字行——它已经不是"小键盘"，而是<strong>"层（layer）哲学"的入门券</strong>：所有缺键都通过可编程多层组合调出。回报是极致便携与"手不离 home row"；代价是真实的、以周计的学习曲线和明确的劝退率。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"40% keyboards remove the number row; numbers, symbols and other missing keys are accessed entirely through multiple programmable layers. The realistic adaptation curve is 2–4 weeks."</p><span class="src">— MKBGuide · 40% Keyboard Guide (2026) · <a href="https://mkbguide.com/blog/40-percent-keyboard-guide">mkbguide.com/blog/40-percent-keyboard-guide</a> · 2026-06 采集</span></div>
+  <div class="ugc"><p>"The jump from 60% to 40% offers diminishing returns for mouse movement while significantly increasing the learning curve... switching between layers often slows them down."</p><span class="src">— XDA Developers · 6 truths about 40% keyboards · <a href="https://www.xda-developers.com/truths-about-40-keyboards/">xda-developers.com/truths-about-40-keyboards</a> · 2026-06 采集</span></div>
+  <h3>具体数据</h3>
+  <ul>
+    <li>40%：~47 键，~250mm。比 60% 仅省地有限，但<strong>学习曲线陡增</strong>（"边际收益递减"是反复出现的结论）。</li>
+    <li>建议路径：从 60%/65% 想试"层哲学"的人，先选<strong>staggered（行交错）40%</strong>而非 ortholinear，保留旧的肌肉记忆，降低折腾门槛。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>60% 是"程序员/极简党/出差"的成熟选择（方向键用 Fn 可接受）；40% 更像爱好者的兴趣实验——<strong>不要把 40% 当第一块键盘</strong>。</p>
+</section>
+
+<!-- ============ 5. 人体工学：Alice / 分体 ============ -->
+<section>
+  <h2>5. 人体工学：Alice 与分体（不砍键，改几何）</h2>
+  <h3>论述</h3>
+  <p>Alice 和分体走的是和"砍键"完全正交的另一条轴：<strong>它们基本不减键，而是改键盘的几何</strong>，为腕/肩舒适服务。两者强度不同——<strong>Alice 是"温和人体工学"</strong>（一体式、左右分角、保留行交错，几乎零学习成本）；<strong>分体（Corne / Moonlander / Kinesis）是"硬核人体工学"</strong>（一分为二可调角度间距，常配列交错 column-stagger，学习曲线以周/月计）。</p>
+
+  <h3>5.1 Alice：低成本上手的"温和派"</h3>
+  <h4>证据</h4>
+  <div class="ugc"><p>"Because my forearms and hands sit at a more natural angle when typing, my shoulders don't hunch quite so much... my wrists and fingers are more comfortable using this layout, and my overall typing speed increased."</p><span class="src">— Keychron Q8 (Alice) 评测用户反馈（AppleInsider / MakeUseOf 汇总） · <a href="https://www.makeuseof.com/keychron-q8-review/">makeuseof.com/keychron-q8-review</a> · 2026-06 采集</span></div>
+  <div class="ugc"><p>"Row-stagger is preserved, so each finger still moves in the diagonal pattern it already knows... the only genuinely new motor patterns are the split spacebar and dual B key. Plan for about a week of adjustment."</p><span class="src">— MKBGuide · Alice Layout Keyboards Guide (2026) · <a href="https://mkbguide.com/blog/alice-layout-keyboards-guide">mkbguide.com/blog/alice-layout-keyboards-guide</a> · 2026-06 采集</span></div>
+  <p><b>Alice 的隐性代价（务必区分营销与现实）：</b>厂商页只夸"舒适"，但 UGC 反复点出两个真实痛点：① <strong>双 B 键</strong>——Alice 左右各一个 B，标准键帽套只配一个 B，换帽时配色/字符对不上（Keychron 早期曾改成双 G，社区差评后改回双 B）；② <strong>从 Magic Keyboard 等直接跳 Alice 学习曲线陡</strong>，要长期承诺才见收益。</p>
+
+  <h3>5.2 分体：硬核人体工学，劝退率不低</h3>
+  <h4>证据</h4>
+  <div class="ugc"><p>"It's immeasurably frustrating trying to do something you *know* you're good at, and sucking at it. I *almost* gave up. More than once, I put the Moonlander back in the box."</p><span class="src">— Josh Collinsworth · Moonlander one-month 长测 · <a href="https://joshcollinsworth.com/blog/moonlander">joshcollinsworth.com/blog/moonlander</a> · 2026-06 采集</span></div>
+  <div class="ugc"><p>"2 days to not feel like you're typing with mittens, 2 weeks to have the basics pretty well in your hands, and 2 months to get to where you don't think about it 99% of the time."</p><span class="src">— Alan Smith（经 Josh Collinsworth 引用）· Moonlander 适应曲线 · <a href="https://joshcollinsworth.com/blog/moonlander">joshcollinsworth.com/blog/moonlander</a> · 2026-06 采集</span></div>
+  <div class="ugc"><p>"Splitting alone adapts in 1–2 days, but the columnar layout typically takes 2–4 weeks to recover typing speed. The dropout rate among first-time split-keyboard buyers is meaningfully high. Kinesis concave keywells reduce finger travel most for strong-RSI / large-hand users."</p><span class="src">— remoteworkgeek · Split Ergonomic Keyboards 2026 横评 · <a href="https://remoteworkgeek.org/posts/ergo-keyboard-split-tested/">remoteworkgeek.org/posts/ergo-keyboard-split-tested</a> · 2026-06 采集</span></div>
+  <h4>具体数据</h4>
+  <ul>
+    <li><b>Corne</b>：42 键（6×3+3，含 3 拇指键），最流行的小分体之一。</li>
+    <li><b>列交错 column-stagger</b> 适应期 <strong>2–4 周</strong>恢复打字速度；<strong>拆分本身</strong>仅 1–2 天。两者要分开看。</li>
+    <li>Kinesis Advantage 用<strong>凹面 keywell</strong>（每半向下凹，指长匹配按键深度），对强 RSI / 大手减少手指位移最明显；Moonlander/Ergodox 为平面 ortholinear。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>手腕痛但怕折腾 → <strong>Alice（≈1 周上手）</strong>；愿意拿 2 周–2 月换长期工效、有明确 RSI → <strong>分体</strong>（Kinesis 凹面缓解最强，Moonlander/Corne 便携可玩）。分体劝退率高，先确认自己愿意熬过低速期。</p>
+</section>
+
+<!-- ============ 6. 对比矩阵 ============ -->
+<section>
+  <h2>6. 对比矩阵：各档牺牲了什么 / 适合谁</h2>
+  <div class="table-scroll"><table class="matrix">
+    <caption>表1：布局尺寸与人体工学全谱权衡（点击表头高亮该列；键数/宽度为 2026-06 采集近似值）</caption>
+    <thead><tr><th>布局</th><th>约键数</th><th>约宽度</th><th>砍掉了什么</th><th>学习曲线</th><th>桌面/鼠标</th><th>最适合谁</th></tr></thead>
+    <tbody>
+      <tr><td>100% 全尺寸</td><td>~104</td><td>~440mm</td><td>什么都保留</td><td><span class="pill good">零</span></td><td><span class="pill bad">占地大·鼠标远</span></td><td>财会/重度数字录入</td></tr>
+      <tr><td>96% / 1800</td><td>~98</td><td>~395mm</td><td>压掉键区缝隙(误触↑)</td><td><span class="pill good">几乎零</span></td><td><span class="pill mid">略省·仍有小键盘</span></td><td>要小键盘又想省地</td></tr>
+      <tr><td>80% TKL</td><td>~87</td><td>~360mm</td><td>数字小键盘</td><td><span class="pill good">零</span></td><td><span class="pill good">省~35%·鼠标近</span></td><td><strong>最稳全能默认</strong></td></tr>
+      <tr><td>75%</td><td>~82–84</td><td>~330mm</td><td>键区间距(F行/方向贴紧)</td><td><span class="pill good">很低</span></td><td><span class="pill good">小而全</span></td><td>要 F 行又要小(程序员/设计)</td></tr>
+      <tr><td>65%</td><td>~67–68</td><td>~320mm</td><td>整条 F 行(留方向键)</td><td><span class="pill mid">低·需记 Fn</span></td><td><span class="pill good">省~40%</span></td><td>少按 F 键的游戏/通用党</td></tr>
+      <tr><td>60%</td><td>~61</td><td>~290mm</td><td>F 行 + 方向键</td><td><span class="pill mid">中</span></td><td><span class="pill good">极省·便携</span></td><td>程序员/极简党/出差</td></tr>
+      <tr><td>40%</td><td>~47</td><td>~250mm</td><td>再砍数字行/符号</td><td><span class="pill bad">陡·2–4周</span></td><td><span class="pill good">最小</span></td><td>层哲学爱好者(非首块)</td></tr>
+      <tr><td>Alice(人体工学)</td><td>~65–68</td><td>看型号</td><td>基本不砍·左右分角</td><td><span class="pill mid">约1周</span></td><td>一体式·占地中</td><td>手腕痛但怕折腾</td></tr>
+      <tr><td>分体 Split</td><td>42–80</td><td>可调</td><td>常不砍·一分为二+列交错</td><td><span class="pill bad">2周–2月·劝退率高</span></td><td>占两块但可调角</td><td>强 RSI / 追求极致工效</td></tr>
+    </tbody>
+  </table></div>
+  <p class="mini-note">键数/宽度交叉核对自 MKBGuide、KeebsForAll、RTINGS、remoteworkgeek，型号间有出入故标"约"，2026-06。</p>
+</section>
+
+<!-- ============ 7. 关键洞察与产品机会 ============ -->
+<section>
+  <h2>7. 关键洞察与产品机会</h2>
+  <p class="callout"><b>洞察 1 · "75% vs 65%"是被低估的转化分水岭。</b>两者宽度仅差 ~10mm，决策却完全由"F 键使用频率"决定。<strong>产品机会</strong>：在落地页用"你每天按几次 F 键？"这种一题式选择器替代枯燥的尺寸表，把犹豫用户精准导向 75%（高客单+低退货），避免"买了 65% 才发现天天要 F 键"的退货。</p>
+  <p class="callout"><b>洞察 2 · 学习曲线是隐藏退货炸弹，应前置而非隐藏。</b>40% 与分体的真实劝退率高、长测博主"差点放弃"。多数厂商页只讲"舒适/高效"避谈低速期。<strong>产品机会</strong>：对极简/分体产品页主动标注"适应期 2–4 周"并配<strong>渐进式 layer 训练器 / 30 天无忧退</strong>，把劝退率转成口碑——诚实反而降退货。</p>
+  <p class="callout"><b>洞察 3 · Alice 是"人体工学的最大公约数"，但生态有摩擦。</b>它≈1 周上手、显著缓肩颈，却卡在"双 B 键导致换帽困难"。<strong>产品机会</strong>：键帽厂出<strong>Alice 兼容套（含双 B / 双修饰键 + 分体空格）</strong>是明确未被满足的需求；整机厂可把"附赠 Alice 专用补充键帽"做成差异化卖点。</p>
+  <p class="callout"><b>洞察 4 · "省地"叙事在 60%↘已边际递减，真正卖点要转向"手不离 home row"。</b>40% 比 60% 省地有限，硬卖"更小"说服力弱。<strong>产品机会</strong>：把 40% 的价值重定位为"零位移效率/工程师工具"，而非"更便携"，匹配真实买家心智。</p>
+</section>
+
+<!-- ============ 8. Caveats & 证伪状态 ============ -->
+<section class="caveats">
+  <h2>Caveats &amp; 证伪状态</h2>
+  <ul>
+    <li><span class="fbadge confirmed">已核实</span> <strong>"缩一档=砍一个键区"</strong>：砍键顺序（小键盘→F行→导航簇→方向键→数字行）经 MKBGuide / KeebsForAll / RTINGS 三源一致，置信度高。</li>
+    <li><span class="fbadge confirmed">已核实</span> <strong>75% vs 65% 仅差 ~10mm 宽却差整条 F 行</strong>：MKBGuide 给出 65%≈320mm / 75%≈330mm、67–68 vs 82–84 键，数据自洽。</li>
+    <li><span class="fbadge confirmed">已核实</span> <strong>分体/40% 学习曲线以周计、劝退率高</strong>：Josh Collinsworth 长测自述"差点放弃"+ remoteworkgeek "dropout rate meaningfully high" + MKBGuide "2–4 周"多源印证。</li>
+    <li><span class="fbadge partial">部分</span> <strong>键数/宽度为近似值</strong>：100%≈104、96%≈98、TKL≈87、75%≈82–84、65%≈67–68、60%≈61、40%≈47 是行业通行近似，<strong>具体型号会±几键</strong>（如 60% 有 61/64 之分）。SVG 比例为依据真实宽度的示意，非精确工程图。</li>
+    <li><span class="fbadge partial">部分</span> <strong>"Alice 提速打字"</strong>多来自厂商评测页的用户感受，缺独立对照 WPM 实验；记为<strong>舒适度收益可信、提速主张待验</strong>，按营销话术降权处理。</li>
+    <li><span class="fbadge open">仍开放</span> <strong>直接 r/MechanicalKeyboards / r/ErgoMechKeyboards 原帖 URL 本轮未稳定检索到</strong>（WebSearch 对站内贴文返回为空），现有 UGC 多经长测博客与评测站二手转述，原始热度/赞数缺口待后续模块补足。</li>
+  </ul>
+</section>
+
+<!-- ============ 9. 参考来源索引 ============ -->
+<section class="sources">
+  <h2>参考来源索引</h2>
+  <ol>
+    <li>MKBGuide — 65% vs 75% Keyboard Layout（键数/宽度/Fn 速度损失）：<a href="https://mkbguide.com/blog/65-vs-75-keyboard-layout">mkbguide.com/blog/65-vs-75-keyboard-layout</a>（采集 2026-06）</li>
+    <li>MKBGuide — 40% Keyboard Guide (2026)：<a href="https://mkbguide.com/blog/40-percent-keyboard-guide">mkbguide.com/blog/40-percent-keyboard-guide</a>（采集 2026-06）</li>
+    <li>MKBGuide — Alice Layout Keyboards Guide (2026)：<a href="https://mkbguide.com/blog/alice-layout-keyboards-guide">mkbguide.com/blog/alice-layout-keyboards-guide</a>（采集 2026-06）</li>
+    <li>KeebsForAll — 60% vs 65% vs 75% Keyboards：<a href="https://keebsforall.com/blogs/mechanical-keyboards-101/keyboards-60-vs-65-vs-75">keebsforall.com/blogs/mechanical-keyboards-101/keyboards-60-vs-65-vs-75</a>（采集 2026-06）</li>
+    <li>RTINGS — Different Keyboard Sizes Explained（Full/96%/TKL/75%/60%）：<a href="https://www.rtings.com/keyboard/learn/keyboard-size-guide">rtings.com/keyboard/learn/keyboard-size-guide</a>（采集 2026-06）</li>
+    <li>XDA Developers — 6 truths about 40% keyboards I wish I knew sooner：<a href="https://www.xda-developers.com/truths-about-40-keyboards/">xda-developers.com/truths-about-40-keyboards</a>（采集 2026-06）</li>
+    <li>Josh Collinsworth — Impressions of the ZSA Moonlander at one month（分体长测/适应曲线）：<a href="https://joshcollinsworth.com/blog/moonlander">joshcollinsworth.com/blog/moonlander</a>（采集 2026-06）</li>
+    <li>remoteworkgeek — Split Ergonomic Keyboards 2026（Kinesis vs Moonlander vs Ergodox 横评/Corne 42键/劝退率）：<a href="https://remoteworkgeek.org/posts/ergo-keyboard-split-tested/">remoteworkgeek.org/posts/ergo-keyboard-split-tested</a>（采集 2026-06）</li>
+    <li>AppleInsider — Keychron Q8 (Alice) Review：<a href="https://appleinsider.com/articles/22/10/10/keychron-q8-review-an-alice-layout-mechanical-keyboard-open-to-customization">appleinsider.com/articles/...keychron-q8-alice</a>（采集 2026-06）</li>
+    <li>MakeUseOf — Keychron Q8 Review（Alice 舒适/双 B 键）：<a href="https://www.makeuseof.com/keychron-q8-review/">makeuseof.com/keychron-q8-review</a>（采集 2026-06）</li>
+    <li>Digital Trends — Keychron Q8 Review: Looking for a committed relationship（学习曲线/长期承诺）：<a href="https://www.digitaltrends.com/computing/keychron-q8-review/">digitaltrends.com/computing/keychron-q8-review</a>（采集 2026-06）</li>
+    <li>Voltcave — Mechanical Keyboard Sizes Visual Comparison：<a href="https://voltcave.com/keyboard-sizes/">voltcave.com/keyboard-sizes</a>（采集 2026-06）</li>
+  </ol>
+</section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块3 Task 3.5（布局尺寸 100%→40% + 人体工学）· 采集时点 2026-06 · 键数/宽度为近似值，以具体型号官方页为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

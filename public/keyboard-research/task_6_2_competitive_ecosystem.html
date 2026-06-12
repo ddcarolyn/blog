@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 6.2：竞争格局生态图——三层市场 + 信仰位 + 新势力</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块6 · Task 6.2</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块6 · TASK 6.2 · 竞争格局</span>
+  <h1>竞争格局生态图：四类玩家在抢谁的钱</h1>
+  <p class="lede">同样叫"机械键盘"，699 元的 Razer 和 99 元的 Aula 几乎不在一条赛道上抢人。这一页只回答一个窄问题——<strong>市场被切成了哪几块、各块的代表品牌是谁、它们各自靠什么活着</strong>，并把这张分层生态图画出来（核心交付物）。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit / redditrecs / TikTok 声量）&gt; 第三方评测（RTINGS / LTT Labs）&gt; 官方话术（Wooting / Logitech 财报）<br>
+  主要来源：SkyQuest / Reportprime 公司排名、Logitech Q1-2025 财报口径、ecdb / Grips 的 Keychron 电商流水、Wooting & LTT Labs 的 HE 历史、redditrecs 的 Aula F75 聚合、dataintelo 的 HE 市场口径。</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ============ 核心交付物：生态图 ============ -->
+  <section>
+    <h2>0. 核心交付物：分层生态图</h2>
+    <h3>论述</h3>
+    <p>"机械键盘行业"不是一个市场，而是<strong>四个气质完全不同的市场叠在一起</strong>：靠品牌与渠道卖溢价的<strong>游戏大厂</strong>、靠社区与手感收高溢价低量的<strong>客制/极客</strong>、靠白牌走量打价格战的<strong>出海低价</strong>，外加一个不走机械轴、靠信仰活了 25 年的<strong>静电容信仰位</strong>。横切这四层的，是 2019 年由 Wooting 引爆、如今大厂全面跟进的<strong>磁轴（Hall Effect）新势力</strong>——它不是第五个"层"，而是一根正在重写游戏键盘规则的<strong>纵轴</strong>。下图把这四层 + 一纵轴画在一起。</p>
+
+    <figure class="framed">
+      <svg viewBox="0 0 780 540" width="780" role="img" aria-label="机械键盘竞争格局生态图：四层市场加磁轴纵轴">
+        <style>
+          .cap{font:12.5px -apple-system,sans-serif;font-weight:800}
+          .bn{font:11px -apple-system,sans-serif;fill:#fff;font-weight:700;text-anchor:middle}
+          .note{font:10.5px -apple-system,sans-serif;fill:#4a463f}
+          .sub{font:10px -apple-system,sans-serif;fill:#8a8478}
+          .axt{font:11px -apple-system,sans-serif;fill:#b0472b;font-weight:700}
+          .axl{font:10px -apple-system,sans-serif;fill:#8a8478}
+        </style>
+        <!-- 坐标轴说明：纵=单价 横=量 -->
+        <text class="axl" x="14" y="30">纵向 ↑ 单价高 / 量小 ｜ 横向 → 出货量大</text>
+        <!-- 三层背景带（机械轴主市场） -->
+        <rect x="20" y="44" width="520" height="120" rx="12" fill="#f5e4cf"/>
+        <rect x="20" y="176" width="520" height="118" rx="12" fill="#eaf2f1"/>
+        <rect x="20" y="306" width="520" height="118" rx="12" fill="#f0ece5"/>
+        <text class="cap" x="34" y="64" fill="#c8731f">① 游戏大厂 · 高价高营销 · 渠道为王（Top5≈42–46%）</text>
+        <text class="cap" x="34" y="196" fill="#2f6f6a">② 客制/极客 · 社区驱动 · 高溢价低量（单价 $150–600+）</text>
+        <text class="cap" x="34" y="326" fill="#4a463f">③ 出海低价 · 白牌走量 · 价格战（$30–80 甜点价）</text>
+        <!-- ① 大厂气泡（气泡越大=份额示意越大） -->
+        <circle cx="120" cy="118" r="36" fill="#c8731f"/><text class="bn" x="120" y="122">Logitech</text>
+        <circle cx="215" cy="118" r="32" fill="#9c5814"/><text class="bn" x="215" y="122">Corsair</text>
+        <circle cx="300" cy="118" r="28" fill="#b0472b"/><text class="bn" x="300" y="122">Razer</text>
+        <circle cx="375" cy="116" r="22" fill="#c8731f" opacity=".82"/><text class="bn" x="375" y="120" style="font-size:9px">SteelSeries</text>
+        <circle cx="445" cy="116" r="20" fill="#9c5814" opacity=".8"/><text class="bn" x="445" y="120" style="font-size:9px">HyperX</text>
+        <circle cx="505" cy="116" r="16" fill="#c8731f" opacity=".7"/><text class="bn" x="505" y="119" style="font-size:8px">Glorious</text>
+        <!-- ② 客制气泡 -->
+        <circle cx="120" cy="246" r="30" fill="#2f6f6a"/><text class="bn" x="120" y="250">Keychron</text>
+        <circle cx="205" cy="246" r="24" fill="#2f6f6a" opacity=".85"/><text class="bn" x="205" y="250">Ducky</text>
+        <circle cx="280" cy="246" r="21" fill="#2f6f6a" opacity=".8"/><text class="bn" x="280" y="250">Varmilo</text>
+        <circle cx="350" cy="244" r="19" fill="#3d7a4e" opacity=".82"/><text class="bn" x="350" y="248" style="font-size:9px">KBDfans</text>
+        <circle cx="420" cy="244" r="17" fill="#2f6f6a" opacity=".72"/><text class="bn" x="420" y="248" style="font-size:8px">QK/Mode</text>
+        <circle cx="485" cy="244" r="15" fill="#3d7a4e" opacity=".7"/><text class="bn" x="485" y="247" style="font-size:8px">GMK键帽</text>
+        <!-- ③ 出海气泡 -->
+        <circle cx="120" cy="374" r="28" fill="#8a8478"/><text class="bn" x="120" y="378" style="font-size:10px">RoyalKludge</text>
+        <circle cx="205" cy="374" r="24" fill="#8a8478" opacity=".88"/><text class="bn" x="205" y="378" style="font-size:10px">Epomaker</text>
+        <circle cx="280" cy="374" r="22" fill="#8a8478" opacity=".8"/><text class="bn" x="280" y="378">Aula</text>
+        <circle cx="350" cy="374" r="18" fill="#8a8478" opacity=".7"/><text class="bn" x="350" y="378" style="font-size:9px">MageGee</text>
+        <text class="sub" x="395" y="378">…200+ 白牌长尾</text>
+        <!-- 右上：信仰位 -->
+        <rect x="556" y="44" width="208" height="158" rx="12" fill="#fff" stroke="#e2dcd1"/>
+        <text class="cap" x="570" y="66" fill="#1c1a17">信仰位（静电容 Topre）</text>
+        <text class="note" x="570" y="88" style="font-weight:700">HHKB（PFU/富士通）</text>
+        <text class="note" x="570" y="106" style="font-weight:700">Realforce（东プレ Topre）</text>
+        <text class="sub" x="570" y="128">不走机械轴，25 年死忠 "thock" 信徒</text>
+        <text class="sub" x="570" y="144">单价 $200–350，量极小、护城河=手感</text>
+        <text class="sub" x="570" y="160">"一把用十年" 的小众极忠诚圈层</text>
+        <text class="sub" x="570" y="184">redditrecs/r/MK 高复购、低退坑率</text>
+        <!-- 右下：磁轴纵轴说明 -->
+        <rect x="556" y="216" width="208" height="208" rx="12" fill="#fbeee8" stroke="#f0d2c5"/>
+        <text class="cap" x="570" y="238" fill="#b0472b">纵轴 · 磁轴 HE 新势力</text>
+        <text class="note" x="570" y="260" style="font-weight:700">Wooting（开创者/2019 Lekker）</text>
+        <text class="note" x="570" y="278">Razer / Corsair / SteelSeries 跟进</text>
+        <text class="note" x="570" y="296">Keychron Q6 HE / Lemokey P1 HE</text>
+        <text class="sub" x="570" y="316">横切①②③：大厂、极客、出海都在上磁轴</text>
+        <text class="sub" x="570" y="332">从竞技 FPS 切入 → 2026 已成新品 baseline</text>
+        <text class="axt" x="570" y="356">HE 市场 CAGR 口径打架 9.1%–17.2%</text>
+        <text class="sub" x="570" y="372">只取量级：远快于行业整体 ~8%</text>
+        <text class="sub" x="570" y="392" style="fill:#b0472b">Keychron HE 系列半年售 200 万台</text>
+        <text class="sub" x="570" y="408" style="fill:#b0472b">（厂商口径，待证）</text>
+        <!-- 纵轴箭头横切三层 -->
+        <line x1="540" y1="430" x2="540" y2="60" stroke="#b0472b" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <polygon points="540,52 535,64 545,64" fill="#b0472b"/>
+        <text class="sub" x="40" y="450">气泡大小为份额示意（非精确市占）。市占口径：Top5≈42–46%、长尾 200+ 品牌（SkyQuest/Reportprime，口径粗略仅供参考，采集 2026-06）。</text>
+      </svg>
+      <figcaption>图1（核心交付物）：四层市场 + 静电容信仰位 + 磁轴新势力纵轴。气泡为份额示意，非精确市占。<span class="src">综合：SkyQuest / Reportprime 公司排名 + Logitech Q1-2025 财报 + UGC，采集 2026-06</span></figcaption>
+    </figure>
+    <p class="callout"><b>小结：</b>读懂这张图只需记一句话——<strong>四层各赚各的钱</strong>：大厂赚"品牌+渠道"的钱，极客赚"手感+社交货币"的钱，出海赚"够用+便宜"的钱，信仰位赚"信徒不换"的钱；而磁轴是一根正在把这四层重新洗一遍的纵轴。</p>
+  </section>
+
+  <!-- ============ ① 大厂 ============ -->
+  <section>
+    <h2>1. ① 游戏大厂：渠道与品牌的护城河</h2>
+    <h3>论述</h3>
+    <p>这一层的逻辑不是"键盘做得最好"，而是<strong>渠道、电竞代言、品牌势能</strong>。机械键盘对它们只是外设矩阵的一环（鼠标、耳机、主机外设一起卖）。它们卖的是"安全感"——小白在百思买/京东自营货架上认得出 Logitech、Razer 的 logo，于是愿意为同样的轴体多付一倍价钱。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Logitech 在 2025 Q1 键盘业务收入同比增长 20%，达到 11 亿美元，重申其领导地位；Logitech（18%）与 Corsair（14%）是全球市占最高的两家。"</p><span class="src">— SkyQuest Mechanical Keyboard Market Report（引述 Logitech Q1-2025 口径） · <a href="https://www.skyquestt.com/report/mechanical-keyboard-market">skyquestt.com</a> · 采集 2026-06</span></div>
+    <div class="ugc"><p>"Corsair 与 Razer 合计持有超过 21% 的全球市场份额；Top5 玩家合计约占总收入的 42–46%。"</p><span class="src">— Reportprime / SkyQuest 公司排名摘要 · <a href="https://www.reportprime.com/mechanical-keyboards-r17731/company">reportprime.com</a> · 采集 2026-06</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>Logitech ~18% / Corsair ~14%</b>：稳居前二（市调口径，时点不透明，仅作量级）。</li>
+      <li><b>Top5≈42–46%</b>：本次采集口径较源模块旧引用的"≈55%"<strong>下修</strong>——这是一次自我纠错，见 Caveats。</li>
+      <li><b>代表阵容</b>：Logitech、Corsair、Razer、SteelSeries、HyperX、Glorious。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>大厂的护城河是<strong>渠道 + 品牌</strong>，不是手感。这也是为什么它们的产品在极客论坛常被嘲"用料一般、定价虚高"，却依然占头部份额——它们卖给的根本不是极客。</p>
+  </section>
+
+  <!-- ============ ② 客制/极客 ============ -->
+  <section>
+    <h2>2. ② 客制/极客：社区即护城河，Keychron 是最大变量</h2>
+    <h3>论述</h3>
+    <p>这一层靠<strong>社区、手感、个性化（热插拔/键帽/团购）</strong>收高溢价、走低量。它最大的变量是 <strong>Keychron</strong>——它用 DTC（直营电商）+ "极客品质但入门价" 的打法，把原本属于小作坊和团购圈的客制需求工业化、规模化，已挤进 Top10，是整个行业近三年增长最快的品牌之一。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Keychron 2025 年自营商店年销售额达 1.236 亿美元，同比增长 20–50%……2026 年 4 月，keychron.com 在收入与交易量上均跑赢竞品，单月收入 1158 万美元、3.6 万笔交易，而最接近的竞品 kbdfans.com 同期仅 121 万美元。"</p><span class="src">— ecdb / Grips Intelligence 电商流水 · <a href="https://ecdb.com/resources/sample-data/retailer/keychron">ecdb.com</a> · 采集 2026-06</span></div>
+    <div class="ugc"><p>"Keychron 凭借直营模式 + 平价的发烧友级产品，跻身 Top10；发烧段单价区间 $150 到 $600+，远高于主流游戏键盘均价，而 Keychron 还提供 sub-$50 热插拔款拉低入门门槛。"</p><span class="src">— SkyQuest 报告 · <a href="https://www.skyquestt.com/report/mechanical-keyboard-market">skyquestt.com</a> · 采集 2026-06</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>Keychron ~5% 份额</b>，自营年流水 <b>$123.6M（2025）</b>，对手 KBDfans 单月仅其 ~1/10。</li>
+      <li><b>代表阵容</b>：Keychron、Ducky、Varmilo、KBDfans、QK/Mode、GMK（键帽）。</li>
+      <li><b>护城河</b>：社区认同 + 生态（键帽/轴/套件可换），而非单机性能。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>Keychron 证明了"客制可以规模化"。它一只脚踩在极客层（手感/热插拔），另一只脚踩在出海层（sub-$50 入门），还伸手进磁轴纵轴（Q6 HE）——是四层里最难归类、也最危险的搅局者。</p>
+  </section>
+
+  <!-- ============ ③ 出海低价 ============ -->
+  <section>
+    <h2>3. ③ 出海低价：白牌走量，TikTok 是新货架</h2>
+    <h3>论述</h3>
+    <p>这一层在 <strong>$30–80 的甜点价位</strong>提供"蓝牙 + 热插拔 + gasket + 还不错的 thock 音"，靠 Amazon/AliExpress/TikTok 走量。它的硬件几乎全部同源（见 Task 6.3 轴厂集中），所以无法在硬件上做真差异，只能<strong>拼价格 + 拼上新速度 + 拼短视频声量</strong>。2025 年 Aula F75 凭 TikTok 的 ASMR 敲击声成为现象级爆款。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"你不必一头扎进客制的深坑。像这样的一把（Aula F75）就能让你惊讶——打字手感比你想的好太多。"</p><span class="src">— Reddit 用户 954kevin（redditrecs 聚合，90 条评测 / 87% 正面） · <a href="https://redditrecs.com/gaming-keyboard/model/aula-f75/">redditrecs.com</a> · 采集 2026-06</span></div>
+    <div class="ugc"><p>"我很喜欢 Aula F75，但它缺了 PrintScreen 键……（聚合结论）常见短板是软件差、无 Mac 支持、蓝牙不稳、偶发瑕疵——'便宜自有便宜的道理'。"</p><span class="src">— redditrecs 聚合用户评测 · <a href="https://redditrecs.com/gaming-keyboard/model/aula-f75/">redditrecs.com</a> · 采集 2026-06</span></div>
+    <div class="ugc"><p>"Royal Kludge 在 ~80 美元的甜点价位，给你蓝牙、还不错的做工和可玩性；同规格比 Keychron Q 系列便宜不少。"</p><span class="src">— sonusgear 选购指南（第三方） · <a href="https://sonusgear.alibaba.com/buyingguides/royal-kludge-keyboard">sonusgear.alibaba.com</a> · 采集 2026-06</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>Aula F75：87% 正面 / 90 条评测</b>（redditrecs 聚合）；短板高度一致：软件/蓝牙/QC。</li>
+      <li><b>TikTok 是新货架</b>：F75 vs RK75 的"creamy/thocky"对比、ASMR 敲击视频是主要获客渠道（TikTok discover 多条话题页）。</li>
+      <li><b>代表阵容</b>：Royal Kludge、Epomaker、Aula、MageGee + 200+ 白牌长尾。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>出海层用"够用 + 便宜 + 好看 + 会拍短视频"打穿入门市场。它的天花板就是它的护城河缺失——硬件同源 + 软件/QC 短板，意味着用户随时被下一个更便宜更火的白牌截胡。</p>
+  </section>
+
+  <!-- ============ 信仰位 ============ -->
+  <section>
+    <h2>4. 信仰位（静电容 Topre）：不在机械轴战场，却谁都搬不动</h2>
+    <h3>论述</h3>
+    <p><strong>HHKB（PFU/富士通）</strong>与 <strong>Realforce（东プレ Topre）</strong>用的是<strong>静电容轴（Topre）</strong>，严格说不是"机械轴"。它们不参与价格战、不追新功能，靠 25 年沉淀的<strong>独特手感（橡胶碗 + 锥形弹簧的 "thock"）</strong>和极致耐用，圈住一批"一把用十年、绝不退坑"的死忠。这是四层之外的<strong>第五种生存方式：用信仰当护城河</strong>。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Topre 以平滑一致的手感和标志性 'thock' 音著称……价格高昂，社区中始终存在'是否值得'的争论，但拥有一批极其忠诚、相当 passionate 的信徒。"</p><span class="src">— r/MechanicalKeyboards 社区共识（综合检索） · 时间跨度多年 · 采集 2026-06</span></div>
+    <div class="ugc"><p>（长测视角）"Topre Realforce R2 用上一段时间后，你很难再回到普通机械轴——它不是为'快'，是为'稳和久'。"</p><span class="src">— Engadget Realforce R2 长期评测 · <a href="https://www.engadget.com/topre-realforce-r2-pfu-keyboard-irl-153030722.html">engadget.com</a> · 采集 2026-06</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>单价 $200–350</b>，量极小；护城河 = 手感 + 信仰，不可被同源供应链复制（Topre 专利结构）。</li>
+      <li><b>用户画像</b>：程序员/作家/老派打字党，高复购、极低退坑率（社区观察，非硬数据）。</li>
+      <li><b>代表阵容</b>：HHKB Professional 系列、Realforce R2/R3、GH（部分高端静电容）。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>信仰位证明了一件反常识的事——<strong>在一个被价格战和供应链同源压垮的品类里，"不参与竞争"本身就是最强的竞争策略</strong>。前提是你有别人抄不走的东西（专利手感 + 25 年口碑）。</p>
+  </section>
+
+  <!-- ============ 磁轴新势力 ============ -->
+  <section>
+    <h2>5. 磁轴新势力：横切四层的一根纵轴</h2>
+    <h3>论述</h3>
+    <p>磁轴（Hall Effect）不是第五个市场层，而是<strong>横切所有层的技术纵轴</strong>。它由小厂 <strong>Wooting</strong> 在 2019 年用自研 <strong>Lekker 轴</strong>（最初由中国鼠标微动厂 <strong>Huano</strong> 代工）带入消费级，靠 Rapid Trigger 在竞技 FPS 圈封神；随后 Razer、Corsair、SteelSeries、Keychron 全面跟进，到 2026 已从"高端差异化"沉降为"新品 baseline"。注意 HE 技术本身不新——1968 年 Honeywell 就做过，只是直到近年才便宜到能量产消费级。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Wooting 在 2018 年先试 Flaretech 光轴，后发现霍尔效应潜力更大，先后与 Ace Pad、Huano 合作，于 2019 年推出 Lekker 轴……Lekker 由中国鼠标微动厂 Huano 制造，Wooting 选择开放单独售卖开关，目标是让模拟输入成为行业标准。"</p><span class="src">— LTT Labs《Hall Effect Keyboards, A History》/ Wooting 官方 · <a href="https://www.lttlabs.com/articles/2024/12/31/hall-effect-keyboards-a-history">lttlabs.com</a> · 2024-12 / 采集 2026-06</span></div>
+    <div class="ugc"><p>"竞技玩家要榨干每一分优势，就选 Wooting 80HE——它的 Rapid Trigger 实现无可匹敌；8000Hz 轮询、0.1–4.0mm 全自定义触发、四年质保（Razer 两年）。"</p><span class="src">— RTINGS / Oreate AI 对比评测（Wooting 80HE vs Razer Huntsman V3 Pro） · <a href="https://www.rtings.com/keyboard/tools/compare/wooting-80he-vs-razer-huntsman-v3-pro-8khz/49563/121992">rtings.com</a> · 采集 2026-06</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>HE 市场 CAGR 口径打架：9.1%（Hall-Effect Switch 口径）到 17.2%（Magnetic Hall Switch Keyboard 口径，dataintelo）</b>。只取量级：<strong>显著快于行业整体 ~8%</strong>。</li>
+      <li><b>采用率证据</b>：某口径称"HE 键盘采用率上升 33%、延迟敏感用户增 40%"；<b>Keychron Q6 HE / Lemokey P1 HE 半年售 200 万台</b>（dataintelo 引述，<strong>厂商口径待证</strong>）。</li>
+      <li><b>谱系</b>：Honeywell（1968）→ Wooting Lekker（2019，Huano 代工）→ Razer/Corsair/SteelSeries/Keychron（2023–2025 跟进）。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>磁轴的战略意义是<strong>把"小厂"Wooting 推上了定义者的位置</strong>——它不在四层的任何一层占大份额，却定义了大厂必须跟进的功能标准。这是"技术拐点重排座次"的典型样本，详细原理/合法性见源模块 M6.4。</p>
+  </section>
+
+  <!-- 对比矩阵 -->
+  <section>
+    <h2>6. 对比矩阵：四层 + 信仰位 + 磁轴，到底差在哪</h2>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1：竞争格局五维对比（点击表头高亮列）。价位/份额为 2026-06 采集口径，仅作量级参考。</caption>
+      <thead><tr><th>维度</th><th>① 游戏大厂</th><th>② 客制/极客</th><th>③ 出海低价</th><th>信仰位(静电容)</th><th>磁轴新势力(纵轴)</th></tr></thead>
+      <tbody>
+        <tr><td>代表品牌</td><td>Logitech / Corsair / Razer / SteelSeries / HyperX</td><td>Keychron / Ducky / Varmilo / KBDfans</td><td>Royal Kludge / Epomaker / Aula / 200+白牌</td><td>HHKB / Realforce</td><td>Wooting（开创）+ 各层跟进</td></tr>
+        <tr><td>典型单价</td><td>$80–200</td><td>$100–600+</td><td>$30–80</td><td>$200–350</td><td>$150–280</td></tr>
+        <tr><td>核心护城河</td><td><span class="pill good">渠道+品牌</span></td><td><span class="pill good">社区+生态</span></td><td><span class="pill bad">价格+上新速度</span></td><td><span class="pill good">专利手感+信仰</span></td><td><span class="pill mid">技术先发+迭代</span></td></tr>
+        <tr><td>份额量级</td><td>Top5≈42–46%</td><td>Keychron~5%(单品牌最高)</td><td>长尾~10%,极分散</td><td>极小众</td><td>跨层,增速最快</td></tr>
+        <tr><td>主要获客渠道</td><td>线下零售+电竞代言</td><td>r/MK社区+DTC电商</td><td>Amazon/AliExpress+TikTok</td><td>口碑+死忠复购</td><td>FPS竞技口碑+评测站</td></tr>
+        <tr><td>最大风险</td><td>被嘲"溢价虚高"</td><td>规模化难,需持续上新</td><td>同源无差异,随时被截胡</td><td>圈层天花板低</td><td>baseline化后差异消失</td></tr>
+        <tr><td>典型 UGC 评价</td><td>"认 logo 才买"</td><td>"手感+社交货币"</td><td>"便宜自有便宜的道理"</td><td>"一把用十年不退坑"</td><td>"竞技党刚需"</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <!-- 关键洞察 -->
+  <section>
+    <h2>7. 关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察 1 · 四层各赚各的钱，跨层即送死。</b>出海白牌想往上做品牌（缺渠道+缺信任），大厂想往下打价格（伤毛利+伤品牌），都极难。唯一成功跨层的是 Keychron——它用 DTC 绕开渠道、用 sub-$50 款占住入门、用 HE 款摸到纵轴。<b>机会：</b>"客制规模化"这条路 Keychron 已验证可走，但它留下的缝隙是<strong>静音办公 + 高级感</strong>这一细分（大厂做不出极客感、极客做不出办公克制），可做"Topre 平替手感 + 客制可玩性 + 办公审美"的中间带产品。</p>
+    <p class="callout"><b>洞察 2 · 磁轴 baseline 化正在抹平大厂的差异化，反而利好"小而专"。</b>当 HE 成为标配，大厂用它做不出区隔，Wooting 这种"把一件事做到极致 + 四年质保 + 开放生态"的小厂反而更被竞技党认。<b>机会：</b>磁轴的下一个差异点不在硬件（同源），而在<strong>软件层（per-key 触发曲线 / 宏 / 跨平台同步）</strong>与<strong>合规层（CS2 等电竞白名单一键切换）</strong>——做"一键切到赛事合法模式"的固件功能，是真实痛点（见 M6.4 的 Snap Tap/SOCD 封禁）。</p>
+    <p class="callout"><b>洞察 3 · TikTok/短视频已成出海层的真正货架。</b>Aula F75 的爆红不是因为它最好，而是因为它最上镜（thocky ASMR）。<b>机会：</b>出海层的胜负手正从"参数表"转向"声音 + 颜值 + 创作者分发"。一个被低估的产品机会是<strong>"为短视频优化的音色 SKU"</strong>——围绕可拍性设计配列/配色/音腔，并直接给创作者素材包。</p>
+  </section>
+
+  <!-- 证伪状态 -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge confirmed">已证实</span> <strong>H6.2-分层成立</strong>：四类玩家在价位/驱动力/护城河上确实泾渭分明，UGC 与市调口径双向支持，分层结构成立。</li>
+      <li><span class="fbadge partial">部分修正</span> <strong>Top5 份额口径下修</strong>：本次采集 SkyQuest/Reportprime 给的是 <strong>Top5≈42–46%</strong>，低于源模块 M6.2 旧引用的 "≈55%"。两者均为市调摘要、口径与时点不透明，<strong>以本页较新的 42–46% 为准但仍仅作量级</strong>，不可精确引用。</li>
+      <li><span class="fbadge open">仍开放</span> <strong>Keychron HE 半年 200 万台</strong>：来自 dataintelo 引述的厂商口径，无独立第三方/财报佐证，<strong>仅作"增长迅猛"的方向性证据</strong>，数字本身待证。</li>
+      <li><span class="fbadge open">仍开放</span> <strong>HE 市场 CAGR</strong>：9.1%（Hall-Effect Switch 口径）与 17.2%（Magnetic Hall Switch Keyboard 口径）相差近一倍，口径定义不同，只取"快于行业 ~8%"的量级结论。</li>
+      <li><span class="fbadge partial">部分</span> <strong>信仰位用户画像/退坑率</strong>：来自社区观察与长测，非硬数据，作定性结论用。</li>
+      <li><span class="fbadge confirmed">已证实</span> <strong>磁轴谱系</strong>：Honeywell(1968)→Wooting Lekker(2019, Huano 代工)→大厂跟进，LTT Labs + Wooting 官方双源互证，链条可靠。</li>
+    </ul>
+  </section>
+
+  <!-- 来源 -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>SkyQuest — Mechanical Keyboard Market Report（Logitech 18% / Corsair 14% / 发烧段单价口径）：<a href="https://www.skyquestt.com/report/mechanical-keyboard-market">skyquestt.com</a>（采集 2026-06）</li>
+      <li>Reportprime — Top Mechanical Keyboards Market Companies（Corsair+Razer&gt;21%、Top5≈42–46%、200+ 长尾）：<a href="https://www.reportprime.com/mechanical-keyboards-r17731/company">reportprime.com</a>（采集 2026-06）</li>
+      <li>ecdb — Keychron Company &amp; Revenue 2015–2027（自营 $123.6M / 2025）：<a href="https://ecdb.com/resources/sample-data/retailer/keychron">ecdb.com</a>（采集 2026-06）</li>
+      <li>Grips Intelligence — keychron.com eCommerce Revenue（2026-04 单月 vs KBDfans）：<a href="https://gripsintelligence.com/insights/retailers/keychron.com">gripsintelligence.com</a>（采集 2026-06）</li>
+      <li>redditrecs — AULA F75 All Reddit Reviews（87% 正面 / 90 条 / 954kevin 原话）：<a href="https://redditrecs.com/gaming-keyboard/model/aula-f75/">redditrecs.com</a>（采集 2026-06）</li>
+      <li>sonusgear（第三方选购指南）— Royal Kludge 定位：<a href="https://sonusgear.alibaba.com/buyingguides/royal-kludge-keyboard">sonusgear.alibaba.com</a>（采集 2026-06）</li>
+      <li>LTT Labs — Hall Effect Keyboards, A History（Wooting/Lekker/Huano/Honeywell 1968 谱系）：<a href="https://www.lttlabs.com/articles/2024/12/31/hall-effect-keyboards-a-history">lttlabs.com</a>（2024-12 / 采集 2026-06）</li>
+      <li>Wooting — Introducing the Lekker switch / What are Hall Effect Switches：<a href="https://wooting.io/post/introducing-the-lekker-switch">wooting.io</a>（采集 2026-06）</li>
+      <li>RTINGS — Wooting 80HE vs Razer Huntsman V3 Pro 8KHz 对比：<a href="https://www.rtings.com/keyboard/tools/compare/wooting-80he-vs-razer-huntsman-v3-pro-8khz/49563/121992">rtings.com</a>（采集 2026-06）</li>
+      <li>dataintelo — Magnetic Hall Switch Keyboard Market（17.2% CAGR / Keychron Q6 HE 半年 200 万台口径）：<a href="https://dataintelo.com/report/magnetic-hall-switch-keyboard-market">dataintelo.com</a>（采集 2026-06）</li>
+      <li>Engadget — Topre Realforce R2 long-term review（信仰位手感）：<a href="https://www.engadget.com/topre-realforce-r2-pfu-keyboard-irl-153030722.html">engadget.com</a>（采集 2026-06）</li>
+      <li>源模块复用 — 本调研 M6《竞争格局与行业现状》：m6-market-landscape.html（内部，采集 2026-06）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块6 Task 6.2 竞争格局生态图 · 采集时点 2026-06 · 市占/CAGR 口径不一仅作量级参考 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

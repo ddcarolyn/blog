@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 2.3：手感与声音的语言化（线上无法替代上手）</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* 局部样式：手感谱系与力曲线 SVG，复用模板色板 */
+.feel-svg{width:100%;height:auto;display:block;background:#fff;border-radius:8px}
+.legend-row{display:flex;gap:14px;flex-wrap:wrap;font-size:.82rem;color:#556;margin-top:.5rem}
+.legend-row b{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:4px}
+.miniref{font-size:.82rem;color:#667;margin:.35rem 0 0}
+.tagclack{color:#c0392b;font-weight:600}
+.tagthock{color:#8e44ad;font-weight:600}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块2 · Task 2.3</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块2 · TASK 2.3 · 键盘类型横评</span>
+  <h1>手感与声音的语言化：把论坛黑话翻成人话，并讲清「为什么线上永远替代不了上手」</h1>
+  <p class="lede">线性=顺滑一条道，段落=半路一个坎，带响=坎上再加一声脆；thock 是闷木头、clack 是脆塑料、肉感是软着陆。但本页真正想证明的是另一件事：这些词本身，连同 YouTube 打字音视频，<strong>系统性地无法把手感与声音传给屏幕另一端的你</strong>——这是社区评测者自己反复承认的结构性缺陷。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（KeebTalk 论坛 / 评测博主原话）&gt; 第三方评测 &gt; 官方话术<br>
+  主要来源：ThereminGoat's Switches（社区头部轴体评测）、KeebTalk 论坛「What the thock is clack」长贴、GlacierPC 力曲线指南、Keychron/Corsair/Kinetic Labs 术语页、Matias 触感专文。Reddit r/MechanicalKeyboards 原贴因爬虫封禁无法直引，已用 KeebTalk 等可引论坛原话替代（见 Caveats）。</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- 导读 -->
+  <section>
+    <div class="callout">
+      <strong>一句话先把三大类讲明白：</strong>
+      <span class="tagthock">线性 Linear</span> = 从上到下顺滑，没有任何坎；
+      <b>段落 Tactile</b> = 按到一半手指顶到一个明显的「坎」，但不一定出声；
+      <span class="tagclack">带响 Clicky</span> = 在段落那个坎上，额外炸一声清脆的「咔」。
+      记住这三个就能看懂 90% 的轴体描述。剩下的 thock / clack / 肉感 / 糊，是在描述<strong>声音质地</strong>而非手感，下面分开讲。
+    </div>
+  </section>
+
+  <!-- ============ 1. 手感语言化 ============ -->
+  <section>
+    <h2>1. 手感的语言化：线性 / 段落 / 带响，到底指尖在感受什么</h2>
+
+    <h3>论述</h3>
+    <p>手感是<strong>触觉</strong>，本质是「手指在 4mm 行程里每一毫米遇到的阻力变化」。把这条阻力变化画成图，就是工程师说的<b>力曲线（force curve）</b>——横轴是按下去的深度，纵轴是需要的克数。三大类的区别，用力曲线一眼看穿：线性是一条平滑斜线，段落是斜线中间鼓一个包，带响则是在那个包的位置「断崖式下跌」并伴随发声机构动作。</p>
+    <p>关键认知：<strong>厂商标称的「45g 触发」是一个点，而你的手指感受的是整条曲线。</strong>同样标 45g 的两颗轴，一颗坎在前段、一颗坎在中段，一颗坎尖锐、一颗坎绵软，指尖体验天差地别——这正是「数字看起来一样、上手完全不同」的根因。</p>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"那只是单个数字……它没告诉你触发发生在行程的哪个位置、触觉凸起有多大、或者触底有多硬。"（原文：The single number doesn't tell you where the actuation occurs in travel, the size of any tactile bump, or how hard bottoming out feels.）"两颗力学规格相近的轴，仍可能因为曲线形状不同而手感、声音都不一样。"</p><span class="src">— GlacierPC Gaming《What Are Force Curves and Why Do They Matter for Switch Feel》· glacierpcgaming.com · <a href="https://glacierpcgaming.com/blogs/news/what-are-force-curves-and-why-do-they-matter-for-switch-feel">链接</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"如果触觉凸起从很高骤降到很低，你会感到跨越它时力的落差很大，意味着触感强烈；落差小则触感弱。如果凸起后的下降非常突然，触感会显得锐利、更明显。"（描述「坎」的锐利/绵软如何决定段落手感）</p><span class="src">— Matias《Tactility on Keyboards》（经 Ergopedia 收录）· matias.store · <a href="https://matias.store/blogs/news/127686403-tactility-on-keyboards">链接</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据 · 手感关键词翻译表</h3>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1 手感黑话 → 大白话（点击表头高亮该列）· 采集 2026-06</caption>
+      <thead><tr><th>黑话</th><th>指尖到底在感受什么（大白话）</th><th>力曲线特征</th><th>典型轴/类型</th></tr></thead>
+      <tbody>
+        <tr><td>线性 Linear</td><td>从上到下顺滑一条道，<b>全程无凸起、无段落</b>，阻力均匀递增</td><td>平滑上升直线</td><td>红轴、银轴、磁轴常见</td></tr>
+        <tr><td>段落 Tactile</td><td>按到一半手指顶到一个<b>明显的「坎」</b>，越过坎后突然变轻；有反馈但不一定出声</td><td>中段一个凸包</td><td>茶轴、Holy Panda</td></tr>
+        <tr><td>带响 Clicky</td><td>段落基础上，<b>坎的位置额外炸一声清脆「咔」</b>，最吵</td><td>凸包 + 断崖下跌</td><td>青轴、Box White</td></tr>
+        <tr><td>克数 / weighting</td><td>按下去<b>累不累</b>。35–50g 轻、45–60g 中、60–80g 重</td><td>整条曲线的高度</td><td>跨类型通用</td></tr>
+        <tr><td>触发点 actuation</td><td>按多深算「按下了」。常见 ~2mm；磁轴可调 0.1–3.8mm</td><td>曲线上的一个横坐标</td><td>磁轴可自定义</td></tr>
+        <tr><td>肉感 / pillowy</td><td>到底时<b>软软地「垫」一下</b>，不硬碰底（褒义）</td><td>触底前阻力柔和上抬</td><td>Topre 标志手感</td></tr>
+        <tr><td>糊 / mushy</td><td>按下去<b>软烂、回弹无力、终点模糊</b>（贬义）</td><td>曲线塌软、无明确终点</td><td>廉价薄膜</td></tr>
+        <tr><td>顶手 / harsh bottom-out</td><td>触底时<b>硬碰硬「咯噔」一下</b>，长时间打字累手</td><td>触底处力陡升</td><td>无填充的廉价机械</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="callout"><b>小结：</b>三大类（线/段/响）描述的是「坎的有无与是否出声」；克数/触发点/肉感/糊描述的是「坎之外的阻力质地」。看懂这两层，论坛 90% 的手感描述都能解码。但解码 ≠ 体验——下一节解释为什么。</p>
+  </section>
+
+  <!-- ============ 力曲线 SVG ============ -->
+  <section>
+    <h2>2. 力曲线谱系图：一张图看懂线性 / 段落 / 带响（自绘）</h2>
+    <p>下图是三类轴体的<strong>力曲线示意</strong>（结构经简化以便理解，非实测数据）。横轴=按下去的深度（mm），纵轴=需要的力（g）。手感的全部秘密都在这条线的形状里。</p>
+
+    <figure class="framed">
+      <svg class="feel-svg" viewBox="0 0 720 320" role="img" aria-label="线性段落带响三类力曲线对比图">
+        <rect x="0" y="0" width="720" height="320" fill="#fff"/>
+        <!-- 坐标轴 -->
+        <line x1="70" y1="270" x2="680" y2="270" stroke="#334" stroke-width="2"/>
+        <line x1="70" y1="40" x2="70" y2="270" stroke="#334" stroke-width="2"/>
+        <text x="375" y="300" font-size="12" text-anchor="middle" fill="#445">按下深度（mm）— 0mm 顶部 ··· 4mm 触底</text>
+        <text x="22" y="155" font-size="12" text-anchor="middle" fill="#445" transform="rotate(-90 22 155)">所需力（g）</text>
+        <!-- x 刻度 -->
+        <g font-size="9" fill="#778" text-anchor="middle">
+          <text x="70" y="285">0</text><text x="223" y="285">1</text><text x="375" y="285">2</text><text x="528" y="285">3</text><text x="680" y="285">4</text>
+        </g>
+        <!-- 触发点参考线 ~2mm -->
+        <line x1="375" y1="50" x2="375" y2="270" stroke="#bbb" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="375" y="46" font-size="9" text-anchor="middle" fill="#999">≈触发点 2mm</text>
+
+        <!-- 线性：平滑上升 -->
+        <path d="M70 250 Q 250 215 375 185 T 680 110" fill="none" stroke="#16a085" stroke-width="3"/>
+        <circle cx="680" cy="110" r="4" fill="#16a085"/>
+        <text x="600" y="100" font-size="11" fill="#16a085" font-weight="bold">线性：一路顺滑</text>
+
+        <!-- 段落：中段凸包 -->
+        <path d="M70 245 L 180 215 Q 250 205 300 150 Q 330 120 360 165 Q 400 215 500 195 L 680 130" fill="none" stroke="#e07b39" stroke-width="3"/>
+        <circle cx="330" cy="128" r="4" fill="#e07b39"/>
+        <text x="300" y="112" font-size="11" fill="#e07b39" font-weight="bold">段落：中段「坎」</text>
+
+        <!-- 带响：凸包+断崖 -->
+        <path d="M70 240 L 200 200 Q 270 188 310 120 L 320 118 L 330 215 Q 380 235 500 215 L 680 150" fill="none" stroke="#c0392b" stroke-width="3" stroke-dasharray="1 0"/>
+        <circle cx="318" cy="118" r="4" fill="#c0392b"/>
+        <text x="430" y="250" font-size="11" fill="#c0392b" font-weight="bold">带响：坎尖端断崖下跌＋发声</text>
+
+        <text x="70" y="34" font-size="12" fill="#445" font-weight="bold">三类力曲线对比（示意，非实测）</text>
+      </svg>
+      <figcaption>图1 手感谱系（力曲线版）：线性=平滑斜线；段落=中段凸包；带响=凸包尖端断崖式下跌并触发发声机构。<span class="src">曲线形态据 GlacierPC / Matias 力曲线描述综合，2026-06；自绘示意</span></figcaption>
+    </figure>
+    <div class="legend-row">
+      <span><b style="background:#16a085"></b>线性（红/银/磁轴）</span>
+      <span><b style="background:#e07b39"></b>段落（茶轴/Holy Panda）</span>
+      <span><b style="background:#c0392b"></b>带响（青轴/Box White）</span>
+    </div>
+    <p class="miniref">注：力曲线是「比规格数字更好的手感预测器」（GlacierPC 原话：Real force curves … are a better predictor of subjective feel），但它仍是一张图，不能替代指腹去感受坎的锐利度与触底的软硬。</p>
+  </section>
+
+  <!-- ============ 3. 声音语言化 ============ -->
+  <section>
+    <h2>3. 声音的语言化：thock / clack / 肉感，以及它们为什么正在「失效」</h2>
+
+    <h3>论述</h3>
+    <p>声音的两个核心维度是<b>音高（pitch）</b>和<b>质地（scratchy 刮擦 / lubed 润 / 闷 / 脆）</b>。社区把这些压缩成两个拟声词：<span class="tagthock">thock</span>（低沉、闷、像敲实心木头/厚书，被奉为「高级感」）和 <span class="tagclack">clack</span>（清脆、高频、像塑料相碰，更尖更响）。<strong>但这正是社区头部评测者公开开炮的地方</strong>：thock/clack 把原本应该用音高、音量、刮擦感等多维度描述的声音，粗暴压成了一个二元对立，反而让沟通倒退。</p>
+
+    <h3>证据（评测者与论坛原话——本页最硬的一段）</h3>
+    <div class="ugc"><p>"用这些无处不在的含糊词来描述键盘声音，让我们整个社区<b>实质上原地踏步、毫无进展</b>。"（原文：using these ubiquitously vague terms to describe sound in keyboards has led us literally nowhere as a community）"'Thock' 和 'Clack' 根本不足以准确描述轴体的声音。"</p><span class="src">— ThereminGoat（社区公认头部轴体评测人）《What the thock is clack? — A Discussion on Switch Sound》· theremingoat.com · <a href="https://www.theremingoat.com/blog/what-the-thock-is-clack-a-discussion-on-switch-sound">链接</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"在某个时间点，<b>thock 和 clack 从直白的拟声词变成了『蛇油』（snake oil，即夸大其词的营销噱头）。</b>……它们成了一整片声音范围的笼统简称。"</p><span class="src">— 论坛用户 DasGnome · KeebTalk「What the thock is clack」长贴 · keebtalk.com · <a href="https://www.keebtalk.com/t/what-the-thock-is-clack-a-discussion-on-switch-sound/16306">链接</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"我听到的声音、我感知的、我感受的、以及我喜不喜欢它，<b>完全是在我脑子里发生的。</b>"（点破声音偏好高度主观、不可外传）</p><span class="src">— 论坛用户 Extra_Fox · KeebTalk 同贴 · <a href="https://www.keebtalk.com/t/what-the-thock-is-clack-a-discussion-on-switch-sound/16306/9">链接</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据 · 声音术语翻译表</h3>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表2 声音黑话 → 大白话 · 采集 2026-06</caption>
+      <thead><tr><th>黑话</th><th>耳朵听到什么（大白话）</th><th>对应维度</th><th>典型来源</th></tr></thead>
+      <tbody>
+        <tr><td class="tagthock">thock</td><td>低沉、闷润的「咚」，像敲实心木头或厚书</td><td>低音高 + 厚实质地</td><td>调校好的线性、Topre、加填充的客制</td></tr>
+        <tr><td class="tagclack">clack</td><td>清脆、高频的「啪/咔」，更尖更亮</td><td>高音高 + 单薄质地</td><td>段落/带响、空腔多的机械、光轴</td></tr>
+        <tr><td>scratchy 刮擦</td><td>按下去能听到/感到<b>沙沙的摩擦杂音</b>（贬义，没润轴）</td><td>质地（粗糙）</td><td>干轴、廉价线性</td></tr>
+        <tr><td>creamy / 顺</td><td>顺滑无杂音，声音「圆润干净」</td><td>质地（光滑）</td><td>润过的线性</td></tr>
+        <tr><td>poppy</td><td>声音有「弹跳感」，短促清亮带回弹</td><td>音高+衰减快</td><td>特定客制配置</td></tr>
+        <tr><td>marbly / 玻璃珠感</td><td>像玻璃珠碰撞的清亮高频</td><td>高音高 + 清脆质地</td><td>PC 板/特定键帽</td></tr>
+      </tbody>
+    </table></div>
+    <p class="callout"><b>小结：</b>thock/clack 只是「低音 vs 高音」的入门简称，真要描述声音得拆到音高 × 质地 × 音量三个维度。当一个卖家拼命说自己 thocky，本质是在用一个被评测圈称为「蛇油」的营销词——这是营销话术与真实评测的分水岭。</p>
+  </section>
+
+  <!-- ============ 4. 为什么线上无法替代上手 ============ -->
+  <section>
+    <h2>4. 核心论点：为什么线上（文字＋视频）系统性地无法替代上手</h2>
+
+    <h3>论述</h3>
+    <p>这不是「图片不够清晰」的程度问题，而是<strong>三个结构性断点</strong>，每一个都让屏幕另一端的你拿不到真实信息。下面逐条上证据。</p>
+
+    <h3>断点一：声音录制链条会系统性地「美化或丑化」</h3>
+    <p>从麦克风 → 录音软件 → 平台压缩 → 你的耳机/音箱，每一环都在改写声音。头部评测者直接给打字音视频判了「死刑」。</p>
+    <div class="ugc"><p>"所用的<b>录音软件、托管平台的音频压缩、甚至你用来听这个测试的设备质量</b>，都会显著影响声音。"……"键盘的打字测试视频，<b>除了当作纯娱乐之外，基本毫无价值（pretty damn worthless）。</b>"</p><span class="src">— ThereminGoat《What the thock is clack?》· theremingoat.com · <a href="https://www.theremingoat.com/blog/what-the-thock-is-clack-a-discussion-on-switch-sound">链接</a> · 采集 2026-06-10</span></div>
+
+    <h3>断点二：手感是触觉，无法被任何格式传输</h3>
+    <p>段落的「坎」有多锐、触底有多软、克数压手不压手——这些只有指腹能判断。文字只能给你一个标签，力曲线图只能给你一个形状，<strong>都不是触感本身</strong>。第三方指南也只能建议「尽量亲自试」。</p>
+    <div class="ugc"><p>"……<b>尽量亲自上手测试</b>，以判断 pre-travel（预行程）、触觉曲线和触底重量。"（原文：test switches in-person if possible to gauge pre-travel, tactile profile, and bottom-out weight.）</p><span class="src">— GlacierPC Gaming《What Are Force Curves…》· glacierpcgaming.com · <a href="https://glacierpcgaming.com/blogs/news/what-are-force-curves-and-why-do-they-matter-for-switch-feel">链接</a> · 采集 2026-06-10</span></div>
+
+    <h3>断点三：偏好是主观的、发生在你脑子里——别人的描述无法预测你的反应</h3>
+    <p>即使声音/手感被完美传输，「你喜不喜欢」仍是高度个人化的。Extra_Fox 那句「entirely in my head」点破了这一点：A 觉得高级的 thock，B 可能觉得闷得发堵。</p>
+
+    <h3>隐藏断点四：连「线下试轴器」都不够——整机 ≫ 单轴</h3>
+    <p>很多新手以为买个 switch tester（试轴板）就解决问题，其实试轴器与装进整机后的手感声音<strong>仍有巨大差距</strong>：同一颗轴，键帽材质、内部填充（foam）、定位板（plate）材质、底壳腔体共振，都会彻底改写结果。所以「上手」最理想的是上手<strong>整机</strong>，而非孤立的轴。（整机层面的声学详解归 M3。）</p>
+    <div class="ugc"><p>"轴的对比必须在<b>相同的安装方式、相同试验次数、相同环境条件</b>下进行……"（侧证：脱离统一整机环境的轴体比较不可靠）</p><span class="src">— 综合自第三方测试方法学（Tom's Hardware / KeyboardGurus 切轴测试方法）· <a href="https://www.tomshardware.com/reviews/mechanical-keyboard-switch-testing-explained,5031-5.html">链接</a> · 采集 2026-06-10</span></div>
+
+    <p class="callout"><b>小结：</b>线上能给你「知识」（这是线性、这是 thock），但给不了「体验」（你的手指/耳朵/大脑对它的真实反应）。四个断点叠加，结论很硬：<strong>看再多视频、读再多翻译表，最终都得去摸真键盘——最好是整机。</strong></p>
+  </section>
+
+  <!-- ============ 对比矩阵：线上信息 vs 真实体验 ============ -->
+  <section>
+    <h2>5. 对比矩阵：每个维度，「线上能拿到的」vs「只有上手才有的」</h2>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表3 信息可传输性矩阵（点击表头高亮该列）· 采集 2026-06</caption>
+      <thead><tr><th>维度</th><th>线上能传输吗</th><th>损失/失真在哪</th><th>只有上手才能确认</th></tr></thead>
+      <tbody>
+        <tr><td>是否线性/段落/带响（分类）</td><td><span class="pill good">能（文字即可）</span></td><td>几乎无损</td><td>—</td></tr>
+        <tr><td>克数大约多少（轻/中/重）</td><td><span class="pill good">能（看规格）</span></td><td>轻微（个人体感不同）</td><td>压手累不累</td></tr>
+        <tr><td>「坎」的锐利度/位置</td><td><span class="pill mid">部分（看力曲线图）</span></td><td>图≠触感</td><td><b>坎顶手还是绵软</b></td></tr>
+        <tr><td>触底软硬（肉感/顶手）</td><td><span class="pill bad">几乎不能</span></td><td>触觉不可传输</td><td><b>触底是否舒服</b></td></tr>
+        <tr><td>声音音高（thock/clack）</td><td><span class="pill bad">严重失真</span></td><td>麦克风/压缩/你的设备</td><td><b>真实音色</b></td></tr>
+        <tr><td>声音质地（刮擦/顺/脆）</td><td><span class="pill bad">严重失真</span></td><td>录制链条 + 视频「纯娱乐」</td><td><b>有没有沙沙杂音</b></td></tr>
+        <tr><td>你个人喜不喜欢</td><td><span class="pill bad">完全不能</span></td><td>偏好「在你脑子里」</td><td><b>唯一判据=亲自反应</b></td></tr>
+        <tr><td>整机 vs 单轴差异</td><td><span class="pill bad">不能</span></td><td>填充/板材/腔体共振</td><td><b>装进整机后的真实表现</b></td></tr>
+      </tbody>
+    </table></div>
+    <p class="miniref">读法：越往下，「线上能拿到的」越少、「必须上手」越强。绿色=可放心线上决策，红色=线上信息基本不可信、必须实体验证。</p>
+  </section>
+
+  <!-- ============ 关键洞察与产品机会 ============ -->
+  <section>
+    <h2>6. 关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察 1：「翻译表」是高确定性的内容钩子，但卖家用 thock 是营销红旗。</b>新手最痛的是黑话墙，一张「线/段/响 + 力曲线」白话图能直接降低决策焦虑；反过来，当一个产品页主打「thocky」却拿不出具体音高/质地描述，按评测圈共识这就是「蛇油」式话术，应在导购内容里明确标注。</p>
+    <p class="callout"><b>洞察 2：线上不可替代上手，是「体验型零售/试用」的结构性机会。</b>四个断点（录音失真、触觉不可传、偏好主观、整机≠单轴）意味着任何纯线上转化都有天花板。<b>产品机会：</b>① 城市快闪/门店「整机试打墙」（注意是整机而非试轴板）；② 寄送「整机级」试用而非孤立 switch tester；③ 无理由退换 + 退货友好政策，把「上手成本」前置给商家承担。</p>
+    <p class="callout"><b>洞察 3：力曲线可视化是比规格数字更好的「线上代偿」。</b>既然触感不可传，至少把力曲线做成标准化、可叠加对比的交互图（不同轴叠在同一坐标系），是目前线上能做到的「最接近手感」的呈现。<b>产品机会：</b>导购站/品牌页提供「力曲线对比器」，并诚实标注「图≠手感，仍建议上手」。</p>
+    <p class="callout"><b>洞察 4：声音内容要「去 thock 化」。</b>头部评测者已带头抵制二元拟声词。做内容/做评测的差异化打法：用<b>音高 × 质地 × 音量</b>三维去描述，并坦诚声明「打字音视频仅供娱乐」，反而建立专业可信度——与满屏「ultra thocky」的营销噪音形成反差。</p>
+  </section>
+
+  <!-- ============ Caveats ============ -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge confirmed">已核实</span> <b>「线上（文字+视频）无法替代上手」成立。</b>四重独立证据：录制链条失真（ThereminGoat 称打字音视频「pretty damn worthless」）、触觉不可传输（GlacierPC 建议 in-person）、偏好主观（Extra_Fox「entirely in my head」）、整机≠单轴（测试方法学要求统一安装环境）。先猎证伪未能推翻，判定成立，置信高。（来源 1/2/3/6）</li>
+      <li><span class="fbadge confirmed">已核实</span> <b>「thock/clack 是被社区评测圈批评的笼统/营销词」成立。</b>ThereminGoat 直言其让社区「原地踏步」，KeebTalk 用户 DasGnome 称其沦为「snake oil」。这是评测者立场，非我方观点强加。（来源 1/2）</li>
+      <li><span class="fbadge partial">部分</span> <b>力曲线 SVG 为示意而非实测。</b>三类曲线形态依据 GlacierPC/Matias 的文字描述综合自绘，坎的高度/位置为示意值，不代表任一具体轴体的实测数据。读者勿据此图做精确选购。（来源 4/5，置信中）</li>
+      <li><span class="fbadge open">仍开放</span> <b>Reddit r/MechanicalKeyboards 原帖未能直引。</b>本任务要求优先 UGC，但 Anthropic 爬虫被 reddit.com 封禁，无法获取原贴原话；已用同属 UGC 的 KeebTalk 论坛长贴（含 DasGnome、Extra_Fox 等真实用户原话）替代。Reddit 上「买完发现没视频里好听」的失望帖广泛存在但本页未能取得可引证据，列为数据缺口。</li>
+      <li><span class="fbadge open">仍开放</span> <b>翻译表的「典型轴」为社区惯用对应，非绝对。</b>同名轴不同批次/不同整机表现差异大，表中对应仅作入门锚点。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 参考来源 ============ -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>ThereminGoat's Switches — 《What the thock is clack? — A Discussion on Switch Sound》（社区头部轴体评测人，论证 thock/clack 失效 + 打字音视频不可信）：<a href="https://www.theremingoat.com/blog/what-the-thock-is-clack-a-discussion-on-switch-sound">theremingoat.com</a>（采集 2026-06-10）</li>
+      <li>KeebTalk 论坛 — 同名长贴讨论（用户 DasGnome「snake oil」、Extra_Fox「entirely in my head」原话）：<a href="https://www.keebtalk.com/t/what-the-thock-is-clack-a-discussion-on-switch-sound/16306">keebtalk.com/t/…/16306</a>（采集 2026-06-10）</li>
+      <li>KeebTalk 论坛 — Extra_Fox 楼层（声音偏好主观性原话）：<a href="https://www.keebtalk.com/t/what-the-thock-is-clack-a-discussion-on-switch-sound/16306/9">keebtalk.com/…/16306/9</a>（采集 2026-06-10）</li>
+      <li>GlacierPC Gaming — 《What Are Force Curves and Why Do They Matter for Switch Feel》（规格数字不足、力曲线、建议 in-person）：<a href="https://glacierpcgaming.com/blogs/news/what-are-force-curves-and-why-do-they-matter-for-switch-feel">glacierpcgaming.com</a>（采集 2026-06-10）</li>
+      <li>Matias — 《Tactility on Keyboards》（触觉凸起锐利度/落差如何决定段落手感）：<a href="https://matias.store/blogs/news/127686403-tactility-on-keyboards">matias.store</a>（采集 2026-06-10）</li>
+      <li>Tom's Hardware — 《Mechanical Keyboard Switch Testing Explained》（统一安装环境/方法学，侧证整机≠单轴）：<a href="https://www.tomshardware.com/reviews/mechanical-keyboard-switch-testing-explained,5031-5.html">tomshardware.com</a>（采集 2026-06-10）</li>
+      <li>Keychron — 《Types of Keyboard Switches: Linear vs Tactile vs Clicky》（三大类官方/科普定义，营销话术对照基线）：<a href="https://www.keychron.com/blogs/news/types-of-keyboard-switches">keychron.com</a>（采集 2026-06-10）</li>
+      <li>Kinetic Labs — 《A Quick Guide to Tactile, Linear, and Clicky Keyboard Switches》（社区向术语科普）：<a href="https://kineticlabs.com/blog/quick-guide-tactile-linear-clicky-keyboard-switches">kineticlabs.com</a>（采集 2026-06-10）</li>
+      <li>KeebsForAll — 《What Is Actuation Force in Switches?》（克数/触发力分级 35–50/45–60/60–80g）：<a href="https://keebsforall.com/blogs/mechanical-keyboards-101/actuation-force-in-switches">keebsforall.com</a>（采集 2026-06-10）</li>
+      <li>本模块源页 M2《键盘类型横评》（已调研成果复用，含手感谱系初版与翻译表雏形）：内部文件 m2-type-comparison.html（采集 2026-06-10）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块2 Task 2.3 · 采集时点 2026-06 · 价格/型号/术语以原文为准 · <a href="index.html">返回索引</a></div></footer>
+
+<!-- 矩阵列高亮：点击表头高亮整列 -->
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

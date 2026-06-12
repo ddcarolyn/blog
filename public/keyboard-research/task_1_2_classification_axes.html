@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 1.2：键盘的六大分类轴 · 机械键盘行业深度调研</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* 局部样式：仅图内排版与少量谱系条，骨架样式仍走 style.css */
+.m1-map text{font-family:inherit}
+.tree-svg text{font-family:inherit}
+.spectrum{margin:.9rem 0}
+.spectrum .bar{display:flex;border-radius:8px;overflow:hidden;border:1px solid #d7dbe8;font-size:.78rem}
+.spectrum .bar div{flex:1;padding:.45rem .5rem;text-align:center;color:#23234a}
+.spectrum .lbl{display:flex;justify-content:space-between;font-size:.72rem;color:#888;margin-top:2px}
+.spectrum .name{font-size:.85rem;font-weight:700;color:#3a3aff;margin-bottom:.25rem}
+.axis-h3{margin-top:1.6rem;border-left:4px solid #6a6aff;padding-left:.6rem}
+.mini{font-size:.82rem;color:#666}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块1 · Task 1.2</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块1 · TASK 1.2 · 键盘世界全景</span>
+  <h1>键盘的六大分类轴：把一句混乱的提问拆成六个独立坐标</h1>
+  <p class="lede">新手最典型的提问是「我想要个 60% 的青轴热插拔三模游戏键盘大概多少钱」——这一句横跨了六个互不蕴含的分类维度。本页只回答一个窄问题：<strong>这六个维度各自在量什么、取值谱长什么样、为什么绝不能混为一谈</strong>。每个轴都给原理、取值谱、典型例子与具名证据。</p>
+  <p class="meta">调研日期：2026-06（价格/型号采集时点同此）｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards 等）&gt; 第三方评测 &gt; 官方话术<br>
+  主要来源：RTINGS（尺寸/延迟实测）、Keychron / CORSAIR / NuPhy / Keychron HE 科普、Switch and Click、ThereminGoat's Switches、Tom's Guide（磁轴评测）、KeebsForAll / NiZ（寿命）、Fantech（三模定义）、HardForum / Redragon 社区辩论。</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ========= 0. 总览信息图 + 核心命题 ========= -->
+  <section>
+    <h2>0. 核心命题：六个轴正交，可任意组合，互不蕴含</h2>
+    <h3>论述</h3>
+    <p>分类轴「正交」（orthogonal）的意思是：知道一块键盘在某个轴上的取值，<strong>推不出</strong>它在别的轴上的取值。「机械」不代表「客制化」（很多焊死的成品也是机械轴）；「无线」不代表「游戏」（一堆办公三模键盘是无线的）；「60%」不代表「贵」（百元 60% 成品遍地）。把这六个轴摊平、各取一个值，才能精确描述任意一块键盘——也才能精确地提问与选购。下面这张「键盘世界地图」是本页的总纲，后面每一节再把单个轴挖到底。</p>
+
+    <!-- 图① 六轴总览信息图（自绘 SVG，在源模块基础上重绘加密） -->
+    <figure class="framed">
+      <svg class="m1-map" viewBox="0 0 900 600" width="100%" role="img" aria-label="键盘六大分类轴信息图">
+        <rect x="0" y="0" width="900" height="600" fill="#fbfbfe"/>
+        <text x="450" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#23234a">键盘世界地图 · 六大正交分类轴</text>
+        <text x="450" y="54" text-anchor="middle" font-size="12" fill="#777">每个轴回答一个不同的问题，可任意组合；下方每格列出主要取值（取值谱由轻到重 / 由便宜到贵）</text>
+
+        <!-- 轴1 触发原理 -->
+        <g>
+          <rect x="26" y="78" width="276" height="150" rx="12" fill="#eef3ff" stroke="#9bb3ff"/>
+          <text x="46" y="104" font-size="15" font-weight="700" fill="#2b3a8c">① 触发原理（怎么识别按下）</text>
+          <text x="46" y="128" font-size="12" fill="#333">薄膜 · 剪刀脚 · 机械（金属触点）</text>
+          <text x="46" y="148" font-size="12" fill="#333">光轴 · 磁轴/霍尔(HE) · 静电容(Topre)</text>
+          <text x="46" y="172" font-size="11" fill="#b23">⚠ 磁轴归属有争议：见第 1 节证据</text>
+          <text x="46" y="196" font-size="11" fill="#777">回答：用什么物理量判定「这键被按了」</text>
+          <text x="46" y="216" font-size="11" fill="#777">独立于尺寸、连接、价格</text>
+        </g>
+        <!-- 轴2 尺寸布局 -->
+        <g>
+          <rect x="312" y="78" width="276" height="150" rx="12" fill="#eafbf0" stroke="#8fd9ab"/>
+          <text x="332" y="104" font-size="15" font-weight="700" fill="#1f7a48">② 尺寸布局（占多大桌面）</text>
+          <text x="332" y="128" font-size="12" fill="#333">100%(104) · 1800/96%(配数字区紧凑)</text>
+          <text x="332" y="148" font-size="12" fill="#333">TKL/80%(87) · 75% · 65% · 60%(68/61)</text>
+          <text x="332" y="168" font-size="12" fill="#333">40%(极限，靠 Fn 层)</text>
+          <text x="332" y="196" font-size="11" fill="#777">回答：保留哪些键区、占多大桌面</text>
+          <text x="332" y="216" font-size="11" fill="#777">数字越小越紧凑、越靠组合键</text>
+        </g>
+        <!-- 轴3 连接方式 -->
+        <g>
+          <rect x="598" y="78" width="276" height="150" rx="12" fill="#fff6e8" stroke="#f0c878"/>
+          <text x="618" y="104" font-size="15" font-weight="700" fill="#9a6a16">③ 连接方式（怎么连电脑）</text>
+          <text x="618" y="128" font-size="12" fill="#333">有线 USB（0 延迟基准、最稳）</text>
+          <text x="618" y="148" font-size="12" fill="#333">蓝牙（省电、多设备、延迟略高）</text>
+          <text x="618" y="168" font-size="12" fill="#333">2.4G（需收发器、低延迟）</text>
+          <text x="618" y="188" font-size="12" fill="#333">三模 = 有线+蓝牙+2.4G 三合一</text>
+          <text x="618" y="214" font-size="11" fill="#777">回答：连接路径与多设备切换能力</text>
+        </g>
+        <!-- 轴4 用途 -->
+        <g>
+          <rect x="26" y="244" width="276" height="150" rx="12" fill="#f4eefe" stroke="#c4a9f0"/>
+          <text x="46" y="270" font-size="15" font-weight="700" fill="#6a31b0">④ 用途定位（拿来干什么）</text>
+          <text x="46" y="294" font-size="12" fill="#333">打字/文字工作（手感+声音优先）</text>
+          <text x="46" y="314" font-size="12" fill="#333">游戏（响应、防冲突、磁轴 RT）</text>
+          <text x="46" y="334" font-size="12" fill="#333">办公（安静、紧凑、即插即用）</text>
+          <text x="46" y="354" font-size="12" fill="#333">客制化（折腾本身就是目的）</text>
+          <text x="46" y="380" font-size="11" fill="#777">回答：主要场景，决定其余轴怎么取值</text>
+        </g>
+        <!-- 轴5 价格 -->
+        <g>
+          <rect x="312" y="244" width="276" height="150" rx="12" fill="#fdeef2" stroke="#f0a9bf"/>
+          <text x="332" y="270" font-size="15" font-weight="700" fill="#b02a55">⑤ 价格带（预算落在哪档）</text>
+          <text x="332" y="294" font-size="12" fill="#333">入门 ¥100–300（成品/薄膜/低端机械）</text>
+          <text x="332" y="314" font-size="12" fill="#333">主流 ¥300–800（热插拔三模成品）</text>
+          <text x="332" y="334" font-size="12" fill="#333">进阶 ¥800–2000（Gasket、好用料）</text>
+          <text x="332" y="354" font-size="12" fill="#333">客制 ¥2000+（套件+轴+键帽分买）</text>
+          <text x="332" y="380" font-size="11" fill="#777">回答：预算档位（采集 2026-06）</text>
+        </g>
+        <!-- 轴6 可定制性 -->
+        <g>
+          <rect x="598" y="244" width="276" height="150" rx="12" fill="#e9f7fb" stroke="#8fd0e0"/>
+          <text x="618" y="270" font-size="15" font-weight="700" fill="#1a6f88">⑥ 可定制性（能不能折腾）</text>
+          <text x="618" y="294" font-size="12" fill="#333">焊接固定（最便宜、不可换轴）</text>
+          <text x="618" y="314" font-size="12" fill="#333">热插拔（免焊换轴，新手友好）</text>
+          <text x="618" y="334" font-size="12" fill="#333">QMK/VIA 改键（自定义键位/宏）</text>
+          <text x="618" y="354" font-size="12" fill="#333">套件分体（壳/轴/键帽全自选）</text>
+          <text x="618" y="380" font-size="11" fill="#777">回答：出厂后的可改造程度</text>
+        </g>
+
+        <!-- 组合示意条 -->
+        <rect x="26" y="412" width="848" height="160" rx="12" fill="#23234a"/>
+        <text x="46" y="440" font-size="14" font-weight="700" fill="#fff">同一块键盘 = 六个轴各取一个值的组合，例如：</text>
+        <text x="46" y="468" font-size="13" fill="#cfe">「① 机械 × ② 75% × ③ 三模 × ④ 打字 × ⑤ ¥300–800 × ⑥ 热插拔」</text>
+        <text x="46" y="500" font-size="12.5" fill="#9ab">关键纪律一：轴与轴互不蕴含——「机械」≠「客制化」，「无线」≠「游戏」，「60%」≠「贵」。</text>
+        <text x="46" y="524" font-size="12.5" fill="#9ab">关键纪律二：新手把「轴体(青/红/茶)」=轴①取值，和「尺寸(60%)」=轴②取值 混进一句话，是最常见的坐标混淆。</text>
+        <text x="46" y="548" font-size="12.5" fill="#9ab">关键纪律三：先确定轴④用途，它会强烈约束 ①②③ 的合理取值；⑤⑥ 则是横切所有用途的独立约束。</text>
+      </svg>
+      <figcaption>图①：键盘六大正交分类轴信息图（自绘）。<span class="src">综合 RTINGS 尺寸指南、Keychron/CORSAIR 轴体与连接科普、Fantech 三模定义，采集 2026-06-10</span></figcaption>
+    </figure>
+
+    <p class="callout"><b>小结：</b>本页其余六节，逐轴拆解。读法建议：先用轴④（用途）锚定自己，再回头看 ①②③ 的取值谱，最后用 ⑤⑥ 收口预算与折腾意愿。</p>
+  </section>
+
+  <!-- ========= 轴① 触发原理 ========= -->
+  <section>
+    <h2 class="axis-h3">轴① 触发原理 —— 用什么物理量判定「按下」，也是争议最大的轴</h2>
+    <h3>论述</h3>
+    <p>这是六轴里技术分歧最深的一个：它回答「电脑用什么物理量来判定一个键被按下」。常见六种取值，按出现年代与主流度大致排成一条谱：薄膜 → 剪刀脚 → 机械 → 光轴 → 磁轴/霍尔 → 静电容。注意这条轴<strong>独立于「线性/段落/青轴」</strong>——后者是机械轴<em>内部</em>的手感子分类（Task 1.x 另述），不要把「青轴」当成与「机械」并列的取值。</p>
+    <div class="spectrum">
+      <div class="name">取值谱（左：廉价/软 → 右：高端/特殊原理）</div>
+      <div class="bar">
+        <div style="background:#f3d9df">薄膜</div>
+        <div style="background:#f7e2c9">剪刀脚</div>
+        <div style="background:#cfe0ff">机械</div>
+        <div style="background:#cdeede">光轴</div>
+        <div style="background:#e3d3f5">磁轴/HE</div>
+        <div style="background:#cfe9f2">静电容</div>
+      </div>
+      <div class="lbl"><span>办公基准线</span><span>笔记本</span><span>主流核心</span><span>机械变体</span><span>游戏新宠(争议)</span><span>小众高端</span></div>
+    </div>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"Magnetic keyboards, often called Hall-effect keyboards, are one of the newest innovations… Instead of using traditional metal contacts like mechanical switches, each key contains a small magnet and a Hall-effect sensor that detects the magnetic field when you press a key."</p><span class="src">— Keychron 官方科普《What Are Hall Effect Switches》 · <a href="https://www.keychron.com/blogs/news/what-are-hall-effect-switches">keychron.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Both components are called 'switches,' but they operate on fundamentally different physical principles. Attempting to force a magnetic switch into a standard mechanical PCB is not a simple mod; it is a hardware impossibility."</p><span class="src">— Attack Shark 科普《The Hall Effect Swap》（社区/厂商科普，论证磁轴与机械 PCB 不互通）· <a href="https://attackshark.com/blogs/knowledges/upgrade-mechanical-to-hall-effect-switches-guide">attackshark.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>「我已经不想再假装霍尔（磁轴）键盘是万灵药了——我花了一周同时测试一把 Hall Effect 键盘和一把机械键盘，最后我还是更喜欢机械那把：打字时的物理段落感让我更清楚键到底有没有触发。」（原文要点转译）</p><span class="src">— Tom's Guide 评测《I'm sick of pretending Hall Effect keyboards are the be-all end-all》 · <a href="https://www.tomsguide.com/computing/keyboards/im-sick-of-pretending-hall-effect-keyboards-are-the-end-all-be-all-heres-why-id-still-pick-a-mechanical-deck-in-2026">tomsguide.com</a> · 2026 · 采集 2026-06-10（正文摘要，全文需订阅）</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>寿命量级（来自轴①的硬指标）：</b>机械轴普遍标 5000 万–1 亿次（KeebsForAll 实测口径：机械约 50–100 million keystrokes，对应 10–15 年；薄膜约 5 million keystrokes，对应 1–2 年）；静电容(Topre/HHKB) 标 1 亿次、无金属摩擦不易「chatter」。<span class="src">KeebsForAll《Mechanical vs Membrane Keyboards: Lifespan Compared》原文 "rated for 50–100 million keystrokes … membrane … around 5 million" · <a href="https://keebsforall.com/blogs/mechanical-keyboards-101/mechanical-vs-membrane-keyboards-lifespan-compared">keebsforall.com</a> · 采集 2026-06-10；薄膜 500 万次另见 HHKB《Topre Switches Guide 2026》 · <a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us</a></span></li>
+      <li><b>磁轴专属能力：</b>可调触发点 + Rapid Trigger（抬起一点点即复位），是它被游戏圈追捧的核心，而非「更好打字」。<span class="src">NuPhy《What is a Hall Effect Keyboard》原文 "adjust the actuation point … Rapid Trigger" · <a href="https://nuphy.com/blogs/journal/what-is-a-hall-effect-keyboard-the-new-he-keyboards-in-2024">nuphy.com</a> · 采集 2026-06-10</span></li>
+      <li><b>归属现状：</b>Keychron 官网将 "Magnetic Switch / Hall Effect" 作为<strong>与 Mechanical 并列的独立筛选项</strong>，而非机械子类。<span class="src">keychron.com 选购筛选器，采集 2026-06-10</span></li>
+    </ul>
+    <p class="callout"><b>小结：</b>「磁轴算不算机械」在 HardForum、Redragon、Tom's Guide 仍是活跃辩论，但产品端已用脚投票——主流厂商把它<strong>单列</strong>。这恰好证明「触发原理」应作为一个<strong>完整的轴（六取值）</strong>来对待，而不是「机械 vs 非机械」的二分。新手记住：轴①问的是「物理原理」，跟手感（青/红/茶）、跟尺寸都无关。</p>
+  </section>
+
+  <!-- ========= 轴② 尺寸布局 ========= -->
+  <section>
+    <h2 class="axis-h3">轴② 尺寸布局 —— 保留哪些键区、占多大桌面</h2>
+    <h3>论述</h3>
+    <p>百分比指「相对 100% 全尺寸保留了多少键/功能」。它<strong>只关乎键位取舍与桌面占用</strong>，与轴体、连接、价格全部无关——百元薄膜也能是 TKL，两千块客制也能是 60%。核心权衡：尺寸越小越省桌面、越便携、鼠标离身体越近（人因更友好），代价是更多功能要靠 Fn 组合层去够。</p>
+    <div class="spectrum">
+      <div class="name">取值谱（左：键最全/最占桌面 → 右：最紧凑/最靠组合键）</div>
+      <div class="bar">
+        <div style="background:#bfe6cf">100%</div>
+        <div style="background:#c8e9d4">96%/1800</div>
+        <div style="background:#d4ecdc">TKL 80%</div>
+        <div style="background:#deefe2">75%</div>
+        <div style="background:#e7f3e9">65%</div>
+        <div style="background:#eef7ef">60%</div>
+        <div style="background:#f4faf4">40%</div>
+      </div>
+      <div class="lbl"><span>104键·带数字区</span><span>87键·去数字区</span><span>保方向键</span><span>仅主字母区</span><span>极限</span></div>
+    </div>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"The most common keyboard sizes are Full-Sized (104 key), TKL (87 key), and 60% (68 key). A 60% keyboard… usually keeps only the main typing area and removes the function row, arrow keys, navigation keys, and number pad."</p><span class="src">— RTINGS《Different Keyboard Sizes Explained》 · <a href="https://www.rtings.com/keyboard/learn/keyboard-size-guide">rtings.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Compared with a 60% keyboard, a 65% layout is easier to use for daily work because you don't need shortcuts as often for arrow key functions… best for users who want a compact keyboard but still need dedicated arrow keys."</p><span class="src">— MCHOSE《A Beginner's Guide to Keyboard Layouts》 · <a href="https://www.mchose.store/blogs/all-posts/keyboard-layout-guide">mchose.store</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>键数对照：</b>100%≈104；96%/1800≈96–100（数字区压缩拼回）；TKL/80%≈87；75%≈84；65%≈68；60%≈61；40%≈47。<span class="src">RTINGS / Switch and Click 尺寸指南，2026-06</span></li>
+      <li><b>人因副作用：</b>去掉数字区后鼠标可更靠近身体中线，被多家指南列为 TKL/紧凑布局的健康卖点（减少肩部外展）。<span class="src">CORSAIR《Keyboard Sizes Explained》，2026-06</span></li>
+    </ul>
+    <p class="callout"><b>小结：</b>选尺寸=在「键齐全」与「桌面省/便携/人因」之间取一点。新手安全区是 75%/65%：既保方向键，又比 TKL 更紧凑。这个轴不要和轴①混说——「60% 青轴」其实是在轴②取 60% + 轴①机械里取「青」手感，两件事。</p>
+  </section>
+
+  <!-- ========= 轴③ 连接方式 ========= -->
+  <section>
+    <h2 class="axis-h3">轴③ 连接方式 —— 怎么连电脑、能否多设备切换</h2>
+    <h3>论述</h3>
+    <p>四个取值：有线 USB、蓝牙、2.4G 无线、三模（前三合一）。核心权衡是<strong>延迟/稳定 vs 便利/多设备</strong>。有线是 0 外加延迟的金标准；2.4G 用独立收发器走专用信道，延迟接近有线；蓝牙最省事、可一对多，但延迟与连接稳定性略逊，唤醒偶有迟滞。三模 = 既要又要，靠拨杆/快捷键切换。</p>
+    <div class="spectrum">
+      <div class="name">取值谱（左：延迟最低/最稳 → 右：最便利/多设备）</div>
+      <div class="bar">
+        <div style="background:#f7e2c9">有线 USB</div>
+        <div style="background:#f3e8d6">2.4G</div>
+        <div style="background:#efeede">蓝牙</div>
+        <div style="background:#e7eef6">三模(可切)</div>
+      </div>
+      <div class="lbl"><span>0 外加延迟</span><span>1–3ms</span><span>便利/多设备/延迟略高</span><span>三者兼得</span></div>
+    </div>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"2.4GHz connections have 1-3 ms latency, making them significantly faster than Bluetooth… 2.4GHz creates a shorter and more controlled input path, which is why most wireless gaming keyboards rely on 2.4GHz rather than Bluetooth."</p><span class="src">— RAPOO / GlacierPC 连接科普汇总 · <a href="https://shop.rapoo.com/blogs/product-comparisons/bluetooth-vs-2-4ghz-wireless-keyboard">rapoo.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Bluetooth focuses on convenience and multi-device support, while 2.4GHz wireless prioritizes speed, stability, and low latency."</p><span class="src">— Monsgeek《2.4GHz vs Bluetooth Gaming》 · <a href="https://www.monsgeek.com/blog/2-4ghz-vs-bluetooth-gaming/">monsgeek.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Tri-Mode connectivity combines wired USB, Bluetooth, and 2.4GHz wireless in a single device, letting you switch between connection types as needed."</p><span class="src">— Fantech《What is Tri-Mode Connectivity》 · <a href="https://fantechworld.com/blogs/fantech-tips/what-is-tri-mode-connectivity-why-does-it-matter-for-gaming-keyboards-or-mice">fantechworld.com</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>延迟量级：</b>有线≈0 外加延迟（基准）；2.4G≈1–3ms；蓝牙通常更高且抖动更大（typing 无感、竞技 FPS 可感）。<span class="src">RAPOO《Bluetooth vs 2.4GHz Wireless Keyboard》原文 "2.4GHz connections have 1-3 ms latency" · <a href="https://shop.rapoo.com/blogs/product-comparisons/bluetooth-vs-2-4ghz-wireless-keyboard">rapoo.com</a> · 采集 2026-06-10；Monsgeek《2.4GHz vs Bluetooth Gaming》"2.4GHz wireless prioritizes speed, stability, and low latency" · <a href="https://www.monsgeek.com/blog/2-4ghz-vs-bluetooth-gaming/">monsgeek.com</a></span></li>
+      <li><b>多设备：</b>蓝牙可一对多（多见 3 台切换，如 Keychron Fn+1/2/3）；2.4G 一般一对一收发器；三模把三者合一。<span class="src">Fantech《What is Tri-Mode Connectivity》"combines wired USB, Bluetooth, and 2.4GHz … switch between connection types" · <a href="https://fantechworld.com/blogs/fantech-tips/what-is-tri-mode-connectivity-why-does-it-matter-for-gaming-keyboards-or-mice">fantechworld.com</a> · 采集 2026-06-10</span></li>
+    </ul>
+    <p class="callout"><b>小结：</b>办公多设备党买三模、平时走蓝牙、要打字也无碍；竞技党走 2.4G 或有线。这个轴和「游戏/办公」用途相关但<strong>不等同</strong>——存在大量「有线办公」「无线游戏」的组合。</p>
+  </section>
+
+  <!-- ========= 轴④ 用途 ========= -->
+  <section>
+    <h2 class="axis-h3">轴④ 用途定位 —— 决定其余各轴怎么取值的「锚点轴」</h2>
+    <h3>论述</h3>
+    <p>用途是六轴里最特殊的一个：它本身是个选择，但更重要的是它会<strong>强烈约束 ①②③ 的合理取值</strong>。打字党优先轴①的手感+声音；游戏党优先轴①的磁轴 RT/快线性 + 轴③低延迟；办公党优先轴③多设备 + 轴②紧凑 + 安静；客制党则把轴⑥拉满、把「折腾」本身当目的。同一个人也可能有两个用途、买两把键盘。</p>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"Tactile switches are often the easiest starting point for beginners, as they provide clear feedback without excessive noise, making it easier to learn typing rhythm and avoid mistakes."</p><span class="src">— CORSAIR《Keyboard Switch Types 101》（用途→轴体的映射）· <a href="https://www.corsair.com/us/en/explorer/gamer/keyboards/key-switch-types-101/">corsair.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Magnetic keyboards are far better for gaming than they are for typing… Hall Effect keyboards provide more input customization, faster signal processing, and analog functionality compared to mechanical keyboards."</p><span class="src">— Tom's Guide / Redragon 科普（用途分流：游戏→磁轴，打字→机械）· <a href="https://redragonshop.com/blogs/community/magnetic-vs-mechanical-switches">redragonshop.com</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据 / 映射</h3>
+    <ul>
+      <li><b>打字 →</b> 轴①机械段落/线性 + 轴②65%/75% + 轴③任意 + 轴⑥热插拔留空间。</li>
+      <li><b>游戏 →</b> 轴①磁轴(要 RT)/快线性 + 轴②TKL/60% + 轴③2.4G/有线 + 防冲突(NKRO)。</li>
+      <li><b>办公 →</b> 轴①红轴/静音轴 + 轴②TKL/75% + 轴③三模多设备 + 即插即用。</li>
+      <li><b>客制 →</b> 轴⑥套件分体/QMK·VIA + Gasket 结构 + 轴⑤¥800+。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>用途是「锚点」，先定它，其余五轴的取值范围立刻收窄一半。但锚点≠捆绑——任何「办公磁轴」「游戏静电容」这种反直觉组合都合法，只是少数。</p>
+  </section>
+
+  <!-- ========= 轴⑤ 价格带 ========= -->
+  <section>
+    <h2 class="axis-h3">轴⑤ 价格带 —— 横切所有用途的预算约束（采集 2026-06）</h2>
+    <h3>论述</h3>
+    <p>价格是横切轴：任何用途/尺寸/连接都能在不同价位实现。它和轴⑥（可定制性）高度相关但不等同——成品堆料也能贵（进阶档），客制入门也能不贵（百元套件）。下面区间为 2026-06 中国电商主流成交价的经验带，仅作量级参照；入门段以 <a href="https://keebsforall.com/blogs/mechanical-keyboards-101/top-7-hot-swappable-mechanical-keyboards-for-beginners">KeebsForAll 入门热插拔清单</a>（"Under $100" 实价）为可核验锚点折算。</p>
+    <div class="spectrum">
+      <div class="name">取值谱（人民币，采集 2026-06）</div>
+      <div class="bar">
+        <div style="background:#f6d7e0">¥100–300 入门</div>
+        <div style="background:#f3cdd9">¥300–800 主流</div>
+        <div style="background:#efc3d0">¥800–2000 进阶</div>
+        <div style="background:#ebb9c7">¥2000+ 客制</div>
+      </div>
+      <div class="lbl"><span>成品/薄膜/低端机械</span><span>热插拔三模成品(甜点区)</span><span>Gasket/好用料</span><span>套件+轴+键帽分买</span></div>
+    </div>
+    <h3>证据 / 数据</h3>
+    <ul>
+      <li><b>甜点区：</b>¥300–800（约 $50–110）是「热插拔 + 三模 + Gasket」成品最密集的区间，被多数入门指南列为新手最优性价比落点。可核验锚点：KeebsForAll《Top 7 Hot-Swappable Keyboards for Beginners》给出的入门款集中在 "Under $100"（如 Redragon K530 三模 $50、Ajazz AK820 Pro 75% gasket $58.64、Keychron Q2 $129+）。<span class="src">KeebsForAll 入门热插拔清单 · <a href="https://keebsforall.com/blogs/mechanical-keyboards-101/top-7-hot-swappable-mechanical-keyboards-for-beginners">keebsforall.com</a> · 采集 2026-06-10；尺寸/布局参照 Switch and Click《Keyboard Sizes》 · <a href="https://switchandclick.com/keyboard-sizes/">switchandclick.com</a></span></li>
+      <li><b>价格≠原理：</b>静电容(Topre/HHKB) 普遍落在进阶/客制档（HHKB 整机常 $200+），但贵在原理（1 亿次寿命/电容触发）与做工而非「更适合所有人」。<span class="src">HHKB《Topre Switches Guide 2026》原文 "rated for 100 million keystrokes … gold standard" · <a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us/blog/topre-switches</a> · 采集 2026-06-10</span></li>
+    </ul>
+    <p class="callout"><b>小结：</b>价格是给「该不该买这一档」定锚的轴，但它不告诉你手感好坏。常见误区：以为「贵=客制」「便宜=不能换轴」，实则百元热插拔成品也存在，价格与可定制是两条轴。</p>
+  </section>
+
+  <!-- ========= 轴⑥ 可定制性 ========= -->
+  <section>
+    <h2 class="axis-h3">轴⑥ 可定制性 —— 出厂后能不能/想不想折腾</h2>
+    <h3>论述</h3>
+    <p>这条轴量的是「键盘出厂后的可改造程度」，取值由低到高：焊接固定（不可换轴）→ 热插拔（免焊换轴）→ QMK/VIA 改键（改键位/宏）→ 套件分体（壳/轴/键帽全自选）。它和价格相关但独立——存在「便宜可改」（百元热插拔+VIA）和「贵不可改」（某些高端成品焊死）的组合。</p>
+    <div class="spectrum">
+      <div class="name">取值谱（左：封闭 → 右：完全可折腾）</div>
+      <div class="bar">
+        <div style="background:#d6eef5">焊接固定</div>
+        <div style="background:#cbe9f2">热插拔</div>
+        <div style="background:#c0e4ef">QMK/VIA</div>
+        <div style="background:#b5dfeb">套件分体</div>
+      </div>
+      <div class="lbl"><span>最便宜·不可换轴</span><span>免焊换轴·新手友好</span><span>软件改键/宏</span><span>硬件全自选</span></div>
+    </div>
+    <h3>证据 / 数据</h3>
+    <ul>
+      <li><b>热插拔的新手价值：</b>它把「试不同轴体」的成本从「会焊接」降到「拔插」，是新手探索轴①的关键能力（社区原话："removed the single biggest barrier … you no longer need tools or technical knowledge"）。<span class="src">KeebsForAll《Top 7 Hot-Swappable Keyboards for Beginners》 · <a href="https://keebsforall.com/blogs/mechanical-keyboards-101/top-7-hot-swappable-mechanical-keyboards-for-beginners">keebsforall.com</a> · 采集 2026-06-10</span></li>
+      <li><b>QMK/VIA：</b>开源固件 + 可视化改键工具，能自定义键位、层与宏，是「客制党」与「实用主义改键党」的分水岭。QMK 官方文档定义其为 "an open source keyboard firmware … powerful and configurable"。<span class="src">QMK 官方文档 · <a href="https://docs.qmk.fm/">docs.qmk.fm</a> · 采集 2026-06-10</span></li>
+    </ul>
+    <p class="callout"><b>小结：</b>不想折腾就买成品一步到位；想留后路认准「热插拔 + 支持 VIA」。这是六轴里最容易被营销话术放大的一个——「客制化」常被当卖点，但对很多用户热插拔已经够用，不必为套件分体溢价。</p>
+  </section>
+
+  <!-- ========= 对比矩阵 ========= -->
+  <section>
+    <h2>对比矩阵：六轴一览（点击表头高亮该列）</h2>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表：六大分类轴对照——它们各自在量什么、与其他轴的独立性</caption>
+      <thead><tr><th>轴</th><th>回答的问题</th><th>取值谱（典型例子）</th><th>关键权衡</th><th>与其他轴的关系</th></tr></thead>
+      <tbody>
+        <tr><td>① 触发原理</td><td>用什么物理量判定按下</td><td>薄膜·剪刀脚·机械·光轴·磁轴/HE·静电容(Topre/HHKB)</td><td>原理决定寿命/能力/价格下限</td><td>独立；磁轴归属社区有争议</td></tr>
+        <tr><td>② 尺寸布局</td><td>保留哪些键、占多大桌面</td><td>100%·96%·TKL·75%·65%·60%·40%</td><td>键齐全 vs 紧凑/便携/人因</td><td>完全独立于①③⑤</td></tr>
+        <tr><td>③ 连接方式</td><td>怎么连、能否多设备</td><td>有线·蓝牙·2.4G·三模</td><td>延迟/稳定(1–3ms~) vs 便利/多设备</td><td>与④用途相关但不等同</td></tr>
+        <tr><td>④ 用途定位</td><td>主要拿来干什么</td><td>打字·游戏·办公·客制化</td><td>它是锚点，约束①②③取值</td><td>影响其余轴但不捆绑</td></tr>
+        <tr><td>⑤ 价格带</td><td>预算落在哪档(2026-06)</td><td>¥100–300·300–800·800–2000·2000+</td><td>预算 vs 用料/做工</td><td>横切所有轴；≠可定制性</td></tr>
+        <tr><td>⑥ 可定制性</td><td>能不能/想不想折腾</td><td>焊死·热插拔·QMK/VIA·套件分体</td><td>封闭省心 vs 可改造</td><td>与⑤相关但独立</td></tr>
+      </tbody>
+    </table></div>
+    <p class="mini">读法：每一行是一条独立坐标轴；描述一把键盘 = 在每行各取一个值。横向看「关键权衡」与「与其他轴的关系」两列，正是新手最容易混淆的地方。</p>
+  </section>
+
+  <!-- ========= 关键洞察与机会 ========= -->
+  <section>
+    <h2>关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察 1 · 「混轴提问」是新手内容/导购的最大摩擦点。</b>「60% 青轴热插拔三模」这类一句话需求横跨五轴，说明用户没有「正交坐标系」这套心智模型。<b>机会：</b>把选购流程做成「六轴各选一个值」的可视化配置器（六个独立下拉/谱条），实时显示符合的型号清单——比一棵线性决策树更贴合「轴正交」的事实，也降低退货率。</p>
+    <p class="callout"><b>洞察 2 · 磁轴归属之争=一个尚未占领的内容心智位。</b>厂商已把磁轴单列，但用户仍在问「它算机械吗」。<b>机会：</b>用「轴①是一条六取值的轴，磁轴是其中一个独立取值」这个框架做一篇/一支科普，既权威又能借社区辩论流量，且自然导向自家 HE 产品线。</p>
+    <p class="callout"><b>洞察 3 · 「价格≠可定制」存在认知套利空间。</b>很多用户误以为「想换轴=要买贵的客制套件」，实则百元级热插拔+VIA 已够。<b>机会：</b>主打「百元也能折腾」的入门热插拔款，用「轴⑤与轴⑥独立」的叙事打性价比，精准截流被客制溢价劝退的人群。</p>
+    <p class="callout"><b>洞察 4 · 用途是锚点轴 → 内容应「用途优先」组织而非「参数优先」。</b>大量评测以参数堆砌开场，而用户先有的是场景。<b>机会：</b>导购页/详情页首屏以「打字/游戏/办公/客制」四入口分流，每个入口下再展开其余五轴的推荐取值，转化路径更短。</p>
+  </section>
+
+  <!-- ========= Caveats & 证伪 ========= -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge confirmed">证伪失败=成立</span> <strong>H1.2-A（六轴正交）：</strong>原假设「这六个维度互相独立、可任意组合」。试图证伪未果——反例（如「贵的焊死成品」「便宜的热插拔」「无线办公」「有线游戏」）大量存在，恰证明各轴可独立取值。<strong>六轴正交成立</strong>。置信度：high。</li>
+      <li><span class="fbadge confirmed">已核实</span> <strong>磁轴单列：</strong>Keychron 官网将 Magnetic/Hall Effect 作为与 Mechanical 并列的独立筛选项；Attack Shark 指出磁轴无法插入机械 PCB（硬件不兼容）。故磁轴是轴①的独立取值而非机械子类。置信度：high。</li>
+      <li><span class="fbadge falsified">已证伪</span> <strong>H1.2-B（「青轴」与「机械」并列）：</strong>常见误解把青/红/茶当成与「机械」平级的取值。已证伪——线性/段落/青轴是<strong>机械轴内部的手感子分类</strong>，与轴①取值不在同一层级。本页据此将手感剔出轴①取值谱，单列说明。置信度：high。</li>
+      <li><span class="fbadge partial">部分</span> <strong>价格带区间：</strong>¥100–300/300–800 等为 2026-06 中国电商经验带，非单一数据源精确统计；不同品类/促销波动大，只作量级参照。已挂可点锚：入门段对照 KeebsForAll 入门热插拔清单的 "Under $100" 实价（K530 $50、AK820 Pro $58.64、Q2 $129+，<a href="https://keebsforall.com/blogs/mechanical-keyboards-101/top-7-hot-swappable-mechanical-keyboards-for-beginners">keebsforall.com</a>），人民币区间按汇率与渠道加价折算，仍属量级估计。置信度：medium。</li>
+      <li><span class="fbadge partial">部分</span> <strong>延迟数字：</strong>2.4G「1–3ms」、有线「0 外加延迟」为厂商/科普口径汇总，非本页一手实测；RTINGS 等有逐型号实测但未在本页逐一抓取。量级可信，精确值依型号。置信度：medium。</li>
+      <li><span class="fbadge open">仍开放</span> <strong>一手 UGC 原帖：</strong>r/MechanicalKeyboards「新手把尺寸和轴体混为一谈」类高赞原帖未能直接抓取（Reddit 多返回 403/无索引）；本页 UGC 以可访问厂商/评测/社区转述为主，纯用户原声卡留待 M4/M5 痛点模块补强。置信度：n/a。</li>
+    </ul>
+  </section>
+
+  <!-- ========= 参考来源索引 ========= -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>RTINGS — Different Keyboard Sizes Explained（Full-Size vs 96% vs TKL vs 75% vs 60%）：<a href="https://www.rtings.com/keyboard/learn/keyboard-size-guide">rtings.com/keyboard/learn/keyboard-size-guide</a>（采集 2026-06-10）</li>
+      <li>Keychron — What Are Hall Effect Switches（官网把 Magnetic Switch 单列为独立筛选项）：<a href="https://www.keychron.com/blogs/news/what-are-hall-effect-switches">keychron.com/blogs/news/what-are-hall-effect-switches</a>（采集 2026-06-10）</li>
+      <li>CORSAIR — Keyboard Switch Types 101（用途→轴体映射、tactile 适合新手）：<a href="https://www.corsair.com/us/en/explorer/gamer/keyboards/key-switch-types-101/">corsair.com/.../key-switch-types-101</a>（采集 2026-06-10）</li>
+      <li>Switch and Click — The Different Keyboard Sizes and Layouts Explained：<a href="https://switchandclick.com/keyboard-sizes/">switchandclick.com/keyboard-sizes</a>（采集 2026-06-10）</li>
+      <li>MCHOSE — A Beginner's Guide to Keyboard Layouts（60/65/75/80/98 解释）：<a href="https://www.mchose.store/blogs/all-posts/keyboard-layout-guide">mchose.store/blogs/all-posts/keyboard-layout-guide</a>（采集 2026-06-10）</li>
+      <li>RAPOO — Bluetooth vs 2.4GHz Wireless Keyboard（2.4G 1–3ms 延迟）：<a href="https://shop.rapoo.com/blogs/product-comparisons/bluetooth-vs-2-4ghz-wireless-keyboard">shop.rapoo.com/.../bluetooth-vs-2-4ghz-wireless-keyboard</a>（采集 2026-06-10）</li>
+      <li>Monsgeek — 2.4GHz vs Bluetooth Gaming（便利 vs 低延迟权衡）：<a href="https://www.monsgeek.com/blog/2-4ghz-vs-bluetooth-gaming/">monsgeek.com/blog/2-4ghz-vs-bluetooth-gaming</a>（采集 2026-06-10）</li>
+      <li>Fantech — What is Tri-Mode Connectivity（三模 = 有线+蓝牙+2.4G 定义）：<a href="https://fantechworld.com/blogs/fantech-tips/what-is-tri-mode-connectivity-why-does-it-matter-for-gaming-keyboards-or-mice">fantechworld.com/.../what-is-tri-mode-connectivity</a>（采集 2026-06-10）</li>
+      <li>Attack Shark — The Hall Effect Swap（磁轴与机械 PCB 硬件不兼容）：<a href="https://attackshark.com/blogs/knowledges/upgrade-mechanical-to-hall-effect-switches-guide">attackshark.com/.../upgrade-mechanical-to-hall-effect-switches-guide</a>（采集 2026-06-10）</li>
+      <li>Tom's Guide — I'm sick of pretending Hall Effect keyboards are the be-all end-all（磁轴游戏强/打字弱评测，2026）：<a href="https://www.tomsguide.com/computing/keyboards/im-sick-of-pretending-hall-effect-keyboards-are-the-end-all-be-all-heres-why-id-still-pick-a-mechanical-deck-in-2026">tomsguide.com/.../im-sick-of-pretending-hall-effect-keyboards…</a>（采集 2026-06-10，正文摘要）</li>
+      <li>KeebsForAll — Mechanical vs Membrane Keyboards: Lifespan Compared（5000万–1亿 vs 500万次）：<a href="https://keebsforall.com/blogs/mechanical-keyboards-101/mechanical-vs-membrane-keyboards-lifespan-compared">keebsforall.com/.../mechanical-vs-membrane-keyboards-lifespan-compared</a>（采集 2026-06-10）</li>
+      <li>HHKB — Topre Switches Guide: Why They Are Still the Gold Standard in 2026（静电容 1 亿次寿命/定位）：<a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us/blog/topre-switches</a>（采集 2026-06-10）</li>
+      <li>NuPhy — What is a Hall Effect Keyboard（磁轴可调触发点 + Rapid Trigger）：<a href="https://nuphy.com/blogs/journal/what-is-a-hall-effect-keyboard-the-new-he-keyboards-in-2024">nuphy.com/.../what-is-a-hall-effect-keyboard</a>（采集 2026-06-10）</li>
+      <li>Redragon — Magnetic vs Mechanical Switches: A Beginner's Guide (2026)（用途分流：游戏→磁轴）：<a href="https://redragonshop.com/blogs/community/magnetic-vs-mechanical-switches">redragonshop.com/blogs/community/magnetic-vs-mechanical-switches</a>（采集 2026-06-10）</li>
+      <li>KeebsForAll — Top 7 Hot-Swappable Mechanical Keyboards for Beginners（"Under $100" 入门款实价、热插拔新手价值原话）：<a href="https://keebsforall.com/blogs/mechanical-keyboards-101/top-7-hot-swappable-mechanical-keyboards-for-beginners">keebsforall.com/.../top-7-hot-swappable-mechanical-keyboards-for-beginners</a>（采集 2026-06-10）</li>
+      <li>QMK — Official Documentation（开源键盘固件，自定义键位/层/宏）：<a href="https://docs.qmk.fm/">docs.qmk.fm</a>（采集 2026-06-10）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块1 Task 1.2 · 采集时点 2026-06 · 行业迭代极快，价格/型号以原文为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

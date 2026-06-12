@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 4.4：反例与证伪——机械键盘是智商税吗？</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* 局部增强：只在缺省类不足时补，不覆盖既有类 */
+.score-bar{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:13px}
+.score-bar .bar{height:14px;border-radius:7px;background:linear-gradient(90deg,#e0556b,#f0915a)}
+.score-bar .lab{min-width:140px;color:#3a3f4c}
+.score-bar .val{font-variant-numeric:tabular-nums;color:#8a90a0;font-size:12px}
+.verdict{display:inline-block;font-size:12px;font-weight:700;border-radius:12px;padding:2px 10px}
+.verdict.yes{background:#fde7ea;color:#b32437}
+.verdict.no{background:#e6f4ea;color:#1f7a3d}
+.verdict.dep{background:#fff4e0;color:#9a6b16}
+.svgwrap{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块4 · Task 4.4</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块4 · TASK 4.4 · 用户真实痛点</span>
+  <h1>反例与证伪：机械键盘是智商税吗？</h1>
+  <p class="lede">专门去猎"没必要 / 智商税 / 边际收益太低"的反方声音，呈现对立面以对冲幸存者偏差——并客观界定：到底哪些人确实没必要上机械键盘。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards、r/Keychron、r/BudgetKeebs）&gt; 第三方评测/学术 &gt; 官方话术<br>
+  主要来源：本地 Reddit 导出 <code>mechkb-beginner.md</code>（872帖/12837评论）、<code>keychron.md</code>（864帖/6397评论）；RTINGS、TypingTest 类典型场景评测；IJHCI 打字速度研究综述（2026-06 检索）。</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- 结论先行 -->
+  <section>
+    <div class="callout">
+      <p><strong>一句话结论：</strong>在导出语料里，"<strong>纯智商税 / 骗局</strong>"式全盘否定<strong>极其少见</strong>（mechkb-beginner.md 中 <code>scam</code>×0、<code>waste of money</code>×0、<code>gimmick</code>×2；keychron.md 中 <code>scam</code>×2、<code>gimmick</code>×2）——所以"智商税"这个标签本身经不起 UGC 检验。<strong>但真正成立的反方不是"智商税"，而是更冷静的三条：①边际收益递减（贵的那部分多花得不值）②打字速度并不会变快（核心收益是手感/疲劳而非效率）③确实有一类人没必要上。</strong>本页把"营销话术 vs 真实反馈"逐条拆开。</p>
+    </div>
+  </section>
+
+  <!-- ===== 1. 证伪"智商税"标签 ===== -->
+  <section>
+    <h2>1. 先证伪："智商税"是不是主流声音？</h2>
+    <h3>论述</h3>
+    <p>"智商税"是中文社区给机械键盘贴的高情绪标签。要避免我们自己被另一种偏差带跑（"为了平衡而夸大反方"），第一步是<strong>用词频先证伪</strong>：如果反对声音真的以"骗局/纯智商税"为主流，那么 <code>scam</code>/<code>waste of money</code>/<code>gimmick</code> 这类词应当高频出现。结果相反。</p>
+    <h3>证据（词频，本地语料 grep -i 计数，2026-06）</h3>
+    <div style="margin:10px 0">
+      <div class="score-bar"><span class="lab">worth it（多为"值得"语境）</span><span class="bar" style="width:120px"></span><span class="val">mechkb 9 · keychron 6</span></div>
+      <div class="score-bar"><span class="lab">hype（炒作/被吹）</span><span class="bar" style="width:55px"></span><span class="val">mechkb 3 · keychron 8</span></div>
+      <div class="score-bar"><span class="lab">gimmick（噱头）</span><span class="bar" style="width:18px"></span><span class="val">mechkb 2 · keychron 2</span></div>
+      <div class="score-bar"><span class="lab">not worth（不值）</span><span class="bar" style="width:18px"></span><span class="val">mechkb 2 · keychron 0</span></div>
+      <div class="score-bar"><span class="lab">overpriced（定价过高）</span><span class="bar" style="width:9px"></span><span class="val">mechkb 1</span></div>
+      <div class="score-bar"><span class="lab">scam / waste of money（骗局/浪费钱）</span><span class="bar" style="width:9px"></span><span class="val">mechkb 0 · keychron 2/0</span></div>
+      <div class="score-bar"><span class="lab">placebo / snake oil（安慰剂/玄学）</span><span class="bar" style="width:3px"></span><span class="val">两份均 0</span></div>
+    </div>
+    <p class="src">注：词频是<strong>代理指标</strong>，同帖多次出现会被重复计数，仅用于相对判断，不做绝对结论。子版块天生偏"爱好者"，本就不是骂场，故"智商税"低频也可能部分源自版块自选偏差——这点在 Caveats 里诚实标注。</p>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>全盘否定（骗局/智商税）：</b>合计命中个位数，且 <code>gimmick</code> 多指向"某个具体功能像噱头"（如 RK-S98 顶部小屏、Iqunix Magi65 Pro 侧板），<strong>而非否定整个品类</strong>。</li>
+      <li><b>理性节制（不值/定价过高/被吹）：</b>这一类才是反方的真正主体——它不否认机械键盘有用，只质疑<strong>"这个价 / 这个加价 / 这个功能"值不值</strong>。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>"机械键盘=智商税"这个命题在 UGC 里<strong>被证伪</strong>。真正的反方是"边际收益递减 + 别为噱头加价"，下面逐条上证据。</p>
+  </section>
+
+  <!-- ===== 2. 边际收益递减 ===== -->
+  <section>
+    <h2>2. 反方主线一：边际收益递减——"贵的那一截不值"</h2>
+    <h3>论述</h3>
+    <p>反方最理性、最常被忽视的一条：机械键盘<strong>从膜键升到一块好用的入门机械</strong>，收益明显；但<strong>从入门机械再往上堆到旗舰/客制化</strong>，收益急剧变平，价格却线性甚至指数上涨。这正是"智商税"指控里唯一站得住脚的内核——不是品类没用，而是<strong>高端那部分的边际效用低</strong>。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Twelve years ago … I decided I would try one … ponied up the princely sum of <strong>$120 for a Cooler Master Quickfire TK</strong> keyboard with brown switches … <strong>I've used it every day since.</strong>"（一块 $120 的入门机械，用了十二年，期间多次被食物/饮料泼到仍在服役）</p><span class="src">— u/Tough-Pressure-3601 · r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/comments/1tm5kwb/how_to_be_a_super_elite_mech_keeb_hobbyist_from_a/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L254）</a> · 2026</span></div>
+    <div class="ugc"><p>"…this board already comes pretty well dampened, so I'm trying to <strong>avoid low-impact mods or diminishing returns</strong>. … Stabilizers: Did tuning stock stabs get you where you wanted, or was upgrading actually worth it? <strong>Seems like opinions are mixed</strong>—some say tuning is enough, others say swap immediately."（连资深玩家自己都在主动规避"低收益高投入"的升级）</p><span class="src">— Keychron Q6 Max 升级求助帖 · r/Keychron · <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">原帖（keychron.md L55）</a> · 2026</span></div>
+    <div class="ugc"><p>"…GMMK3 Pro TKL … around <strong>$65 on amazon</strong> for the fully built version（<strong>for $300 it is not worth it</strong>）."（同一块板，$65 算超值、$300 直接"not worth it"——边际收益递减的标准句式）</p><span class="src">— u/greedyjack0619 · r/BudgetKeebs · <a href="https://www.reddit.com/r/BudgetKeebs/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L845）</a> · 2026</span></div>
+    <div class="ugc"><p>"At <strong>180 euros it still feels overpriced</strong>, better keycaps and stabilizers would amend that."（Realforce R4 Topre 旗舰评测者亲述：旗舰也照样能"不值"）</p><span class="src">— u/Honest_Box_6037 · r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L264）</a> · 2026</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>跨度对照：</b>语料里"超值锚点"集中在 <b>$60–$120</b> 区间（Crush80 Reboot Pro "way too much for the price you pay"、$65 GMMK3、$120 用十二年）；"不值锚点"则出现在 <b>$180+</b>（Realforce €180 overpriced、GMMK3 $300 not worth it）。</li>
+      <li><b>第三方佐证：</b>RTINGS《Mechanical vs Membrane》指出，对多数人"the performance difference is marginal … 优质膜键 $15–20、优质机械 $50+"，收益体现在<em>长期疲劳/准确度</em>而非线性堆料（RTINGS，2026-06 检索）。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>反方在这条上<strong>赢了</strong>——但赢的是"高端加价"，不是"品类本身"。营销话术把"客制化乐趣/旗舰手感"当普世卖点，真实反馈却把价值死死锚在入门段。</p>
+  </section>
+
+  <!-- ===== 3. 打字速度不会变快 ===== -->
+  <section>
+    <h2>3. 反方主线二：打字不会更快——核心收益是手感不是效率</h2>
+    <h3>论述</h3>
+    <p>营销常暗示"换机械键盘=打字更快更准"。这是最容易被证伪的卖点：<strong>多数研究显示机械键盘对 WPM（每分钟字数）几乎无统计显著提升</strong>，真正的差异在<em>主观手感、疲劳、准确度</em>。如果有人是冲着"提速/提效"买，那对他而言确实接近智商税。</p>
+    <h3>证据</h3>
+    <ul>
+      <li><b>无显著差异侧：</b>有研究"found no statistically significant difference in average WPM between mechanical and standard membrane models after users adapted"；甚至有分析显示"WPM revealed greater typing speeds with the standard membrane keyboard"（综述见 TypingTest/researchgate sEMG 研究，2026-06 检索）。</li>
+      <li><b>有限优势侧（须诚实呈现）：</b>另有 IJHCI 一项研究称机械键盘上"约高 12% 速度、最多 15% 错误率下降"，但仅对"已 60 WPM 以上的中高级打字者"明显，对新手"negligible"（同上检索）。</li>
+      <li><b>共识：</b>"the biggest gains … come from deliberate practice, proper technique … not just hardware."——提速主要靠练习，不靠硬件。</li>
+    </ul>
+    <div class="ugc"><p>"…if you want keyboard for typing you probably <strong>don't need HE, it might even be a disadvantage</strong> if you prefer something more tactile to type on."（连玩家都提醒：为打字买高端磁轴/花哨特性反而是减分）</p><span class="src">— r/Keychron 选购讨论 · <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">原帖（keychron.md L867）</a> · 2026</span></div>
+    <p class="callout"><b>小结：</b>"换机械=打字飞快"是营销话术，研究与 UGC 都不支持。把机械键盘卖给"想提速"的人，是错配；它的真实价值是<strong>手感愉悦 + 长时间不累</strong>——这恰恰是无法量化、也最容易被说成"玄学"的部分。</p>
+  </section>
+
+  <!-- ===== 4. 噱头税 ===== -->
+  <section>
+    <h2>4. 反方主线三："就是个键盘，别为噱头加价"</h2>
+    <h3>论述</h3>
+    <p>第三条反方针对的是<strong>功能堆料</strong>：小屏、侧板、touch bar、trackpoint、过度 RGB。反方认为这些既抬价又窄化受众，是典型的"为噱头买单"。注意：这与"边际收益递减"不同——它否定的是<em>具体功能</em>，不是<em>整机价位</em>。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"<strong>It's just a keyboard, not designing a jet plane.</strong> … they don't innovate or introduce new features, mainly OEM products pieced together … <strong>Name brands just have their products finishing done better, with better packaging design and marketing.</strong>"（直指品牌溢价的相当一部分是包装与营销）</p><span class="src">— r/MechanicalKeyboards（Akko 5075 HE 缺陷帖回复）· <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L370）</a> · 2026</span></div>
+    <div class="ugc"><p>"Adding stuff like this just <strong>increases price, and makes an already niche hobby even more niche</strong> … now you've increased the price of the already expensive board … on <strong>some gimmick</strong>."（反对往键盘上加 trackpoint/touchbar）</p><span class="src">— r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L1045）</a> · 2026</span></div>
+    <div class="ugc"><p>"…the <strong>display seems gimmicky</strong> but sounds like it actually works."（RK-S98 顶部小屏：先入为主当噱头）</p><span class="src">— r/MechanicalKeyboards RK-S98 评测回复 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L227）</a> · 2026</span></div>
+    <div class="ugc"><p>"…I don't need the side panel and <strong>it's a bit gimmicky for me</strong>…"（Iqunix Magi65 Pro 侧板）</p><span class="src">— Iqunix Magi65 Pro 评测 · r/Keychron · <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">原帖（keychron.md L638）</a> · 2026</span></div>
+    <div class="ugc"><p>"What used to be a utilitarian tool is now <strong>marketed much more like a geek toy</strong>. Same category, completely different positioning. … No RGB, no gimmicks, nothing extra - just a chunky old-school keyboard built to do its job."（怀念"工具属性"，反感"极客玩具"定位）</p><span class="src">— r/Keychron（关于 Cherry 老式键盘）· <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">原帖（keychron.md L341）</a> · 2026</span></div>
+    <p class="callout"><b>小结：</b>"噱头税"是 <code>gimmick</code> 一词的真实落点——它指向<strong>具体功能</strong>而非品类。这给产品端一个清晰信号：花哨功能要默认可关/可拆，且不应抬高基础款价格。</p>
+  </section>
+
+  <!-- ===== 5. 谁确实没必要 ===== -->
+  <section>
+    <h2>5. 客观界定：哪些人确实没必要上机械键盘</h2>
+    <h3>论述</h3>
+    <p>避免幸存者偏差最有用的产出，不是"反方也有道理"这种和稀泥，而是<strong>明确画出"不该买"的人群边界</strong>。综合 UGC 痛点 + 第三方场景评测，以下四类人买机械键盘大概率后悔或浪费。</p>
+    <h3>证据 / 数据</h3>
+    <ul>
+      <li><b>① 极度安静环境且不愿折腾的人。</b>语料里"too loud / 吵到家人同事"是最具画面感的痛点（"during the day she thought it was hailstoning outside"，mechkb-beginner.md L95）。要静音就得选静音轴+消音改装——这本身又把人推进折腾循环。RTINGS 也承认 noise 是首要约束时膜键更省心。</li>
+      <li><b>② 只想"打字更快/更准"的人。</b>见第 3 节：研究不支持提速，对新手提升"negligible"。冲效率买=错配。</li>
+      <li><b>③ 拒绝任何调试、要"开箱即终态"的人。</b>"办公升级"人群最大抱怨就是"为什么开箱还要调"（稳定器响、键帽歪），UGC 中 <code>lube</code>×48、<code>stabilizer</code>×31 高频（见 Task 4.1）。这类人若不接受"成品=起点"的预期，机械键盘的体验会是负的。</li>
+      <li><b>④ 预算紧、又会忍不住往上加的人。</b>边际收益递减意味着越往上越不值；而 hobby 的"再升级"诱惑很强（"opinions are mixed""swap immediately"）。自控差 + 预算紧 = 容易陷入"为微小提升持续付费"。</li>
+    </ul>
+    <p class="callout"><b>反向诚实（不该夸大反方）：</b>反过来，<strong>每天敲数小时、对手感/疲劳敏感、且环境允许有声</strong>的重度文字/程序员，UGC 几乎一致认为"值"（"the improvement in typing feel is well worth it for me"，mac-keyboard.md L208）。所以正确表述不是"机械键盘没必要"，而是<strong>"它对窄人群高价值、对宽人群低必要"</strong>。</p>
+  </section>
+
+  <!-- ===== 对比矩阵 ===== -->
+  <section>
+    <h2>对比矩阵：四种"反方指控" × 是否成立 × 真实落点</h2>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1：把"智商税"拆成四种可检验指控（点击表头高亮该列）</caption>
+      <thead><tr><th>反方指控</th><th>UGC 信号强度</th><th>是否成立</th><th>真实落点（营销话术 vs 真实反馈）</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>"纯智商税 / 骗局"（否定整个品类）</td>
+          <td>极弱（scam/waste 近 0）</td>
+          <td><span class="verdict no">不成立</span></td>
+          <td>导出语料证伪；属高情绪标签，无证据支撑</td>
+        </tr>
+        <tr>
+          <td>"边际收益递减，高端加价不值"</td>
+          <td>中强（not worth/overpriced/diminishing）</td>
+          <td><span class="verdict yes">成立</span></td>
+          <td>真实：价值锚在 $60–120 入门段；旗舰/客制化收益变平</td>
+        </tr>
+        <tr>
+          <td>"换了打字也不会更快"</td>
+          <td>中（研究 + UGC 佐证）</td>
+          <td><span class="verdict yes">成立</span></td>
+          <td>营销话术暗示提速；研究显示对 WPM 无显著提升，收益在手感/疲劳</td>
+        </tr>
+        <tr>
+          <td>"花哨功能=噱头加价"</td>
+          <td>中（gimmick 指向具体功能）</td>
+          <td><span class="verdict dep">部分成立</span></td>
+          <td>否定的是小屏/侧板/touchbar 等具体件，非品类；要可关可拆</td>
+        </tr>
+        <tr>
+          <td>"对所有人都没必要"</td>
+          <td>弱（被重度用户反证）</td>
+          <td><span class="verdict no">不成立</span></td>
+          <td>对窄人群（重度文字/程序员）高价值；应改述为"低必要≠没必要"</td>
+        </tr>
+      </tbody>
+    </table></div>
+    <p class="src" style="margin-top:6px">来源：mechkb-beginner.md / keychron.md 词频与原帖 + RTINGS / 打字速度研究综述，2026-06。</p>
+  </section>
+
+  <!-- ===== SVG: 边际收益曲线 ===== -->
+  <section>
+    <h2>一图看懂：机械键盘的边际收益曲线</h2>
+    <figure class="framed">
+      <svg class="svgwrap" viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif" role="img" aria-label="机械键盘价格与主观收益的边际收益递减曲线">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#1f7a3d"/><stop offset="0.5" stop-color="#9a6b16"/><stop offset="1" stop-color="#b32437"/>
+          </linearGradient>
+        </defs>
+        <!-- axes -->
+        <line x1="60" y1="270" x2="690" y2="270" stroke="#c7cdd9" stroke-width="1.5"/>
+        <line x1="60" y1="40" x2="60" y2="270" stroke="#c7cdd9" stroke-width="1.5"/>
+        <text x="375" y="305" font-size="12" fill="#5a6072" text-anchor="middle">价格（USD，对数感）→</text>
+        <text x="20" y="155" font-size="12" fill="#5a6072" text-anchor="middle" transform="rotate(-90 20 155)">主观收益 →</text>
+        <!-- curve: steep then flat -->
+        <path d="M60,255 C120,120 180,90 260,82 C380,72 520,66 690,62" fill="none" stroke="url(#g1)" stroke-width="3.5"/>
+        <!-- value zone band -->
+        <rect x="120" y="40" width="140" height="230" fill="#1f7a3d" opacity="0.07"/>
+        <text x="190" y="58" font-size="12" fill="#1f7a3d" text-anchor="middle" font-weight="700">高性价比区</text>
+        <text x="190" y="74" font-size="11" fill="#1f7a3d" text-anchor="middle">$60–120 入门机械</text>
+        <!-- diminishing zone -->
+        <rect x="380" y="40" width="310" height="230" fill="#b32437" opacity="0.06"/>
+        <text x="535" y="120" font-size="12" fill="#b32437" text-anchor="middle" font-weight="700">边际收益递减区</text>
+        <text x="535" y="136" font-size="11" fill="#b32437" text-anchor="middle">旗舰 / 客制化 / 堆料</text>
+        <text x="535" y="152" font-size="11" fill="#b32437" text-anchor="middle">"not worth it" 多发于此</text>
+        <!-- membrane baseline -->
+        <line x1="60" y1="262" x2="690" y2="262" stroke="#8a90a0" stroke-width="1" stroke-dasharray="4 4"/>
+        <text x="64" y="258" font-size="10" fill="#8a90a0">膜键基线（$15–20）</text>
+        <!-- markers -->
+        <circle cx="120" cy="158" r="4" fill="#1f7a3d"/><text x="120" y="148" font-size="10" fill="#1f7a3d" text-anchor="middle">$60</text>
+        <circle cx="260" cy="82" r="4" fill="#9a6b16"/><text x="260" y="72" font-size="10" fill="#9a6b16" text-anchor="middle">$120</text>
+        <circle cx="535" cy="64" r="4" fill="#b32437"/><text x="535" y="54" font-size="10" fill="#b32437" text-anchor="middle">$300+</text>
+        <text x="375" y="30" font-size="13" font-weight="700" fill="#1f2430" text-anchor="middle">收益陡升→拐点≈$120→此后近乎走平</text>
+      </svg>
+      <figcaption>图1：机械键盘主观收益—价格曲线（示意，非线性度量）。收益主要在膜键→入门机械的跃迁；越过 ~$120 拐点后边际收益快速变平，"not worth/overpriced"集中出现在右侧。<span class="src">来源：综合 UGC 价格锚点（mechkb-beginner.md L254/L264/L845）+ RTINGS 价格区间，2026-06</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- ===== 关键洞察与产品机会 ===== -->
+  <section>
+    <h2>关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察1（定位）：</b>"机械键盘是智商税"在 UGC 里站不住，但"<strong>高端加价 + 提速幻觉 + 噱头堆料</strong>"这三点反方真实成立。营销若继续暗示"提速/必入旗舰/堆功能"，等于把自己往"智商税"指控的枪口上送。<strong>诚实定位 = 把价值锚定在"入门段手感跃迁 + 长时间不累"，而非速度和堆料。</strong></p>
+    <p class="callout"><b>洞察2（人群）：</b>真正的市场表述应是"<strong>对窄人群高价值、对宽人群低必要</strong>"。与其全网喊"人人该换机械"，不如做一个 30 秒的"你需不需要"自测（每天打字时长？环境能否有声？想提速还是想舒服？愿不愿意调试？），把不该买的人劝退——退货率和差评率都会降。</p>
+    <p class="callout"><b>产品机会（给模板不给作业）：</b>针对"办公升级/文字工作者"出一份<strong>"开箱即用 + 可选升级"分层清单</strong>：默认静音轴 + 出厂调好稳定器（消灭 L48 的 <code>lube</code> 痛点），花哨功能（小屏/侧板/RGB）默认可一键关闭或物理拆除（回应"噱头税"）。卖点写"开箱即终态，想折腾再折腾"，而不是"客制化乐趣无限"——后者恰恰是这类人最怕的。</p>
+    <p class="callout"><b>反向风控：</b>把"边际收益递减曲线"直接做进产品页（坦白告诉用户拐点在哪），反而建立信任。教育内容别教"如何润轴"，而是教"$60–120 段如何一步到位"，把高端留给主动来找的爱好者。</p>
+  </section>
+
+  <!-- ===== Caveats ===== -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge falsified">已证伪</span> <b>H：若"智商税/骗局"是反方主流，则全盘否定词应高频。</b>在导出语料中 <code>scam</code>/<code>waste of money</code>/<code>placebo</code>/<code>snake oil</code> 近乎 0 命中，<code>gimmick</code> 仅 2/2 且指向具体功能。"智商税"标签<strong>被证伪</strong>，已改述为"边际收益递减 + 提速幻觉 + 噱头税"三条理性反方。置信度 <b>中高</b>。</li>
+      <li><span class="fbadge confirmed">已核实</span> <b>边际收益递减成立。</b>多帖独立交叉印证（$120 用 12 年、$65 超值 vs $300 not worth、€180 旗舰 overpriced、玩家主动规避 diminishing returns），且与 RTINGS"performance difference is marginal for most"一致。</li>
+      <li><span class="fbadge confirmed">已核实</span> <b>"提速幻觉"成立。</b>多项研究/综述显示机械键盘对 WPM 无统计显著提升（部分研究甚至膜键更快），有限优势仅见于已 60+ WPM 者；UGC 亦有"打字别买 HE"佐证。营销提速话术与证据冲突。</li>
+      <li><span class="fbadge partial">部分</span> <b>选择偏差（反向）。</b>本页语料来自爱好者子版块，本就<strong>不是骂场</strong>，"智商税"低频可能部分是版块自选偏差放大——真正持"完全没必要"立场的人更可能根本不来这些版块发帖。故"智商税被证伪"应理解为"<strong>在讨论机械键盘的人群中</strong>不是主流"，不能外推到全体消费者。</li>
+      <li><span class="fbadge open">仍开放</span> <b>第三方"反方专帖"稀缺。</b>WebSearch 对"overrated/waste of money"未返回有效独立链接；打字速度研究存在<strong>互相矛盾</strong>（12% 提速 vs 无显著差异），未能取得可全文核验的单一权威研究，仅以综述呈现两侧，<strong>不偏向、不编造</strong>。</li>
+      <li><span class="fbadge open">仍开放</span> <b>价格锚点为采集时点快照。</b>$60–120 拐点基于 2026-06 UGC 与 RTINGS 区间，行业迭代极快，拐点会随入门机械均价下移而移动。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 来源 ===== -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>本地 Reddit 导出 — <code>reddit-exports/mechkb-beginner.md</code>（872 帖 / 12837 评论；本页引用 L227/L254/L264/L370/L845/L1045 等）（采集 2026-06）</li>
+      <li>本地 Reddit 导出 — <code>reddit-exports/keychron.md</code>（864 帖 / 6397 评论；本页引用 L55/L341/L638/L867 等）（采集 2026-06）</li>
+      <li>词频统计 — 对上述 .md 语料 <code>grep -i</code> 计数（mechkb：worth it×9、hype×3、gimmick×2、not worth×2、overpriced×1、scam/waste×0；keychron：hype×8、worth it×6、gimmick×2、scam×2）（2026-06）</li>
+      <li>RTINGS — 《Mechanical vs Membrane Keyboards: Which Should You Choose?》：<a href="https://www.rtings.com/keyboard/learn/mechanical-vs-membrane" target="_blank" rel="noopener">https://www.rtings.com/keyboard/learn/mechanical-vs-membrane</a>（检索 2026-06；"performance difference is marginal for most"、膜键 $15–20 / 机械 $50+）</li>
+      <li>TypingTest.now — 《Mechanical vs Membrane Keyboards for Typing Speed》：<a href="https://typingtest.now/blog/mechanical-vs-membrane-keyboard-typing/" target="_blank" rel="noopener">链接</a>（检索 2026-06；"no statistically significant difference in average WPM after adaptation"）</li>
+      <li>IJHCI 研究综述（经搜索引擎转述）— 机械键盘约 12% 速度 / 15% 错误率下降，仅对中高级打字者明显，新手 negligible（检索 2026-06，原文未全文核验，列为开放项）</li>
+      <li>ResearchGate — 《Mechanical and Membrane Keyboard Typing Assessment Using Surface EMG (sEMG)》：<a href="https://www.researchgate.net/publication/283538787" target="_blank" rel="noopener">链接</a>（检索 2026-06；疲劳/肌电维度参考）</li>
+    </ol>
+    <p class="src">注：Reddit 单帖深链以导出文件内记录的原始 URL 为准；本页 r/版块链接用于定位版块，具体帖请对照括注的导出文件行号。价格/型号均为 2026-06 采集时点，行业迭代极快。</p>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块4 Task 4.4 · 采集时点 2026-06 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

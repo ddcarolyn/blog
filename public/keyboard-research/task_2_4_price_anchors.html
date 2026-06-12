@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 2.4：各类型价格锚点与代表产品</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* 局部：价格轴线与价格直觉图，复用模板色板 */
+.price-svg{width:100%;height:auto;display:block;background:#fff;border-radius:8px}
+.miniref{font-size:.82rem;color:#667;margin:.3rem 0 0}
+.legend-row{display:flex;gap:14px;flex-wrap:wrap;font-size:.82rem;color:#556;margin-top:.4rem}
+.legend-row b{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:4px}
+.pricecard{border:1px solid #e3e8f0;border-radius:10px;padding:14px 16px;background:#fbfcfe}
+.pricecard h4{margin:0 0 .35rem;font-size:1rem}
+.pricecard .band{font-size:1.4rem;font-weight:700;color:#2b6cb0}
+.pricecard .sub{font-size:.82rem;color:#667}
+.tier{display:inline-block;font-size:.72rem;padding:1px 8px;border-radius:10px;font-weight:600;margin-left:6px;vertical-align:middle}
+.t-low{background:#e6f6ee;color:#1a7a47}.t-mid{background:#fff3e0;color:#b9690c}.t-high{background:#fdeaea;color:#b3261e}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块2 · Task 2.4</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块2 · TASK 2.4 · 键盘类型横评</span>
+  <h1>各类型价格锚点与代表产品：建立一套「小白价格直觉」</h1>
+  <p class="lede">同一句话「我想买个键盘」，在六种类型里对应的是 $20 到 $600 的鸿沟。本页只回答一个窄问题：<b>每种键盘类型，掏多少钱算正常、买谁是「标准答案」、贵在哪、社区觉得值不值。</b>把价格带钉成可记忆的锚点，让没碰过键盘的人 5 分钟内有数。</p>
+  <p class="meta">调研日期：2026-06（价格采集时点 2026-06-10）｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards、r/WootingKB、RedditRecs 聚合）&gt; 第三方评测（Tom's Hardware/Guide、RTINGS、MKB Guide）&gt; 官方/零售标价（各品牌官网、Amazon、keeb-finder 比价、camelcamelcamel 历史价）<br>
+  主要来源：见页底编号索引（11 条）。所有价格为 USD、2026-06 常见售价或官方 MSRP，已标注「原价 vs 促销」。</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- 导读 -->
+  <section>
+    <div class="callout">
+      <strong>一句话先记住三个数字：</strong>薄膜 <b>$20</b>（地板）、机械甜点 <b>$70–$100</b>（多数人该停在这）、Topre 旗舰 <b>$300</b>（天花板的入场券）。其余类型都落在这三根桩子之间。本页把每根桩子背后的「代表型号 + 为什么是这个价 + 社区怎么看」摊开。
+    </div>
+  </section>
+
+  <!-- 1. 价格直觉总览 -->
+  <section>
+    <h2>1. 一图建立价格直觉：六类整机价格带轴线</h2>
+    <h3>论述</h3>
+    <p>小白最大的困惑不是「哪个好」，而是「<b>这东西到底该多少钱</b>」——看到 $300 的 HHKB 会以为被宰，看到 $20 的薄膜会以为是垃圾。先用一根非线性横轴把六类的「正常区间」画出来，建立第一层直觉：薄膜独占最低端，Topre 起步价就比别人的天花板还高，机械/磁轴/光轴在中间大幅重叠。</p>
+
+    <figure class="framed">
+      <svg class="price-svg" viewBox="0 0 720 300" role="img" aria-label="六类键盘整机价格带轴线图">
+        <rect x="0" y="0" width="720" height="300" fill="#fff"/>
+        <text x="360" y="22" font-size="12" text-anchor="middle" fill="#445" font-weight="bold">六类键盘「整机」常见价格带（USD，横轴为对数感刻度，仅示意区间 · 采集 2026-06）</text>
+        <!-- 横轴 -->
+        <line x1="110" y1="262" x2="700" y2="262" stroke="#334" stroke-width="2"/>
+        <g font-size="10" fill="#667" text-anchor="middle">
+          <text x="130" y="280">$20</text><line x1="130" y1="258" x2="130" y2="266" stroke="#889"/>
+          <text x="250" y="280">$50</text><line x1="250" y1="258" x2="250" y2="266" stroke="#889"/>
+          <text x="370" y="280">$100</text><line x1="370" y1="258" x2="370" y2="266" stroke="#889"/>
+          <text x="490" y="280">$200</text><line x1="490" y1="258" x2="490" y2="266" stroke="#889"/>
+          <text x="600" y="280">$350</text><line x1="600" y1="258" x2="600" y2="266" stroke="#889"/>
+          <text x="685" y="280">$600</text><line x1="685" y1="258" x2="685" y2="266" stroke="#889"/>
+        </g>
+        <!-- 映射: $20=130,$50=250,$100=370,$200=490,$350=600,$600=685 -->
+        <!-- 薄膜 $10-40 -> 105..220 -->
+        <g><text x="100" y="52" font-size="11" text-anchor="end" fill="#334">薄膜</text>
+        <rect x="105" y="44" width="115" height="14" rx="7" fill="#16a085"/>
+        <text x="226" y="55" font-size="9" fill="#16a085">$10–40</text></g>
+        <!-- 剪刀 $30-200 -> 195..490 -->
+        <g><text x="100" y="82" font-size="11" text-anchor="end" fill="#334">剪刀脚</text>
+        <rect x="195" y="74" width="295" height="14" rx="7" fill="#27ae60"/>
+        <text x="496" y="85" font-size="9" fill="#1e8449">$30–200</text></g>
+        <!-- 机械 $25-300 -> 165..560 -->
+        <g><text x="100" y="112" font-size="11" text-anchor="end" fill="#334">机械</text>
+        <rect x="165" y="104" width="395" height="14" rx="7" fill="#2b6cb0"/>
+        <text x="566" y="115" font-size="9" fill="#2b6cb0">$25–300+</text>
+        <line x1="330" y1="100" x2="330" y2="122" stroke="#fff" stroke-width="2"/>
+        <text x="318" y="98" font-size="8" fill="#2b6cb0">甜点$70–100</text></g>
+        <!-- 磁轴 $80-300 -> 350..560 -->
+        <g><text x="100" y="142" font-size="11" text-anchor="end" fill="#334">磁轴(HE)</text>
+        <rect x="335" y="134" width="225" height="14" rx="7" fill="#8e44ad"/>
+        <text x="566" y="145" font-size="9" fill="#8e44ad">$80–300</text></g>
+        <!-- 光轴 $90-500 -> 360..655 -->
+        <g><text x="100" y="172" font-size="11" text-anchor="end" fill="#334">光轴</text>
+        <rect x="360" y="164" width="295" height="14" rx="7" fill="#e07b39"/>
+        <text x="566" y="190" font-size="9" fill="#e07b39">$90–500</text></g>
+        <!-- Topre $160-600 -> 450..685 -->
+        <g><text x="100" y="202" font-size="11" text-anchor="end" fill="#334">Topre/EC</text>
+        <rect x="450" y="194" width="235" height="14" rx="7" fill="#c0392b"/>
+        <text x="445" y="205" font-size="9" text-anchor="end" fill="#c0392b">$160–600</text></g>
+        <!-- 甜点带阴影 -->
+        <rect x="300" y="38" width="80" height="180" fill="#2b6cb0" opacity=".06"/>
+        <text x="340" y="232" font-size="9" text-anchor="middle" fill="#2b6cb0">多数人的甜点区 $70–120</text>
+      </svg>
+      <figcaption>图1 价格带轴线：薄膜独占地板（$10–40），Topre 起步价（~$160 的 R3S）已逼近多数机械的天花板，旗舰 HHKB/Realforce 摸到 $300–600。横轴非线性，仅示意区间。<span class="src">价格据各品牌官网/Amazon/keeb-finder/camelcamelcamel，采集 2026-06-10（来源 1–11）；自绘</span></figcaption>
+    </figure>
+    <div class="legend-row">
+      <span><b style="background:#16a085"></b>薄膜</span>
+      <span><b style="background:#27ae60"></b>剪刀脚</span>
+      <span><b style="background:#2b6cb0"></b>机械</span>
+      <span><b style="background:#8e44ad"></b>磁轴</span>
+      <span><b style="background:#e07b39"></b>光轴</span>
+      <span><b style="background:#c0392b"></b>Topre/EC</span>
+    </div>
+
+    <h3>具体数据（六个可记忆的锚点）</h3>
+    <div class="grid-3" style="margin-top:12px">
+      <div class="pricecard"><h4>薄膜 <span class="tier t-low">地板</span></h4><div class="band">~$20</div><div class="sub">Logitech K120 长期约 $20（评测语「For $20 you simply can't get a better keyboard」）。买它不是为手感，是为「能用 + 防泼溅 + 备用」。</div></div>
+      <div class="pricecard"><h4>机械甜点 <span class="tier t-mid">该停这</span></h4><div class="band">$70–$100</div><div class="sub">Keychron V1 8K 仅 $74；Tom's Guide 称其「sets a new gold standard for cheap decks」。热插拔、客制起点都在这。</div></div>
+      <div class="pricecard"><h4>剪刀/超薄 <span class="tier t-mid">轻办公</span></h4><div class="band">$79–$199</div><div class="sub">Apple Magic Keyboard 基础款 MSRP $99（Amazon 历史低 $79.99），带 Touch ID+数字键 $199。</div></div>
+      <div class="pricecard"><h4>磁轴 HE <span class="tier t-mid">电竞调校</span></h4><div class="band">$80–$175</div><div class="sub">国产 DrunkDeer A75 起 ~$129（特价更低）；Wooting 60HE+ $175（买的是软件与可靠性）。</div></div>
+      <div class="pricecard"><h4>光轴 <span class="tier t-high">品牌溢价</span></h4><div class="band">$160–$250</div><div class="sub">Razer Huntsman V3 Pro Mini 历史低 $159.99，常见 ~$185。analog optical + Snap Tap 是卖点。</div></div>
+      <div class="pricecard"><h4>Topre/EC <span class="tier t-high">天花板</span></h4><div class="band">$160–$300</div><div class="sub">Realforce R3S 起 ~$159；HHKB Pro Hybrid Type-S Snow $299.99（2026-06 期间 -$35）。最贵且不可换轴。</div></div>
+    </div>
+    <p class="callout"><b>小结：</b>记住三根桩——<b>$20 薄膜地板、$70–100 机械甜点、$300 Topre 天花板</b>。看到一把键盘的标价，先问它属于哪一类，再对照这根桩，就知道是「正常 / 捡漏 / 被宰」。</p>
+  </section>
+
+  <!-- 2. 机械:价格跨度最大,甜点最关键 -->
+  <section>
+    <h2>2. 机械键盘：价格跨度最大，「甜点区」最该被讲清楚</h2>
+    <h3>论述</h3>
+    <p>机械是唯一从 $25 拉到 $300+ 的类型，因为它既是「最便宜的可玩品类」也是「客制化无底洞的入口」。小白真正需要的不是价格区间，而是<b>「我该在哪一档停手」</b>。社区与评测高度一致地把答案锚在 <b>$70–$100</b>：再低做工与轴体打折，再高就进入「为信仰/折腾付费」的递减区。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"One of the only budget mechanical keyboards I'd buy ... the Keychron V1 8K sets a new gold standard for cheap decks."（评测者按职业评机械键盘）</p><span class="src">— Tom's Guide · Keychron V1 8K Review · <a href="https://www.tomsguide.com/computing/keyboards/keychron-v1-8k-review">tomsguide.com</a> · 2026（V1 8K 标价 $74）</span></div>
+    <div class="ugc"><p>"Keychron is the main company most Reddit users mention ... K2 or C1 Pro for those wanting something solid without overpaying — hot-swappable, good build, hard to beat at that price point."（对 Reddit 高赞推荐的归纳）</p><span class="src">— Tom's Guide · 总结 r/MechanicalKeyboards 高频推荐 · <a href="https://www.tomsguide.com/computing/keyboards/i-review-mechanical-keyboards-for-a-living-and-this-is-what-i-think-of-reddits-top-picks">tomsguide.com</a> · 2026</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>地板档（$25–55）：</b>裸机入门，做工/键帽会打折，适合「先试试是不是喜欢机械」。</li>
+      <li><b>甜点档（$70–100）：</b>Keychron V1 8K $74（来源 2）、Keychron K8/C1 Pro 同档；热插拔 + QMK/VIA + 像样外壳，<b>多数人到此为止</b>。</li>
+      <li><b>发烧/客制档（$150–300+）：</b>套件 + 单独买轴/键帽/配重，价格无上限，边际手感提升递减。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>对小白，把机械的「正常价」直接简化为<b>「认准 $70–100、认准热插拔」</b>这一句，比背区间更有用。低于 $50 是「试水/备用」，高于 $150 是「兴趣消费」。</p>
+  </section>
+
+  <!-- 3. Topre/光轴:为什么贵 -->
+  <section>
+    <h2>3. 天花板们贵在哪：Topre 与光轴的「溢价拆解」</h2>
+    <h3>论述</h3>
+    <p>两类「贵」的逻辑完全不同，必须分开讲，否则小白会误以为「贵=好」。<b>Topre 贵在专有结构 + 小众工艺 + 不可换轴的封闭生态</b>（你为一次性体验付费）；<b>光轴贵主要在品牌（Razer）溢价 + analog 功能</b>，而非物料。把这层说穿，才知道哪种贵「值」。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>HHKB Pro Hybrid Type-S（Snow）标价 <b>$299.99</b>；官方 2026-05-12 至 06-30 期间「select HHKB Pro HYBRID -$35」。Topre 被官方定位为「superior mechanical」，但<b>不可换轴、专有结构</b>。</p><span class="src">— HHKB 官方店 · Pro Hybrid Type-S · <a href="https://hhkeyboard.us/hhkb/pro-hybrid-type-s">hhkeyboard.us</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Topre switches are considered a middle ground between mechanical and rubber dome ... for $300, there are other high-quality mechanical keyboards. Whether Topre justifies the premium is debated — value depends on individual preferences."（社区两方观点归纳）</p><span class="src">— r/MechanicalKeyboards 讨论归纳（HHKB 值不值 $300）· 经 WebSearch 聚合 · 2026-06</span></div>
+    <div class="ugc"><p>Razer Huntsman V3 Pro Mini：Amazon 历史低 <b>$159.99（2024-11）</b>，2026-03 常见约 $185；卖点是 analog optical + Snap Tap + Rapid Trigger，物料并不比国产 HE 高，溢价主要来自品牌与软件生态。</p><span class="src">— camelcamelcamel / Pangoly 价格史 + Razer 官方 · <a href="https://pangoly.com/en/price-history/razer-huntsman-v3-pro-mini">pangoly.com</a> · 采集 2026-06-10</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>Topre 阶梯：</b>Realforce R3S 起 ~$159 → R3 标准 $242–285 → HHKB Pro Hybrid Type-S $299.99（Snow），限定版可摸 $400+。共同点：<b>0 客制空间</b>。</li>
+      <li><b>光轴阶梯：</b>Huntsman Mini 档 ~$120 → V3 Pro Mini $160–185 → Signature/Analog 高配可到 $250–500。溢价 ≈ 品牌 + analog 软件。</li>
+      <li><b>对照：</b>同样要 Rapid Trigger，磁轴国产 DrunkDeer A75 起 ~$129（来源 6），功能重叠却便宜一截——见第 5 节。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>Topre 的贵是「为封闭的独特手感一次性付费」，认它就一步到位别折腾；光轴的贵很大一块是「Razer 信仰税」，预算敏感者用磁轴能拿到大部分功能。</p>
+  </section>
+
+  <!-- 4. 磁轴:价格战正在重写锚点 -->
+  <section>
+    <h2>4. 磁轴（HE）：2026 年价格锚点正在被国产击穿</h2>
+    <h3>论述</h3>
+    <p>磁轴是六类里<b>价格变动最快</b>的，必须标清采集时点。2023–2024 年 Wooting 60HE 还是「$175 的标杆」，到 2026 年国产 DrunkDeer / Luminkey 用<b>铝壳 + 8K 轮询 + $80–100</b>把锚点整体下拉，Wooting 从「硬件性价比」转型为「软件 + 可靠性溢价」。这意味着给小白的建议必须更新。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"The Wooting 60HE+ is priced at $175 with a plastic case and 1KHz polling ... now positioned as a software-excellence purchase rather than a hardware value play, as budget Chinese Hall Effect boards now offer aluminum builds and 8K polling at $80–$100."</p><span class="src">— RedditRecs 聚合 r/WootingKB + r/MechanicalKeyboards · <a href="https://redditrecs.com/gaming-keyboard/model/wooting-60heplus/">redditrecs.com</a> · 2026</span></div>
+    <div class="ugc"><p>"Buy Wooting if software quality is your top priority / playing for money or rank / value proven reliability. Buy DrunkDeer if budget is tight (saving ~$95), aluminum case matters, or you can tolerate software quirks."（社区购买决策共识）</p><span class="src">— RedditRecs 聚合 · <a href="https://redditrecs.com/gaming-keyboard/model/wooting-60heplus/">redditrecs.com</a> · 2026</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>Wooting 60HE+：</b>$175，塑料壳、1K 轮询；溢价点=软件（wootility）+ 可靠性 + 社区口碑（来源 3）。</li>
+      <li><b>DrunkDeer A75：</b>起 ~$128.99，特价常下探（来源 6）；A75 系列高配 MSRP 约 $219 但促销频繁。0.2–3.8mm / 0.1mm 步进可调触发。</li>
+      <li><b>更便宜的国产 HE：</b>铝壳 + 8K 轮询已下探 $80–100（来源 3 归纳），把「磁轴=贵」的旧锚点击穿。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>磁轴给小白的新锚点是<b>「$80–100 起跳，$175 是品牌天花板」</b>。竞技/排位选 Wooting（买软件与稳），预算紧 / 要铝壳选国产 HE——别再把 $175 当默认价。</p>
+  </section>
+
+  <!-- 对比矩阵 -->
+  <section>
+    <h2>5. 对比矩阵：代表型号 × 价格锚点 × 社区评价（采集 2026-06）</h2>
+    <p>点击表头可高亮整列横读。价格为 2026-06 常见售价 / 官方 MSRP，注明原价或促销。</p>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1 六类键盘代表型号与价格锚点（USD，采集 2026-06-10）</caption>
+      <thead><tr>
+        <th>类型</th><th>地板/入门</th><th>甜点/主流</th><th>旗舰/天花板</th><th>价格锚点(记忆值)</th><th>社区一句话评价</th>
+      </tr></thead>
+      <tbody>
+        <tr><td><b>薄膜</b></td><td>Logitech K120 <span class="pill good">~$20</span></td><td>—</td><td>—</td><td><b>$20</b></td><td>「$20 买不到更好的」，为能用不为手感</td></tr>
+        <tr><td><b>剪刀脚</b></td><td>笔记本内置 / 杂牌 $30</td><td>Apple Magic Keyboard $99（低至$79.99）</td><td>Magic w/ Touch ID+数字键 $199</td><td><b>$99</b></td><td>轻薄办公标配，手感「干脆但浅」</td></tr>
+        <tr><td><b>机械</b></td><td>裸机入门 $25–55</td><td>Keychron V1 8K <span class="pill good">$74</span> / K8·C1 Pro</td><td>客制套件 $150–300+</td><td><b>$70–100</b></td><td>「cheap deck 的新金标」，多数人停甜点</td></tr>
+        <tr><td><b>磁轴(HE)</b></td><td>国产 HE 铝壳8K <span class="pill good">$80–100</span></td><td>DrunkDeer A75 ~$129</td><td>Wooting 60HE+ $175</td><td><b>$100±</b></td><td>排位选 Wooting，预算选国产，$175 不再默认</td></tr>
+        <tr><td><b>光轴</b></td><td>Huntsman Mini ~$120</td><td>Huntsman V3 Pro Mini $160–185</td><td>Analog/Signature $250–500</td><td><b>$160+</b></td><td>功能强但含「Razer 信仰税」</td></tr>
+        <tr><td><b>Topre/EC</b></td><td>Realforce R3S ~$159</td><td>Realforce R3 $242–285</td><td>HHKB Pro Hybrid Type-S <span class="pill bad">$299.99</span></td><td><b>$300</b></td><td>「值不值看个人」，不可换轴一步到位</td></tr>
+      </tbody>
+    </table></div>
+    <p class="miniref">注：价格随促销/汇率/地区波动剧烈，磁轴与光轴尤甚；本表取官方 MSRP 或主流零售常见价，并标注已知历史低点（来源 1–11）。Topre 的 R3 与 HHKB 在 2024 年曾被东プレ集体提价（来源 11 附）。</p>
+  </section>
+
+  <!-- 关键洞察与机会 -->
+  <section>
+    <h2>关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察 1：价格直觉缺口 = 内容机会。</b>小白买键盘最大的焦虑是「该花多少」，而现有评测大多按「型号」组织，没人按「类型 × 三档锚点」给一张可记忆的桩图。<b>机会：</b>做「三根桩」式选购引导（$20 地板 / $70–100 甜点 / $300 天花板）+「你属于哪一类」决策树，转化率会显著高于参数堆砌。</p>
+    <p class="callout"><b>洞察 2：机械「甜点价」是最强信任锚。</b>UGC 与评测罕见地一致把答案钉在 $70–100。<b>机会：</b>品牌/渠道在该价位主推「热插拔 + VIA」一款打透，比铺满全价位 SKU 更易建立「闭眼买」心智——Keychron 已吃到这波红利。</p>
+    <p class="callout"><b>洞察 3：磁轴锚点正在崩塌，是国产的窗口期。</b>$175 的 Wooting 标杆被「$80–100 铝壳 8K 国产」击穿，但 Wooting 靠软件+可靠性守住溢价。<b>机会：</b>国产若补齐软件体验（wootility 级调校 + 稳定固件），可直接吃下「想要 Wooting 体验但嫌贵」的中间人群；反之若只卷硬件参数，会困在低价红海。</p>
+    <p class="callout"><b>洞察 4：「信仰税」可被显性化。</b>光轴/Topre 的溢价里，物料占比低、品牌/封闭生态占比高。<b>机会：</b>给小白一张「溢价拆解」对照（同功能磁轴便宜一截），既建立专业信任，也能反向为「值得的信仰消费」（Topre 一步到位）背书——两头都有内容价值。</p>
+  </section>
+
+  <!-- Caveats -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge confirmed">已核实</span> 「机械甜点价 $70–100」：Keychron V1 8K $74 标价（来源 2）+ 多源评测/Reddit 推荐归纳一致（来源 1），交叉成立。置信高。</li>
+      <li><span class="fbadge confirmed">已核实</span> 「Topre 起步价已逼近多数机械天花板」：Realforce R3S ~$159、HHKB Type-S $299.99（来源 1、5、11），与机械甜点 $70–100 形成鲜明落差，成立。置信高。</li>
+      <li><span class="fbadge partial">部分</span> 「磁轴锚点被国产击穿到 $80–100」：来源 3（RedditRecs 聚合）明确给出，但「$80–100 铝壳 8K」为社区归纳的概称，未逐一核到具体 SKU 标价；DrunkDeer A75 起价 $128.99 已实证（来源 6）。方向成立、具体地板价待补。置信中。</li>
+      <li><span class="fbadge open">仍开放</span> 光轴 Razer 当前官方 MSRP：搜索仅拿到 Amazon/第三方价（历史低 $159.99、常见 ~$185，来源 8/Pangoly），未直读 Razer 官网当日 MSRP；不同地区/促销差异大。置信中。</li>
+      <li><span class="fbadge open">仍开放</span> 价格时效：键盘行业价格迭代极快，本页所有数字锁定采集时点 2026-06-10，促销期（如 HHKB 6/30 前 -$35、G915 历史 48% off）会让实付显著偏离 MSRP。引用时务必带时点。</li>
+      <li><span class="fbadge open">仍开放</span> 直接 Reddit 原帖原文：本页 UGC 多经 Tom's Guide / RedditRecs 二次聚合，未能逐条回链到具体 Reddit 帖（本地无 Reddit 导出）。引用为「社区共识归纳」，非单帖原话；后续可补一手帖链增强证据等级。</li>
+    </ul>
+  </section>
+
+  <!-- 来源索引 -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>Tom's Guide — I review mechanical keyboards for a living: Reddit's top picks（Keychron 为 Reddit 主流推荐）：<a href="https://www.tomsguide.com/computing/keyboards/i-review-mechanical-keyboards-for-a-living-and-this-is-what-i-think-of-reddits-top-picks">tomsguide.com</a>（采集 2026-06-10）</li>
+      <li>Tom's Guide — Keychron V1 8K Review（V1 8K $74，"gold standard for cheap decks"）：<a href="https://www.tomsguide.com/computing/keyboards/keychron-v1-8k-review">tomsguide.com</a>（采集 2026-06-10）</li>
+      <li>RedditRecs — Wooting 60HE+ 全 Reddit 评价聚合（$175、软件溢价、国产 $80–100 击穿）：<a href="https://redditrecs.com/gaming-keyboard/model/wooting-60heplus/">redditrecs.com</a>（采集 2026-06-10）</li>
+      <li>HHKB 官方店 — Professional Hybrid Type-S（Snow $299.99、2026 限时 -$35）：<a href="https://hhkeyboard.us/hhkb/pro-hybrid-type-s">hhkeyboard.us</a>（采集 2026-06-10）</li>
+      <li>keeb-finder — Realforce Topre R3 比价（起 $241.99；R3S 起价参考）：<a href="https://keeb-finder.com/keyboards/topre-realforce-r3">keeb-finder.com</a>（采集 2026-06-10）</li>
+      <li>keeb-finder — DrunkDeer A75 比价（起 $128.99，0.2–3.8mm 可调）：<a href="https://keeb-finder.com/keyboards/drunkdeer-a75">keeb-finder.com</a>（采集 2026-06-10）</li>
+      <li>Razer 官方 — Huntsman V3 Pro Mini（60% analog optical + Snap Tap）：<a href="https://www.razer.com/gaming-keyboards/razer-huntsman-v3-pro-mini">razer.com</a>（采集 2026-06-10）</li>
+      <li>Pangoly — Razer Huntsman V3 Pro Mini 价格史（历史低 $159.99、~$185）：<a href="https://pangoly.com/en/price-history/razer-huntsman-v3-pro-mini">pangoly.com</a>（采集 2026-06-10）</li>
+      <li>9to5Toys — Apple Magic Keyboard 价格（MSRP $99 / Amazon 低至 $79.99 / Touch ID 版 $199）：<a href="https://9to5toys.com/2026/04/02/apple-affordable-magic-keyboard-best-price/">9to5toys.com</a>（采集 2026-06-10）</li>
+      <li>Best Buy / Amazon — Logitech K120 薄膜键盘（长期约 $20）：<a href="https://www.bestbuy.com/product/logitech-k120-full-size-wired-membrane-keyboard-for-pc-with-spill-resistant-design-black/J7H7ZLVX49">bestbuy.com</a>（采集 2026-06-10）</li>
+      <li>REALFORCE 官方 / エルミタージュ秋葉原（R3/R3S 系列与 2024 提价记录）：<a href="https://www.realforce.co.jp/en/products/R3HD13/">realforce.co.jp</a>（采集 2026-06-10）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块2 Task 2.4 · 价格采集时点 2026-06-10，行业价格迭代极快，以原文/官网为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

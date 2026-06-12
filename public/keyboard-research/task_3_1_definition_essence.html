@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 3.1：机械键盘的定义与本质</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.svg-wrap{overflow-x:auto}
+.svg-wrap svg{display:block;margin:0 auto;max-width:100%;height:auto}
+.mini-note{font-size:13px;color:var(--muted);margin-top:6px}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块三 · Task 3.1</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块三 · TASK 3.1</span>
+  <h1>机械键盘的定义与本质</h1>
+  <p class="lede">只回答一个窄问题：<strong>到底是什么让一块键盘成为"机械键盘"？</strong> 答案不是"按起来咔哒响"，而是一个结构事实——<strong>每一颗按键底下坐着一颗独立、可单独动作、可单独拆换的开关（switch）</strong>。这一颗颗独立轴体，正是"一致手感、N 键无冲、可单键维修"三大特性的共同根因，也是它与"一整张共用橡胶/薄膜"的薄膜键盘的本质分界。本页把这条因果链拆到底，并对"独立 = 永不衰减""独立轴 = 自动 NKRO"两个流行说法做证伪。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards / r/Keychron / r/HHKB）&gt; 第三方评测（Switch and Click / Kineticlabs / MKBGuide）&gt; 官方话术（轴厂 datasheet / 品牌博客）<br>
+  主要来源：Reddit 三个版块导出（2026-06 采集）、Deskthority/QMK/TMK 技术文档、Switch and Click、Kineticlabs、MKBGuide、HowToGeek、Lenovo/Omnitype 释义页</p>
+</div></header>
+
+<main class="wrap">
+
+<!-- ============ 0 一句话本质 ============ -->
+<section>
+  <div class="callout"><b>一句话本质：</b>薄膜键盘 = 一张"全键共用的橡胶/导电床垫"；机械键盘 = "一排各自独立的弹簧床"。下面三个特性——一致手感、N键无冲、可单键维修——本质上都是在回答同一句话："因为每颗键是独立的个体"。但"独立"≠"永生"，也≠"自动满血 NKRO"，这两点是本页的证伪重点。</div>
+</section>
+
+<!-- ============ 结构剖面 SVG ============ -->
+<section>
+  <h2>结构对照：独立轴 vs 共用膜</h2>
+  <figure class="framed">
+    <div class="svg-wrap">
+    <svg viewBox="0 0 820 320" role="img" aria-label="机械独立轴与薄膜共用膜结构对照">
+      <rect width="820" height="320" fill="#fff"/>
+      <g font-family="sans-serif" font-size="13" fill="#1c1a17">
+        <!-- 机械 -->
+        <text x="200" y="28" text-anchor="middle" font-weight="700" font-size="15">机械：每键一颗独立开关</text>
+        <!-- 三颗独立轴 -->
+        <g>
+          <g transform="translate(70,55)">
+            <rect x="0" y="20" width="60" height="80" rx="6" fill="#f0ece5" stroke="#b0472b"/>
+            <rect x="20" y="6" width="20" height="20" rx="3" fill="#b0472b"/>
+            <path d="M30 30 q9 5 0 10 q-9 5 0 10 q9 5 0 10 q-9 5 0 10" fill="none" stroke="#8a8478" stroke-width="2"/>
+            <circle cx="14" cy="95" r="3" fill="#2f6f6a"/><circle cx="46" cy="95" r="3" fill="#2f6f6a"/>
+          </g>
+          <g transform="translate(170,55)">
+            <rect x="0" y="20" width="60" height="80" rx="6" fill="#f0ece5" stroke="#b0472b"/>
+            <rect x="20" y="6" width="20" height="20" rx="3" fill="#b0472b"/>
+            <path d="M30 30 q9 5 0 10 q-9 5 0 10 q9 5 0 10 q-9 5 0 10" fill="none" stroke="#8a8478" stroke-width="2"/>
+            <circle cx="14" cy="95" r="3" fill="#2f6f6a"/><circle cx="46" cy="95" r="3" fill="#2f6f6a"/>
+          </g>
+          <g transform="translate(270,55)">
+            <rect x="0" y="20" width="60" height="80" rx="6" fill="#f0ece5" stroke="#b0472b"/>
+            <rect x="20" y="6" width="20" height="20" rx="3" fill="#b0472b"/>
+            <path d="M30 30 q9 5 0 10 q-9 5 0 10 q9 5 0 10 q-9 5 0 10" fill="none" stroke="#8a8478" stroke-width="2"/>
+            <circle cx="14" cy="95" r="3" fill="#2f6f6a"/><circle cx="46" cy="95" r="3" fill="#2f6f6a"/>
+          </g>
+        </g>
+        <rect x="55" y="158" width="290" height="14" fill="#cfe2df" stroke="#2f6f6a"/>
+        <text x="200" y="190" text-anchor="middle" font-size="11" fill="#2f6f6a">PCB：每颗轴有独立焊点/插座 + 独立二极管</text>
+        <text x="200" y="232" text-anchor="middle" font-size="12" fill="#4a463f">坏一颗→拔/补一颗 · 弹簧各自独立·力不互相牵连</text>
+        <!-- 分隔 -->
+        <line x1="410" y1="40" x2="410" y2="280" stroke="#e2dcd1" stroke-dasharray="4 4"/>
+        <!-- 薄膜 -->
+        <text x="610" y="28" text-anchor="middle" font-weight="700" font-size="15">薄膜：全键共用一张橡胶/导电膜</text>
+        <!-- 橡胶碗一整排 -->
+        <path d="M470 100 q20 -45 40 0 q20 -45 40 0 q20 -45 40 0 q20 -45 40 0 q20 -45 40 0" fill="none" stroke="#9c6b1a" stroke-width="2.5"/>
+        <rect x="470" y="100" width="280" height="10" fill="#f6ecd6" stroke="#9c6b1a"/>
+        <text x="610" y="135" text-anchor="middle" font-size="11" fill="#9c6b1a">一整张橡胶碗（rubber dome sheet）</text>
+        <rect x="470" y="150" width="280" height="22" fill="#efe9df" stroke="#8a8478"/>
+        <text x="610" y="165" text-anchor="middle" font-size="11" fill="#8a8478">三层导电薄膜（全键共用走线）</text>
+        <text x="610" y="208" text-anchor="middle" font-size="12" fill="#4a463f">常按的键先软→键间手感不均</text>
+        <text x="610" y="228" text-anchor="middle" font-size="12" fill="#4a463f">膜破一处→常需整块报废</text>
+      </g>
+      <text x="40" y="305" font-size="12" fill="#8a8478" font-family="sans-serif">自绘结构对照示意图，原理依据 Switch and Click / Deskthority / Lenovo 释义页，2026-06</text>
+    </svg>
+    </div>
+    <figcaption>图：左=机械（独立轴 + 独立焊点/二极管，可单颗拆换）；右=薄膜（一整张橡胶碗 + 共用导电膜，磨损不均、坏点连坐）。这张图就是"定义"本身。</figcaption>
+  </figure>
+</section>
+
+<!-- ============ 1 定义 ============ -->
+<section>
+  <h2>1. 定义：什么算"机械键盘"——一个比想象中模糊的边界</h2>
+  <h3>论述</h3>
+  <p>主流释义高度一致：<strong>机械键盘 = 每颗键下使用独立机械开关（switch）来注册输入的键盘</strong>，每颗开关是一个自带弹簧与外壳的自包含机构，到达触发点（actuation point）即注册一次按键。这是与"全键共用一张橡胶膜"的薄膜键盘最干净的分界线。</p>
+  <p>但边界并不像营销页说得那么硬。社区内部对"机械"二字其实有争论：Topre（静电容）严格说是"橡胶碗 + 电容感应"，没有金属触点，却被很多人当"机械级"对待；HE 磁轴用霍尔传感器、也无金属导通触点。一个被反复引用的发烧友定义（来自评测人 chyrosran22）是"<strong>任何能在不触底的情况下完成触发的开关</strong>"——按这条线，Topre/EC 算"广义机械"，而橡胶碗薄膜不算。所以更精确的本质表述应是：<strong>机械键盘 = 一组「每键独立、可在触底前触发、且作为可拆替部件存在」的开关集合</strong>，而非狭义的"必须有金属弹片"。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"A mechanical keyboard is a keyboard that uses individual mechanical switches under every key to register input. Each switch is a self-contained mechanism—typically made of a spring and housing... one key, one switch, one precise input."</p><span class="src">— Rapoo 键盘指南（释义口径，代表行业共识）· <a href="https://shop.rapoo.com/blogs/keyboard-guides/what-is-mechanical-keyboard">shop.rapoo.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>"it can, depending on what your definition of 'mechanical' is. there is no one definition for what's a 'mechanical' keyboard. imo chyrosran's definition of 'any switch that can actuate without bottoming out' is the best one. EC switches would fit this definition, while membrane rubber domes wouldn't."</p><span class="src">— u/匿名 · r/HHKB 讨论（8↑）· Reddit 导出 HHKB.md 第122行 · 采集 2026-06</span></div>
+  <h3>具体数据</h3>
+  <ul>
+    <li><b>狭义定义（最常见）：</b>每键独立的弹簧+金属触点开关（Cherry MX 式十字轴）。</li>
+    <li><b>广义定义（发烧友）：</b>"能在触底前触发的独立开关"——纳入 Topre 静电容、HE 霍尔磁轴。</li>
+    <li><b>明确排除：</b>橡胶碗薄膜（rubber dome）——全键共用膜、必须压到底才触发，不属于任何一种定义。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>把"机械"理解成"咔哒声"或"必须有金属弹片"都不准确。本质锚点是<strong>「每键一颗独立、可拆替、能在触底前触发的开关」</strong>。这条定义同时解释了为什么 Topre/HE 也常被归入广义机械——它们满足"独立+触底前触发"，只是触发原理不同。</p>
+</section>
+
+<!-- ============ 2 一致手感 ============ -->
+<section>
+  <h2>2. 为何"独立轴"带来一致手感（以及它的边界）</h2>
+  <h3>论述</h3>
+  <p>机制很直接：每颗轴有<strong>自己的弹簧</strong>，触发克数与键程由这颗轴的弹簧/腿型决定，<strong>与按键位置、相邻键的使用频率无关</strong>。薄膜键盘的橡胶碗是一整张、且靠反复拉伸回弹——常按的键（空格、E、回车）会比少按的键先变软，于是同一块键盘上"键与键之间"手感开始不均。这就是"独立"带来"一致"的因果：独立 = 互不牵连 = 全键一个标准。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"Mechanical switches feel the same from the first press to the millionth, while rubber domes degrade over time... A Gateron Red stays at 45g for all 50 million rated keypresses... frequently used keys feel softer than the rest. A key that triggered reliably at 70g in year one might collapse at 55g by year three—or start sticking."</p><span class="src">— Kineticlabs《Why Mechanical Keyboards Feel Better Than Membrane》· <a href="https://kineticlabs.com/blog/why-mechanical-keyboards-feel-better-membrane">kineticlabs.com</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>"...the shit-ass membrane board her office gave her as a frigging professional typist was giving her finger arthritis. Still going strong [the Cherry G80-3000 I got her in the 90s]."</p><span class="src">— u/匿名 · r/Keychron（2↑）· Reddit 导出 keychron.md 第340行 · 采集 2026-06</span></div>
+  <h3>具体数据</h3>
+  <ul>
+    <li><b>一致性机制：</b>触发力由单颗弹簧决定，键间不共享应力 → 全键统一克数。</li>
+    <li><b>薄膜衰减模式：</b>非均匀——高频键先软，"键与键"手感分化（来源 Kineticlabs / Switch and Click）。</li>
+    <li><b>寿命量级对比：</b>机械标称 5000万–1亿次 vs 薄膜约 500万次（≈1–2 年手感明显衰减）。注意：寿命数字多为厂商自测，见 Caveats。</li>
+  </ul>
+  <p class="callout warn"><b>边界 / 证伪：</b>"机械键盘手感永不衰减"是营销夸张。真实 UGC 显示机械轴照样会坏、会"chatter（双击/连击）"。一位每天写代码的用户买 Keychron V3 Max "barely over a year later, around 8 switches are already starting to fail with double inputs/chatter"（keychron.md 第335行）。所以正确说法是：<strong>独立轴让全键"出厂手感一致"且"衰减更慢更线性"，但不是免疫——它真正的护城河是下一节的「可单键维修」，而非"永生"。</strong></p>
+</section>
+
+<!-- ============ 3 NKRO ============ -->
+<section>
+  <h2>3. 为何能 N 键无冲（NKRO）——以及"独立轴自动满血"的误区</h2>
+  <h3>论述</h3>
+  <p>这里是全网最容易讲错的一环，要拆成两层：</p>
+  <p><strong>第一层（硬件·防鬼键 anti-ghosting）：</strong>键盘按行列矩阵扫描。当同列/同行三键同按时，电流可能"绕路"让控制器误判出一颗根本没按的"鬼键（ghosting）"。解法是<strong>给每颗开关串一颗二极管</strong>，让电流只能单向流动，隔离每颗键的信号——这正是机械键盘的结构优势：每颗轴有独立焊点/插座，<strong>物理上有空间塞一颗专属二极管</strong>；而廉价薄膜为省成本用共用膜走线，做不到逐键二极管，于是只能 2KRO/6KRO 并出现鬼键。</p>
+  <p><strong>第二层（固件 + 接口·真正的 NKRO 上限）：</strong>但"逐键二极管"只解决了不出鬼键，<strong>不等于自动能上报任意多键</strong>。USB 的 Boot Protocol（BIOS/开机阶段用）被硬限制在 <strong>6 键 + 8 修饰键（6KRO）</strong>。要在系统里实现真正的 Full NKRO，还需要<strong>固件层自定义 HID 描述符</strong>（QMK/VIA 等）来突破 6 键上报上限。换句话说：<strong>独立轴 + 二极管是 NKRO 的必要条件，固件/HID 实现才是充分条件</strong>。这就是为什么有些键盘"有 anti-ghosting 却仍只 6KRO"。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"BIOS and UEFI use the USB boot protocol, which is hard-limited to 6KRO (6 keys + 8 modifiers)... achieving NKRO over USB is primarily a firmware implementation matter involving custom HID descriptors, not solely dependent on diode-per-key hardware design."</p><span class="src">— TMK/QMK 固件文档综述（USB:NKRO / usb_nkro.txt）· <a href="https://github.com/tmk/tmk_keyboard/wiki/USB:-NKRO">github.com/tmk</a> · 采集 2026-06</span></div>
+  <div class="ugc"><p>"Full NKRO requires a dedicated diode for each key switch... complete isolation guarantees that any number of keys pressed simultaneously will be recognized... A keyboard can have anti-ghosting but still be limited to 6KRO."</p><span class="src">— MKBGuide《N-Key Rollover and Anti-Ghosting Explained》· <a href="https://mkbguide.com/blog/n-key-rollover-anti-ghosting-explained">mkbguide.com</a> · 采集 2026-06</span></div>
+  <h3>具体数据</h3>
+  <ul>
+    <li><b>鬼键触发条件：</b>无二极管矩阵，同区域 3–4 键同按即可能误判。</li>
+    <li><b>USB Boot Protocol 上限：</b>6 键 + 8 修饰键（6KRO 硬限制）。</li>
+    <li><b>Full NKRO 条件链：</b>逐键二极管（防鬼键，硬件）→ 自定义 HID 描述符（突破 6KRO，固件）→ 全键同按可识别。</li>
+    <li><b>廉价键盘常见：</b>2KRO；中高端/多数机械：6KRO 起，发烧机械可 Full NKRO。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>独立轴是 NKRO 的"地基"（给二极管腾出物理空间），但<strong>"独立轴 = 自动满血 NKRO"是误区</strong>。完整链条 = 独立轴 + 逐键二极管 + 固件 HID 实现。这条修正比源模块"每颗轴独立走线/扫描即可任意多键"的表述更精确。</p>
+</section>
+
+<!-- ============ 4 可单键维修 ============ -->
+<section>
+  <h2>4. 为何"可单键维修/可替换"——这才是机械键盘真正的护城河</h2>
+  <h3>论述</h3>
+  <p>因为每颗轴是<strong>独立、可拆替的部件</strong>，坏一颗只动一颗：热插拔版用拔轴器直接拔换、免焊；焊接版补焊一颗。薄膜键盘的导电层是<strong>一整张</strong>，一处破损或老化往往整块报废——这也是机械键盘"可玩、保值、低 e-waste"的根源。把这一节和第 2 节连起来看：机械轴照样会 chatter，但<strong>因为可单键换</strong>，所以一颗坏不等于一块废——这才是它对薄膜的结构性优势，比"永不衰减"诚实得多。</p>
+  <h3>证据</h3>
+  <div class="ugc"><p>"One of my keys started to fail... I swapped it with one of the extra keys I just don't use."（回帖补充：if you moved the switch to a different location and the problem followed the switch, it's probably a bad switch）"</p><span class="src">— u/匿名 · r/Keychron《Keychron V6 Wired failing keys》（2↑回帖）· Reddit 导出 keychron.md 第291–292行 · 采集 2026-06</span></div>
+  <div class="ugc"><p>"this does not appear to require any soldering or desoldering, since the switch itself still looks intact. You may be able to carefully remove the broken plastic piece... replacing the keycap should resolve the issue."</p><span class="src">— Das Keyboard 客服 · 经 r/MechanicalKeyboards 用户转述 · Reddit 导出 mechkb-beginner.md 第91行 · 采集 2026-06</span></div>
+  <div class="ugc"><p>"Instead of discarding an entire keyboard because of one dead switch... you can simply replace the components, saving money and reducing electronic waste."</p><span class="src">— MakeUseOf《7 Reasons You Need a Hot-Swappable Mechanical Keyboard》· <a href="https://www.makeuseof.com/why-you-need-hot-swappable-mechanical-keyboard/">makeuseof.com</a> · 采集 2026-06</span></div>
+  <h3>具体数据</h3>
+  <ul>
+    <li><b>热插拔修复：</b>1 件工具（拔轴器）+ 1 颗备用轴，无需焊接、无技能门槛。</li>
+    <li><b>焊接版修复：</b>需烙铁+吸锡，门槛高但连接更稳（焊接在严肃客制圈仍是 endgame 主流，见 Task 关联 H3.1）。</li>
+    <li><b>薄膜修复：</b>导电膜破损通常不可单点修，整块更换。</li>
+    <li><b>真实折腾闭环：</b>"playing switch Tetris, moving switches from rarely used keys" —— 用户把坏键换到不常用键位，正是"部件化"才可能的操作（keychron.md 第335行）。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>"可单键维修"不是锦上添花，而是机械键盘<strong>本质定义的直接推论</strong>——既然是"独立部件集合"，部件就能被单独替换。它把"一颗坏=一块废"变成"一颗坏=换一颗"，这是相对薄膜最硬的差异，也是 hobby 可持续的根。</p>
+</section>
+
+<!-- ============ 对比矩阵 ============ -->
+<section>
+  <h2>对比矩阵：独立轴 vs 共用膜（点击表头高亮该列）</h2>
+  <div class="table-scroll"><table class="matrix">
+    <caption>表：机械（独立开关集合）与薄膜（共用橡胶/导电膜）的本质级差异</caption>
+    <thead><tr><th>维度</th><th>机械 = 独立开关集合</th><th>薄膜 = 共用橡胶/导电膜</th><th>因果根源</th></tr></thead>
+    <tbody>
+      <tr><td>基本单元</td><td>每键一颗独立 switch</td><td>全键共用一张橡胶碗+导电膜</td><td>结构定义本身</td></tr>
+      <tr><td>手感一致性</td><td><span class="pill good">全键统一克数</span></td><td><span class="pill bad">高频键先软·键间不均</span></td><td>弹簧独立 vs 共膜拉伸</td></tr>
+      <tr><td>衰减模式</td><td>更慢更线性（但仍会 chatter）</td><td>非均匀·1–2年明显软化</td><td>独立≠免疫</td></tr>
+      <tr><td>防鬼键(anti-ghost)</td><td><span class="pill good">逐键二极管可隔离</span></td><td><span class="pill bad">共用走线·易鬼键</span></td><td>有空间塞二极管</td></tr>
+      <tr><td>NKRO 上限</td><td>6KRO 起，可 Full NKRO<sup>*</sup></td><td>常 2KRO/6KRO</td><td>需固件HID补充</td></tr>
+      <tr><td>单键维修</td><td><span class="pill good">拔换/补焊一颗</span></td><td><span class="pill bad">膜坏常整块报废</span></td><td>部件可拆替</td></tr>
+      <tr><td>寿命标称</td><td>5000万–1亿次<sup>†</sup></td><td>约 500万次</td><td>金属/材料 vs 橡胶疲劳</td></tr>
+      <tr><td>e-waste</td><td>低（换件不换整机）</td><td>高（半一次性）</td><td>可维修性</td></tr>
+    </tbody>
+  </table></div>
+  <p class="mini-note"><sup>*</sup> Full NKRO 需"逐键二极管 + 固件自定义 HID 描述符"，独立轴本身只是必要条件。<sup>†</sup> 寿命为厂商自测标称，真实使用难触上限且个体轴会提前 chatter，勿作选购主因。来源：MKBGuide / Kineticlabs / TMK·QMK 文档 / Switch and Click，2026-06。</p>
+</section>
+
+<!-- ============ 关键洞察 ============ -->
+<section>
+  <h2>关键洞察与产品机会</h2>
+  <p class="callout"><b>洞察1（叙事锚点）：</b>对小白讲机械键盘，别从"轴体颜色"或"咔哒声"切入，而从<strong>"它是一堆可拆替的独立部件"</strong>切入。一旦理解"每键独立"，一致手感/NKRO/可维修三件事自动串成一条因果链，后续所有选购知识都挂在这条线上。这是内容/教程产品的最佳第一课结构。</p>
+  <p class="callout"><b>洞察2（诚实营销机会）：</b>"机械手感永不衰减"已被 UGC 反复证伪（一年坏 8 颗轴的真实帖）。诚实卖点应换成<strong>"会坏，但坏了五分钟换一颗，而不是扔一整块"</strong>——把护城河从"永生"改叙为"可维修+低 e-waste"。这对环保叙事、对"保值/折腾"人群更有共鸣，也更经得起社区拷打。</p>
+  <p class="callout"><b>洞察3（产品机会·SKU）：</b>既然"独立可换"是本质，<strong>整机随附 3–5 颗备用轴 + 一支拔轴器 + 一张图文版"5分钟换轴指南"</strong>几乎零成本，却把"可维修"从抽象卖点变成开箱即得的体验，直接降低首次故障退货率（参考用户"一年坏8颗只能玩 switch Tetris"的痛点）。</p>
+  <p class="callout"><b>洞察4（规格沟通机会）：</b>多数品牌页只写"支持 NKRO"，却不说清是"全程 Full NKRO"还是"系统内 NKRO / BIOS 仅 6KRO"。在规格表里<strong>明确标注 NKRO 实现层级（硬件二极管 + 固件 HID）</strong>，对竞技/程序员人群是差异化信任点——因为他们才是真在乎同按多键的人。</p>
+</section>
+
+<!-- ============ Caveats ============ -->
+<section class="caveats">
+  <h2>Caveats &amp; 证伪状态</h2>
+  <ul>
+    <li><span class="fbadge falsified">已证伪</span> <strong>"独立轴 = 自动满血 NKRO"不成立。</strong>逐键二极管只解决"不出鬼键（anti-ghosting）"；真正的 Full NKRO 还需固件层自定义 HID 描述符突破 USB Boot Protocol 的 6KRO 硬限制。一块键盘"有 anti-ghosting 却仍 6KRO"完全可能。来源：TMK/QMK 文档、MKBGuide，2026-06。本页据此修正了源模块"每颗轴独立走线即可任意多键"的过简表述。</li>
+    <li><span class="fbadge falsified">已证伪</span> <strong>"机械手感永不衰减/永生"是营销夸张。</strong>机械轴会 chatter/双击，UGC 有"一年坏8颗""V6 多键陆续失灵""收藏久放后部分键失灵/双打"的真实案例。正确表述：独立轴让衰减更慢更均匀，但真正护城河是<strong>可单键维修</strong>而非免疫。来源：r/Keychron 多帖（keychron.md 第291/335/340行），2026-06。</li>
+    <li><span class="fbadge confirmed">已核实</span> "每键一颗独立机械开关"是机械键盘的核心定义，且与薄膜"共用橡胶/导电膜"形成结构级分界——多家释义页与 UGC 一致，置信度高。</li>
+    <li><span class="fbadge confirmed">已核实</span> "可单键维修/可替换"为机械键盘相对薄膜的硬优势（热插拔免焊、焊接补焊 vs 薄膜整块报废），并带来更低 e-waste。来源：MakeUseOf / Kineticlabs / 多条 UGC，2026-06。</li>
+    <li><span class="fbadge partial">部分</span> "机械"定义本身存在社区争议：Topre 静电容、HE 磁轴无金属触点却常被归入广义机械（chyrosran "触底前可触发"定义）。本页采用"独立+触底前触发+可拆替"的折中表述，但需承认狭义/广义并存、无单一权威定义。来源：r/HHKB 讨论（HHKB.md 第122行），2026-06。</li>
+    <li><span class="fbadge partial">部分</span> 寿命数字（5000万–1亿 vs 500万）均为厂商自测标称，真实使用普遍触不到上限，且个体轴会提前故障；本页仅作量级对比，不作选购主因。来源：MKBGuide / Switch and Click，2026-06。</li>
+    <li><span class="fbadge open">仍开放</span> 部分 Reddit 原帖用户名在导出中已匿名化，精确发帖时间戳与原始 URL 未逐条回链；技术口径（6KRO/HID）以 GitHub 文档为准，UGC 仅作真实声量佐证。</li>
+  </ul>
+</section>
+
+<!-- ============ 来源 ============ -->
+<section class="sources">
+  <h2>参考来源索引</h2>
+  <ol>
+    <li>Switch and Click — Are Membrane Keyboards Really That Bad? Mechanical vs Membrane：<a href="https://switchandclick.com/are-membrane-keyboards-really-that-bad/">switchandclick.com</a>（采集 2026-06）</li>
+    <li>Kineticlabs — Why Mechanical Keyboards Feel Better Than Membrane：<a href="https://kineticlabs.com/blog/why-mechanical-keyboards-feel-better-membrane">kineticlabs.com</a>（采集 2026-06）</li>
+    <li>MKBGuide — N-Key Rollover and Anti-Ghosting Explained (NKRO vs 6KRO)：<a href="https://mkbguide.com/blog/n-key-rollover-anti-ghosting-explained">mkbguide.com</a>（采集 2026-06）</li>
+    <li>TMK / QMK 固件文档 — USB: NKRO / usb_nkro.txt（6KRO Boot Protocol 限制与 HID 描述符实现）：<a href="https://github.com/tmk/tmk_keyboard/wiki/USB:-NKRO">github.com/tmk</a> · <a href="https://github.com/qmk/qmk_firmware/blob/master/docs/usb_nkro.txt">github.com/qmk</a>（采集 2026-06）</li>
+    <li>MakeUseOf — 7 Reasons You Need a Hot-Swappable Mechanical Keyboard（可维修/e-waste）：<a href="https://www.makeuseof.com/why-you-need-hot-swappable-mechanical-keyboard/">makeuseof.com</a>（采集 2026-06）</li>
+    <li>HowToGeek — Stop buying membrane keyboards：<a href="https://www.howtogeek.com/stop-buying-membrane-keyboards-do-this-instead/">howtogeek.com</a>（采集 2026-06）</li>
+    <li>Rapoo / Omnitype / Lenovo — "What is a Mechanical Keyboard" 释义口径：<a href="https://shop.rapoo.com/blogs/keyboard-guides/what-is-mechanical-keyboard">rapoo</a> · <a href="https://omnitype.com/blogs/guides/what-is-a-mechanical-keyboard">omnitype</a>（采集 2026-06）</li>
+    <li>Reddit 导出（采集 2026-06）— r/HHKB「机械定义争议」HHKB.md 第122行；r/Keychron「failing keys / V3 Max 一年坏8颗 / G80-3000 vs 薄膜」keychron.md 第291–292、335、340行；r/MechanicalKeyboards「Das Keyboard 维修/换帽」mechkb-beginner.md 第91行</li>
+  </ol>
+</section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块三 Task 3.1 · 采集时点 2026-06 · 价格/型号/参数以原文 datasheet 为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

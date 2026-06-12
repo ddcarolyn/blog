@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 4.3：Mac 用户作为特殊人群</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.svg-mac{width:100%;height:auto;display:block;background:#fafbfd;border-radius:8px}
+.freqtag{display:inline-block;font-size:11px;color:#8a90a0;background:#f1f3f7;border-radius:10px;padding:1px 8px;margin-left:6px;vertical-align:middle}
+.silent-box{border:1px dashed #c7cdd9;border-radius:8px;padding:12px 14px;background:#f7f8fb;margin:14px 0}
+.silent-box h4{margin:0 0 6px;color:#5a6072}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块四 · Task 4.3</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块四 · 用户真实痛点 · TASK 4.3</span>
+  <h1>Mac 用户作为特殊人群</h1>
+  <p class="lede">在主动来 Reddit 发帖讨论的 Mac 用户中，离开妙控键盘（Magic Keyboard）的两条最高频主诉是<strong>手感（剪刀脚、肉、键程短）</strong>与<strong>键位错位（⌘⌥ vs Win/Alt + 多设备切换）</strong>。但这是"发帖人群"的画像，不是全体 Mac 用户——满意妙控的人通常沉默不发帖（选择偏差）。本页把这条窄结论拆到底，并把反向信号（Touch ID 忠诚、有人就爱 ⌘ 位置）摆在同一张桌上。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards · r/Keychron · r/mac）＞第三方评测＞官方话术<br>
+  主要来源：本地导出 <code>mac-keyboard.md</code>（272 帖 / 4792 评论）、<code>keychron.md</code>（864 帖 / 6397 评论）；第三方 MakeUseOf、9to5Mac、iMore、Hacker News（均 2026-06 检索）</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- 方法说明 + 选择偏差软化 -->
+  <section>
+    <h2>0. 先把"这一页代表谁"说清楚</h2>
+    <h3>论述</h3>
+    <p>这一页只回答一个窄问题：<strong>在 Reddit 上发帖谈 Mac 键盘的人，到底在抱怨什么、又为什么有人坚守妙控？</strong>所有结论的样本来自 <code>mac-keyboard.md</code> 与 <code>keychron.md</code> 两份本地导出，词频是<strong>代理指标</strong>（同帖多次命中会被重复计数），只用于相对排序，不做绝对人头结论。</p>
+    <p class="callout"><b>选择偏差告警（贯穿全页）：</b>子版块（r/MechanicalKeyboards、r/Keychron）天生吸引的是"想换键盘 / 已经在折腾"的人；对妙控满意、从没想过换的人根本不会出现在这里。所以下文"手感 + 键位最高频"准确的说法是——<strong>"在发帖讨论的 Mac 用户中最高频"</strong>，绝不能外推成"多数 Mac 用户讨厌妙控"。本页专门保留了一节反向信号（Touch ID 忠诚、有人觉得 ⌘ 位置反而更顺手）来抵消这种偏差。</p>
+    <h3>词频基线（grep -i 计数，2026-06）</h3>
+    <ul>
+      <li><b>option×54 · magic keyboard×32 · keycap×32 · Touch ID/fingerprint×29 · low-profile×22 · command×18 · logitech×16 · remap×11</b></li>
+      <li>VIA/QMK×38（高，但多为"能不能改键"的诉求，而非赞美）；scissor 仅 1 次、mushy 2 次——<strong>"手感软肋"更多以"想换掉它"的间接方式表达，而非直接骂"剪刀脚"</strong>，这点下文会标为数据缺口。</li>
+    </ul>
+    <p class="src">来源：本地 Reddit 导出词频统计（<code>mac-keyboard.md</code>），2026-06。</p>
+  </section>
+
+  <!-- 键位差异对照图 -->
+  <section>
+    <h2>1. 键位差异对照：⌘⌥ vs Win/Alt（最高频的两类主诉之一）</h2>
+    <h3>论述</h3>
+    <p>Mac 用户上机械键盘的第一道坎不是手感，是<strong>修饰键的物理位置与功能映射对不上</strong>。macOS 有三个修饰键（control / option / command），Windows 只有两个有效的（control / alt + 一个 Win 键）；同一物理位置在两边贴的标签和干的活都不同。对每天 Mac↔Win 来回切的人，这是肌肉记忆的反复撕裂。下图把两套布局叠在一起看。</p>
+
+    <figure class="framed">
+      <svg class="svg-mac" viewBox="0 0 740 360" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif" role="img" aria-label="Mac 与 Windows 修饰键键位对照图">
+        <style>
+          .kc{fill:#eef1f6;stroke:#c7cdd9;stroke-width:1.2}
+          .kc.cmd{fill:#dce7ff;stroke:#5b8def}
+          .kc.alt{fill:#ffe6d8;stroke:#f0915a}
+          .kt{font-size:13px;fill:#1f2430;text-anchor:middle}
+          .ks{font-size:10.5px;fill:#5a6072;text-anchor:middle}
+          .hd{font-size:14px;font-weight:700;fill:#1f2430}
+          .note{font-size:11px;fill:#8a90a0}
+          .arrow{stroke:#e0556b;stroke-width:1.6;fill:none;marker-end:url(#ah)}
+        </style>
+        <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#e0556b"/></marker></defs>
+
+        <text x="16" y="26" class="hd">macOS 物理键位（spacebar 左侧）</text>
+        <g>
+          <rect x="16" y="40" width="74" height="42" rx="6" class="kc"/><text x="53" y="58" class="kt">control</text><text x="53" y="73" class="ks">⌃ 跑 unix</text>
+          <rect x="96" y="40" width="74" height="42" rx="6" class="kc alt"/><text x="133" y="58" class="kt">option</text><text x="133" y="73" class="ks">⌥</text>
+          <rect x="176" y="40" width="86" height="42" rx="6" class="kc cmd"/><text x="219" y="58" class="kt">command</text><text x="219" y="73" class="ks">⌘ 紧邻空格</text>
+          <rect x="268" y="40" width="210" height="42" rx="6" class="kc"/><text x="373" y="65" class="kt">space</text>
+        </g>
+
+        <text x="16" y="136" class="hd">Windows 物理键位（同样位置，不同标签/功能）</text>
+        <g>
+          <rect x="16" y="150" width="74" height="42" rx="6" class="kc"/><text x="53" y="168" class="kt">Ctrl</text><text x="53" y="183" class="ks">≈ 复制粘贴键</text>
+          <rect x="96" y="150" width="74" height="42" rx="6" class="kc cmd"/><text x="133" y="168" class="kt">Win ⊞</text><text x="133" y="183" class="ks">在 ⌥ 的位置</text>
+          <rect x="176" y="150" width="86" height="42" rx="6" class="kc alt"/><text x="219" y="168" class="kt">Alt</text><text x="219" y="183" class="ks">在 ⌘ 的位置</text>
+          <rect x="268" y="150" width="210" height="42" rx="6" class="kc"/><text x="373" y="175" class="kt">space</text>
+        </g>
+
+        <!-- crossover arrows -->
+        <path class="arrow" d="M219,84 C219,112 133,120 133,148"/>
+        <path class="arrow" d="M133,84 C133,112 219,120 219,148"/>
+
+        <text x="498" y="56" class="note">痛点①｜⌘ 与 C/V 不在多数机械键盘</text>
+        <text x="498" y="72" class="note">的"X-cmd 对齐"位 → 长用 cmd-hotkey</text>
+        <text x="498" y="88" class="note">者小指/拇指拉伸（mac-kb L208/L214）</text>
+        <text x="498" y="128" class="note">痛点②｜切平台时 ⌘↔Win、⌥↔Alt</text>
+        <text x="498" y="144" class="note">物理位置互换 → 手动切 Mac/Win 模式</text>
+        <text x="498" y="160" class="note">或装 Karabiner remap（mac-kb L991/L1066）</text>
+
+        <!-- 反向信号条 -->
+        <text x="16" y="232" class="hd">但注意：⌘ 位置也有人觉得"更顺手"（反向信号）</text>
+        <rect x="16" y="244" width="708" height="44" rx="6" class="kc cmd"/>
+        <text x="30" y="264" class="ks" text-anchor="start">"On a Mac you just drop one finger from D/F down to C/V. On Windows you shift your whole hand so your pinky can reach Ctrl." —— 83↑ 高赞，拇指按 ⌘ 比小指按 Ctrl 省力。</text>
+        <text x="30" y="280" class="note" text-anchor="start">来源：r/mac u/Slava_Tr，83 赞，2026（mac-keyboard.md L1323）。说明"键位差异"是体验落差，不全是负面。</text>
+
+        <text x="16" y="318" class="hd">妙控手感软肋（第三方佐证，转向机械的直接动因）</text>
+        <rect x="16" y="330" width="708" height="22" rx="6" class="kc"/>
+        <text x="30" y="345" class="ks" text-anchor="start">键程 ≈ 1mm，触发点≈触底点 · 不可调倾角 · 无腕托 · 剪刀脚"肉"。来源：MakeUseOf / Hacker News，2026-06 检索。</text>
+      </svg>
+      <figcaption>图1：Mac vs Windows 修饰键键位对照 + 反向信号 + 妙控手感软肋。<span class="src">来源：mac-keyboard.md UGC + MakeUseOf / 9to5Mac，2026-06</span></figcaption>
+    </figure>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"Typical mechanical keyboards for Mac have the command key offset with the X key which results in finger strain. Because of this, I've resisted mechanical keyboards for a long time and stuck to scissor switch keyboards. ... the improvement in typing feel is well worth it for me."</p><span class="src">— r/MechanicalKeyboards · u/daaukm「The first Mac mechanical keyboard I've seen with an X-cmd key aligned layout」（Akko Air 01） · <a href="https://i.redd.it/eth09c4su1xg1.jpeg" target="_blank" rel="noopener">原帖</a>（mac-keyboard.md L208）· 2026</span></div>
+    <div class="ugc"><p>"Finally someone talks about this awful command key offset that Mac users have suffered through for years. It's really refreshing to see a board actually fix this core ergonomic issue ... That said, no receiver storage, missing essential keys and manual OS switching are pretty major basic omissions."</p><span class="src">— 同帖高赞回复（5↑）· r/MechanicalKeyboards · mac-keyboard.md L209 · 2026</span></div>
+    <div class="ugc"><p>"Using a Windows keyboard on a Mac just made it worse and my brain was completely wired to hit Ctrl for everything ... Copy, paste, undo - I kept getting it wrong. ... Ended up getting fed up and built a small app to remap it so Ctrl behaves like Windows."</p><span class="src">— r/mac · u/lownoise_dev「Switching between Windows and Mac was way more annoying than I expected」· <a href="https://www.reddit.com/r/mac/comments/1sjlila/" target="_blank" rel="noopener">原帖</a>（mac-keyboard.md L991）· 2026 — 注：最高赞回复（10↑）指出 macOS 设置里可直接互换 Ctrl/Cmd，"No app needed"</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li>remap×11、Karabiner×3——切换/重映射是真实且重复出现的工作流痛点，但<strong>社群同时给出低成本解</strong>（系统设置互换 Ctrl/Cmd、Karabiner-Elements 免费）。</li>
+      <li>"X-cmd 对齐"在 2026 年仍被当成稀缺卖点（Akko Air 01 帖明确说"the first I've seen"），说明<strong>多数机械键盘默认布局并未为 Mac cmd-hotkey 重度用户优化</strong>。</li>
+      <li>反向：83↑ 高赞认为 ⌘ 用拇指比 Ctrl 用小指更舒服——<strong>键位差异是"重新适应成本"，不等于"妙控键位更差"</strong>。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>键位主诉真实存在，但本质是<strong>"切换成本 + 默认布局没对齐 cmd-hotkey"</strong>，而非"⌘ 键设计本身糟糕"。它高频，因为发帖的人多是跨平台党或刚转 Mac 的新人。</p>
+  </section>
+
+  <!-- 手感 -->
+  <section>
+    <h2>2. 妙控手感软肋：剪刀脚、肉、键程短（最高频主诉之二）</h2>
+    <h3>论述</h3>
+    <p>妙控键盘的物理结构决定了它的天花板：<strong>键程约 1mm，触发点几乎等于触底点</strong>，按下去没有可分辨的"段落感"；机身是不可调倾角的铝板，无腕托。对长时间打字的人，这意味着"按到底硬碰硬"的疲劳与缺乏反馈。这正是 UGC 里用户"resisted mechanical for years"后仍最终转投机械的直接动因——他们要的是<strong>更长键程 + 可分辨触发 + 可换轴音色</strong>。</p>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"The Magic Keyboard has a really short travel distance of about 1mm, and the actuation point and the absolute bottom travel distance are indistinguishable. ... you can't adjust the tilt, and Apple doesn't include a wrist rest for comfort."</p><span class="src">— MakeUseOf《Why I Regret Buying an Apple Magic Keyboard for My Mac》· <a href="https://www.makeuseof.com/why-i-regret-buying-mac-magic-keyboard/" target="_blank" rel="noopener">链接</a> · 检索 2026-06（第三方评测，非 UGC，标注以区分）</span></div>
+    <div class="ugc"><p>"The keyboard is likewise the very best of any I've used on any Mac, with a firm, tactile clickiness that feels almost as good as a fully mechanical keyboard."</p><span class="src">— r/mac · 2015 MBP 键盘对比讨论（mac-keyboard.md L125）· 2026 转述 — <strong>反向印证</strong>：用户拿"接近机械"当最高褒奖。<b>跨时效注记：</b>原帖对比的是 2015 款 MacBook Pro 内置键盘，与现役妙控并非同款，仅作"机械手感=褒奖"的态度佐证</span></div>
+    <div class="ugc"><p>"The scissor mechanism is not designed for lifelong use under heavy typing loads, especially in high-frequency keys like spacebar, enter, or shift."</p><span class="src">— 综合 MacRumors《Butterfly vs Scissor Keyboard》指南 + Hacker News 讨论（actuation force on scissor switches is very low）· <a href="https://news.ycombinator.com/item?id=24372439" target="_blank" rel="noopener">HN 链接</a> · 检索 2026-06</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li>第三方四点软肋一致：<b>键程≈1mm / 触发≈触底 / 不可调倾角 / 无腕托</b>——与 UGC 中"想要更好打字手感"的诉求方向完全吻合。</li>
+      <li>UGC 直接骂"剪刀脚/mushy"的词频低（scissor×1、mushy×2），<strong>痛点更多以"我终于换了机械、手感值回票价"的间接方式表达</strong>。这意味着手感软肋的"声量"被低估，需结合第三方评测补全——也正因此本页把它定为"软肋"而非"群体共识级抱怨"。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>手感软肋的客观依据扎实（第三方四点齐全），但在 UGC 里它的"显性声量"弱于键位——因为满意者沉默、不满者直接用脚投票去买机械而非发长帖控诉。结论保留为"高频主诉之一"，但置信度比键位略低。</p>
+  </section>
+
+  <!-- 反向信号：忠诚 -->
+  <section>
+    <h2>3. 反向信号（抵消选择偏差）：为什么大量 Mac 用户坚守妙控</h2>
+    <h3>论述</h3>
+    <p>如果只看"换键盘"的帖子会得出"妙控很差"的错觉。把视角放到 r/mac，<strong>大量用户为了 Touch ID、生态便利、轻量无线而主动选择/回归妙控</strong>，甚至"研究了一圈机械键盘，最后还是买了妙控"。这正是选择偏差的实证：满意者只在被问到"买什么"时才现身，从不去 r/MechanicalKeyboards 发吐槽帖。</p>
+
+    <div class="silent-box">
+      <h4>沉默的满意者画像（来自 r/mac，非键盘吐槽版）</h4>
+      <div class="ugc"><p>"After researching a lot of keyboards and almost buying a Keychron, I ended up with a Magic Keyboard for the fingerprint reader. It really is super convenient. Paired it with a MX Master mouse."</p><span class="src">— r/mac「Mouse help」帖回复 · mac-keyboard.md L342 · 2026</span></div>
+      <div class="ugc"><p>"The fingerprint reader on Apple keyboards is now a 'necessary preference' for me. ... I can - with the Magic Keyboard - sit back into my really comfortable second chair a bit since the keyboard and trackpad are wireless and lightweight."</p><span class="src">— r/mac · mac-keyboard.md L343 · 2026</span></div>
+      <div class="ugc"><p>"Apple Magic Keyboard with Touch ID is great. If you want mechanical, Keychron have good Mac support."</p><span class="src">— r/mac · mac-keyboard.md L344 · 2026 — 注：这是"两者都好"的中立声音，恰恰是吐槽版里看不到的</span></div>
+    </div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>Touch ID/fingerprint×29</b>——在一个键盘讨论语料里出现 29 次"指纹"，且语境几乎全是"为它留下/为它买妙控"，说明<strong>生物识别是妙控最强护城河</strong>，机械键盘目前无解。</li>
+      <li>妙控其他不可替代项：原生 Touch ID、与 Apple Watch 解锁联动、超轻可"靠后葛优瘫"的无线体验、长续航。这些都不是"手感"能补的。</li>
+      <li>甚至有用户为了凑黑色妙控去 DIY 染键帽（mac-keyboard.md L805，57↑），忠诚到改装也不离开。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>"离开妙控"是发帖人群的故事；"留在妙控"是更安静、可能更大的另一群人的故事。任何 Mac 键盘产品决策都必须同时回答："你拿什么补 Touch ID？"——这是机械键盘对 Mac 主流人群最大的结构性短板。</p>
+  </section>
+
+  <!-- 缺键帽/F区 -->
+  <section>
+    <h2>4. 缺 Mac 键帽 / F 区媒体键 / 多设备切换：次要但真实</h2>
+    <h3>论述</h3>
+    <p>这些是"换了机械之后"才冒出来的二级痛点：很多键盘默认 Win 键帽（⌘ 印成 Win），F 区是功能键而非亮度/音量等 Mac 媒体键，以及多设备/多平台一键切换的缺失。它们信号弱于手感/键位，但在选购清单里反复出现，<strong>是 Keychron 等"Mac-first"品牌的差异化卖点</strong>。</p>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"All normal keyboards are compatible. They may not have the Mac specific prints, so you have to remember that CTRL is option and Alt is CMD etc." / "Keychrons go down to your budget and have the Mac keycaps out of the box."</p><span class="src">— r/mac 选购讨论（18↑ / 11↑）· mac-keyboard.md L550–551 · 2026</span></div>
+    <div class="ugc"><p>"Coming from the logi mx keys, it's also annoying having to manually toggle between Windows and Mac layouts."</p><span class="src">— r/MechanicalKeyboards · Akko Air 01 帖 · mac-keyboard.md L208 · 2026</span></div>
+    <div class="ugc"><p>"What distinguishes Keychron is their consistent Mac-first design: Mac keycaps are always default, never optional; the physical Mac/Windows toggle is on every keyboard; and macOS function key support is verified at launch."</p><span class="src">— iMore《Best mechanical keyboards for Mac in 2026》· <a href="https://www.imore.com/best-mechanical-keyboards-mac" target="_blank" rel="noopener">链接</a> · 检索 2026-06（第三方）</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li>keycap×32（高频）——但语境混杂客制化换帽与"缺 Mac 键帽"，<strong>纯"缺 Mac 键帽"信号偏弱</strong>，列为数据缺口，不夸大。</li>
+      <li>第三方公认 Keychron 的护城河：Mac 键帽默认装、机身侧带物理 Mac/Win 拨钮、F 区默认 Mac 媒体功能、发售即支持 macOS 功能键——<strong>恰好逐条对应上述次级痛点</strong>。</li>
+      <li>2026 旗舰参照：Keychron Q1 Ultra（9to5Mac 评 75% Mac 布局 + 三模 + 8K 轮询 + 660h 续航）被称"2026 年最重要的 Mac 键盘进展"。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>这些次级痛点单独看不致命，合起来构成"Mac-first 体验"。谁把它们做成默认（而非加价选配），谁就降低了 Mac 用户从妙控迁移的摩擦。</p>
+  </section>
+
+  <!-- 对比矩阵 -->
+  <section>
+    <h2>对比矩阵：妙控键盘 vs Mac 机械键盘（迁移决策视角）</h2>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1：Magic Keyboard vs Mac 机械键盘逐维对比（点击表头高亮该列）· 数据为 2026-06 采集</caption>
+      <thead><tr><th>维度</th><th>Magic Keyboard（妙控）</th><th>Mac-first 机械（如 Keychron）</th><th>普通机械（默认 Win 布局）</th></tr></thead>
+      <tbody>
+        <tr><td>键程 / 反馈</td><td><span class="pill bad">≈1mm，触发≈触底，无段落</span></td><td><span class="pill good">2–4mm，可换轴选段落/音色</span></td><td><span class="pill good">2–4mm，可换轴</span></td></tr>
+        <tr><td>⌘⌥ 物理键位</td><td><span class="pill good">原生 Mac 排布</span></td><td><span class="pill good">原生 + 侧边 Mac/Win 拨钮</span></td><td><span class="pill mid">需 remap / 记位置</span></td></tr>
+        <tr><td>Mac 键帽 / F 区媒体键</td><td><span class="pill good">默认</span></td><td><span class="pill good">默认装 + 发售即支持</span></td><td><span class="pill bad">多为 Win 印字，F 区非媒体</span></td></tr>
+        <tr><td>Touch ID / 生物识别</td><td><span class="pill good">有（最强护城河）</span></td><td><span class="pill bad">无</span></td><td><span class="pill bad">无</span></td></tr>
+        <tr><td>多设备 / 多平台切换</td><td><span class="pill mid">蓝牙，跨 Apple 生态顺</span></td><td><span class="pill good">三模 + 物理拨钮 / 多设备配对</span></td><td><span class="pill mid">看型号</span></td></tr>
+        <tr><td>倾角 / 腕托 / 人体工学</td><td><span class="pill bad">不可调倾角，无腕托</span></td><td><span class="pill mid">多数有脚撑，可配腕托</span></td><td><span class="pill mid">多数有脚撑</span></td></tr>
+        <tr><td>重量 / 便携 / 续航</td><td><span class="pill good">极轻，可"靠后瘫"，续航长</span></td><td><span class="pill mid">偏重，续航看型号</span></td><td><span class="pill mid">偏重</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="src">来源：综合 mac-keyboard.md / keychron.md UGC + MakeUseOf / iMore / 9to5Mac 第三方评测，2026-06。pill 为定性判断，非实测分。</p>
+  </section>
+
+  <!-- 关键洞察与机会 -->
+  <section>
+    <h2>关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察 1 ｜ 真正的护城河不在手感，在 Touch ID。</b>机械键盘可以轻松碾压妙控的键程与音色，却补不上 Touch ID + Apple Watch 解锁。<strong>机会</strong>：在 Mac 机械键盘上集成指纹模块 / 支持系统级生物识别，或主推"机械键盘 + 独立 Touch ID 配件"组合，正面拔掉妙控最后一根钉子。</p>
+    <p class="callout"><b>洞察 2 ｜ "X-cmd 对齐"在 2026 仍是稀缺卖点。</b>用户明说"the first I've seen"。<strong>机会</strong>：把 cmd-hotkey 重度用户（设计/开发/Adobe 全家桶）当细分人群，做"⌘ 与 C/V 对齐 + 默认 Mac 布局 + 拇指可达 ⌘⌥"的人体工学底排，直接命中"resisted mechanical for years"那群高价值用户。</p>
+    <p class="callout"><b>洞察 3 ｜ 把"切换成本"做成零配置。</b>跨平台党的痛是"手动切 Mac/Win 模式"。<strong>机会</strong>：物理拨钮 + 自动识别当前主机 OS 自动切布局，并在包装/说明书首页教"系统设置一键互换 Ctrl/Cmd / Karabiner"——把社群已知的低成本解做成开箱即得，降低迁移摩擦。</p>
+    <p class="callout"><b>洞察 4 ｜ 对内容/写作人群，主打"妙控的肉感升级版"。</b>从妙控迁移的文字工作者要的不是"thock 客制化"，是"更好的低剖面手感 + 不吵 + 不疲劳"。<strong>机会</strong>：低剖面（Choc/矮轴）+ 预润静音线性 + 默认 Mac 键帽 + Mac/Win 拨钮的"无折腾"成品线，营销话术别卖"客制化乐趣"（反方证据表明这类人怕被迫折腾），卖"开箱即用 + 可选升级"的分层清单——给模板不给作业。</p>
+  </section>
+
+  <!-- Caveats -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge partial">部分</span> H4.3 主结论（Mac 主诉=手感+键位）：option×54 / magic keyboard×32 / command×18 / remap×11 高频，叠加 X-cmd 错位与 Mac/Win 切换的具体帖，支持"<strong>在发帖讨论的 Mac 用户中</strong>手感+键位为最高频主诉"；第三方评测佐证妙控键程/人体工学软肋。但样本是主动来论坛求助/吐槽的子群体，<strong>满意妙控者通常沉默（选择偏差）</strong>，不能外推到全体 Mac 用户。置信度 <strong>中</strong>。</li>
+      <li><span class="fbadge falsified">已证伪</span> "妙控很差是 Mac 用户共识"——证伪。r/mac 中 Touch ID/fingerprint×29 且语境压倒性正面，大量用户"研究一圈机械后仍买妙控"。妙控的不满是发帖人群现象，非群体共识。</li>
+      <li><span class="fbadge falsified">已证伪</span> "⌘ 键位设计本身比 Ctrl 差"——证伪。83↑ 高赞认为拇指按 ⌘ 比小指按 Ctrl 更省力（mac-keyboard.md L1323）。键位主诉的本质是"切换成本 + 默认布局没对齐"，非⌘设计糟糕。</li>
+      <li><span class="fbadge partial">部分</span> 手感软肋：客观依据扎实（第三方四点：键程≈1mm/触发≈触底/不可调倾角/无腕托），但 UGC 直接骂"scissor/mushy"词频极低（1/2 次），显性声量弱于键位，故置信度比键位略低。</li>
+      <li><span class="fbadge open">仍开放</span> "缺 Mac 键帽 / F 区媒体键"：keycap×32 高频但语境混杂客制化换帽，纯"缺 Mac 键帽"信号弱，列为<strong>数据缺口</strong>，仅作次级痛点，未单独上提。</li>
+      <li><span class="fbadge open">仍开放</span> 词频→人头缺去重与情感打分；"沉默的满意者"规模无法量化（按定义他们不发帖），只能定性提示选择偏差，不做占比结论。</li>
+    </ul>
+  </section>
+
+  <!-- 来源 -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>本地 Reddit 导出 — <code>reddit-exports/mac-keyboard.md</code>（272 帖 / 4792 评论；含 L125/L208/L342–345/L550–551/L805/L991/L1066/L1323 等引证）（采集 2026-06）</li>
+      <li>本地 Reddit 导出 — <code>reddit-exports/keychron.md</code>（864 帖 / 6397 评论；Mac/Win 切换、Mac 键帽出厂等）（采集 2026-06）</li>
+      <li>词频统计 — 对 <code>mac-keyboard.md</code> 执行 <code>grep -i</code> 计数（option×54 / magic keyboard×32 / keycap×32 / Touch ID·fingerprint×29 / low-profile×22 / command×18 / logitech×16 / remap×11 / scissor×1 / mushy×2）（2026-06）</li>
+      <li>MakeUseOf — 《Why I Regret Buying an Apple Magic Keyboard for My Mac》（键程≈1mm、不可调倾角、无腕托）：<a href="https://www.makeuseof.com/why-i-regret-buying-mac-magic-keyboard/" target="_blank" rel="noopener">https://www.makeuseof.com/why-i-regret-buying-mac-magic-keyboard/</a>（检索 2026-06）</li>
+      <li>Hacker News — 关于剪刀脚 actuation force / 键程的讨论：<a href="https://news.ycombinator.com/item?id=24372439" target="_blank" rel="noopener">https://news.ycombinator.com/item?id=24372439</a>（检索 2026-06）</li>
+      <li>MacRumors — 《Butterfly Keyboard vs. Scissor Switch Keyboard》指南：<a href="https://www.macrumors.com/guide/butterfly-keyboard-vs-scissor-keyboard/" target="_blank" rel="noopener">链接</a>（检索 2026-06）</li>
+      <li>iMore — 《Best mechanical keyboards for Mac in 2026》（Keychron Mac-first：键帽默认、物理 Mac/Win 拨钮、发售即支持 macOS 功能键）：<a href="https://www.imore.com/best-mechanical-keyboards-mac" target="_blank" rel="noopener">链接</a>（检索 2026-06）</li>
+      <li>9to5Mac — 《Keychron Q1 Ultra hands-on》（75% Mac 布局 + 三模 + 8K 轮询 + 660h 续航）：<a href="https://9to5mac.com/2026/02/12/new-keychron-q1-ultra-mechanical-keyboard-for-mac-hands-on/" target="_blank" rel="noopener">链接</a>（检索 2026-06）</li>
+    </ol>
+    <p class="src">注：Reddit 单帖深链以导出文件内记录的原始 URL 为准；具体帖请对照括注的导出文件行号。价格/型号均为 2026-06 采集时点，行业迭代极快。第三方评测与 UGC 已分别标注以区分营销话术与真实反馈。</p>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块四 Task 4.3 · 采集时点 2026-06 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

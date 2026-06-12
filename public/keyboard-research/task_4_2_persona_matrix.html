@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 4.2：五类人群痛点—需求矩阵</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.persona-card{border:1px solid #e2e6ee;border-radius:12px;padding:16px 18px;background:#fff;box-shadow:0 1px 3px rgba(20,30,60,.05)}
+.persona-card h4{margin:0 0 2px;font-size:16px}
+.persona-card .role{font-size:12.5px;color:#5a6072;font-style:italic;margin:2px 0 10px}
+.persona-card .axis{font-size:12.5px;line-height:1.7;margin:8px 0;color:#333}
+.persona-card .axis b{color:#1f2430}
+.persona-card blockquote.mini{font-size:12.5px;line-height:1.55;margin:8px 0 2px;padding:8px 10px;border-left:3px solid #c7cdd9;background:#f7f8fb;border-radius:0 6px 6px 0;color:#333}
+.persona-card .meta{font-size:11.5px;color:#8a90a0;margin:2px 0 8px}
+.jtbd-tag{display:inline-block;font-size:11px;color:#3957a8;background:#eaf0ff;border-radius:10px;padding:1px 9px;margin:0 0 8px}
+.freqtag{display:inline-block;font-size:11px;color:#8a90a0;background:#f1f3f7;border-radius:10px;padding:1px 8px;margin-left:6px}
+.svg-fig{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块4 · Task 4.2</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块4 · TASK 4.2 · 用户真实痛点</span>
+  <h1>五类人群痛点—需求矩阵</h1>
+  <p class="lede">同一块键盘，程序员看键位、玩家看延迟、文字工作者看疲劳、客制化看可玩、办公升级看"开箱即用"——五类人盯的指标几乎不重叠。本页把每类人的核心诉求 / 偏好（轴·布局·连接）/ 典型抱怨拆开摆证据，每条都挂真实 UGC 原话与行号。</p>
+  <p class="meta">采集时点：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards · r/Keychron · r/BudgetKeebs）&gt; 第三方评测（RTINGS）&gt; 官方话术<br>
+  主要来源：本地 Reddit 导出 <code>mechkb-beginner.md</code>（872帖/12837评论）、<code>keychron.md</code>（864帖/6397评论）；RTINGS《Best Keyboards for Programming 2026》；母模块 <code>m4-pain-points.html</code></p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- 方法说明 -->
+  <section>
+    <div class="card">
+      <p><strong>本页与母模块的关系。</strong>母模块 <code>m4-pain-points.html §4.2</code> 已给出一张三栏矩阵作骨架；本 task 把它拆得更细：每类人补<strong>JTBD（待办任务）</strong>、补<strong>轴/布局/连接的具体偏好与原因</strong>、补<strong>正反两面 UGC（既有满意也有踩坑）</strong>，并新增一张五维雷达对比图与"营销话术 vs 真实诉求"的拆穿。<strong>注意选择偏差：</strong>论坛发帖者天然偏"求助—吐槽"，满意者沉默；下列画像代表的是"会上网讨论键盘"的活跃子群体，不能直接外推到全体。</p>
+    </div>
+  </section>
+
+  <!-- 雷达对比 -->
+  <section>
+    <h2>1. 五类人群一眼看清：需求权重雷达</h2>
+    <h3>论述</h3>
+    <p>五类人对五个维度（打字舒适 / 低延迟响应 / 安静 / 可改键(VIA/QMK) / 开箱即用）的权重排序差异极大。把它画成雷达，能解释为什么"一块爆款不可能讨好所有人"：程序员要"可改键+舒适"但不在乎延迟；玩家要"延迟"压倒一切；办公升级只要"开箱即用"，最怕"还要折腾"。这张图是下文逐人群证据的索引地图。</p>
+
+    <figure class="framed">
+      <svg class="svg-fig" viewBox="0 0 760 420" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system,Segoe UI,Roboto,sans-serif" role="img" aria-label="五类人群在五个维度上的需求权重雷达对比">
+        <style>
+          .axisline{stroke:#d4d9e4;stroke-width:1}
+          .ring{fill:none;stroke:#e7eaf1;stroke-width:1}
+          .lab{font-size:12px;fill:#3a4252;text-anchor:middle}
+          .lg{font-size:12px;fill:#1f2430}
+          .poly{fill-opacity:.12;stroke-width:2}
+        </style>
+        <!-- center 230,210 r=150 ; 5 axes -->
+        <g>
+          <circle cx="230" cy="210" r="150" class="ring"/>
+          <circle cx="230" cy="210" r="100" class="ring"/>
+          <circle cx="230" cy="210" r="50" class="ring"/>
+          <!-- axes (top, then clockwise 72deg) -->
+          <line x1="230" y1="210" x2="230" y2="60" class="axisline"/>
+          <line x1="230" y1="210" x2="372.6" y2="256.4" class="axisline"/>
+          <line x1="230" y1="210" x2="318.1" y2="331.4" class="axisline"/>
+          <line x1="230" y1="210" x2="141.9" y2="331.4" class="axisline"/>
+          <line x1="230" y1="210" x2="87.4" y2="256.4" class="axisline"/>
+          <text x="230" y="48" class="lab">打字舒适</text>
+          <text x="402" y="258" class="lab">可改键(VIA/QMK)</text>
+          <text x="330" y="352" class="lab">开箱即用</text>
+          <text x="130" y="352" class="lab">安静</text>
+          <text x="60" y="252" class="lab">低延迟响应</text>
+          <!-- 程序员: 舒适5 改键5 开箱2 安静3 延迟2 -->
+          <polygon class="poly" points="230,60 372.6,256.4 248.4,234.3 200.2,300.6 142.9,232.5" style="fill:#5b8def;stroke:#5b8def"/>
+          <!-- 玩家: 舒适3 改键3 开箱3 安静2 延迟5 -->
+          <polygon class="poly" points="230,120 315.6,237.8 282.8,283.4 194.8,283.4 36.4,200.9" style="fill:#e0556b;stroke:#e0556b"/>
+          <!-- 办公升级: 舒适3 改键1 开箱5 安静3 延迟2 -->
+          <polygon class="poly" points="230,120 258.5,220.7 318.1,331.4 200.2,300.6 142.9,232.5" style="fill:#36a37a;stroke:#36a37a"/>
+        </g>
+        <!-- legend -->
+        <g transform="translate(560,90)">
+          <rect x="0" y="0" width="16" height="10" fill="#5b8def" fill-opacity=".4" stroke="#5b8def"/><text x="22" y="9" class="lg">程序员/重度文字</text>
+          <rect x="0" y="26" width="16" height="10" fill="#e0556b" fill-opacity=".4" stroke="#e0556b"/><text x="22" y="35" class="lg">游戏玩家</text>
+          <rect x="0" y="52" width="16" height="10" fill="#36a37a" fill-opacity=".4" stroke="#36a37a"/><text x="22" y="61" class="lg">办公升级</text>
+          <text x="0" y="96" style="font-size:11px;fill:#8a90a0">注：文字工作者≈程序员去掉"改键"、</text>
+          <text x="0" y="112" style="font-size:11px;fill:#8a90a0">加重"安静+低剖面"；客制化爱好者</text>
+          <text x="0" y="128" style="font-size:11px;fill:#8a90a0">在"可玩/音色"轴拉满（不在此五维内），</text>
+          <text x="0" y="144" style="font-size:11px;fill:#8a90a0">为避免误读仅画三条代表性曲线。</text>
+        </g>
+      </svg>
+      <figcaption>图1：五类人群需求权重雷达（定性研判，非问卷量化）。曲线由下文逐条 UGC 证据归纳，权重为相对排序而非绝对分。<span class="src">来源：本地 Reddit 导出归纳，2026-06</span></figcaption>
+    </figure>
+    <p class="callout"><b>小结：</b>三条曲线几乎不重叠——程序员的高峰在"改键+舒适"，玩家的高峰在"延迟"，办公升级的高峰在"开箱即用"。这意味着产品定位必须二选一：要么做"可玩平台"（卖给前两类），要么做"零折腾成品"（卖给后两类），中间地带最易两头不讨好。</p>
+  </section>
+
+  <!-- 程序员 -->
+  <section>
+    <h2>2. 程序员 / 重度文字：要的是"可改键 + 不废手"，最痛"键位被矩阵绑死"</h2>
+    <h3>论述</h3>
+    <p>程序员把键盘当生产力工具，JTBD 是"连续敲 8 小时不废手 + 把高频符号/快捷键搬到指尖"。他们对 RGB、音色不敏感，对 <strong>VIA/QMK/Vial 可编程</strong>、<strong>65%~75% 保留方向键与功能行</strong>、<strong>tactile 或静音 linear</strong> 高度敏感。最尖锐的真实痛点不是"买哪块"，而是<strong>买回来发现键位组合被键盘矩阵或厂商固件锁死</strong>——这正是营销页绝口不提的暗坑。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"I successfully compiled my custom Vial firmware relatively easy, though I'm quite familiar with the Terminal so it might help me a bit."（一位非程序员都能编译 Vial 固件，恰恰说明可编程是这群人的硬需求与默认期待）</p><span class="src">— r/MechanicalKeyboards · MMD KM40 评测串 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L161</a> · 2026</span></div>
+    <div class="ugc"><p>"I've spent the best part of about 5 hours working out how and where to map key combos, because apparently no-one else has ever had this issue 🤦‍♀️ turns out it's a tiny little option hidden away called 'any'. I've got more done in the last 15 minutes ... and yes, I've got autohotkey ready to go."（为了映射一个组合键耗 5 小时，最后还得搬出 AutoHotkey 兜底——"可改键"在营销里是卖点，在现实里是隐藏深坑）</p><span class="src">— r/Keychron · 键位映射求助 · <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">keychron.md L527</a> · 2026</span></div>
+    <div class="ugc"><p>"I type a lot every day ... coming from an Apple Magic Keyboard. What I care about: comfortable typing for long sessions, not gaming-focused."（核心诉求一句话：长时间舒适 &gt; 游戏性能）</p><span class="src">— r/Keychron · 程序员/社媒经理求荐 · <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">keychron.md L317</a> · 2026</span></div>
+    <h3>具体数据 / 第三方佐证</h3>
+    <ul>
+      <li>RTINGS 2026 编程键盘榜把 <b>QMK/VIA 全可编程</b>与 <b>75% 保留 F 行+方向键</b>列为编程场景的首要筛选项（Keychron Q1 Max $219、Q5 Max 入选）。<span class="src">RTINGS, 2026-06 检索</span></li>
+      <li>语料中 QMK/VIA/Vial 出现密度极高（含数十条"vendor 违反 QMK 开源协议"的版主 bot 提醒），侧面证明这群人把"是否真·开放固件"当作购买红线。<span class="src">mechkb-beginner.md L30/L160/L652 等</span></li>
+    </ul>
+    <p class="callout"><b>小结：</b>程序员的真实痛点不在"买不到好键盘"，而在"买到后改不动键位"。给这群人的解法不是堆 RGB，而是<strong>真·开放固件 + 一份开箱即用的 Mac/Win/常用快捷键预设层</strong>——把那 5 小时省掉。</p>
+  </section>
+
+  <!-- 游戏玩家 -->
+  <section>
+    <h2>3. 游戏玩家：延迟压倒一切，但 HE 磁轴的"不够静音"是反复踩的坑</h2>
+    <h3>论述</h3>
+    <p>玩家 JTBD 是"低延迟 + 可调触发点 + 深夜也能不扰人"。2026 的明显趋势是从机械轴转向 <strong>HE 磁轴 / TMR</strong>（Rapid Trigger、SOCD、可调 actuation）。但语料里玩家有两个高频抱怨被官方话术掩盖：<strong>(1) 磁轴"快但吵"——静音是它的软肋；(2) 配套软件难用、稳定性差（2.4G 掉线、ghost input）</strong>。同住/合租玩家的"深夜安静"诉求与磁轴的物理特性直接冲突，是真实的选购两难。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"i live in a space that i cant let it be too loud (were talking late night gaming) ... i really want it to be quiet, a TKL, ... linear. Budget under $70."（深夜游戏 + 必须安静 + TKL + linear + 低预算，五项约束挤在一起）</p><span class="src">— r/BudgetKeebs · "Need help finding a new keyboard (TKL quiet)" · <a href="https://www.reddit.com/r/BudgetKeebs/" target="_blank" rel="noopener">mechkb-beginner.md L191</a> · 2026</span></div>
+    <div class="ugc"><p>"Silence. That's what makes the GamaKay TK75HE v2 stand out. It's one of the few magnetic keyboards that takes silence seriously ... In a market crowded with loud options."（评测者亲口承认：磁轴市场"a market crowded with loud options"——安静的是少数派）</p><span class="src">— r/MechanicalKeyboards · GamaKay TK75HE v2 评测 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L8</a> · 2026</span></div>
+    <div class="ugc"><p>"Unlearning years of heavy typing habits is the hardest part of switching to magnetic boards, and a lot of people give up before dialing it in ... tuning those deadzones and FalseTouch settings so you can actually type on the board without losing your mind."（磁轴上手有学习曲线，调不好就误触，劝退率高）</p><span class="src">— r/keyboards · MonsGeek M1 V5 TMR 评测串 · <a href="https://www.reddit.com/r/keyboards/" target="_blank" rel="noopener">keychron.md L34</a> · 2026</span></div>
+    <div class="ugc"><p>"After several months of troubleshooting, I finally solved ... 2.4G dongle detected ... but no key presses were registered in 2.4G mode ... Womier support sent replacement PCB and dongle ... never changed."（无线/固件稳定性是玩家的隐性大坑，厂商支持往往无解）</p><span class="src">— r/MechanicalKeyboards · Womier RD75 Pro 2.4G 故障 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L330</a> · 2026</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li>偏好布局向 <b>TKL/60%</b> 收敛（给鼠标让位），连接偏好 <b>2.4G 有线级低延迟</b>而非蓝牙。<span class="src">综合 L191/L120</span></li>
+      <li>磁轴评测高频术语：Rapid Trigger、SOCD、TMR、polling 8000Hz、actuation 可调——但"silent/quiet"出现时多带"but"转折。<span class="src">keychron.md L28/L94，mechkb L8</span></li>
+    </ul>
+    <p class="callout"><b>小结：</b>玩家市场的真实空白不是"更快"，而是<strong>"既快又静"的磁轴 + 真正好用的配套软件 + 稳定 2.4G</strong>。谁能把"深夜安静 × 低延迟"这对矛盾解掉，谁就吃下合租/宿舍玩家这块没被满足的需求。</p>
+  </section>
+
+  <!-- 文字工作者 -->
+  <section>
+    <h2>4. 文字工作者（记者/运营/写作者）：从妙控平滑过渡，怕重、怕吵、怕累</h2>
+    <h3>论述</h3>
+    <p>这群人打字量极大但<strong>不是技术控</strong>，不想学 QMK。JTBD 是"从 Apple 妙控/MX Keys 平滑过渡到机械，但不要变累、不要吵到同事"。他们偏好 <strong>低剖面 / 低段落 linear / 轻克数</strong>、<strong>75% 兼顾紧凑与全键</strong>、<strong>三模随手切设备</strong>。和程序员的关键区别：他们要"接近妙控的熟悉感"，而非"极致客制"。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"I'm coming from an Apple Magic Keyboard ... I type a lot every day. What I care about: Low-profile (I really like the Magic Keyboard feel), Comfortable typing for long sessions."（明确要"低剖面 + 接近妙控手感 + 长时间舒适"）</p><span class="src">— r/Keychron · 社媒经理+记者求荐 · <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">keychron.md L317</a> · 2026</span></div>
+    <div class="ugc"><p>"tactile switches always make my fingers vibrate uncomfortably ... the surfer switches are the real star of the show ... feel and sound great right out of the box."（要"开箱即顺手"的轻软手感，tactile 段落感反而让人不适——和玩家、客制化的偏好正相反）</p><span class="src">— r/MechanicalKeyboards · Lofree Flow 2 用户 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L110</a> · 2026</span></div>
+    <div class="ugc"><p>"my office is next to the bedroom, and I regularly work before my wife wakes ... The keyboard is too loud ... she thought it was hailstoning outside. I've ordered some TTC Frozen Silent V2 switches."（"吵到家人/同事"是文字工作者最具体的痛——会立刻被投诉）</p><span class="src">— r/MechanicalKeyboards · Evo 80 用户 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L95</a> · 2026</span></div>
+    <p class="callout"><b>小结：</b>文字工作者≈"想升级体验但拒绝成为爱好者"的程序员。给他们的解法是<strong>预润静音 linear + 低剖面 + 三模 + 开箱即用</strong>，把"客制化乐趣"这个卖点收起来——对这群人那是负担不是诱惑。</p>
+  </section>
+
+  <!-- 客制化爱好者 -->
+  <section>
+    <h2>5. 客制化爱好者：把键盘当作品，最痛"群购跳票/商家失联"与"预润抢走了乐趣"</h2>
+    <h3>论述</h3>
+    <p>客制化玩家 JTBD 是"把键盘当可玩、可表达的作品"——音色、手感、配色、社群身份。他们<strong>不在乎连接方式、能接受高价与等待</strong>，偏好 <strong>60%/40% barebones + 随心换轴 + GMK 键帽 + Vial/QMK</strong>。他们的痛点和其他四类完全不同：<strong>(1) 群购(GB)风险——跳票、商家失联、chargeback 过期；(2) 反直觉的"预润轴反而扫兴"——乐趣被剥夺；(3) QC 批次不一致。</strong></p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"It turns out pre lubed switches have come a long way and none of the 6 sets I ordered require lubing. This is a good thing, but I always loved the process of lubing switches myself ... made you earn your sound."（对这群人，"预润省事"=乐趣被剥夺，这是其他四类绝不会有的诉求）</p><span class="src">— r/MechanicalKeyboards · 资深玩家 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L348</a> · 2026</span></div>
+    <div class="ugc"><p>"Results after shining my GMK Cosmos over the last 365 days ... $371.73 CAD spent on the keycaps ... 7 months after my preorder ... a daily driver for work, used to write more pull requests than I can remember."（7 个月等待 + 372 加元一套键帽 + 把磨砂磨亮当一年期实验——这就是客制化的"作品心态"，也暴露群购的漫长等待）</p><span class="src">— r/MechanicalKeyboards · GMK Cosmos 用户 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L68</a> · 2026</span></div>
+    <div class="ugc"><p>"My 5th mechanical keyboard ... it's not that perfect for anyone due to inconsistent switch sounds, the LCD customization software is meh at best."（QC/批次/软件不一致——客制化越深，踩坑维度越多）</p><span class="src">— r/MechanicalKeyboards · Yunzii AL80 用户 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L316</a> · 2026</span></div>
+    <p class="callout"><b>小结：</b>这群人是"反开箱即用"的——给他们成品反而扫兴。真正能赚他们钱的不是"省事"，而是<strong>信用背书的群购履约（按时发货、QC 透明）+ 可玩的 barebones 平台</strong>。母模块已记录 zFrontier 售出次品、拖过 chargeback 窗口的反面案例，履约信任是这块市场的最大痛点。</p>
+  </section>
+
+  <!-- 办公升级 -->
+  <section>
+    <h2>6. 办公升级（从膜键/Logitech）：只要"一步到位、开箱即用"，最怕"为什么还要调"</h2>
+    <h3>论述</h3>
+    <p>这群人从 Logitech/膜键升级，JTBD 是"一步到位、开箱即用、不想成为爱好者"。他们偏好 <strong>预润 linear/tactile + 全尺寸/96% 保留小键盘 + 三模</strong>。最大痛点是<strong>"成品其实不是成品"的预期落差</strong>（稳定器响、还要调）、价格看不懂、以及线太短/做工小毛刺这类"开箱即遇"的具体烦恼。他们对客制化乐趣零兴趣，对"还要折腾"零容忍。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Right out of the box I can say the Evoworks 75 blows away any offering I have tried from the likes of Logitech which is who I upgraded from."（升级动机一句话：开箱即碾压 Logitech——"right out of the box"是这群人的关键词）</p><span class="src">— r/MechanicalKeyboards · "Upgraded from Logitech G213 to Evoworks 75" · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L786</a> · 2026</span></div>
+    <div class="ugc"><p>"the cable is so short it's impossible to connect it to the pc case via any usual route ... the keys are sharp from the bottom side. The right option key is so sharp it's as if someone has cut the plastic with a knife."（办公升级最怕这种"开箱即遇"的低级烦恼：线短、毛刺——他们没有耐心去 mod）</p><span class="src">— r/MechanicalKeyboards · "Just got a Keychron K5" 吐槽帖 · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">mechkb-beginner.md L44</a> · 2026</span></div>
+    <div class="ugc"><p>"my backspace and shift key have been ticking from the start ... extremely mushy ... I'm completely new to keychron and a beginner ... could someone suggest some beginner friendly mods, or compatible replacement stabilisers."（买的是"成品"，到手却被迫进入 mod/换稳定器循环——这正是办公升级人群的核心落差）</p><span class="src">— r/Keychron · P1 HE 新手求助 · <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">keychron.md L325</a> · 2026</span></div>
+    <p class="callout"><b>小结：</b>办公升级人群与客制化人群在"是否要折腾"这一维度上完全对立。给他们的解法是<strong>真·开箱即用（出厂调好稳定器、配长线、去毛刺）+ 价格透明（讲清官网/电商差价）</strong>，而不是任何"可升级"卖点。</p>
+  </section>
+
+  <!-- 对比矩阵 -->
+  <section>
+    <h2>7. 对比矩阵：五类人群核心诉求 / 偏好 / 典型抱怨</h2>
+    <p>点击表头可高亮该列。"营销话术"列特意拆出来，提示哪些官方卖点对该人群其实是噪音甚至负担。</p>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1：五类人群痛点—需求矩阵（2026-06，证据见上文逐条 UGC）</caption>
+      <thead><tr><th>人群</th><th>JTBD 核心诉求</th><th>偏好 轴 / 布局 / 连接</th><th>典型抱怨（真实声音）</th><th>对其无效/反效的营销话术</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><b>程序员 / 重度文字</b></td>
+          <td>连敲 8h 不废手 + 键位随心改</td>
+          <td><span class="pill good">tactile / 静音 linear</span> · 65%~75%（留方向键+F行）· 有线/2.4G 求稳</td>
+          <td>组合键被矩阵/固件锁死（耗 5h 才映射成功，还得上 AutoHotkey）；稳定器响</td>
+          <td>RGB 灯效、屏幕、旋钮——基本无感</td>
+        </tr>
+        <tr>
+          <td><b>游戏玩家</b></td>
+          <td>低延迟 + 可调触发，深夜不扰人</td>
+          <td><span class="pill good">HE 磁轴 / TMR · linear</span> · TKL/60%（让鼠标位）· 2.4G 8K 优先</td>
+          <td>磁轴"快但吵"、软件难用、2.4G 掉线/ghost input、调不好误触</td>
+          <td>"静音"宣传（磁轴多数其实偏吵）、花哨 RGB</td>
+        </tr>
+        <tr>
+          <td><b>文字工作者</b></td>
+          <td>从妙控平滑过渡，低噪低疲劳</td>
+          <td><span class="pill mid">低剖面 / 轻软 linear</span> · 75% · 三模随手切</td>
+          <td>段落太重手指累、tactile 震手不适、吵到同事/家人</td>
+          <td>"客制化乐趣"、换轴可玩——是负担不是卖点</td>
+        </tr>
+        <tr>
+          <td><b>客制化爱好者</b></td>
+          <td>把键盘当可玩、可表达的作品</td>
+          <td><span class="pill good">barebones 随心换轴</span> · 60%/40% · 连接不在乎</td>
+          <td>群购跳票/商家失联/chargeback 过期；QC 批次不一；"预润反而少了乐趣"</td>
+          <td>"开箱即用/预润省事"——反而扫兴</td>
+        </tr>
+        <tr>
+          <td><b>办公升级</b></td>
+          <td>一步到位、开箱即用、不想折腾</td>
+          <td><span class="pill mid">预润 linear/tactile</span> · 全尺寸/96% · 三模</td>
+          <td>"成品还要调稳定器"、价格看不懂、线太短、键帽毛刺扎手</td>
+          <td>"可升级/可 mod"——零兴趣甚至劝退</td>
+        </tr>
+      </tbody>
+    </table></div>
+    <p class="src" style="margin-top:6px">来源：综合 mechkb-beginner.md / keychron.md 真实帖 + RTINGS 2026 整理，2026-06。每格证据见上文对应小节行号。</p>
+
+    <!-- 人群画像卡 -->
+    <h3 style="margin-top:24px">人群画像卡（每张含 JTBD + 偏好轴 + 正反两面真声）</h3>
+    <div class="grid-3" style="margin-top:14px">
+      <div class="persona-card">
+        <h4>程序员 / 重度文字</h4>
+        <p class="role">"我要把高频快捷键搬到指尖，敲一整天不废手"</p>
+        <span class="jtbd-tag">JTBD：生产力工具</span>
+        <p class="axis"><b>偏好：</b>静音 linear/tactile · 65–75% · 真·QMK/VIA · 有线求稳</p>
+        <blockquote class="mini">正面："comfortable typing for long sessions, not gaming-focused."</blockquote>
+        <div class="meta">r/Keychron L317 · 2026</div>
+        <blockquote class="mini">踩坑："spent ... 5 hours working out how and where to map key combos ... autohotkey ready to go."</blockquote>
+        <div class="meta">r/Keychron L527 · 2026</div>
+      </div>
+
+      <div class="persona-card">
+        <h4>游戏玩家</h4>
+        <p class="role">"延迟压倒一切，但我合租，深夜不能吵"</p>
+        <span class="jtbd-tag">JTBD：竞技响应</span>
+        <p class="axis"><b>偏好：</b>HE 磁轴/TMR · TKL/60% · 2.4G 8K · Rapid Trigger</p>
+        <blockquote class="mini">诉求："late night gaming ... i really want it to be quiet, a TKL, ... linear. under $70."</blockquote>
+        <div class="meta">r/BudgetKeebs L191 · 2026</div>
+        <blockquote class="mini">软肋（评测自承）："a market crowded with loud options"——磁轴静音是少数派。</blockquote>
+        <div class="meta">r/MechanicalKeyboards L8 · 2026</div>
+      </div>
+
+      <div class="persona-card">
+        <h4>文字工作者</h4>
+        <p class="role">"从妙控过来，要熟悉感、要轻、别吵"</p>
+        <span class="jtbd-tag">JTBD：舒适过渡</span>
+        <p class="axis"><b>偏好：</b>低剖面 · 轻软 linear · 75% · 三模</p>
+        <blockquote class="mini">诉求："Low-profile (I really like the Magic Keyboard feel), comfortable for long sessions."</blockquote>
+        <div class="meta">r/Keychron L317 · 2026</div>
+        <blockquote class="mini">反 tactile："tactile switches always make my fingers vibrate uncomfortably."</blockquote>
+        <div class="meta">r/MechanicalKeyboards L110 · 2026</div>
+      </div>
+
+      <div class="persona-card">
+        <h4>客制化爱好者</h4>
+        <p class="role">"键盘是我的作品，过程本身就是乐趣"</p>
+        <span class="jtbd-tag">JTBD：创作与表达</span>
+        <p class="axis"><b>偏好：</b>barebones · 60%/40% · 随心换轴 · 不在乎连接</p>
+        <blockquote class="mini">反"省事"："pre lubed ... a good thing, but I always loved the process ... made you earn your sound."</blockquote>
+        <div class="meta">r/MechanicalKeyboards L348 · 2026</div>
+        <blockquote class="mini">代价："$371.73 CAD spent on keycaps ... 7 months after my preorder."</blockquote>
+        <div class="meta">r/MechanicalKeyboards L68 · 2026</div>
+      </div>
+
+      <div class="persona-card">
+        <h4>办公升级</h4>
+        <p class="role">"我只想插上就用，别让我变成爱好者"</p>
+        <span class="jtbd-tag">JTBD：一步到位</span>
+        <p class="axis"><b>偏好：</b>预润成品 · 全尺寸/96% · 三模 · 零折腾</p>
+        <blockquote class="mini">满意："Right out of the box ... blows away any offering ... from Logitech which is who I upgraded from."</blockquote>
+        <div class="meta">r/MechanicalKeyboards L786 · 2026</div>
+        <blockquote class="mini">踩坑："the cable is so short ... the keys are sharp from the bottom side."</blockquote>
+        <div class="meta">r/MechanicalKeyboards L44 · 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关键洞察与产品机会 -->
+  <section>
+    <h2>8. 关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察一："折腾"是分群的主轴线。</b>五类人沿一条"是否愿意折腾"的光谱排开：客制化爱好者(最爱折腾) → 程序员 → 玩家 → 文字工作者 → 办公升级(最恨折腾)。<b>机会：</b>同一硬件平台用"出厂状态"分两条 SKU——"barebones 可玩版"打前两类、"出厂调好成品版"打后两类，避免一块板两头不讨好。</p>
+    <p class="callout"><b>洞察二：每类人都有一个"被营销盖住的真实痛点"。</b>程序员=键位被锁、玩家=磁轴其实偏吵、文字工作者=tactile 震手、客制化=群购履约、办公升级=成品其实要调。<b>机会：</b>谁敢在详情页正面回答这些"反卖点"（如"本机磁轴实测分贝""出厂已调稳定器，附长线"），谁就赢得信任——母模块 §4.4 已证"理性节制"才是反方主流，过度营销反招反感。</p>
+    <p class="callout"><b>洞察三："深夜安静 × 低延迟"是玩家市场最大未满足需求。</b>合租/宿舍玩家被"磁轴=快但吵"与"安静=慢"的伪二选一卡住。<b>机会：</b>静音磁轴/静音 linear + 真正稳定的 2.4G + 易用软件，是一块清晰空白。</p>
+    <p class="callout"><b>洞察四：程序员/办公升级都要"预设层"，但没人给。</b>程序员花 5 小时映射键位、办公升级怕"还要调"——共同解法是<strong>出厂内置 Mac/Win/常用快捷键预设层 + 一份"开箱即用 + 可选升级"分层清单（给模板不给作业）</strong>。这是低成本、高感知的差异化。</p>
+  </section>
+
+  <!-- Caveats -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge confirmed">已核实</span> 五类人群的核心诉求差异：每类均有 ≥2 条独立原帖交叉印证（程序员 L317/L527、玩家 L8/L191、文字 L110/L317、客制化 L68/L348、办公 L44/L786），且与 RTINGS 编程榜的筛选维度一致。置信度 <b>中高</b>。</li>
+      <li><span class="fbadge partial">部分</span> 雷达图（图1）的权重为<b>定性归纳非问卷量化</b>，曲线相对排序可靠，但绝对分值仅示意；客制化爱好者因主轴不在五维内未单独画线，可能造成"只有三类"的误读，已在图注说明。</li>
+      <li><span class="fbadge partial">部分</span> "磁轴普遍偏吵"基于评测者自述（"market crowded with loud options"）与多帖印证，但<b>缺独立分贝实测数据</b>；个别静音磁轴型号确实存在，结论是"统计倾向"而非"全部"。</li>
+      <li><span class="fbadge falsified">已证伪</span> 原假设"办公升级与客制化爱好者诉求相近（都想要好键盘）"：证据显示二者在"是否愿折腾"上<b>完全对立</b>——预润对客制化是"扫兴"(L348)，对办公升级是"刚需"(L325)。已修正为对立两极。</li>
+      <li><span class="fbadge open">仍开放</span> 人群规模占比无法从论坛语料估计（发帖偏差）；"文字工作者"与"程序员"在导出中常共用同一帖（L317 一人兼社媒经理+记者），边界模糊，二者更像光谱而非离散类别。未找到可信第三方人群规模数据，<b>不编造</b>。</li>
+    </ul>
+  </section>
+
+  <!-- 来源 -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>本地 Reddit 导出 — <code>reddit-exports/mechkb-beginner.md</code>（872帖/12837评论；本页引用 L8/L44/L68/L95/L110/L191/L316/L330/L348/L786）<span class="ts">(采集 2026-06)</span></li>
+      <li>本地 Reddit 导出 — <code>reddit-exports/keychron.md</code>（864帖/6397评论；本页引用 L8/L28/L34/L94/L317/L325/L527）<span class="ts">(采集 2026-06)</span></li>
+      <li>母模块 — <code>keyboard-research/m4-pain-points.html</code>（§4.2 三栏矩阵骨架、§4.4 反方观点、zFrontier 群购反面案例）<span class="ts">(采集 2026-06)</span></li>
+      <li>RTINGS — 《The 5 Best Keyboards For Programming of 2026》：<a href="https://www.rtings.com/keyboard/reviews/best/by-usage/programming" target="_blank" rel="noopener">rtings.com</a>（QMK/VIA + 75% 列为编程首要筛选项）<span class="ts">(检索 2026-06)</span></li>
+      <li>RedRecs — 《Best Mechanical Keyboard 2026 - Reddit Reviews》：<a href="https://www.redrecs.com/best-mechanical-keyboard" target="_blank" rel="noopener">redrecs.com</a>（Reddit 推荐聚合，交叉验证人群偏好）<span class="ts">(检索 2026-06)</span></li>
+      <li>RamaTheVoice — 《Review: MonsGeek M1 V5 TMR: Unfiltered TMR Speed》（r/keyboards，磁轴学习曲线与调参负担）：<a href="https://www.reddit.com/r/keyboards/" target="_blank" rel="noopener">reddit.com/r/keyboards</a>（keychron.md L28/L34）<span class="ts">(采集 2026-06)</span></li>
+      <li>KapitanKloze — 《GamaKay TK75HE v2 - my thoughts》（磁轴"市场充斥吵闹选项"的评测自承）：<a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">reddit.com/r/MechanicalKeyboards</a>（mechkb-beginner.md L8）<span class="ts">(采集 2026-06)</span></li>
+    </ol>
+    <p class="src">注：Reddit 深链以导出文件内记录的原始 URL 为准；本页 r/版块链接用于定位，具体帖请对照括注行号。价格/型号均为 2026-06 采集时点，行业迭代极快。</p>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块4 Task 4.2 · 采集时点 2026-06 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 4.1：入门小白真实痛点（逐条带 UGC 证据）</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* 局部增强：仅补缺省类不足处，不覆盖既有 .card/.ugc/.matrix */
+.painbar{display:flex;flex-direction:column;gap:9px;margin:6px 0 4px}
+.painbar .row{display:flex;align-items:center;gap:10px;font-size:13px}
+.painbar .lbl{flex:0 0 168px;text-align:right;color:#3a4150;line-height:1.25}
+.painbar .track{flex:1;background:#f1f3f7;border-radius:6px;height:20px;position:relative;overflow:hidden}
+.painbar .fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#5b8def,#86b0ff)}
+.painbar .num{flex:0 0 70px;font-variant-numeric:tabular-nums;color:#5a6072;font-size:12px}
+.painbar .freqnote{flex:0 0 100px;font-size:11px;color:#8a90a0}
+.rank-h{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.freqtag{display:inline-block;font-size:11px;color:#8a90a0;background:#f1f3f7;border-radius:10px;padding:1px 8px;margin-left:4px}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:720px){.dual{grid-template-columns:1fr}.painbar .lbl{flex-basis:120px}}
+.third{font-size:12.5px;color:#5a6072;border-left:3px solid #c7cdd9;background:#f7f8fb;padding:7px 10px;border-radius:0 6px 6px 0;margin:6px 0}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块四 · Task 4.1</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块四 · TASK 4.1 · 用户真实痛点</span>
+  <h1>入门小白真实痛点（逐条带 UGC 证据）</h1>
+  <p class="lede">把"小白到底卡在哪"拆成 8 条独立痛点，每条挂 1–2 句真实 Reddit 原话 + 链接 + 时间，并标清这只是"讨论热度代理指标"，不是"痛感强度排名"。区分营销话术与真实反馈，先猎证伪再看确认。</p>
+  <p class="meta">采集时点：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards、r/Keychron）&gt; 第三方评测 &gt; 官方话术<br>
+  主要来源：本地 Reddit 导出 <code>mechkb-beginner.md</code>（872 帖 / 12837 评论）、<code>keychron.md</code>（864 帖 / 6397 评论）；第三方对照 GlacierPC / KeebsForAll / Kinetic Labs / Keychron 官方指南（2026-06 检索）。</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ===== 0 方法与排序声明 ===== -->
+  <section>
+    <h2>0. 这页怎么读：排序是"讨论热度代理指标"，不是"痛感强度"</h2>
+    <h3>论述</h3>
+    <p><strong>本页的痛点顺序由 Reddit 语料词频从高到低排出，它衡量的是"小白在公开场合谈论得多不多"，不衡量"哪件事让人最痛"。</strong>柱子长只说明被提及多。两者会系统性背离，原因有三：(1) 词频同帖多次出现被重复计数，会放大某些词；(2) 仅基于 2 份子版块导出，未做跨平台、跨语言验证；(3) <code>r/MechanicalKeyboards</code> 与 <code>r/Keychron</code> 天生带"求助—投诉"偏向——买了开心的人通常不发帖（幸存者沉默），所以高频更接近"话题度"而非"私下痛感"。</p>
+    <p>一个直接证据：<strong>"信息过载/不知从何下手"词频很低（overwhelm 仅 1 次、where to start 1 次），但每次出现的语气都最强烈</strong>（"beyond overwhelming""I don't even KNOW where to start"）。这正说明：低频 ≠ 不痛，很可能是"痛到说不清，干脆少发帖"。请把下方条形图当作"大家在谈什么"的地图，而不是"大家最痛什么"的排行榜。</p>
+    <h3>证据（词频，grep -ioc 于本地导出，2026-06）</h3>
+
+    <figure class="framed">
+      <figcaption style="margin-bottom:8px;font-weight:600">图1：入门小白高频讨论词分布（代理指标）—— 柱长 = 讨论热度 ≠ 痛感大小</figcaption>
+      <div class="painbar" role="img" aria-label="入门小白高频讨论词条形图，按词频代理讨论热度排序">
+        <div class="row"><span class="lbl">价格 / 预算焦虑<br><small style="color:#8a90a0">budget</small></span><span class="track"><span class="fill" style="width:100%"></span></span><span class="num">82</span><span class="freqnote">budget</span></div>
+        <div class="row"><span class="lbl">调试预期落差<br><small style="color:#8a90a0">lube</small></span><span class="track"><span class="fill" style="width:74%"></span></span><span class="num">61</span><span class="freqnote">lube</span></div>
+        <div class="row"><span class="lbl">稳定器 / 润轴<br><small style="color:#8a90a0">stab</small></span><span class="track"><span class="fill" style="width:63%"></span></span><span class="num">52</span><span class="freqnote">stab</span></div>
+        <div class="row"><span class="lbl">轴体选择困惑<br><small style="color:#8a90a0">linear</small></span><span class="track"><span class="fill" style="width:60%"></span></span><span class="num">49</span><span class="freqnote">linear</span></div>
+        <div class="row"><span class="lbl">轴体选择困惑<br><small style="color:#8a90a0">tactile</small></span><span class="track"><span class="fill" style="width:54%"></span></span><span class="num">44</span><span class="freqnote">tactile</span></div>
+        <div class="row"><span class="lbl">"便宜=质量差"<br><small style="color:#8a90a0">cheap</small></span><span class="track"><span class="fill" style="width:40%"></span></span><span class="num">33</span><span class="freqnote">cheap</span></div>
+        <div class="row"><span class="lbl">噪音扰人<br><small style="color:#8a90a0">loud</small></span><span class="track"><span class="fill" style="width:32%"></span></span><span class="num">26</span><span class="freqnote">loud</span></div>
+        <div class="row"><span class="lbl">噪音 / 求静音<br><small style="color:#8a90a0">quiet</small></span><span class="track"><span class="fill" style="width:21%"></span></span><span class="num">17</span><span class="freqnote">quiet</span></div>
+        <div class="row"><span class="lbl">轴键帽兼容焦虑<br><small style="color:#8a90a0">compatib</small></span><span class="track"><span class="fill" style="width:15%"></span></span><span class="num">12</span><span class="freqnote">compatib</span></div>
+        <div class="row"><span class="lbl">术语墙 / 困惑<br><small style="color:#8a90a0">confus</small></span><span class="track"><span class="fill" style="width:10%"></span></span><span class="num">8</span><span class="freqnote">confus</span></div>
+        <div class="row"><span class="lbl">手感线上试不了<br><small style="color:#8a90a0">in person</small></span><span class="track"><span class="fill" style="width:5%"></span></span><span class="num">4</span><span class="freqnote">in person</span></div>
+        <div class="row"><span class="lbl">买错 / 后悔<br><small style="color:#8a90a0">regret</small></span><span class="track"><span class="fill" style="width:2.5%"></span></span><span class="num">2</span><span class="freqnote">regret</span></div>
+        <div class="row"><span class="lbl">信息过载<br><small style="color:#8a90a0">overwhelm</small></span><span class="track"><span class="fill" style="width:1.2%"></span></span><span class="num">1</span><span class="freqnote">overwhelm</span></div>
+      </div>
+      <p class="src" style="margin-top:8px">来源：对 <code>mechkb-beginner.md</code>（1692 行）按词根 <code>grep -ioc</code> 计数，2026-06。注：词根计数会跨上下文命中（如 budget/loud 也出现在非痛点语境），故仅作"讨论热度"相对排序，不作绝对人头。</p>
+    </figure>
+    <p class="callout"><b>小结：</b>被谈论最多的不是"看不懂术语"（confus 仅 8），而是<strong>价格/预算（82）+ 到手还要润轴调稳定器的预期落差（lube 61 / stab 52）</strong>。术语墙靠后，更可能因为它是"入门第一周就翻过去的坎"，而后面的钱和折腾才是持续话题。下面逐条展开，每条挂真实原声。</p>
+  </section>
+
+  <!-- ===== 1 调试预期落差 ===== -->
+  <section>
+    <h2 class="rank-h"><span>① 调试预期落差："买回还要润轴 / 调稳定器"</span><span class="freqtag">lube×61 · stab×52</span></h2>
+    <h3>论述</h3>
+    <p>小白以为买的是"成品"，到手才发现成品只是起点：稳定器响（rattle/ticking）、个别键肉、想要的音色还得自己润轴。这是语料里频次最高的一类技术性抱怨，且常以"完全新手求救"的口吻出现——他们没料到"开箱即用"的键盘会"开箱即坏音"。营销话术里的"pre-lubed / tuned out of the box"在小白这里被反复证伪。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Order arrived a few days ago. Mostly happy with the board but my backspace and shift key have been <b>ticking from the start?</b> ... my backspace key was <b>extremely mushy</b> ... I'm completely new to keychron and a beginner when it comes to keyboards in general. If someone could suggest some <b>beginner friendly mods, or compatible replacement stabilisers</b>..."</p><span class="src">— Keychron P1 HE 用户求助帖《P1 he ticking stabs》· r/Keychron · <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">原帖（keychron.md L325）</a> · 2026</span></div>
+    <div class="ugc"><p>"The stabs are <b>slightly rattly</b> but with some dielectric grease and the plumber's tape mod on the stabs, it's <b>an ez fix</b>."</p><span class="src">— AJAZZ AK820 V2 评测 · r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L873）</a> · 2026 ｜ 注：对老手"ez fix"，对小白却是劝退门槛——"dielectric grease + plumber's tape mod"本身就是术语墙</span></div>
+    <p class="callout"><b>小结：</b>痛点不是"键盘坏了"，而是<strong>"好"与"能用"之间隔着一套小白没听过的工序</strong>。老手轻描淡写的"ez fix"恰恰量化了门槛落差：同一句话对两类人是天堂和地狱。</p>
+  </section>
+
+  <!-- ===== 2 价格/预算 ===== -->
+  <section>
+    <h2 class="rank-h"><span>② 价格 / 预算焦虑 + "便宜=质量差"</span><span class="freqtag">budget×82 · cheap×33 · expensive×12</span></h2>
+    <h3>论述</h3>
+    <p>价格是绝对高频词，且常与"看不懂为什么这么贵 / 这么便宜"绑定。最典型的是<strong>同一型号渠道价差</strong>：Keychron P6 Ultra Amazon $152、官网 $199，让评测者反复说"It's very confusing"。另一面是"便宜没好货"的预设，让预算有限的小白不敢买对的东西。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"The price still confuses me, it's $20 cheaper on Amazon and has gone on sale twice already for <b>$152</b>. On the keychron site it's <b>$199</b>. What? Full sized aluminum Ultra line 8k keychron keyboard..for $152. <b>It's very confusing to me.</b>"</p><span class="src">— Keychron P6 Ultra Review（非测评博主视角）· r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L932）</a> · 2026</span></div>
+    <div class="ugc"><p>"i live in a space that i cant let it be too loud ... Please im no expert i just know i want the switches to be linear ... <b>Budget: under 70$</b> ... Brand: I dont mind as long as its good."</p><span class="src">— 《Need help with finding a new keyboard (TKL quiet)》· r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L192）</a> · 2026 ｜ 典型小白预算锚点：&lt;$70 + 又要静音又要 linear 又要可靠</span></div>
+    <div class="third">第三方对照：评论区老手把渠道乱价"翻译"成可操作信息——"that pricing confusion is classic keychron - amazon warehouse deals and third party sellers make it a mess. for $152 a full aluminum 8k board is actually solid value"（mechkb-beginner.md L934）。说明痛点不是"贵"，是"无法判断贵得值不值"。</div>
+    <p class="callout"><b>小结：</b>预算痛点的核心是<strong>"价格无法解码"</strong>——渠道乱价 + 无法把规格翻译成价值。小白不缺钱，缺的是"$70 / $150 / $200 各能买到什么"的锚点表。</p>
+  </section>
+
+  <!-- ===== 3 信息过载/术语墙 ===== -->
+  <section>
+    <h2 class="rank-h"><span>③ 信息过载 / 术语墙 / 二手市场无从下手</span><span class="freqtag">confus×8 · overwhelm×1（低频但语气最重）</span></h2>
+    <h3>论述</h3>
+    <p>术语墙词频不高（confus 8），但<strong>这是"低频高痛"的典型代表</strong>——每条出现都伴随强情绪。小白要同时消化轴/布局/连接/键帽/PCB/稳定器/profile 七套术语，还要在 r/mechmarket 这种无筛选二手市场里大海捞针。把"低词频"误读成"不痛"会严重失真，所以本条特意单列。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Completely new to this world. I want to get started with something secondhand ... but browsing r/mechmarket is <b>beyond overwhelming</b>. Is there a secondhand marketplace that's easier to browse? <b>What is an upgrade-friendly starter brand</b> that offers 96%/1800 options...?"</p><span class="src">— 新手二手求助帖 · r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L1015）</a> · 2026</span></div>
+    <div class="ugc"><p>"I know Amazon has gotten some traction lately for having some good keycaps, but <b>i don't even KNOW where to start</b> with them."</p><span class="src">— 键帽选购困惑帖 · r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L975）</a> · 2026（全大写 KNOW = 情绪强度）</span></div>
+    <div class="ugc"><p>"After doing a deep dive into the sub-$80 market ... I've noticed a few industry trends and trade-offs that have me <b>genuinely confused</b>. ... Why have backlighting if it doesn't illuminate the legends? ... doesn't this drain the battery so fast that it effectively forces you to use it wired, defeating the purpose...?"</p><span class="src">— 《Discussion: The entry-level mechanical keyboard market is confusing》（25↑）· r/Keychron · <a href="https://www.reddit.com/r/Keychron/" target="_blank" rel="noopener">原帖（keychron.md L84）</a> · 2026</span></div>
+    <div class="third">第三方对照：海量"beginner guide"恰恰反证术语墙真实存在——指南普遍承认"Terms like 'thocky,' 'hotswap,' or 'linear' can feel overwhelming"（GlacierPCGaming / TheTechSidekick 2025 入门指南，2026-06 检索）。供给侧用内容填坑，但内容本身也成了新的过载源。</div>
+    <p class="callout"><b>小结：</b>这是被词频低估最严重的一条。<strong>真正的痛不是"有术语"，而是"术语之间互相矛盾 + 没有可信的排序"</strong>（那条 25 赞热帖通篇在问"为什么 A 又要 B 又冲突"）。</p>
+  </section>
+
+  <!-- ===== 4 手感线上试不了/买错 ===== -->
+  <section>
+    <h2 class="rank-h"><span>④ 手感无法线上体验 → 买错成本 / 后悔</span><span class="freqtag">in person×4 · regret×2（结构性痛点，词频天然偏低）</span></h2>
+    <h3>论述</h3>
+    <p>这是<strong>结构性痛点</strong>：手感（重量、段落、音色、键程）几乎无法在线复现，YouTube 音测也带录音/喇叭失真。结果是"买了才知道不对"，甚至要买两块才试出对的轴。词频低不代表不痛——而是因为"买错"的人往往默默吃亏、或转手二手，不会专门发帖喊"regret"。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"tactile switches always make my fingers vibrate uncomfortably ... <b>Then I decided to try</b> the silver edition 84 with the surfer switches ... the surfer switches are <b>the real star of the show</b>."</p><span class="src">— 《Lofree Flow 2 thoughts》· r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L110）</a> · 2026 ｜ 须买两块才试出对的轴 = "线上试不了手感"的直接代价</span></div>
+    <div class="third">第三方对照（Kinetic Labs《Keyboard Switch Testers Are Underrated》，2026-06 检索）："there aren't many real-world opportunities to physically test tangible items before purchase ... especially true in the mechanical keyboard hobby where opinions from content creators rely heavily on personal preference." —— 行业用 switch tester（轴体试用包）这一品类，正是为对冲此痛而生，反证痛点真实。</div>
+    <p class="callout"><b>小结：</b>这是行业的<strong>原生结构缺陷</strong>，不是某个品牌的锅。词频低 = 痛得无声。switch tester 的存在本身就是这条痛点的"商业化注脚"，但小白往往不知道它存在。</p>
+  </section>
+
+  <!-- ===== 5 轴/键帽兼容焦虑 ===== -->
+  <section>
+    <h2 class="rank-h"><span>⑤ 轴 / 键帽兼容焦虑（非标布局、bottom row 坑）</span><span class="freqtag">compatib×12 · 1.25u / 1.5u / bottom row 多次命中</span></h2>
+    <h3>论述</h3>
+    <p>小白买了第一块键盘后想换键帽/换轴美化，才撞上兼容墙：<strong>非标 bottom row</strong>（spacebar/Ctrl/Alt/Win 尺寸异类）让大批键帽套买回来装不上；<strong>HE 磁轴、光轴、Topre</strong> 与普通 MX 轴不通用；甚至同型号不同批次固件/矩阵都不兼容。这条词频中等，但一旦踩中就是"已花的钱白花"。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Welcome in the hobby! <b>You also have the wrong bottom row.</b> Should be 1.5U for CTRL and ALT keys, and the Windows key has to be a 1U. As you can see it leaves some gaps around."</p><span class="src">— 老手回复新手装键帽求助 · r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L882）</a> · 2026</span></div>
+    <div class="ugc"><p>"Had to <b>really look to find a keycap set with two 1.25u keys on R2</b> 😅"</p><span class="src">— 客制化用户 · r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L664）</a> · 2026 ｜ 连进阶玩家都要"really look"，小白几乎必踩</span></div>
+    <div class="third">第三方对照（KeebsForAll《Keycaps Not Fitting》/ Keychron 官方《Are Keycaps Universal?》，2026-06 检索）："The bottom row ... is the most likely culprit for compatibility issues. Most Corsair, Razer and Logitech keyboards have an odd bottom row." 官方/媒体一致建议"stick to standard layouts"——证明这是公认的小白陷阱，非个例。</div>
+    <p class="callout"><b>小结：</b>兼容焦虑的根源是<strong>"美化是第一次升级冲动，却撞上隐藏的物理规格"</strong>。预装非标 bottom row 的预制键盘（尤其老 Logitech/Razer/Corsair）= 隐形锁定。</p>
+  </section>
+
+  <!-- ===== 6 噪音 ===== -->
+  <section>
+    <h2 class="rank-h"><span>⑥ 噪音扰人（同住 / 办公 / 深夜场景）</span><span class="freqtag">loud×26 · quiet×17 · too loud 反复出现</span></h2>
+    <h3>论述</h3>
+    <p>噪音是最具体、最有画面感的痛点——它不抽象，会立刻被家人/同事/室友实时投诉。它还和"linear/clicky 选轴"强耦合：小白冲着"thock 音"买，结果发现 thock 在卧室隔壁就是灾难。求静音（quiet）也是新手求助帖的高频约束条件。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"my office is next to the bedroom ... <b>The keyboard is too loud for that.</b> In fact, during the day she thought it was <b>hailstoning outside</b>. I've ordered some TTC Frozen Silent V2 switches for now."</p><span class="src">— 《Evo 80 x PBTfans Lucy R2》· r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L95）</a> · 2026 ｜ "以为在下冰雹"= 最生动的扰人画面</span></div>
+    <div class="ugc"><p>"Defs <b>not office friendly</b>, though, if you care about being liked."</p><span class="src">— box jades clicky 轴体验 · r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L943）</a> · 2026 ｜ 把噪音直接换算成"职场人际成本"</span></div>
+    <p class="callout"><b>小结：</b>噪音是<strong>"买前没人提醒、买后立刻被投诉"</strong>的即时痛点。它驱动了一条明确的补救消费链：买轴 → 换静音轴（TTC Frozen Silent / Outemu Silent）→ 加垫。给小白的正确动作是"先选静音，再谈音色"。</p>
+  </section>
+
+  <!-- ===== 7 反方/证伪：智商税 ===== -->
+  <section>
+    <h2>⑦ 先猎证伪：机械键盘是"智商税"吗？（理性反方 ≠ 全盘否定）</h2>
+    <h3>论述</h3>
+    <p>为避免幸存者偏差，专门去猎"泼冷水"的声音。结论先行：在 <code>mechkb-beginner.md</code> 中，<strong>"纯智商税/scam/waste of money"式全盘否定极少命中</strong>，gimmick 仅个位数、且多用于具体功能（trackpoint/touchbar）而非整品类。所以"智商税"不是主流声音。<strong>但真实存在的理性反方是"边际收益递减"与"别为噱头加价"</strong>——这对"办公升级/只想要个好键盘"的小白尤其重要。</p>
+    <h3>证据</h3>
+    <div class="dual">
+      <div class="ugc"><p>"ponied up the princely sum of <b>$120 for a Cooler Master Quickfire TK</b> ... <b>I've used it every day since</b>."（12 年老兵）</p><span class="src">— 《How to be a super elite mech keeb hobbyist, from a 12 year veteran》· r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L254）</a> · 2026 ｜ 反方A：$120 用十年，边际收益递减</span></div>
+      <div class="ugc"><p>"<b>It's just a keyboard, not designing a jet plane.</b> ... they don't innovate ... mainly oem products pieced together ... Name brands just have their products finishing done better, with better packaging design and marketing."</p><span class="src">— r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L370）</a> · 2026 ｜ 反方B：别为品牌溢价/营销买单</span></div>
+      <div class="ugc"><p>"Adding stuff like this just increases price, and makes an already niche hobby even more niche ... you've increased the price of the already expensive board ... on some <b>gimmick</b>."</p><span class="src">— 关于 trackpoint/touchbar 噱头的讨论（7↑）· r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L1045）</a> · 2026 ｜ 反方C：花哨功能=徒增价格</span></div>
+      <div class="ugc"><p>"At <b>180 euros it still feels overpriced</b>, better keycaps and stabilizers would amend that."（Realforce R4 Topre）</p><span class="src">— r/MechanicalKeyboards · <a href="https://www.reddit.com/r/MechanicalKeyboards/" target="_blank" rel="noopener">原帖（mechkb-beginner.md L264）</a> · 2026 ｜ 反方D：高价旗舰"不值这个价"</span></div>
+    </div>
+    <p class="callout"><b>小结（so what）：</b>"智商税"假设被证伪——它是少数声音。但<strong>"边际收益递减 + 别为噱头加价"是真实且理性的对立面</strong>。对"办公升级/文字工作者"，他们最怕的不是花钱，是<em>被迫进入折腾循环</em>。正确解法不是"教你润轴"，而是给一份"开箱即用 + 可选升级"的分层清单——给模板，不给作业。</p>
+  </section>
+
+  <!-- ===== 对比矩阵 ===== -->
+  <section>
+    <h2>对比矩阵：8 条痛点 × 词频 / 真实痛感 / 性质 / 营销话术 vs 真实</h2>
+    <p>关键看"讨论热度"与"推断痛感"两列的<strong>背离</strong>：背离越大，越容易被词频排序误导。</p>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1：入门小白 8 大痛点对照（点击表头高亮该列）。痛感为基于语气强度/结构性的人工推断，非测量值。</caption>
+      <thead><tr><th>痛点</th><th>讨论热度<br>(词频代理)</th><th>推断真实痛感</th><th>性质</th><th>营销话术</th><th>UGC 真实反馈</th></tr></thead>
+      <tbody>
+        <tr><td>① 调试预期落差（润轴/稳定器）</td><td><span class="pill">高 (lube61/stab52)</span></td><td><span class="pill bad">高</span></td><td>预期管理</td><td>"pre-lubed, tuned out of the box"</td><td>"ticking from the start""extremely mushy"</td></tr>
+        <tr><td>② 价格/预算 + 渠道乱价</td><td><span class="pill">最高 (82)</span></td><td><span class="pill mid">中高</span></td><td>信息不对称</td><td>"旗舰级/8K 性价比"</td><td>"$152 vs $199...very confusing"</td></tr>
+        <tr><td>③ 信息过载/术语墙</td><td><span class="pill mid">低 (confus8)</span></td><td><span class="pill bad">高</span></td><td>认知负荷</td><td>"小白也能轻松上手"</td><td>"beyond overwhelming""genuinely confused"</td></tr>
+        <tr><td>④ 手感线上试不了/买错</td><td><span class="pill mid">很低 (in person4)</span></td><td><span class="pill bad">高(结构性)</span></td><td>渠道结构缺陷</td><td>"音测视频/参数详尽"</td><td>须买两块才试对轴；switch tester 才是解</td></tr>
+        <tr><td>⑤ 轴/键帽兼容焦虑</td><td><span class="pill mid">中 (compatib12)</span></td><td><span class="pill mid">中高</span></td><td>隐藏规格锁定</td><td>"自由换帽/随心换轴"</td><td>"you have the wrong bottom row"</td></tr>
+        <tr><td>⑥ 噪音扰人</td><td><span class="pill">中 (loud26)</span></td><td><span class="pill mid">中高(场景)</span></td><td>即时社交成本</td><td>"满足的 thock 音"</td><td>"she thought it was hailstoning""not office friendly"</td></tr>
+        <tr><td>⑦ 价格虚高/为噱头买单</td><td><span class="pill mid">低 (gimmick少)</span></td><td><span class="pill mid">中</span></td><td>理性反方</td><td>"创新功能/旗舰用料"</td><td>"it's just a keyboard""still feels overpriced"</td></tr>
+        <tr><td>⑧ "便宜=质量差"误判</td><td><span class="pill mid">中 (cheap33)</span></td><td><span class="pill mid">中</span></td><td>预设偏见</td><td>—（小白自带）</td><td>$135 Akko/$120 Feker 被老手认证好用</td></tr>
+      </tbody>
+    </table></div>
+    <p class="src" style="margin-top:6px">来源：综合 mechkb-beginner.md / keychron.md UGC + 第三方指南整理，2026-06。"推断痛感"为人工标注，非测量，仅供与词频列对照看背离。</p>
+  </section>
+
+  <!-- ===== 关键洞察与机会 ===== -->
+  <section>
+    <h2>关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察1：最大的"被低估"痛点是③信息过载与④手感试不了——词频低但痛感高。</b>谁能把"低频高痛"这两条解决，谁就抓住了小白决策的真正瓶颈，而不是在大家都在卷的"参数/音色"上内耗。</p>
+    <p class="callout"><b>机会A · "解码价格"的分层锚点表（对②）：</b>做一张"$70 / $120 / $200 各能买到什么 + 渠道乱价提醒"的对照卡。痛点不是贵，是"无法判断值不值"。这是内容/导购可立刻落地的钩子。</p>
+    <p class="callout"><b>机会B · "开箱即用 + 可选升级"分层清单（对①⑦）：</b>面向"办公升级/文字工作者"，明确区分"开箱就好（预润+预调稳定器，认证型号）"与"想玩再升级（润轴/换帽教程）"。给模板不给作业，对冲"被迫折腾"恐惧。</p>
+    <p class="callout"><b>机会C · "先静音再谈音色"的选购漏斗（对⑥）：</b>把场景（同住/开放办公/深夜）放在选轴第一步，默认推静音 linear，再谈音色。可做成"30 秒选轴问答"。</p>
+    <p class="callout"><b>机会D · "标准 bottom row + hotswap"作为小白安全区（对⑤）：</b>明确告诉小白"第一块就买标准布局 + 热插拔"，避免隐形规格锁定。这也是把"美化冲动"安全引导成复购的护城河。</p>
+    <p class="callout"><b>机会E · switch tester 前置触达（对④）：</b>小白根本不知道轴体试用包存在。在购买决策前推送"先花 $15 试轴再买 $150 键盘"，既降买错率又建立信任。</p>
+  </section>
+
+  <!-- ===== Caveats ===== -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge partial">部分</span> H4.1-a（痛点排序须由 UGC 频次支撑）：词频支持"价格 + 调试预期落差"被讨论最多、术语墙靠后的<strong>讨论热度</strong>排序，但这是<strong>代理指标，不等于痛感强度</strong>。词频同帖重复计数、词根跨语境命中（budget/loud 也出现在非痛点句）会失真。置信度 <strong>中偏低</strong>。已用多个独立帖原文交叉印证。</li>
+      <li><span class="fbadge falsified">已证伪</span> H4.1-b（"智商税"是小白痛点主流声音）：导出语料中 scam/waste of money 0 次有效命中、gimmick 个位数且多指具体功能，全盘否定属少数。已修正为"理性反方 = 边际收益递减 / 别为噱头加价"，而非"智商税"。</li>
+      <li><span class="fbadge confirmed">已核实</span> "非标 bottom row 是公认小白键帽陷阱"：UGC（L882/L664）+ 第三方（KeebsForAll、Keychron 官方指南）三方一致，2026-06 检索。</li>
+      <li><span class="fbadge confirmed">已核实</span> "手感线上试不了是结构性痛点"：UGC（须买两块才试对轴）+ Kinetic Labs 评测明确"few real-world opportunities to physically test"，switch tester 品类即为对冲此痛而生。</li>
+      <li><span class="fbadge open">仍开放</span> "词频低 = 痛感低"被本页主动否定（③④为反例），但"低频高痛"的量化（情感打分/人头去重）尚缺，目前为基于语气强度的人工推断。表1"推断痛感"列非测量值。</li>
+      <li><span class="fbadge open">仍开放</span> 仅基于 2 份英文子版块导出，未覆盖中文/B 站/小红书等本地小白语境，跨文化痛点排序可能不同（如中文区"码字党/静电容/客制化群购"权重或更高）。不外推。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 来源 ===== -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>本地 Reddit 导出 — <code>reddit-exports/mechkb-beginner.md</code>（872 帖 / 12837 评论；本页引用行：L95/110/192/254/264/370/664/873/882/932/934/943/975/1015/1045）（采集 2026-06）</li>
+      <li>本地 Reddit 导出 — <code>reddit-exports/keychron.md</code>（864 帖 / 6397 评论；本页引用行：L84/325/820/826）（采集 2026-06）</li>
+      <li>词频统计 — 对上述 .md 按词根 <code>grep -ioc</code> 计数（mechkb-beginner：budget×82、lube×61、stab×52、linear×49、tactile×44、cheap×33、loud×26、quiet×17、compatib×12、confus×8、in person×4、regret×2、overwhelm×1）（2026-06）</li>
+      <li>GlacierPCGaming《Essential Terminology for Mechanical Keyboard Newbies》— <a href="https://glacierpcgaming.com/blogs/news/essential-terminology-for-mechanical-keyboard-newbies" target="_blank" rel="noopener">链接</a>（检索 2026-06）</li>
+      <li>The Tech Sidekick《Best Beginner's Guide to Mechanical Keyboards (2025 Edition)》— <a href="https://thetechsidekick.com/beginners-guide-to-mechanical-keyboards-2025/" target="_blank" rel="noopener">链接</a>（检索 2026-06）</li>
+      <li>KeebsForAll《Keycaps Not Fitting: Common Causes》— <a href="https://keebsforall.com/blogs/mechanical-keyboards-101/keycaps-not-fitting-common-causes" target="_blank" rel="noopener">链接</a>（检索 2026-06）</li>
+      <li>Keychron 官方《Are Keycaps Universal? Compatibility Guide》— <a href="https://www.keychron.com/blogs/news/are-keycaps-universal" target="_blank" rel="noopener">链接</a>（检索 2026-06）</li>
+      <li>Kinetic Labs《Keyboard Switch Testers Are Underrated》— <a href="https://kineticlabs.com/blog/keyboard-switch-testers-are-underrated" target="_blank" rel="noopener">链接</a>（检索 2026-06）</li>
+    </ol>
+    <p class="src">注：Reddit 单帖深链以导出文件内记录的原始 URL 为准；本页 r/版块链接用于定位版块，具体帖请对照括注的导出文件行号。价格/型号均为 2026-06 采集时点，行业迭代极快。本页所有"痛感强度"判断为人工推断，排序图严格为"讨论热度代理指标"。</p>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块四 Task 4.1 · 采集时点 2026-06 · 价格/型号以原文为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

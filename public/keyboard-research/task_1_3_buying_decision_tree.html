@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 1.3：小白选购决策树 · 机械键盘行业深度调研</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* 仅本页局部：决策树 SVG 与速查卡，骨架样式仍走 style.css */
+.tree-svg text{font-family:inherit}
+.tree-svg .qbox{font-weight:700}
+.tree-svg .hint{font-size:11px}
+.pricecard{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem;margin:1rem 0}
+.pricecard .card{margin:0}
+.pricecard .card b{color:#3a3aff}
+.q-legend{display:flex;flex-wrap:wrap;gap:8px;margin:.6rem 0}
+.q-legend span{font-size:.8rem;padding:2px 9px;border-radius:11px;border:1px solid #ccd}
+.q1{background:#23234a;color:#fff;border-color:#23234a}
+.q2{background:#f4eefe;color:#6a31b0;border-color:#c4a9f0}
+.q3{background:#eafbf0;color:#1f7a48;border-color:#8fd9ab}
+.q4{background:#fff6e8;color:#9a6a16;border-color:#f0c878}
+.q5{background:#e9f7fb;color:#1a6f88;border-color:#8fd0e0}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块一 · Task 1.3</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块一 · TASK 1.3 · 键盘世界全景</span>
+  <h1>小白选购决策树：五个问题，把你导到该买的那一类键盘</h1>
+  <p class="lede">不讲玄学、不堆术语。从「预算 → 用途 → 系统（Mac/Win）→ 安静程度 → 是否想折腾」五个递进提问出发，给一棵可视化决策树，每条分支落到 1–2 个 2026-06 仍在售的代表型号与真实价位——并用 Reddit 真实原声校正每一步的取舍。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（r/MechanicalKeyboards · r/BudgetKeebs · r/MacOS 等）&gt; 第三方评测（RTINGS · Switch and Click · Tom's Hardware）&gt; 官方话术（Keychron · Wooting · RK 官网）<br>
+  主要来源：r/BudgetKeebs、r/mac-keyboard 导出贴；Switch and Click「Under $50」；Tom's Hardware「Best Budget」；Keychron / Wooting / Royal Kludge 官网价目（采集 2026-06-10）</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ============ 0 这棵树为什么这样排 ============ -->
+  <section>
+    <h2>0. 先说结论：为什么是这五个问题、这个顺序</h2>
+    <h3>论述</h3>
+    <p>新手最容易犯的错，不是选错型号，而是<strong>把五个相互独立的问题搅成一句话问出来</strong>——「我想要个 60% 的青轴热插拔三模游戏键盘大概多少钱」。这句话横跨了尺寸、轴体、可定制性、连接、用途、预算六个轴（见 <a href="task_1_2_classification_axes.html">Task 1.2 分类轴</a>）。决策树的作用，是把这团乱麻拆成<strong>有先后、可逐层收束</strong>的提问。</p>
+    <p>那么哪个问题该排第一？调研里一个反直觉的发现：<strong>不是预算</strong>。主流入门指南几乎都把「预算」和「主要用途」<strong>并列</strong>当第一层——因为同样 ¥400，给游戏党和给打字党的答案完全不同；而「系统 / 安静度 / 折腾意愿」更像是收束阀门，用来在已经缩小的候选里做最后筛选。所以这棵树采用<strong>预算 × 用途双入口</strong>，再用 Q3–Q5 收口。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"我想要个好声音但又不太吵的键盘，¥3–4k 卢比预算。可靠性比花哨功能重要。主要用途：打字 + 休闲游戏（不打竞技）。有什么推荐、或者该避开的型号？"</p><span class="src">— r/BudgetKeebs 用户提问 · reddit.com/r/BudgetKeebs · 导出贴 mechkb-beginner.md L396 · 2026 抓取</span></div>
+    <p>注意这条真实提问的结构——用户自己就是先抛<strong>预算</strong>，紧跟<strong>用途</strong>，再补<strong>安静度</strong>（"不太吵"）。这正是决策树该走的顺序，是从真实新手嘴里长出来的，不是我们硬排的。</p>
+    <div class="ugc"><p>"找个 TKL 的安静键盘。必须是 TKL，没得商量。我住的地方不能太吵（说的是深夜游戏）……我知道这是轴体的事但我不是专家，我只知道我要线性轴。热插拔或者就是个可靠的都行。<strong>*要安静*</strong>，要 80% TKL，要便宜。预算：70 美元以内。"</p><span class="src">— r/BudgetKeebs u/Ok-Abbreviations4374「Need help with finding a new keyboard (TKL quiet)」· <a href="https://www.reddit.com/r/BudgetKeebs/comments/1t6dd7h/need_help_with_finding_a_new_keyboard_tkl_quiet/">reddit 链接</a> · 导出贴 L191–192</span></div>
+    <h3>小结</h3>
+    <p class="callout"><b>小结：</b>真实新手提问天然是「预算 + 用途打头，安静度/尺寸收束」的结构。决策树顺序照搬这个真实语序，比照搬教科书的「先选轴体」更贴近人怎么想。<b>Q1 预算</b>框范围 → <b>Q2 用途</b>定方向 → <b>Q3 系统 / Q4 安静 / Q5 折腾</b>三道收束阀。</p>
+  </section>
+
+  <!-- ============ 决策树主图 ============ -->
+  <section>
+    <h2>1. 决策树主图（五问导流）</h2>
+    <div class="q-legend">
+      <span class="q1">Q1 预算</span><span class="q2">Q2 用途</span><span class="q3">Q3 系统</span><span class="q4">Q4 安静度</span><span class="q5">Q5 折腾</span>
+    </div>
+    <figure class="framed">
+      <svg class="tree-svg" viewBox="0 0 940 860" width="100%" role="img" aria-label="新手选购决策树（五问导流，每个出口带代表型号与价位）">
+        <rect width="940" height="860" fill="#fbfbfe"/>
+        <text x="470" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#23234a">新手选购决策树 · 五问导流（出口含代表型号与 2026-06 价位）</text>
+
+        <!-- Q1 预算 -->
+        <rect x="370" y="46" width="200" height="50" rx="10" fill="#23234a"/>
+        <text class="qbox" x="470" y="70" text-anchor="middle" fill="#fff">Q1 预算多少？</text>
+        <text class="hint" x="470" y="87" text-anchor="middle" fill="#bcd">先框住可选范围</text>
+
+        <!-- 三档预算 -->
+        <line x1="470" y1="96" x2="150" y2="128" stroke="#9aa"/><line x1="470" y1="96" x2="470" y2="128" stroke="#9aa"/><line x1="470" y1="96" x2="800" y2="128" stroke="#9aa"/>
+        <rect x="60" y="128" width="180" height="42" rx="8" fill="#fdeef2" stroke="#f0a9bf"/><text x="150" y="154" text-anchor="middle" fill="#b02a55" font-weight="700">¥150–400 入门</text>
+        <rect x="380" y="128" width="180" height="42" rx="8" fill="#fdeef2" stroke="#f0a9bf"/><text x="470" y="154" text-anchor="middle" fill="#b02a55" font-weight="700">¥400–900 主流</text>
+        <rect x="710" y="128" width="180" height="42" rx="8" fill="#fdeef2" stroke="#f0a9bf"/><text x="800" y="154" text-anchor="middle" fill="#b02a55" font-weight="700">¥900+ 进阶/客制</text>
+
+        <!-- Q2 用途 -->
+        <line x1="150" y1="170" x2="470" y2="196" stroke="#9aa"/><line x1="470" y1="170" x2="470" y2="196" stroke="#9aa"/><line x1="800" y1="170" x2="470" y2="196" stroke="#9aa"/>
+        <rect x="330" y="196" width="280" height="46" rx="10" fill="#6a31b0"/>
+        <text class="qbox" x="470" y="219" text-anchor="middle" fill="#fff">Q2 主要拿来干什么？</text>
+        <text class="hint" x="470" y="235" text-anchor="middle" fill="#dcd">打字工作 / 竞技游戏 / 通勤办公</text>
+
+        <!-- 三个用途分支 -->
+        <line x1="380" y1="242" x2="150" y2="278" stroke="#9aa"/><line x1="470" y1="242" x2="470" y2="278" stroke="#9aa"/><line x1="560" y1="242" x2="800" y2="278" stroke="#9aa"/>
+        <rect x="40" y="278" width="220" height="72" rx="8" fill="#f4eefe" stroke="#c4a9f0"/>
+        <text x="150" y="302" text-anchor="middle" fill="#6a31b0" font-weight="700">打字 / 文字工作党</text>
+        <text class="hint" x="150" y="320" text-anchor="middle" fill="#555">→ 65%/75% 热插拔，茶轴或线性</text>
+        <text class="hint" x="150" y="336" text-anchor="middle" fill="#555">手感 &amp; 声音优先，留换轴空间</text>
+        <rect x="360" y="278" width="220" height="72" rx="8" fill="#f4eefe" stroke="#c4a9f0"/>
+        <text x="470" y="302" text-anchor="middle" fill="#6a31b0" font-weight="700">通勤 / 办公党</text>
+        <text class="hint" x="470" y="320" text-anchor="middle" fill="#555">→ 75%/TKL，红轴或静音轴</text>
+        <text class="hint" x="470" y="336" text-anchor="middle" fill="#555">安静 + 紧凑 + 即插即用</text>
+        <rect x="690" y="278" width="220" height="72" rx="8" fill="#f4eefe" stroke="#c4a9f0"/>
+        <text x="800" y="302" text-anchor="middle" fill="#6a31b0" font-weight="700">竞技 / FPS 游戏党</text>
+        <text class="hint" x="800" y="320" text-anchor="middle" fill="#555">→ 60%/TKL，磁轴(要 RT)或快线性</text>
+        <text class="hint" x="800" y="336" text-anchor="middle" fill="#555">有线/2.4G，看响应与防冲突</text>
+
+        <!-- Q3 系统 -->
+        <line x1="150" y1="350" x2="470" y2="378" stroke="#9aa"/><line x1="470" y1="350" x2="470" y2="378" stroke="#9aa"/><line x1="800" y1="350" x2="470" y2="378" stroke="#9aa"/>
+        <rect x="320" y="378" width="300" height="46" rx="10" fill="#1f7a48"/>
+        <text class="qbox" x="470" y="401" text-anchor="middle" fill="#fff">Q3 主力是 Mac 还是 Win？</text>
+        <text class="hint" x="470" y="417" text-anchor="middle" fill="#cec">决定键帽布局 / Cmd 键位 / 改键方式</text>
+
+        <line x1="420" y1="424" x2="270" y2="450" stroke="#9aa"/><line x1="520" y1="424" x2="670" y2="450" stroke="#9aa"/>
+        <rect x="120" y="450" width="300" height="44" rx="8" fill="#eafbf0" stroke="#8fd9ab"/>
+        <text class="hint" x="270" y="468" text-anchor="middle" fill="#1f7a48" font-weight="700">Mac：选带 Mac 模式/双系统键帽</text>
+        <text class="hint" x="270" y="485" text-anchor="middle" fill="#1f7a48">认准 Cmd 与 X 对齐、有 macOS 改键</text>
+        <rect x="520" y="450" width="300" height="44" rx="8" fill="#eafbf0" stroke="#8fd9ab"/>
+        <text class="hint" x="670" y="468" text-anchor="middle" fill="#1f7a48" font-weight="700">Win：绝大多数键盘默认即用</text>
+        <text class="hint" x="670" y="485" text-anchor="middle" fill="#1f7a48">注意磁轴板的 RT 软件多为 Win 优先</text>
+
+        <!-- Q4 安静度 -->
+        <line x1="270" y1="494" x2="470" y2="520" stroke="#9aa"/><line x1="670" y1="494" x2="470" y2="520" stroke="#9aa"/>
+        <rect x="320" y="520" width="300" height="46" rx="10" fill="#9a6a16"/>
+        <text class="qbox" x="470" y="543" text-anchor="middle" fill="#fff">Q4 需要多安静？</text>
+        <text class="hint" x="470" y="559" text-anchor="middle" fill="#edc">合租/开放工位/深夜 → 静音/红轴，避开青轴</text>
+
+        <line x1="380" y1="566" x2="230" y2="596" stroke="#9aa"/><line x1="560" y1="566" x2="720" y2="596" stroke="#9aa"/>
+        <rect x="80" y="596" width="300" height="42" rx="8" fill="#fff6e8" stroke="#f0c878"/>
+        <text class="hint" x="230" y="613" text-anchor="middle" fill="#9a6a16" font-weight="700">很在意 → 静音轴/静音环+PBT厚帽</text>
+        <text class="hint" x="230" y="629" text-anchor="middle" fill="#9a6a16">线性静音 &gt; 段落 &gt; 青轴（最吵）</text>
+        <rect x="570" y="596" width="300" height="42" rx="8" fill="#fff6e8" stroke="#f0c878"/>
+        <text class="hint" x="720" y="613" text-anchor="middle" fill="#9a6a16" font-weight="700">不太在意 → 轴体随手感选</text>
+        <text class="hint" x="720" y="629" text-anchor="middle" fill="#9a6a16">想要 thock 反而追"声音"，见 M3</text>
+
+        <!-- Q5 折腾 -->
+        <line x1="230" y1="638" x2="470" y2="666" stroke="#9aa"/><line x1="720" y1="638" x2="470" y2="666" stroke="#9aa"/>
+        <rect x="310" y="666" width="320" height="46" rx="10" fill="#1a6f88"/>
+        <text class="qbox" x="470" y="689" text-anchor="middle" fill="#fff">Q5 以后想折腾（换轴/改键）吗？</text>
+        <text class="hint" x="470" y="705" text-anchor="middle" fill="#cef">想 → 认准「热插拔 + QMK/VIA」；不想 → 买成品一步到位</text>
+
+        <!-- 终端：四类出口 + 代表型号 -->
+        <line x1="470" y1="712" x2="160" y2="744" stroke="#9aa"/><line x1="470" y1="712" x2="400" y2="744" stroke="#9aa"/><line x1="470" y1="712" x2="640" y2="744" stroke="#9aa"/><line x1="470" y1="712" x2="850" y2="744" stroke="#9aa"/>
+        <rect x="30" y="744" width="240" height="96" rx="10" fill="#23234a"/>
+        <text x="150" y="766" text-anchor="middle" fill="#fff" font-weight="700">办公安静党出口</text>
+        <text class="hint" x="150" y="786" text-anchor="middle" fill="#bcd">Keychron K8 Pro / V1 (TKL/75%)</text>
+        <text class="hint" x="150" y="802" text-anchor="middle" fill="#bcd">RK84 三模 ¥约420 起</text>
+        <text class="hint" x="150" y="822" text-anchor="middle" fill="#9ab">静音红轴 + 即插即用</text>
+        <rect x="288" y="744" width="224" height="96" rx="10" fill="#6a31b0"/>
+        <text x="400" y="766" text-anchor="middle" fill="#fff" font-weight="700">打字进阶党出口</text>
+        <text class="hint" x="400" y="786" text-anchor="middle" fill="#dcd">Keychron K6/V1 热插拔 65/75%</text>
+        <text class="hint" x="400" y="802" text-anchor="middle" fill="#dcd">¥约450–700</text>
+        <text class="hint" x="400" y="822" text-anchor="middle" fill="#d9c8f0">茶/线性 + 可换轴留余地</text>
+        <rect x="530" y="744" width="224" height="96" rx="10" fill="#1f7a48"/>
+        <text x="642" y="766" text-anchor="middle" fill="#fff" font-weight="700">竞技游戏党出口</text>
+        <text class="hint" x="642" y="786" text-anchor="middle" fill="#cec">Wooting 60HE v2 磁轴 RT</text>
+        <text class="hint" x="642" y="802" text-anchor="middle" fill="#cec">$179.99 起；预算紧→国产磁轴</text>
+        <text class="hint" x="642" y="822" text-anchor="middle" fill="#bfe0cc">Rapid Trigger + 0.1mm 可调</text>
+        <rect x="772" y="744" width="160" height="96" rx="10" fill="#1a6f88"/>
+        <text x="852" y="766" text-anchor="middle" fill="#fff" font-weight="700">客制入坑出口</text>
+        <text class="hint" x="852" y="786" text-anchor="middle" fill="#cef">Gasket + 热插拔</text>
+        <text class="hint" x="852" y="802" text-anchor="middle" fill="#cef">MonsGeek/GMK67 套件</text>
+        <text class="hint" x="852" y="822" text-anchor="middle" fill="#bfe0ee">支持 VIA，可后续升级</text>
+      </svg>
+      <figcaption>图：新手五问选购决策树（自绘）。预算 × 用途双入口在前，系统/安静/折腾三道收束阀，四类出口各配代表型号与 2026-06 价位。<span class="src">综合 RTINGS、Switch and Click、Tom's Hardware 入门指南 + Keychron/Wooting/RK 官网价 + r/BudgetKeebs 共识，2026-06-10</span></figcaption>
+    </figure>
+    <p class="callout"><b>速查（懒人版）：</b>办公安静党 → 75%/TKL + 静音/红轴 + 三模成品；打字党 → 65%/75% 热插拔 + 茶/线性，留折腾空间；游戏党 → 60%/TKL + 磁轴（要 Rapid Trigger）或快线性 + 有线/2.4G；想入坑客制 → 热插拔 + Gasket + 支持 VIA 的套件。</p>
+  </section>
+
+  <!-- ============ Q1 预算 ============ -->
+  <section>
+    <h2>2. Q1 预算：三档价位各能买到什么（带具体型号与价）</h2>
+    <h3>论述</h3>
+    <p>预算第一步不是为了"买最便宜"，而是<strong>把不可能的组合先排除</strong>。¥150 不可能买到全金属 Gasket 热插拔三模；¥900 也没必要再纠结薄膜。三档分法（采集 2026-06）：</p>
+    <div class="pricecard">
+      <div class="card"><h4>入门 ¥150–400</h4><p><b>RK Royal Kludge RK68</b>（65%，三模热插拔，官网 $52.99）/ <b>RK84</b>（75%，3750mAh，$59.99）。能买到热插拔 + 无线，但用料、稳定器、声音是"够用"级。<span class="src">RK 官网/Amazon，2026-06-10</span></p></div>
+      <div class="card"><h4>主流 ¥400–900</h4><p><b>Keychron K6 / K8 Pro / V1</b>（65%/TKL/75%，热插拔 + 三模，Mac/Win 双系统键帽）。新手"一步到位、还能换轴"的甜点区，社区最常推这一档。<span class="src">Keychron 官网，2026-06-10</span></p></div>
+      <div class="card"><h4>进阶/客制 ¥900+</h4><p><b>Keychron Q 系列</b>（CNC 铝壳 Gasket）/ <b>Wooting 60HE v2</b>（磁轴，$179.99 起）/ 套件分买（壳+轴+键帽）。为特定诉求（声音/磁轴/全自定义）付溢价。<span class="src">Keychron / Wooting 官网，2026-06-10</span></p></div>
+    </div>
+    <h3>证据</h3>
+    <div class="ugc"><p>"在 AliExpress 上一家小厂随便逛 deskmat 时发现的，标价大概 120 美元。这价位能有这么多好功能、装起来超简单……Latte 轴和 Stupid Stabs 都很棒，我甚至比第一把（用 Keygeek Y2 + TX AP 稳定器那把）更喜欢这把。"</p><span class="src">— r/BudgetKeebs 用户「2nd ever build, Zouya LMK81」· 导出贴 mechkb-beginner.md L526 · 2026 抓取</span></div>
+    <p>这条印证了"主流档"的真实体感：¥800 上下（约 $120）已经能买到带不错稳定器、好轴、装配简单的成品/准成品，<strong>边际幸福感最高的就是这一档</strong>。</p>
+    <h3>小结</h3>
+    <p class="callout"><b>小结：</b>预算不是为省钱，是为剪枝。新手主力人群落在 <b>¥400–900 主流档</b>——热插拔 + 三模 + Mac/Win 双系统键帽的成品，既"一步到位"又"留了换轴后路"，是 r/BudgetKeebs 与各家评测的最大公约数。</p>
+  </section>
+
+  <!-- ============ Q2 用途 ============ -->
+  <section>
+    <h2>3. Q2 用途：同样预算，三类人答案完全不同</h2>
+    <h3>论述</h3>
+    <p>用途是和预算并列的"第一性问题"，因为它决定了你该把钱花在哪个维度：打字党买<strong>手感与声音</strong>，游戏党买<strong>响应与防冲突</strong>，办公党买<strong>安静与紧凑</strong>。同样 ¥500，三种买法几乎不重叠。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"7 年了终于把我的 Razer BlackWidow 换成 Akko 5108S + Crystal 轴……我玩很多音游，需要按键快速回弹、不能晃。这是我第一次用线性轴，挺喜欢。声音对旁人也不烦，很轻。打字也很爽，能写长文章而手指不累。"</p><span class="src">— r/BudgetKeebs 用户「Akko Taiko no tatsujin edition」· 导出贴 mechkb-beginner.md L543 · 2026 抓取</span></div>
+    <p>典型"游戏（音游）+ 兼顾打字"的人，自己得出的结论是<strong>线性轴 + 快速回弹 + 不晃</strong>——这正是游戏分支该导向的特征，和打字党追"段落感/thock"是两个方向。</p>
+    <div class="ugc"><p>"换了下班放松用的工作键盘轴：之前那颗虽然段落比 T1 强，但不管多轻按都很吵，让我在办公室打字很有压力。换成不那么吵、轻按也不容易触底的，舒服多了。"</p><span class="src">— r/MechanicalKeyboards 用户评论（JWK T1 vs 工作轴）· 导出贴 mechkb-beginner.md L380 · 2026 抓取</span></div>
+    <h3>小结</h3>
+    <p class="callout"><b>小结：</b>"用途"把同一笔预算导向不同维度——打字党的钱花在手感/声音轴，游戏党花在响应/磁轴 RT，办公党花在安静/紧凑。新手别问"哪把最好"，先问"我主要拿它干嘛"。</p>
+  </section>
+
+  <!-- ============ Q3 系统 ============ -->
+  <section>
+    <h2>4. Q3 系统（Mac vs Win）：Mac 用户的隐藏坑——Cmd 键对齐</h2>
+    <h3>论述</h3>
+    <p>Win 用户基本无脑——绝大多数键盘默认布局即用。<strong>Mac 用户才是要专门挑的那一拨</strong>：两个独立的坑——①键帽布局/Cmd 是否与 X 对齐（影响 cmd-快捷键手感）；②是否有 Mac 模式 + macOS 改键软件。此外，磁轴游戏板的 Rapid Trigger 配置软件常常 Win 优先，Mac 上功能受限，这点在游戏 × Mac 的交叉路径要警惕。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"我见过的第一把 Cmd 键与 X 对齐的 Mac 机械键盘……经常用 cmd 快捷键的人懂我在说什么。一般机械键盘的 Command 键是和 X 错位的，导致手指劳损。正因为这个，我多年来一直抗拒机械键盘、死守剪刀脚。"</p><span class="src">— r/mac-keyboard 用户（Akko Air 01 评测）· 导出贴 mac-keyboard.md L208 · 2026 抓取</span></div>
+    <div class="ugc"><p>"终于有人提这个该死的 Command 键错位了——Mac 用户被它折磨了好多年。"<br>另一条："从 Logi MX Keys 过来，最烦的是要手动在 Windows / Mac 布局间切换。"</p><span class="src">— 同帖高赞回复 · 导出贴 mac-keyboard.md L209 / L208 · 2026 抓取</span></div>
+    <div class="ugc"><p>"Keychron B6 Pro 在 Mac 上有按键不触发：Left Cmd + Left Opt + Left Arrow 不响应（我用 Raycast 做窗口管理）。已确认不是 macOS 冲突，是这块膜键盘矩阵的物理限制。"</p><span class="src">— r/Keychron 用户「B6 Pro Ghosting Issue」· 导出贴 keychron.md L810 · 2026 抓取</span></div>
+    <h3>小结</h3>
+    <p class="callout"><b>小结：</b>系统这一问对 Win 用户近乎无操作；对 Mac 用户是真坑：认准<b>①Cmd 与 X 对齐的布局、②带 Mac 模式 + macOS 改键</b>，并预期"手动切换 Win/Mac 模式"的小麻烦。这也是 Keychron 在 Mac 圈口碑稳的根因——它默认照顾 Mac 布局。</p>
+  </section>
+
+  <!-- ============ Q4 安静度 ============ -->
+  <section>
+    <h2>5. Q4 安静度：合租/开放工位的"社死"红线</h2>
+    <h3>论述</h3>
+    <p>安静度是收束阀里被低估的一个。它的排序很清楚：<strong>静音轴（带静音环）&lt; 线性轴 &lt; 段落（茶）轴 &lt; 青轴（最吵）</strong>。新手常被"青轴清脆好听"种草，结果在合租/开放工位/深夜场景里"社死"。厚 PBT 键帽、内部填充也能进一步压声，但轴体选择是第一决定项。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"我要 *安静*……（深夜游戏）……我知道这是轴体的事，但我只知道我要线性轴。"</p><span class="src">— r/BudgetKeebs u/Ok-Abbreviations4374 · <a href="https://www.reddit.com/r/BudgetKeebs/comments/1t6dd7h/need_help_with_finding_a_new_keyboard_tkl_quiet/">reddit 链接</a> · 导出贴 L192</span></div>
+    <div class="ugc"><p>"换了不那么吵、轻按也不容易触底的轴，在办公室打字不再让我对自己的打字声那么自我意识（self-conscious）了。"</p><span class="src">— r/MechanicalKeyboards 用户 · 导出贴 mechkb-beginner.md L380 · 2026 抓取</span></div>
+    <div class="ugc"><p>"我本来有点担心 Kailh Cloud（线性）会太静音，结果不是——就是干净的线性轴，短行程、稍重的弹簧，打字很顺、还意外地安静。"</p><span class="src">— r/mac-keyboard 用户（Akko AIR 01 低配评测）· 导出贴 mac-keyboard.md L38 · 2026 抓取</span></div>
+    <h3>小结</h3>
+    <p class="callout"><b>小结：</b>安静诉求 = 轴体优先级倒挂。先排除青轴，再在静音/线性里挑；厚 PBT + 内部填充是加分项。共享空间用户把"安静"提到比"手感"更前面，是反复出现的真实诉求。</p>
+  </section>
+
+  <!-- ============ Q5 折腾 ============ -->
+  <section>
+    <h2>6. Q5 是否想折腾：决定你买"成品"还是"半成品"</h2>
+    <h3>论述</h3>
+    <p>最后一道阀门，分流出两种人格：<strong>想折腾的</strong>，认准「热插拔 PCB + QMK/VIA 改键 + Gasket 结构」，把第一把当起点；<strong>不想折腾的</strong>，买调好声音的成品一步到位，别碰套件。需要提醒新手的真实成本：折腾有"翻车税"——拆装、稳定器调校、甚至焊接，都可能在第一把上交学费。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"我入了一套 Geim65 套件，终于做了人生第一把客制。可选的热插拔 PCB 让第一次组装没那么吓人，说明书也很直白……然后作为新手我立刻犯了灾难性错误：把稳定器钢丝装到了 stem 下面而不是里面，等组装到 90% 才发现。于是我体验了把每一颗轴和稳定器全拆下来、一边拆一边怀疑人生的'正宗客制体验'。"</p><span class="src">— r/MechanicalKeyboards u/(My First Build- Geim65) · 导出贴 mechkb-beginner.md L21–23 · 2026 抓取</span></div>
+    <div class="ugc"><p>"我第一把焊接 PCB 的客制（Mekanisk Urskog）……刻意选了相对简单、轻量的板子，正合我意。"<br>另一条新手建议："换轴时记得托住热插拔的 socket——很多老的廉价预算板根本没法正确托住。"</p><span class="src">— r/MechanicalKeyboards 导出贴 mechkb-beginner.md L244 / L414 · 2026 抓取</span></div>
+    <h3>小结</h3>
+    <p class="callout"><b>小结：</b>"想折腾"≠"该买套件"。热插拔成品是<b>低风险折腾入口</b>：先换轴/换键帽这种零风险操作，确认真感兴趣再上 Gasket 套件甚至焊接。第一把就上焊接套件，翻车税很高（拆光重来是常态）。</p>
+  </section>
+
+  <!-- ============ 对比矩阵：四类出口 ============ -->
+  <section>
+    <h2>7. 对比矩阵：四类出口的代表配置（点表头高亮该列）</h2>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表：决策树四类出口 × 关键维度（型号/价为 2026-06 采集，仅作锚点）</caption>
+      <thead><tr><th>维度</th><th>办公安静党</th><th>打字进阶党</th><th>竞技游戏党</th><th>客制入坑</th></tr></thead>
+      <tbody>
+        <tr><td>推荐尺寸</td><td>75% / TKL</td><td>65% / 75%</td><td>60% / TKL</td><td>65% / 75% 套件</td></tr>
+        <tr><td>轴体方向</td><td>静音轴 / 红轴</td><td>茶轴 / 线性</td><td>磁轴(要 RT) / 快线性</td><td>自选（先线性试水）</td></tr>
+        <tr><td>连接</td><td>三模（多设备切换）</td><td>三模 / 有线</td><td>有线 / 2.4G（低延迟）</td><td>看 PCB，多为有线/三模</td></tr>
+        <tr><td>热插拔</td><td>建议有</td><td><span class="pill good">必须有</span></td><td>磁轴本身免焊</td><td><span class="pill good">必须有</span></td></tr>
+        <tr><td>代表型号</td><td>Keychron K8 Pro / RK84</td><td>Keychron K6 / V1</td><td>Wooting 60HE v2</td><td>MonsGeek M1 / GMK67 套件</td></tr>
+        <tr><td>价位(2026-06)</td><td>¥约420–650</td><td>¥约450–700</td><td>$179.99 起 (≈¥1300)</td><td>套件 ¥300–800+轴+帽</td></tr>
+        <tr><td>Mac 友好</td><td><span class="pill good">高(双系统键)</span></td><td><span class="pill good">高</span></td><td><span class="pill bad">RT 软件多 Win 优先</span></td><td>看固件(VIA 跨平台)</td></tr>
+        <tr><td>新手风险</td><td><span class="pill good">低</span></td><td><span class="pill good">低</span></td><td><span class="pill mid">中(配置学习)</span></td><td><span class="pill bad">高(翻车税)</span></td></tr>
+      </tbody>
+    </table></div>
+    <p style="font-size:.85rem;color:#666">注：人民币价为按官网美元价与常见国行/电商区间的粗略锚点，非实时报价；磁轴档预算紧张者可看国产磁轴板（如 Aula/Royal Kludge HE 系，UGC 中有人用 Aula Win60HE 做首把 HE 建造，见 mechkb-beginner.md L503）。</p>
+  </section>
+
+  <!-- ============ 关键洞察 ============ -->
+  <section>
+    <h2>8. 关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察 1 · "用途"比"预算"更该当第一问，但市面导购大多反着来。</b> 真实新手提问天然先报预算+用途，但很多电商导购页第一层是"价格筛选"，把游戏党和打字党塞进同一个价格桶。<b>机会：</b>做一个"先选用途、再选预算"的反向选购器/小程序，比纯价格筛选更贴近真实决策路径——这正是本页决策树可直接产品化的形态。</p>
+    <p class="callout"><b>洞察 2 · Mac 的 Cmd 键对齐是被严重低估的痛点入口。</b> "Cmd 与 X 错位导致手指劳损"在 r/mac-keyboard 是高共鸣点，且让一批人"多年抗拒机械键盘"。<b>机会：</b>把"Mac 布局 / Cmd 对齐 / macOS 改键"做成一个独立筛选标签和详情页卖点，而不是埋在规格表里——谁先把它讲清楚，谁就吃下犹豫中的 Mac 文字工作者。</p>
+    <p class="callout"><b>洞察 3 · "想折腾"是个连续光谱，不是开关。</b> 真实新手几乎都从"热插拔成品 → 换轴/换键帽 → 套件 → 焊接"逐级上瘾，且第一把焊接套件翻车率高。<b>机会：</b>用"热插拔成品 + 一包试用轴 + 拔键器/托socket 教程"打包成"低风险折腾入门包"，把翻车税前置消化掉，降低退坑率。</p>
+    <p class="callout"><b>洞察 4 · 安静诉求在共享空间是"硬约束"而非偏好。</b> 多条 UGC 把"安静"放在手感之前（深夜游戏/开放工位/对打字声自我意识）。<b>机会：</b>静音轴 + 厚 PBT + 填充的"安静套装"对合租/开放办公人群是清晰卖点，可独立成 SKU，而非只在轴体参数里一笔带过。</p>
+  </section>
+
+  <!-- ============ Caveats ============ -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge falsified">已证伪</span> <strong>H-1.3a「预算是新手第一决策变量」：</strong>原假设被推翻。主流入门指南（RTINGS、Switch and Click、Tom's Hardware）与真实 r/BudgetKeebs 提问均显示<strong>预算与用途并列为第一层</strong>，用户自己也是"预算+用途"一起抛。已据此把决策树设为双入口。置信度：medium-high（基于多个一致来源 + 真实提问语序）。</li>
+      <li><span class="fbadge confirmed">已核实</span> <strong>H-1.3b「Mac 用户需专门挑键盘」：</strong>成立。Cmd 与 X 对齐、Mac 模式、macOS 改键三点在 r/mac-keyboard 与 r/Keychron 反复出现，且有具体故障案例（B6 Pro 矩阵 ghosting）。置信度：high。</li>
+      <li><span class="fbadge confirmed">已核实</span> <strong>H-1.3c「第一把不建议焊接套件」：</strong>成立。多条 first-build UGC 记录了稳定器装反需全拆、socket 托不住等翻车，热插拔成品是更稳的入口。置信度：high（UGC 直接佐证）。</li>
+      <li><span class="fbadge partial">部分</span> <strong>价格锚点：</strong>美元价为官网/Amazon 采集（RK68 $52.99、RK84 $59.99、Wooting 60HE v2 $179.99 起，2026-06-10），人民币为粗略换算区间，非实时国行报价；型号迭代快，下单前以原页为准。</li>
+      <li><span class="fbadge open">仍开放</span> r/MechanicalKeyboards 官方置顶的"第一把怎么选"权威长帖未能直接抓取（Reddit 正文多返回 403/无索引），本页 UGC 以可访问的 r/BudgetKeebs、r/mac-keyboard、r/Keychron 导出贴为主，权威 wiki 原文留待后续补强。</li>
+      <li><span class="fbadge open">仍开放</span> 磁轴档"预算紧张选国产 HE"仅有零散 UGC（Aula Win60HE 首建），缺第三方横评把国产磁轴与 Wooting 在 RT 一致性上做量化对比，结论强度有限。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 来源 ============ -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>r/BudgetKeebs — u/Ok-Abbreviations4374「Need help with finding a new keyboard (TKL quiet)」（安静 TKL 预算 $70 真实提问）：<a href="https://www.reddit.com/r/BudgetKeebs/comments/1t6dd7h/need_help_with_finding_a_new_keyboard_tkl_quiet/">reddit.com/r/BudgetKeebs/…/tkl_quiet</a>（导出贴 mechkb-beginner.md L191–192，采集 2026-06-10）</li>
+      <li>r/BudgetKeebs / r/MechanicalKeyboards — first-build 与预算建造帖串（Geim65 首建翻车、Zouya LMK81 $120 建造、托 socket 提醒、Aula Win60HE 磁轴首建）：导出贴 mechkb-beginner.md L21/L380/L414/L503/L526/L543（采集 2026-06-10）</li>
+      <li>r/mac-keyboard — Akko Air 01 评测与 Cmd 键对齐讨论串（Mac Cmd/X 对齐痛点、Win/Mac 手动切换、Kailh Cloud 安静线性）：导出贴 mac-keyboard.md L38/L208–211（采集 2026-06-10）</li>
+      <li>r/Keychron — 「B6 Pro Ghosting Issue: Left Cmd + Left Opt + Left Arrow」（Mac 上矩阵 ghosting 实例）：导出贴 keychron.md L810（采集 2026-06-10）</li>
+      <li>Switch and Click — Best Mechanical Keyboards Under $50 [2025]（Tecware Phantom/Velocifire/Drevo 等入门型号与定位）：<a href="https://switchandclick.com/mechanical-keyboards-under-50/">switchandclick.com/mechanical-keyboards-under-50</a>（采集 2026-06-10）</li>
+      <li>Tom's Hardware — Best Budget Mechanical Keyboards（含 Keychron V1 Max、Redragon K728 Pro 等预算与热插拔推荐）：<a href="https://www.tomshardware.com/best-picks/best-budget-mechanical-keyboards">tomshardware.com/best-picks/best-budget-mechanical-keyboards</a>（采集 2026-06-10）</li>
+      <li>Keychron 官网 — K6（65% 热插拔三模，Mac/Win）/ K8 / V1 / Q1 HE 8K 产品页（双系统键帽、热插拔、磁轴 8K）：<a href="https://www.keychron.com/products/keychron-k6-wireless-mechanical-keyboard">keychron.com/…/k6</a> 等（采集 2026-06-10）</li>
+      <li>RK Royal Kludge 官网 / Amazon — RK68（65% 三模热插拔 $52.99）、RK84（75% 3750mAh $59.99）价目：<a href="https://rkgamingstore.com/products/rk68-68-wireless-gaming-keyboard">rkgamingstore.com/…/rk68</a>（采集 2026-06-10）</li>
+      <li>Wooting 官网 / TechPowerUp — Wooting 60HE v2 磁轴 Rapid Trigger 定价与功能（$179.99 起，0.1mm 可调、8K 轮询）：<a href="https://wooting.io/wooting-60he-v2">wooting.io/wooting-60he-v2</a> · <a href="https://www.techpowerup.com/342477/wooting-reveals-60he-v2-gaming-keyboard-pricing-and-availability">techpowerup 报价</a>（采集 2026-06-10）</li>
+      <li>RTINGS — Keyboard Size Guide（尺寸/布局对应使用场景，决策树尺寸分支依据）：<a href="https://www.rtings.com/keyboard/learn/keyboard-size-guide">rtings.com/keyboard/learn/keyboard-size-guide</a>（采集 2026-06-10）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块一 Task 1.3 · 采集时点 2026-06 · 价格/型号以原页为准，行业迭代极快 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

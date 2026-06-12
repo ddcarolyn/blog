@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 1.1：键盘在外设生态中的位置 & 为什么一块键盘值得讲究</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* 局部样式：仅图内排版与数字卡，骨架样式仍走 style.css */
+.statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;margin:1.1rem 0}
+.statgrid .s{background:#f6f7fb;border:1px solid #e2e5ef;border-radius:10px;padding:.85rem 1rem;text-align:center}
+.statgrid .s b{display:block;font-size:1.5rem;color:#3a3aff;line-height:1.15}
+.statgrid .s small{display:block;color:#666;font-size:.78rem;margin-top:.35rem}
+.contact-svg text{font-family:inherit}
+.q{color:#b23;font-weight:600}
+.note{font-size:.85rem;color:#666}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块1 · Task 1.1</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块1 · 键盘世界全景 · TASK 1.1</span>
+  <h1>键盘在外设生态中的位置 ——为什么一块键盘值得讲究</h1>
+  <p class="lede">只回答一个窄问题：在键盘 / 鼠标 / 显示器三件套里，键盘凭什么是最值得花钱、花心思的那一个？答案不靠"消费主义话术"，而靠三组可量化的客观事实——日均击键量、日接触时长、以及长期使用的人因学（ergonomics）后果。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards）&gt; 第三方评测/学术 &gt; 官方话术<br>
+  主要来源：Eleftheriou et al.(2012, J Occup Med Toxicol 腕管综合征队列)、Wellnomics 白皮书、ScienceDirect/Nature 计算机用户 MSD 系统综述、Rempel/Gerr 等拆分键盘人因学研究、典型行业打字时长调查、Das Keyboard(厂商) 经济模型、Reddit 真实原声。</p>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ============ 1 接触时长 ============ -->
+  <section>
+    <h2>1. 接触时长：键盘是三件套里"手指在它上面待最久"的那个</h2>
+    <h3>论述</h3>
+    <p>"值得讲究"的第一性原理不是手感，而是<strong>暴露剂量</strong>——你的身体每天和它接触多久、强度多大。把外设三件套放到同一把尺子（日接触时长 × 接触强度 × 接触直接性）上量，会发现一个被新手忽略的事实：<strong>显示器是"被动看"，鼠标是"间歇推"，只有键盘是"持续高频地用十指敲击"</strong>。它在三件套里同时拿下了"主动接触""高频""直接压关节"三项满分。</p>
+
+    <h3>证据</h3>
+    <p>多份独立调查在"打字占工作时间的比例"这个口径上高度一致地指向"键盘是接触强度最高的外设"：</p>
+    <div class="ugc"><p>"Full-time employees spent an average of 22.3 hours of their workweeks typing… workers in technology, telecommunications, and finance spent up to and over 80 percent of their time typing—four days out of the average five-day workweek."</p><span class="src">— Typing.com 综合调查《The Time Savings of Fast Typists》· <a href="https://www.typing.com/articles/the-time-saving-of-fast-typists">typing.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"On average, users are using the keyboard or the mouse during 78% of 5-second intervals."（在采样的 5 秒窗口里，78% 都有键鼠输入——即"在电脑前=几乎一直在敲/点"）</p><span class="src">— medRxiv 现场研究《Detecting work-related stress from mouse, keyboard, and cardiac data》, 2025 · <a href="https://www.medrxiv.org/content/10.1101/2025.08.02.25332538.full.pdf">medrxiv.org</a> · 采集 2026-06-10</span></div>
+    <p>注意一个常见的"反向数据"：有研究测得"workers use their computers just 2.4 hours per day（active 输入时间）"——这并不矛盾，它量的是<strong>真正按键/点击的净时长</strong>（去掉了开会、阅读），恰恰说明在你"动手"的那两三个小时里，键盘几乎全程在被使用，而鼠标只是穿插。</p>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>22.3 小时/周</b>——全职员工平均每周打字时长（约占 40 小时工作周的 56%）。<span class="src">Typing.com 调查</span></li>
+      <li><b>≥80%</b>——科技/电信/金融岗位的打字时间占比（相当于一周 5 天里 4 天都在敲键）。<span class="src">同上</span></li>
+      <li><b>78%</b>——采样窗口里出现键鼠输入的比例（电脑前≈一直在用键盘/鼠标）。<span class="src">medRxiv 2025</span></li>
+      <li><b>6–10 小时/天</b>——办公族手握鼠标的时长（作为对照：鼠标是"握着"，键盘是"持续敲击"，后者动作密度更高）。<span class="src">Smart Mouse Co. 行业撰文，2026</span></li>
+    </ul>
+    <p class="callout"><b>小结：</b>在"我动手"的工作时间里，键盘是接触强度最高、动作最密集的外设。鼠标是握、显示器是看，唯有键盘是十指每天上万次落键——它的暴露剂量天然就比另外两件高一个量级。</p>
+  </section>
+
+  <!-- ============ 2 日均击键量 ============ -->
+  <section>
+    <h2>2. 日均击键量：到底每天敲多少下？（给区间 + 标注研究年代）</h2>
+    <h3>论述</h3>
+    <p>"日均敲多少次"是论证"值得讲究"的核心量级。但要诚实：<strong>这是一个跨来源差异极大、且缺乏 2024–2026 大样本一手研究的数字</strong>。坊间常见的"4 万–6 万次/天"更接近一个被反复转述的行业测算，而非某一篇可追溯的实测论文；可追溯的实测研究反而给出更低、更保守的数字。下面把两类数据都摆出来，让读者自己判断。</p>
+
+    <h3>证据</h3>
+    <div class="ugc"><p>"The estimated average number of keystrokes per day was 15,950 (range 11,304, SD 2,410), or about 2,000 per hour."（一份实测口径给出的均值约 1.6 万次/天、约 2000 次/小时）</p><span class="src">— 转引自 WebSearch 聚合的计算机用户击键实测数据；与 Das Keyboard "6,000/天" 假设并列对照 · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Standard keyboards last 5 million clicks… mechanical keyboards last 35 million clicks…（其经济模型按）6,000 keystrokes per day / 2 million keystrokes per year per employee。"</p><span class="src">— Das Keyboard（厂商博客，注意营销立场）《Why Buying Quality Keyboards Could Save Your Company Thousands》· <a href="https://www.daskeyboard.com/blog/keyboards-save-companies-money">daskeyboard.com</a> · 采集 2026-06-10</span></div>
+    <p class="note">辨析：Das Keyboard 是机械键盘厂商，其"6000 次/天→2M/年→机械键盘更耐用更省钱"的链条是<strong>营销驱动的经济模型</strong>，里面没有任何 RSI 成本或第三方验证，6000 这个数字本身偏保守（适合做"耐用度下限"论证）。而"4 万–6 万/天"的高值多来自 Wellnomics 类人因学测算，量级用于"高强度岗位"更合适。</p>
+
+    <h3>具体数据（按口径分层，勿混用）</h3>
+    <div class="statgrid">
+      <div class="s"><b>~1.6万</b><small>实测均值口径<br>(约2000次/小时)</small></div>
+      <div class="s"><b>6千</b><small>Das Keyboard 经济模型<br>假设值(偏保守)</small></div>
+      <div class="s"><b>4万–6万</b><small>常被转述的<br>办公族测算区间</small></div>
+      <div class="s"><b>10万+</b><small>数据录入岗<br>(90 WPM)可超</small></div>
+    </div>
+    <p>把可信的中间口径（一年 250 个工作日 × 实测 ~1.6 万/天 ≈ <strong>400 万次/年</strong>；高强度岗按 4–6 万/天 ≈ <strong>1000 万–1500 万次/年</strong>）摆出来即可看出：哪怕取保守值，一个动作一年也要被重复数百万次。在这个量级下，"手感顺不顺、要不要用力压到底"的边际差异，会被乘以数百万倍放大。</p>
+    <p class="callout"><b>小结：</b>诚实的结论是"日均击键量级在万级到十万级、随岗位跨度极大"，精确单值不可信。但<strong>无论取哪一档，年累计都在百万–千万次量级</strong>——这就是"高频"成立的硬证据，也是把键盘边际改善正当化的乘数。</p>
+  </section>
+
+  <!-- ============ 3 人因学/健康 ============ -->
+  <section>
+    <h2>3. 长期人因学后果：把"高频"翻译成肩颈手腕的真实账单</h2>
+    <h3>论述</h3>
+    <p>如果击键只是一次性动作，频率再高也无所谓。问题在于它是<strong>累积性</strong>的——这正是人因学研究的核心。但这里必须先做一次自我证伪：<strong>"敲得越多越伤"这个朴素直觉，被近年系统综述部分推翻了</strong>。真正的风险因子不是"击键次数"这一单一变量，而是"累积暴露 + 姿势 + 时长 + 工位设置"的组合。下面用最硬的一手研究说清楚。</p>
+
+    <h3>证据 ①：累积击键确实与腕管综合征(CTS)正相关——但量的是"击键-年"，不是"日次数"</h3>
+    <div class="ugc"><p>"Cumulative exposure to keyboard strokes would be taken into account as an exposure indicator…" 高累积暴露组 CTS 患病率随暴露递增（很低 17.3% → 低 32.7% → 中 45.5% → 高 54.4%）；高暴露组 OR = 2.23（95% CI 1.09–4.52）。截断点约 1.495 亿–2.405 亿"击键-年"。</p><span class="src">— Eleftheriou et al., 《Cumulative keyboard strokes: a possible risk factor for carpal tunnel syndrome》, J Occup Med Toxicol, 2012, n=461 · <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3480831/">ncbi.nlm.nih.gov/pmc/PMC3480831</a> · 采集 2026-06-10</span></div>
+    <p>这是本页最强的一手证据：它用 461 人队列、ROC 分析，给出了清晰的<strong>剂量-反应曲线</strong>——累积击键越多，腕管综合征患病率越高，高暴露组发病风险约为低暴露组的 2.2 倍。它的口径是"总击键 × 工龄"（击键-年），印证了"长期高频"确有客观健康代价。</p>
+
+    <h3>证据 ②：但"日击键次数"单独看并不预测 MSD——姿势与时长才是主因</h3>
+    <div class="ugc"><p>"At certain levels, the number of keystrokes was not found to be a risk factor for musculoskeletal disorders… ergonomic factors and duration of computer use are more critical than keystroke count alone."</p><span class="src">— 综合 Wellnomics 白皮书《Keystrokes vs Time as a risk factor for MSDs》 + ScienceDirect/Nature 计算机用户 MSD 系统综述结论 · <a href="https://wellnomics.com/wp-content/uploads/2020/01/Wellnomics-white-paper-Keystrokes-vs-Time-as-a-risk-factor-for-MSDs.pdf">wellnomics.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Significant associations were found between specific ergonomic factors like seat height and monitor positioning and MSD symptoms… most workstations exceeded recommended risk thresholds, with chairs identified as the most problematic component."</p><span class="src">— Nature Scientific Reports《MSD among office workers: prevalence, ergonomic risk factors》, 2025 · <a href="https://www.nature.com/articles/s41598-025-30155-6">nature.com</a> · 采集 2026-06-10</span></div>
+
+    <h3>证据 ③：键盘本身的人因学设计确有可测的改善（拆分/负倾角/张角）</h3>
+    <div class="ugc"><p>"Commercially available split keyboards reduced mean ulnar deviation of both wrists from 12° to within 5° of neutral… an adjustable split layout reduced ulnar deviation by ~25% and wrist extension by ~6° without impacting WPM."</p><span class="src">— Rempel/Gerr 等拆分键盘人因学研究（综述自 ResearchGate《The Split Keyboard: An Ergonomics Success Story》、PubMed 10774127）· <a href="https://pubmed.ncbi.nlm.nih.gov/10774127/">pubmed.ncbi.nlm.nih.gov/10774127</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Less pressure on the keys means less strain on joints, tendons, and muscles… once the actuation point is hit, the switch does the rest（机械轴在触发点即触发，无需压到底，理论上减少终止冲击）。"</p><span class="src">— CHERRY 官方博客（厂商立场，机械轴减负论）《Mechanical Keyboard at the Office》· <a href="https://www.cherry.de/en-gb/company/news/cherry-blog/article/mechanical-keyboard-at-the-office-5-reasons-why-it-can-improve-your-work">cherry.de</a> · 采集 2026-06-10</span></div>
+
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>OR 2.23（95% CI 1.09–4.52）</b>——高累积击键暴露组的腕管综合征发病风险倍数。<span class="src">Eleftheriou 2012</span></li>
+      <li><b>17.3% → 54.4%</b>——CTS 患病率从最低暴露组到最高暴露组的递增（清晰剂量-反应）。<span class="src">同上</span></li>
+      <li><b>12° → ≤5°</b>——拆分键盘把手腕尺偏（ulnar deviation）从约 12° 拉回中性 5° 以内；尺偏与腕背伸是 RSI 两大主因。<span class="src">拆分键盘人因学综述</span></li>
+      <li><b>不影响 WPM</b>——可调拆分布局减少尺偏约 25% 的同时不损打字速度；多数人 2 周内恢复基线手速。<span class="src">同上</span></li>
+    </ul>
+    <p class="callout"><b>小结：</b>"值得讲究"的健康论证要分两半说才严谨：<strong>(a) 长期累积高频确有代价</strong>（CTS 剂量-反应，OR≈2.2，硬证据）；<strong>(b) 但能讲究的不是"少敲几下"，而是改善暴露质量</strong>——姿势、布局（拆分/张角/负倾角）、轴体减负、工位设置。换言之，键盘的"讲究"应当落在"如何让这数百万次落键更省力、更中性"，而不是落在"声音好不好听"。</p>
+  </section>
+
+  <!-- ============ 接触时长对比图 ============ -->
+  <section>
+    <h2>4. 一图看清：三件套的"接触剖面"为什么键盘最特殊</h2>
+    <figure class="framed">
+      <svg class="contact-svg" viewBox="0 0 860 360" width="100%" role="img" aria-label="键盘鼠标显示器接触剖面对比图">
+        <rect width="860" height="360" fill="#fbfbfe"/>
+        <text x="430" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#23234a">外设三件套 · 接触剖面对比</text>
+        <text x="430" y="50" text-anchor="middle" font-size="12" fill="#777">横轴=接触方式，纵轴=三项打分（越满越"值得讲究"）</text>
+
+        <!-- 列标题 -->
+        <text x="200" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="#2b3a8c">键盘</text>
+        <text x="430" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="#9a6a16">鼠标</text>
+        <text x="660" y="92" text-anchor="middle" font-size="15" font-weight="700" fill="#1f7a48">显示器</text>
+
+        <!-- 三行指标 -->
+        <!-- 行1 接触强度 -->
+        <text x="40" y="135" font-size="12" fill="#333">接触/动作密度</text>
+        <rect x="150" y="122" width="160" height="16" rx="8" fill="#e6e9f5"/><rect x="150" y="122" width="156" height="16" rx="8" fill="#3a3aff"/>
+        <rect x="380" y="122" width="160" height="16" rx="8" fill="#e6e9f5"/><rect x="380" y="122" width="96"  height="16" rx="8" fill="#d89a2a"/>
+        <rect x="600" y="122" width="160" height="16" rx="8" fill="#e6e9f5"/><rect x="600" y="122" width="20"  height="16" rx="8" fill="#3a9a5a"/>
+        <!-- 行2 直接性(压关节) -->
+        <text x="40" y="180" font-size="12" fill="#333">对关节直接性</text>
+        <rect x="150" y="167" width="160" height="16" rx="8" fill="#e6e9f5"/><rect x="150" y="167" width="148" height="16" rx="8" fill="#3a3aff"/>
+        <rect x="380" y="167" width="160" height="16" rx="8" fill="#e6e9f5"/><rect x="380" y="167" width="120" height="16" rx="8" fill="#d89a2a"/>
+        <rect x="600" y="167" width="160" height="16" rx="8" fill="#e6e9f5"/><rect x="600" y="167" width="8"   height="16" rx="8" fill="#3a9a5a"/>
+        <!-- 行3 日接触时长占比 -->
+        <text x="40" y="225" font-size="12" fill="#333">日"动手"占比</text>
+        <rect x="150" y="212" width="160" height="16" rx="8" fill="#e6e9f5"/><rect x="150" y="212" width="150" height="16" rx="8" fill="#3a3aff"/>
+        <rect x="380" y="212" width="160" height="16" rx="8" fill="#e6e9f5"/><rect x="380" y="212" width="110" height="16" rx="8" fill="#d89a2a"/>
+        <rect x="600" y="212" width="160" height="16" rx="8" fill="#e6e9f5"/><rect x="600" y="212" width="40"  height="16" rx="8" fill="#3a9a5a"/>
+
+        <line x1="40" y1="250" x2="820" y2="250" stroke="#ddd"/>
+        <text x="40" y="278" font-size="12.5" fill="#23234a" font-weight="700">读图：</text>
+        <text x="110" y="278" font-size="12" fill="#444">键盘三项几乎拉满——主动、高频、十指直接压关节，且年累计百万–千万次。</text>
+        <text x="40" y="302" font-size="12" fill="#444">鼠标：握持为主、单手、动作间歇；显示器：被动观看、不接触关节（其讲究在视觉而非肌骨）。</text>
+        <text x="40" y="326" font-size="11.5" fill="#777">→ 这就是"为什么先讲究键盘"：它是把边际改善乘以最大次数的那个设备。打分为定性示意，非实测刻度。</text>
+      </svg>
+      <figcaption>图：外设三件套接触剖面定性对比（自绘）。<span class="src">综合 Typing.com 打字时长、medRxiv 输入采样、Smart Mouse Co. 鼠标时长，2026-06</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ 对比矩阵 ============ -->
+  <section>
+    <h2>5. 对比矩阵：键盘 vs 鼠标 vs 显示器，谁最"值得讲究"</h2>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表：三件套"值得讲究度"拆解（点击表头高亮该列）</caption>
+      <thead><tr><th>维度</th><th>键盘</th><th>鼠标</th><th>显示器</th></tr></thead>
+      <tbody>
+        <tr><td>接触方式</td><td>十指主动持续敲击</td><td>单手握持+间歇移动/点击</td><td>不接触身体（被动观看）</td></tr>
+        <tr><td>动作/接触密度</td><td><span class="pill bad">最高</span> 年累计百万–千万次落键</td><td><span class="pill mid">中</span> 点击+移动间歇</td><td><span class="pill good">无</span></td></tr>
+        <tr><td>对肌骨关节直接性</td><td><span class="pill bad">高</span> 直压手指/手腕肌腱</td><td><span class="pill mid">中</span> 腕/前臂为主</td><td><span class="pill good">低</span> 影响颈/眼非关节</td></tr>
+        <tr><td>日"动手"时长占比</td><td>~56% 工时在打字(22.3h/周)</td><td>握持6–10h 但净点击少</td><td>全程在看但非"操作"</td></tr>
+        <tr><td>讲究的回报落点</td><td>省力/中性姿势→长期肌骨</td><td>握感/重量/DPI→腕舒适</td><td>护眼/色彩/尺寸→视觉疲劳</td></tr>
+        <tr><td>最硬健康证据</td><td>CTS 剂量-反应 OR≈2.2 (Eleftheriou 2012)</td><td>鼠标性 RSI 有但证据较散</td><td>视疲劳/CVS，非肌骨</td></tr>
+        <tr><td>边际改善被放大倍数</td><td><span class="pill bad">最大</span>（×百万次）</td><td>中</td><td>一次性观看体验</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">说明：本矩阵不是说鼠标/显示器不值得投入，而是回答"为什么键盘的边际改善性价比最高"——因为同一笔改善会被它的高频长期接触放大最多倍。</p>
+  </section>
+
+  <!-- ============ UGC 真实原声 ============ -->
+  <section>
+    <h2>6. 真实原声：用户为什么觉得"换了之后回不去"</h2>
+    <p>把学术证据落到体感层面，UGC 反复出现两类"非营销"理由：<strong>(a) 减负/省力</strong> 与 <strong>(b) 全天打字的舒适与专注</strong>——和上面人因学的"暴露质量"逻辑同构。</p>
+    <div class="ugc"><p>"Once you type on a properly lubed board with good stabilizers, going back feels like using a trampoline."（用过一把调校好的键盘后，回到普通键盘像在踩蹦床）</p><span class="src">— r/MechanicalKeyboards 社区高赞观点（经评测站转述）· <a href="https://www.alibaba.com/product-insights/mechanical-keyboard-reviews-on-reddit-reliable-picks-for-every-budget.html">reddit 转述</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>有腕痛用户报告：换到带磁性掌托的机械键盘后"reduced strain and even began enjoying typing again"（手腕负担减轻，重新开始享受打字）。</p><span class="src">— r/MechanicalKeyboards 用户经历转述 · 同上 · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"For the average user… a mechanical keyboard is not essential, but it is a meaningful quality-of-life upgrade. If you type every day, it's well worth upgrading from a $20 keyboard."（对每天打字的人，从 20 美元键盘升级很值；对偶尔用的人则非必需）</p><span class="src">— 评测/科普综合（含 Reddit 共识转述）· <a href="https://getfreewrite.com/blogs/articles/are-mechanical-keyboards-better">getfreewrite.com</a> · 采集 2026-06-10</span></div>
+    <p class="callout"><b>小结：</b>UGC 与学术口径罕见地对齐——"值得"几乎都被限定在<strong>"你每天大量打字"</strong>这个前提上。这反过来强化本页论点：讲究键盘的正当性来自"高频长期接触"，而非键盘本身的玄学。对低频用户，诚实的答案是"舒适升级，但非刚需"。</p>
+  </section>
+
+  <!-- ============ 关键洞察与机会 ============ -->
+  <section>
+    <h2>7. 关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察 1 · 把营销叙事从"手感/声音"换成"暴露剂量"。</b>"年敲数百万次 × 高累积致 CTS（OR≈2.2）"是有一手论文支撑的硬叙事，比"thock 音好听"更能打动办公/文字工作者这类高频但非发烧的人群。机会：面向打字党的"省力/中性姿势"产品线与内容营销，引用 Eleftheriou 2012 与拆分键盘人因学数据建立信任。</p>
+    <p class="callout"><b>洞察 2 · 真正的差异化在"暴露质量"而非"敲得少"。</b>系统综述否定了"少敲=更健康"，把价值锚点指向姿势/布局/减负。机会：负倾角、可调张角/拆分、轻触发轴 + 掌托的组合，配"2 周适应、不掉速"的实测话术（有据可循），切人因学痛点而非发烧友审美。</p>
+    <p class="callout"><b>洞察 3 · 用"每天是否大量打字"做精准分层。</b>UGC 与评测都把"值得"限定在高频用户。机会：购买页用一个问题分流——"你每天打字超过 2 小时吗？"——是→主推人因学+耐用度叙事；否→坦诚推荐"舒适升级款"，以诚实换长期信任，降低退货与差评。</p>
+    <p class="callout"><b>洞察 4 · 耐用度经济模型可被"去营销化"重做。</b>Das Keyboard 的 6000 次/天模型纯营销且无 RSI 成本项。机会：做一个透明、可调参数（可填自己的日均击键、岗位）的"键盘 TCO/健康暴露计算器"，把 CTS 风险与耐用度一起量化——既是内容钩子，也是 SEO 资产。</p>
+  </section>
+
+  <!-- ============ Caveats & 证伪 ============ -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge falsified">已证伪</span> <strong>H1.1（朴素直觉"敲得越多越伤"）：</strong>原假设"日均击键次数越高→肌骨损伤越重"。被系统综述部分推翻——多份研究指出"at certain levels, the number of keystrokes was not found to be a risk factor for MSDs"，姿势/时长/工位才是主因（Wellnomics、Nature 2025）。已据此把健康论证改为"累积暴露+暴露质量"双层叙事，而非单纯"次数"。置信度：high。</li>
+      <li><span class="fbadge confirmed">已核实</span> <strong>H1.2（累积高频确有代价）：</strong>Eleftheriou et al. 2012（n=461，J Occup Med Toxicol）以"击键-年"为指标，给出 CTS 患病率 17.3%→54.4% 的剂量-反应，高暴露组 OR=2.23（95% CI 1.09–4.52）。这是本页最强一手证据，"长期高频值得讲究"在健康维度成立。置信度：high。</li>
+      <li><span class="fbadge partial">部分</span> <strong>日均击键量：</strong>实测口径约 1.6 万/天、Das Keyboard 假设 6000/天、坊间转述 4 万–6 万/天，跨度极大且口径不一；缺一份 2024–2026 大样本一手研究。<strong>量级（万级–十万级、年累计百万–千万）可信，精确单值不可引用。</strong>"4 万–6 万"应注明为测算而非实测。置信度：medium。</li>
+      <li><span class="fbadge partial">部分</span> <strong>键盘减负论（机械轴"不压到底省力"）：</strong>主要来自 CHERRY 等厂商话术，方向与人因学"轻触发减负"一致、但缺独立对照实验直接证明"机械轴比薄膜更护手"；拆分/张角/负倾角的人因学收益证据更硬。区分：结构与布局的人因学收益＞"轴体类型"的护手收益。置信度：medium。</li>
+      <li><span class="fbadge open">仍开放</span> 直接来自 r/MechanicalKeyboards 的"全天打字体感"高赞原帖未能逐条原文抓取（Reddit 多返回 403/无索引），本页 UGC 以可访问的评测站转述为主，原声卡留待 M4 痛点模块补强。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 来源 ============ -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>Eleftheriou A. et al. — <em>Cumulative keyboard strokes: a possible risk factor for carpal tunnel syndrome</em>, Journal of Occupational Medicine and Toxicology, 2012（n=461，CTS 剂量-反应，OR 2.23）：<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3480831/">ncbi.nlm.nih.gov/pmc/PMC3480831</a>（采集 2026-06-10）</li>
+      <li>Wellnomics — <em>Keystrokes vs Time as a risk factor for musculoskeletal discomfort &amp; MSDs</em>（白皮书；PDF 为图片版，结论经检索摘要核对）：<a href="https://wellnomics.com/wp-content/uploads/2020/01/Wellnomics-white-paper-Keystrokes-vs-Time-as-a-risk-factor-for-MSDs.pdf">wellnomics.com</a>（采集 2026-06-10）</li>
+      <li>Nature Scientific Reports — <em>Musculoskeletal disorders among office workers: prevalence, ergonomic risk factors</em>, 2025（工位/椅子/姿势为主因）：<a href="https://www.nature.com/articles/s41598-025-30155-6">nature.com/articles/s41598-025-30155-6</a>（采集 2026-06-10）</li>
+      <li>ScienceDirect — <em>A systematic review of work-related MSDs and risk factors among computer users</em>（系统综述）：<a href="https://www.sciencedirect.com/science/article/pii/S240584402401106X">sciencedirect.com</a>（采集 2026-06-10）</li>
+      <li>Rempel/Gerr 等拆分键盘人因学 — <em>The Split Keyboard: An Ergonomics Success Story</em> / <em>Wrist and forearm posture from typing on split and vertically inclined keyboards</em>（尺偏 12°→≤5°）：<a href="https://pubmed.ncbi.nlm.nih.gov/10774127/">pubmed.ncbi.nlm.nih.gov/10774127</a>（采集 2026-06-10）</li>
+      <li>Typing.com — <em>The Time Savings of Fast Typists</em>（全职打字 22.3h/周、科技岗 ≥80%）：<a href="https://www.typing.com/articles/the-time-saving-of-fast-typists">typing.com</a>（采集 2026-06-10）</li>
+      <li>medRxiv — <em>Detecting work-related stress from mouse, keyboard, and cardiac data in the field</em>, 2025（5 秒窗 78% 有键鼠输入）：<a href="https://www.medrxiv.org/content/10.1101/2025.08.02.25332538.full.pdf">medrxiv.org</a>（采集 2026-06-10）</li>
+      <li>Das Keyboard（厂商，营销立场） — <em>Why Buying Quality Keyboards Could Save Your Company Thousands</em>（6000 次/天、2M/年、耐用度模型）：<a href="https://www.daskeyboard.com/blog/keyboards-save-companies-money">daskeyboard.com</a>（采集 2026-06-10）</li>
+      <li>CHERRY（厂商，营销立场） — <em>Mechanical Keyboard at the Office: 5 Reasons</em>（机械轴触发点减负论）：<a href="https://www.cherry.de/en-gb/company/news/cherry-blog/article/mechanical-keyboard-at-the-office-5-reasons-why-it-can-improve-your-work">cherry.de</a>（采集 2026-06-10）</li>
+      <li>Smart Mouse Co. — <em>Best Mouse for Office Workers in 2026</em>（鼠标日握持 6–10h，作对照）：<a href="https://smartmouseco.com/blogs/news/best-mouse-for-office-workers-in-2026">smartmouseco.com</a>（采集 2026-06-10）</li>
+      <li>r/MechanicalKeyboards 社区共识（经评测站转述；原帖多 403） — Alibaba product-insights 汇编：<a href="https://www.alibaba.com/product-insights/mechanical-keyboard-reviews-on-reddit-reliable-picks-for-every-budget.html">alibaba.com 转述</a>；Freewrite《Are Mechanical Keyboards Better》：<a href="https://getfreewrite.com/blogs/articles/are-mechanical-keyboards-better">getfreewrite.com</a>（采集 2026-06-10）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块1 Task 1.1 · 采集时点 2026-06，行业迭代极快、数据带口径差异，价格/数字以原文为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

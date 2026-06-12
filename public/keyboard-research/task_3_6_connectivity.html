@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 3.6：连接方式 有线 / 蓝牙 / 2.4G / 三模</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.svg-wrap{overflow-x:auto}
+.svg-wrap svg{display:block;margin:0 auto;max-width:100%;height:auto}
+.mini-note{font-size:13px;color:var(--muted);margin-top:6px}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块三 · Task 3.6</span>
+  <span class="spacer"></span>
+  <a href="full-report.html">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块三 · TASK 3.6 · 机械键盘解剖</span>
+  <h1>连接方式：有线 / 蓝牙 / 2.4G / 三模</h1>
+  <p class="lede">同样是"无线"，<strong>蓝牙和 2.4G 是两套完全不同的东西</strong>：一个为省电和多设备而生、延迟高；一个为低延迟而生、却往往只能连一台、还会跟你的无线鼠标抢信道。这一页只回答一个窄问题——<strong>四种连接方式在「延迟 / 稳定性 / 多设备切换 / 续航」上各让渡了什么，谁该买哪种，无线到底会怎么翻车</strong>。</p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（r/Keychron · r/NuPhy · r/MechanicalKeyboards · r/Epomaker · r/RoyalKludge）&gt; 第三方评测（RTINGS / MKBGuide）&gt; 官方话术<br>
+  主要来源：RTINGS 延迟测试方法论、MKBGuide 无线游戏键盘指南、loadsyn / digit.in 实测、Reddit 各厂 sub 真实翻车帖（含 Keychron J1 固件 bug 代码级分析）</p>
+</div></header>
+
+<main class="wrap">
+
+<!-- ============ 1. 先分清两种"无线" ============ -->
+<section>
+  <h2>1. 先把"无线"拆成两种：蓝牙 ≠ 2.4G（这是全篇前提）</h2>
+  <h3>论述</h3>
+  <p>新手最大的误区是把"无线"当一个东西。实际上市面无线键盘走两条物理链路：<strong>蓝牙（Bluetooth）</strong>用通用协议、走系统蓝牙栈，为<strong>省电 + 一对多设备</strong>优化，代价是协议层被限死了上报频率；<strong>2.4G</strong>是厂商私有协议 + 专用 USB 接收器（dongle），为<strong>低延迟</strong>优化，代价是通常一个接收器只绑一台机、还吃一个 USB 口。三模键盘则是把"有线 + 2.4G + 蓝牙"三套都塞进同一块板，靠侧边拨杆/Fn 组合切换。</p>
+  <h3>证据</h3>
+  <div class="callout"><b>协议天花板（关键技术事实）：</b>蓝牙协议被限制在约 <b>125–133Hz</b> 上报率（即最小上报间隔 ~7.5–8ms），叠加协议开销和省电休眠，真实输入延迟常落在 <b>20–40ms</b>，实验室极端可测到 <b>70ms</b>；2.4G 旗舰板跑 <b>1000Hz（1ms）</b>、部分已上 <b>8000Hz</b>，真实延迟通常落在<strong>有线的 1–2ms 之内</strong>。来源：MKBGuide《Best Wireless Gaming Keyboards: 2.4GHz vs Bluetooth (2026)》、loadsyn 实测、digit.in《wired vs wireless 2026》。</div>
+  <h3>具体数据</h3>
+  <ul>
+    <li><b>有线 USB：</b>默认 1000Hz 轮询，开关触发到信号到达约 <b>1–3ms</b>；无需充电、无配对、无信道争用。</li>
+    <li><b>2.4G dongle：</b>现代旗舰 1000Hz 起、最高 8000Hz；real-world 延迟"<b>within 1 to 2 milliseconds of wired</b>"（MKBGuide）。</li>
+    <li><b>蓝牙：</b>~125Hz / 8ms 每次上报，叠加开销后常 <b>20–40ms+</b>；"will make 1 ms wired latency into 10 ms latency"在差网络环境下更糟（搜索综述）。</li>
+  </ul>
+  <p class="callout"><b>小结：</b>"无线香不香"这个问题没有统一答案——<strong>问的是 2.4G 还是蓝牙</strong>。2.4G 在延迟上已基本追平有线，蓝牙在延迟上则被协议钉死，二者只是同一台键盘里两个用途完全不同的模式。</p>
+</section>
+
+<!-- ============ 2. 延迟图 ============ -->
+<section>
+  <h2>2. 延迟谱：从 1ms 到 70ms 一图看清</h2>
+  <figure class="framed">
+    <div class="svg-wrap">
+    <svg viewBox="0 0 820 280" role="img" aria-label="四种连接方式输入延迟对照">
+      <rect width="820" height="280" fill="#fff"/>
+      <g font-family="sans-serif">
+        <text x="20" y="28" font-size="15" font-weight="700" fill="#1c1a17">输入延迟对照（ms，越短越好）</text>
+        <!-- 轴 -->
+        <line x1="150" y1="60" x2="150" y2="230" stroke="#8a8478"/>
+        <line x1="150" y1="230" x2="780" y2="230" stroke="#8a8478"/>
+        <!-- 刻度 0/10/20/40/70 -->
+        <g font-size="10" fill="#8a8478">
+          <text x="150" y="248" text-anchor="middle">0</text>
+          <text x="240" y="248" text-anchor="middle">10</text>
+          <text x="330" y="248" text-anchor="middle">20</text>
+          <text x="510" y="248" text-anchor="middle">40</text>
+          <text x="780" y="248" text-anchor="middle">70+</text>
+        </g>
+        <text x="465" y="268" text-anchor="middle" font-size="11" fill="#8a8478">延迟 (ms) →</text>
+        <!-- 条 -->
+        <g font-size="13">
+          <!-- 有线 ~1-3 -->
+          <text x="140" y="82" text-anchor="end" fill="#1c1a17" font-weight="700">有线 USB</text>
+          <rect x="150" y="70" width="27" height="18" rx="3" fill="#3d7a4e"/>
+          <text x="184" y="84" font-size="11" fill="#3d7a4e">1–3ms</text>
+          <!-- 2.4G ~2-4 -->
+          <text x="140" y="118" text-anchor="end" fill="#1c1a17" font-weight="700">2.4G dongle</text>
+          <rect x="150" y="106" width="36" height="18" rx="3" fill="#2f6f6a"/>
+          <text x="193" y="120" font-size="11" fill="#2f6f6a">~1–4ms（≈有线）</text>
+          <!-- 蓝牙 ~20-40 -->
+          <text x="140" y="154" text-anchor="end" fill="#1c1a17" font-weight="700">蓝牙 BT</text>
+          <rect x="150" y="142" width="360" height="18" rx="3" fill="#c8731f"/>
+          <text x="518" y="156" font-size="11" fill="#c8731f">~20–40ms</text>
+          <!-- 蓝牙差环境 ~70 -->
+          <text x="140" y="190" text-anchor="end" fill="#1c1a17" font-weight="700">蓝牙·差环境</text>
+          <rect x="150" y="178" width="630" height="18" rx="3" fill="#b0472b" opacity=".7"/>
+          <text x="600" y="192" font-size="11" fill="#fff">实验室极端可达 70ms</text>
+        </g>
+        <line x1="240" y1="60" x2="240" y2="230" stroke="#e2dcd1" stroke-dasharray="3 3"/>
+        <text x="244" y="68" font-size="10" fill="#9c6b1a">10ms ≈ 竞技可感知门槛</text>
+      </g>
+    </svg>
+    </div>
+    <figcaption>图：四种连接的输入延迟量级（非单一型号实测，为各来源区间综合示意）。2.4G 与有线几乎重叠，蓝牙整体抬升一个数量级。<span class="src">自绘示意，数据依据 MKBGuide / loadsyn / digit.in / RTINGS 方法论，2026-06</span></figcaption>
+  </figure>
+  <p class="callout"><b>小结：</b>对码字/办公，蓝牙 20–40ms 你基本无感；对 FPS/格斗，过了 ~10ms 就开始能影响判定——这正是"竞技别用蓝牙"共识的来源，也是为什么 2.4G 而非蓝牙才是"无线游戏"的解。</p>
+</section>
+
+<!-- ============ 3. UGC：无线怎么翻车 ============ -->
+<section>
+  <h2>3. 无线翻车实录：延迟只是入门，真正劝退的是"稳定性"</h2>
+  <h3>论述</h3>
+  <p>评测站给的是理想延迟数字，但 UGC 里劝退用户的几乎从来不是"延迟差几毫秒"，而是<strong>断连、漏键、唤醒丢首字、随时间劣化、2.4G 跟鼠标互相干扰、甚至无线模块直接硬件暴毙</strong>。这是营销话术（"rock solid tri-mode"）和真实长期体验的最大落差。下面按翻车类型摆证据。</p>
+
+  <h3>证据 A · 蓝牙随机断连（最高频抱怨）</h3>
+  <div class="ugc"><p>"我用 MacBook Pro M3 蓝牙连 Keychron J1……正常办公时蓝牙连接<strong>大约 30 分钟后随机掉线</strong>，掉了之后必须把键盘关了再开才能重连。之前用 Logitech 好几年从没蓝牙问题。产品页评论里也有人提到蓝牙问题。"</p><span class="src">— u/chefranov · r/Keychron《Keychron J1 Bluetooth randomly disconnects》· <a href="https://www.reddit.com/r/Keychron/comments/1tp31p0/keychron_j1_bluetooth_randomly_disconnects/">reddit.com/r/Keychron/.../keychron_j1_bluetooth_randomly_disconnects</a> · 2026</span></div>
+  <div class="ugc"><p>"用了 Keychron Q1 Pro 两年半……唯一的问题就是<strong>蓝牙偶发掉线/重连</strong>。换了 Epomaker QK10 后蓝牙好太多，切换设备连得更快、续航更长。"</p><span class="src">— r/Epomaker 设备迁移帖 · <a href="https://www.reddit.com/r/Epomaker/">reddit.com/r/Epomaker</a> · 2026</span></div>
+
+  <h3>证据 B · 断连背后是固件 bug（社区做到代码级）</h3>
+  <p>r/Keychron 一条高赞回复直接扒了 J1/J2 的 QMK 固件源码，把"关掉 RGB 反而更容易断蓝牙"这个反直觉现象定位到了具体逻辑——证明很多"玄学断连"是真·软件缺陷，而非用户环境问题：</p>
+  <div class="ugc"><p>"我翻了 J1 固件源码（<code>james-donkey/qmk_firmware</code>, <code>wireless_playground</code> 分支），'RGB 关掉就断蓝牙'的耦合是真的、在代码里看得见。<code>lpm.c</code> 里深睡门控判断……RGB <strong>开</strong>时键盘要等背光超时（600s）才睡；RGB <strong>关</strong>时背光门被直接跳过，闲置仅 <strong>1 秒</strong>就进 <code>PM_STOP</code>。每次睡/醒都做一次完整 re-init，而唤醒路径有 bug：<code>lkbt51_init()</code> 在唤醒时提前 return，BT 模块中断引脚没被重配……这就对上了大家说的'关 RGB 后约 10 秒就睡死'。"</p><span class="src">— r/Keychron J1 帖高赞技术回复 · <a href="https://www.reddit.com/r/Keychron/comments/1tp31p0/keychron_j1_bluetooth_randomly_disconnects/">同帖 comment</a> · 2026</span></div>
+  <div class="ugc"><p>"另一处 <code>lpm_wb32f3g71.c</code> 的 <code>stop_mode_entry()</code> 里：<code>if (NVIC->ISPR[i] &amp; (0x01UL &lt; j))</code>——这里 <code>&lt;</code> 是比较（结果只有 0/1），几乎肯定本意是 <code>&lt;&lt;</code> 左移建掩码。写成现在这样，循环只动到 bit 0/1，残留的 pending 中断会带进低功耗模式，可能在唤醒时拖垮 MCU/SPI 跟 BT 模块的链路。"</p><span class="src">— 同帖另一技术回复；另有用户回复"联系了 Keychron 的人，他们说已知此 bug，将在后续更新修复" · 2026</span></div>
+
+  <h3>证据 C · 2.4G 也会翻：随时间劣化 + 漏键加字</h3>
+  <div class="ugc"><p>"NuPhy Air75 V2 我用了快两年……连接问题一直很烂，固件升级缓解过，但近几个月基本没法用：<strong>漏键、卡顿延迟、随机多打空格（dongle 比蓝牙还糟）</strong>。"</p><span class="src">— r/Keychron《Replacing my Nuphy air75 V2》· <a href="https://www.reddit.com/r/Keychron/">reddit.com/r/Keychron</a> · 2026</span></div>
+  <div class="ugc"><p>"NuPhy Air75 V3 蓝牙连 Mac……一开始正常，<strong>最近两个月开始卡，几乎没法用了</strong>。Reddit 上找的办法都没用，打算弃用了。"</p><span class="src">— u/Arte3l · r/NuPhy《Nuphy Air 75 v3 bluetooth lag》· <a href="https://www.reddit.com/r/NuPhy/comments/1t7611p/nuphy_air_75_v3_bluetooth_lag/">reddit.com/r/NuPhy/.../nuphy_air_75_v3_bluetooth_lag</a> · 2026</span></div>
+
+  <h3>证据 D · 2.4G 同频干扰：键盘和鼠标抢信道</h3>
+  <div class="ugc"><p>"K4 HE 键盘 + M5 鼠标<strong>两个都跑 2.4G 时会互相干扰，两个都卡</strong>。键盘单独 2.4G、鼠标插线——键盘大多数时候 OK，但偶尔会抽风以为我一直按着某个键，或漏掉好几下。反过来鼠标 2.4G 键盘插线，鼠标会丢追踪、游戏没法玩。两个都插线就一切正常。dongle 离得很近、贴上去也没用。老的 Logitech 套装没这问题。"</p><span class="src">— r/Keychron《wireless interference with M5 mouse + K4 HE keyboard》· <a href="https://www.reddit.com/r/Keychron/">reddit.com/r/Keychron</a> · 2026</span></div>
+
+  <h3>证据 E · 无线模块硬件暴毙 / 唤醒丢首键</h3>
+  <div class="ugc"><p>"Keychron V3 MAX 的 <strong>2.4G 和蓝牙模式同时停止工作</strong>，只有插线还能用。重连 dongle、换蓝牙、换电脑、反复重插 dongle……全都没反应。" 高赞回复："这种故障这里有很多报告，多半是内部无线模块（LKBT51）硬件问题。"</p><span class="src">— u/NefariousSINNER · r/Keychron《V3 MAX 2.4GHz &amp; Bluetooth modes stopped working》· <a href="https://www.reddit.com/r/Keychron/comments/1tmb5v5/keychron_v3_max_24ghz_bluetooth_modes_stopped/">reddit.com/r/Keychron/.../keychron_v3_max_24ghz_bluetooth_modes_stopped</a> · 2026</span></div>
+  <div class="ugc"><p>（即便是好评款也有连接小瑕）"……<strong>蓝牙休眠唤醒会吞掉前几下按键</strong>（Bluetooth sleep delay drops your first few keystrokes）。整体 $159 物有所值，但前提是你<strong>主要用有线或 2.4G</strong>、且能接受一点折腾。"</p><span class="src">— r/NuPhy 详细评测帖 TL;DR · <a href="https://www.reddit.com/r/NuPhy/">reddit.com/r/NuPhy</a> · 2026</span></div>
+
+  <p class="callout"><b>小结：</b>真实世界的失败模式有清晰梯度——<strong>蓝牙：随机断连 + 唤醒丢首键（最普遍，常是固件锅）→ 2.4G：随时间劣化、漏键加字、与鼠标同频干扰 → 二者共有：无线模块硬件暴毙（插线还能活）</strong>。一个反复出现的对照锚点是"以前用 Logitech 从没这问题"——指向 Keychron/NuPhy 等客制系厂商的<strong>无线固件成熟度</strong>，是这一品类相对专业外设大厂的真实短板。</p>
+</section>
+
+<!-- ============ 4. 续航与省电的权衡 ============ -->
+<section>
+  <h2>4. 续航 ≠ 越大越好：省电策略本身就是断连和丢键的来源</h2>
+  <h3>论述</h3>
+  <p>无线键盘的续航不是单纯"电池多大"，而是<strong>厂商在"省电"和"即时响应"之间怎么调</strong>。蓝牙之所以最省电，正因为它激进休眠；而激进休眠 = 唤醒延迟 + 丢首键。上面 J1 的代码分析就是铁证：把睡眠门槛从 600 秒砍到 1 秒，续航好看了，体验崩了。这是一条被营销页刻意回避的权衡。</p>
+  <h3>具体数据 / 机制</h3>
+  <ul>
+    <li><b>蓝牙最省电</b>：低上报率 + 激进休眠，标称续航最长；代价=唤醒慢、丢首键。</li>
+    <li><b>2.4G 更费电</b>：1000Hz+ 持续链路；开 RGB 时续航进一步骤降，很多人不得不关灯换续航。</li>
+    <li><b>RGB 是续航/连接的隐藏变量</b>：J1 案例里 RGB 状态甚至<strong>反向</strong>当了休眠定时器，开/关 RGB 直接改变断连行为。</li>
+    <li><b>电池老化是寿命终点</b>：UGC 有"用了 1.5 年电池挂了、被迫插线、插线还时常不识别"的案例（r/Epomaker RT100），无线键盘的电池是<strong>不可忽视的损耗件</strong>。</li>
+  </ul>
+  <div class="ugc"><p>"提醒一句：把无线板长期插线满电用其实有隐患——廉价锂电常年保持 100% 满电本身就危险。要长期插线用，<strong>建议把电池断开</strong>。"</p><span class="src">— r/RoyalKludge 高赞提醒 · <a href="https://www.reddit.com/r/RoyalKludge/">reddit.com/r/RoyalKludge</a> · 2026</span></div>
+  <p class="callout"><b>小结：</b>"续航长"在蓝牙板上往往是"休眠狠"的同义词；选无线时别只看官方那个最大 mAh / 小时数，要看它<strong>休眠唤醒是否丢键、RGB 全开时续航是否崩、电池能不能换</strong>——这三点 UGC 比 spec 表诚实得多。</p>
+</section>
+
+<!-- ============ 5. 对比矩阵 ============ -->
+<section>
+  <h2>5. 对比矩阵：四种方式逐维度权衡</h2>
+  <div class="table-scroll"><table class="matrix">
+    <caption>表1：连接方式权衡（点击表头高亮该列）</caption>
+    <thead><tr><th>维度</th><th>有线 USB</th><th>2.4G（dongle）</th><th>蓝牙 BT</th><th>三模</th></tr></thead>
+    <tbody>
+      <tr><td>延迟</td><td><span class="pill good">1–3ms 最低</span></td><td><span class="pill good">~1–4ms ≈有线</span></td><td><span class="pill bad">20–40ms+</span></td><td>取当前模式</td></tr>
+      <tr><td>上报率上限</td><td>1000Hz（可更高）</td><td>1000–8000Hz</td><td><span class="pill bad">~125–133Hz 协议封顶</span></td><td>取当前模式</td></tr>
+      <tr><td>稳定性</td><td><span class="pill good">最稳·无争用</span></td><td><span class="pill mid">较稳·怕同频干扰/久用劣化</span></td><td><span class="pill bad">随机断连·唤醒丢键</span></td><td>取当前模式</td></tr>
+      <tr><td>多设备切换</td><td>不适用</td><td><span class="pill bad">通常单设备/单 dongle</span></td><td><span class="pill good">一对多（常 3 台）最方便</span></td><td><span class="pill good">2.4G 打游戏 + BT 连平板/手机</span></td></tr>
+      <tr><td>续航</td><td><span class="pill good">无需充电</span></td><td><span class="pill mid">较费电·RGB 全开骤降</span></td><td><span class="pill good">最省电（靠激进休眠）</span></td><td>取当前模式</td></tr>
+      <tr><td>占用</td><td>占线/桌面拖线</td><td><span class="pill mid">吃一个 USB-A 口·dongle 易丢</span></td><td><span class="pill good">零占用</span></td><td>看用法</td></tr>
+      <tr><td>典型翻车</td><td>线材/接口接触不良</td><td>与鼠标同频卡顿·漏键加字·模块暴毙</td><td>30 分钟随机掉线·丢首键·固件 bug</td><td>切换错乱·某一模块挂掉</td></tr>
+      <tr><td>适合谁</td><td>竞技游戏 / 台式主力 / 客制 endgame</td><td>无线但要低延迟 / 无线游戏</td><td>办公 / 平板手机 / 多设备穿梭</td><td>既要游戏低延迟又要多设备</td></tr>
+    </tbody>
+  </table></div>
+  <p class="mini-note">数据来源：MKBGuide / RTINGS / loadsyn / digit.in + 各厂 Reddit sub UGC，2026-06。延迟为各来源区间综合，非单一型号实测。</p>
+</section>
+
+<!-- ============ 6. 适用场景 ============ -->
+<section>
+  <h2>6. 按场景对号入座</h2>
+  <div class="grid-3">
+    <div class="card"><h3>🎮 竞技/FPS/格斗</h3><p><strong>有线优先，退而求其次买带 2.4G 的</strong>。绝不靠蓝牙打竞技（过 10ms 可感知）。注意：键鼠都 2.4G 时<strong>给 dongle 拉开距离或用 USB 延长线</strong>避同频干扰。</p></div>
+    <div class="card"><h3>💻 办公/码字（单机为主）</h3><p>蓝牙完全够用，20–40ms 你无感。优先看<strong>唤醒是否丢首键</strong>——这是办公场景最烦的点。</p></div>
+    <div class="card"><h3>🔀 多设备穿梭（电脑+平板+手机）</h3><p><strong>蓝牙是唯一优雅解</strong>（一键切 3 台）。能接受偶发断连就上；不能接受就买三模，主力机用 2.4G、副机用蓝牙。</p></div>
+    <div class="card"><h3>🧳 出差/便携</h3><p>蓝牙免带 dongle（dongle 极易丢/忘）。但务必带数据线兜底，无线模块/电池一旦出问题，<strong>"插线还能活"是最后的救命稻草</strong>。</p></div>
+    <div class="card"><h3>🛠️ 客制 endgame</h3><p>严肃客制圈仍大量<strong>有线焊接</strong>：最稳、无电池损耗件、无固件无线 bug 风险（呼应 Task 3.4 的焊接 vs 热插拔结论）。</p></div>
+    <div class="card"><h3>🍎 Mac 用户特别注意</h3><p>UGC 显示 Apple 蓝牙栈 + 第三方键盘是断连重灾区（J1/NuPhy 多个案例点名 MacBook）。Mac 重度用户优先 <strong>2.4G dongle 或有线</strong>，比赌蓝牙稳。</p></div>
+  </div>
+</section>
+
+<!-- ============ 7. 关键洞察与产品机会 ============ -->
+<section>
+  <h2>7. 关键洞察与产品机会</h2>
+  <p class="callout"><b>洞察 1 · 真实痛点是"无线固件成熟度"，不是"延迟参数"。</b>评测打榜都在卷延迟数字（1ms / 8000Hz），但 UGC 反复劝退的是<strong>断连、丢首键、久用劣化、模块暴毙</strong>——全是固件/QA 问题。社区甚至能扒到 Keychron J1 的源码 bug。机会：把"<strong>无线连接稳定性</strong>"做成可验证卖点（公开固件更新日志、第三方断连压测数据、可换电池设计），比再堆一个轮询率数字更能打动用过无线翻车的老用户。</p>
+  <p class="callout"><b>洞察 2 · "以前用 Logitech 从没这问题"是反复出现的对照锚。</b>客制系厂商（Keychron/NuPhy/Epomaker）在<strong>无线链路工程</strong>上系统性落后于 Logitech/Razer 这类专业外设大厂。机会：谁先把"Lightspeed 级稳定 + 客制级手感/可玩性"真正合到一块（而非 spec 表上写 tri-mode 就算数），谁就吃下"既要无线靠谱又要客制手感"这块没被满足的中高端需求。</p>
+  <p class="callout"><b>洞察 3 · 续航宣传与体验是背离的，存在"诚实续航"叙事空位。</b>蓝牙长续航 = 激进休眠 = 丢首键；2.4G 低延迟 = RGB 全开续航崩。机会：与其标一个虚高的"最长 300 小时"，不如给<strong>分场景续航（RGB 关 / 50% / 全开 × 2.4G / 蓝牙）真实分档</strong> + 唤醒响应承诺（"唤醒不丢键"），把营销话术换成可信赖的工程说明。</p>
+  <p class="callout"><b>洞察 4 · 2.4G 同频干扰是被忽视的成套体验坑。</b>键鼠都用 2.4G 互相抢信道，是真实但少被讲的痛点。机会：<strong>键鼠共用单一接收器 / 自动跳频 / dongle 收纳仓 + USB 延长底座</strong>作为"无线套装"卖点；dongle 易丢也是高频抱怨，板上内置收纳是低成本高感知的加分项。</p>
+</section>
+
+<!-- ============ Caveats ============ -->
+<section class="caveats">
+  <h2>Caveats &amp; 证伪状态</h2>
+  <ul>
+    <li><span class="fbadge confirmed">已核实</span> <b>蓝牙延迟显著高于 2.4G/有线</b>：协议封顶 ~125–133Hz、真实 20–40ms 的结论由 MKBGuide、loadsyn、digit.in 多源一致，技术机制（协议轮询上限）成立，置信度高。</li>
+    <li><span class="fbadge confirmed">已核实</span> <b>无线翻车以"稳定性"而非"延迟"为主因</b>：r/Keychron、r/NuPhy 多个具名原帖（J1 断连、V3 MAX 模块暴毙、Air75 劣化、K4 HE 同频干扰）相互印证，且 J1 案例有社区代码级定位，UGC 强度高。</li>
+    <li><span class="fbadge partial">部分</span> 延迟具体毫秒数为<strong>各来源区间综合，非单一型号同条件实测</strong>。RTINGS 有逐型号 latency 数据库但本轮抓取仅返回页面框架、未取到具体型号数值表；图中数字应视作量级示意，精确到型号需查 RTINGS 对应评测页。</li>
+    <li><span class="fbadge partial">部分</span> "客制厂商无线固件不如 Logitech"基于多条 UGC 对照锚（"以前用 Logitech 没问题"），方向可信，但缺<strong>大样本断连率统计</strong>支撑，属定性结论而非量化结论。</li>
+    <li><span class="fbadge open">仍开放</span> 2.4G 旗舰宣称的 <b>8000Hz</b> 在键盘端的真实可用收益（vs 1000Hz 的可感知差异）缺独立实测对比，多为厂商话术，待补第三方盲测。</li>
+    <li><span class="fbadge open">仍开放</span> 部分原帖（K4 HE 干扰帖、Epomaker QK10 对比帖、RoyalKludge 电池提醒）本轮经导出语料确认存在，但精确到 comment 的固定 URL 与赞数未逐条回采，原帖热度数据有缺口。</li>
+  </ul>
+</section>
+
+<!-- ============ 来源 ============ -->
+<section class="sources">
+  <h2>参考来源索引</h2>
+  <ol>
+    <li>MKB Guide — Best Wireless Gaming Keyboards: 2.4GHz vs Bluetooth (2026)：<a href="https://mkbguide.com/blog/best-wireless-gaming-keyboards">mkbguide.com/blog/best-wireless-gaming-keyboards</a>（采集 2026-06）</li>
+    <li>RTINGS — Our Keyboard Tests: Latency（延迟测试方法论与型号数据库）：<a href="https://www.rtings.com/keyboard/tests/latency">rtings.com/keyboard/tests/latency</a>（采集 2026-06）</li>
+    <li>loadsyn — Wired vs Wireless Gaming Keyboards: Latency Solved：<a href="https://loadsyn.com/wired-vs-wireless-gaming-keyboards-latency-solved/">loadsyn.com/wired-vs-wireless-gaming-keyboards-latency-solved</a>（采集 2026-06）</li>
+    <li>digit.in — Wired vs wireless peripherals: Is latency really an issue in 2026：<a href="https://www.digit.in/features/gaming/wired-vs-wireless-peripherals-is-latency-really-an-issue-in-gaming-in-2026.html">digit.in/features/gaming/wired-vs-wireless-peripherals...2026</a>（采集 2026-06）</li>
+    <li>RAPOO — Bluetooth vs 2.4GHz Wireless Keyboard Explained：<a href="https://shop.rapoo.com/blogs/product-comparisons/bluetooth-vs-2-4ghz-wireless-keyboard">shop.rapoo.com/blogs/product-comparisons/bluetooth-vs-2-4ghz-wireless-keyboard</a>（采集 2026-06）</li>
+    <li>UGC — r/Keychron《Keychron J1 Bluetooth randomly disconnects》(u/chefranov，含 J1 固件 bug 代码级分析回复)：<a href="https://www.reddit.com/r/Keychron/comments/1tp31p0/keychron_j1_bluetooth_randomly_disconnects/">reddit.com/r/Keychron/.../keychron_j1_bluetooth_randomly_disconnects</a>（采集 2026-06）</li>
+    <li>UGC — r/Keychron《Keychron V3 MAX 2.4GHz &amp; Bluetooth modes stopped working》(u/NefariousSINNER，无线模块 LKBT51 硬件暴毙)：<a href="https://www.reddit.com/r/Keychron/comments/1tmb5v5/keychron_v3_max_24ghz_bluetooth_modes_stopped/">reddit.com/r/Keychron/.../keychron_v3_max_24ghz_bluetooth_modes_stopped</a>（采集 2026-06）</li>
+    <li>UGC — r/NuPhy《Nuphy Air 75 v3 bluetooth lag》(u/Arte3l)：<a href="https://www.reddit.com/r/NuPhy/comments/1t7611p/nuphy_air_75_v3_bluetooth_lag/">reddit.com/r/NuPhy/.../nuphy_air_75_v3_bluetooth_lag</a>（采集 2026-06）</li>
+    <li>UGC — r/Keychron《Replacing my Nuphy air75 V2》(2.4G dongle 漏键加字、随时间劣化)、《wireless interference with M5 mouse + K4 HE》(2.4G 同频干扰) 等帖（语料导出 keychron.md）：<a href="https://www.reddit.com/r/Keychron/">reddit.com/r/Keychron</a>（采集 2026-06）</li>
+    <li>UGC — r/Epomaker（Q1 Pro 蓝牙偶发掉线 vs QK10 改善；RT100 电池 1.5 年暴毙）、r/RoyalKludge（长期插线锂电隐患提醒）：<a href="https://www.reddit.com/r/Epomaker/">reddit.com/r/Epomaker</a> · <a href="https://www.reddit.com/r/RoyalKludge/">reddit.com/r/RoyalKludge</a>（采集 2026-06）</li>
+    <li>源模块复用 — 本站 M3《机械键盘解剖》3.6 节连接方式表（基线参数）：<a href="index.html">本站调研索引</a>（采集 2026-06）</li>
+  </ol>
+</section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块三 Task 3.6 连接方式 · 采集时点 2026-06 · 延迟为区间综合示意，精确到型号请查 RTINGS · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>

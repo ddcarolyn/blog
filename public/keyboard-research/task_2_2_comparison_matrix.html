@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 2.2：六类键盘多维对比矩阵</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* 局部样式：仅强化矩阵可读性与寿命刻度图，复用模板色板 */
+.matrix th{cursor:pointer;user-select:none}
+.matrix th:hover{filter:brightness(.96)}
+.lifebar-svg{width:100%;height:auto;display:block;background:#fff;border-radius:8px}
+.miniref{font-size:.82rem;color:#667;margin:.3rem 0 0}
+.dimnote{font-size:.85rem;color:#556;border-left:3px solid #2b6cb0;padding-left:10px;margin:10px 0}
+.win{font-weight:700}
+.legend-row{display:flex;gap:14px;flex-wrap:wrap;font-size:.82rem;color:#556;margin-top:.4rem}
+.legend-row b{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:middle;margin-right:4px}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="index.html">⌨ 机械键盘调研</a>
+  <span class="crumb">/ 模块2 · Task 2.2</span>
+  <span class="spacer"></span>
+  <a href="index.html" title="合并版完整报告尚未生成，暂回索引页（见 Caveats）">📋 完整版</a><a href="index.html">📂 索引</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">模块2 · TASK 2.2</span>
+  <h1>六类键盘多维对比矩阵</h1>
+  <p class="lede">把机械 / 静电容(Topre) / 薄膜 / 剪刀脚 / 光轴 / 磁轴(霍尔) 摆到同一张表上，沿 8 条维度逐格量化——手感、声音、寿命、可定制性、维修性、价格、重量便携、适用人群。本页只回答一句话：<b>「按维度横读，这六种到底各赢在哪、各输在哪？」</b></p>
+  <p class="meta">调研日期：2026-06 ｜ 数据源优先级：UGC（Reddit r/MechanicalKeyboards、MacRumors 论坛）&gt; 第三方评测（PC Gamer、RTINGS、Tom's Hardware）&gt; 官方话术（HHKB、Wooting、Cherry）<br>
+  主要来源：KeebsForAll、TipTapTypers、Alibaba 行业指南、Switch and Click、PC Gamer、MacRumors Forums、Deskthority、HHKB 官方、ThereminGoat、Wooting 官网、PCWorld、camelcamelcamel、mechanicalkeyboards.com（共 14 条，来源索引见文末）</p>
+</div></header>
+
+<main class="wrap">
+
+  <section>
+    <div class="callout">
+      <strong>一句话先看懂：</strong>这张矩阵的「胜负」沿两条主轴分布——<b>感应方式</b>（金属触点 / 电容 / 薄膜 / 光路 / 磁场）决定<em>寿命、速度、可调性</em>；<b>回弹来源</b>（弹簧 vs 橡胶碗）决定<em>手感与声音</em>。读表时盯住这两列，其余维度基本是它俩的派生结果。<b>本页所有寿命/价格数值各源差异极大，一律以区间呈现，并在证伪区标出冲突。</b>
+    </div>
+  </section>
+
+  <!-- ============ 1. 寿命：差距最大、也最被夸大的一维 ============ -->
+  <section>
+    <h2>1. 寿命：6–14 倍的差距，但「亿次」多是厂商标称</h2>
+    <h3>论述</h3>
+    <p>寿命是六类之间差距最悬殊的一维，也是营销话术最爱拿来说事的一维。核心事实有两层：<b>(a)</b> 机械/光轴/磁轴这类「弹簧+非橡胶碗」结构，单键寿命数量级确实碾压薄膜/剪刀；<b>(b)</b> 但「1 亿次」「150M」这种漂亮数字几乎全部是厂商标称的<u>触点/感应机构</u>寿命，并非整机寿命——实际先坏的往往是弹簧老化、塑料件磨损、进灰导致的 chatter（连击/双击），而这些 UGC 实测差异极大。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"Mechanical switches are rated for 50–100 million keystrokes, while membrane keyboards typically manage only 5–10 million... mechanical keyboards have a 6–14 times longer lifespan compared to membrane keyboards."</p><span class="src">— KeebsForAll《Mechanical vs Membrane: Lifespan Compared》· <a href="https://keebsforall.com/blogs/mechanical-keyboards-101/mechanical-vs-membrane-keyboards-lifespan-compared">keebsforall.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Most scissor switches are rated between 5 to 10 million keystrokes... With moderate daily use (~10,000 keystrokes/day), a scissor switch keyboard might begin showing degradation within 3 to 4 years... if one leg of the scissor breaks or becomes misaligned—common after spills or drops—the entire key may fail."</p><span class="src">— Alibaba 行业洞察《Wireless Mechanical vs Scissor Switch: Which Lasts Longer》· <a href="https://www.alibaba.com/product-insights/wireless-mechanical-keyboard-vs-scissor-switch-which-lasts-longer-for-daily-typing.html">alibaba.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>真实用户反馈：「One user experienced failure of multiple keys after about 1.5 years of light use, with a physical disconnection inside that couldn't be fixed.」（Apple Magic Keyboard）</p><span class="src">— MacRumors Forums《Magic Keyboard expected life time?》· <a href="https://forums.macrumors.com/threads/magic-keyboard-expected-life-time.2316149/">forums.macrumors.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"some users reported over 200 million keystrokes without issues, suggesting manufacturer minimums are conservative estimates... real-world lifespan depends on typing style, usage frequency, and maintenance."</p><span class="src">— TipTapTypers《Mechanical Keyboard Lifespan And Longevity》· <a href="https://www.tiptaptypers.com/mechanical-keyboard-lifespan-and-longevity/">tiptaptypers.com</a> · 采集 2026-06-10</span></div>
+    <h3>具体数据（各源标称区间）</h3>
+    <ul>
+      <li><b>机械：</b>50M–100M（Cherry MX/Gateron 标称 ≥50M，Cherry MX 部分标 100M）；UGC 有 200M+ 无故障案例。</li>
+      <li><b>静电容/Topre：</b><span class="pill mid">源间冲突</span> Deskthority/部分指南标 ~50M；TipTapTypers 标「100M+」。本页取保守 50M–100M 并在证伪区记冲突。</li>
+      <li><b>薄膜：</b>5M–10M（多源一致，差距最大的短板）。</li>
+      <li><b>剪刀脚：</b>5M–10M（与薄膜同量级，底层仍是膜；plastic leg 断裂为主要失效模式）。</li>
+      <li><b>光轴：</b>厂商标 ≥100M（无金属触点磨损为卖点；缺独立第三方破坏性实测）。</li>
+      <li><b>磁轴(霍尔)：</b>厂商标 ≥100M（无物理接触感应；实际受弹簧/塑料件制约）。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>「寿命」要拆成「感应机构寿命」(厂商标称、亿次党)与「整机可用寿命」(UGC、3–10 年)两个概念。薄膜/剪刀 5M–10M 是硬短板（1–4 年），机械/光轴/磁轴的「亿次」更多是营销锚点——实际先死于弹簧、进灰、塑料件，而非触点磨穿。</p>
+  </section>
+
+  <!-- 寿命刻度条图 -->
+  <figure class="framed">
+    <svg class="lifebar-svg" viewBox="0 0 720 300" role="img" aria-label="六类键盘标称寿命对数刻度条">
+      <rect x="0" y="0" width="720" height="300" fill="#fff"/>
+      <text x="360" y="22" font-size="12" text-anchor="middle" fill="#445" font-weight="bold">各类型标称单键寿命（对数横轴，仅示意量级；亿次=厂商标称）</text>
+      <line x1="150" y1="265" x2="690" y2="265" stroke="#334" stroke-width="2"/>
+      <g font-size="10" fill="#667" text-anchor="middle">
+        <text x="150" y="282">5M</text><line x1="150" y1="261" x2="150" y2="269" stroke="#889"/>
+        <text x="300" y="282">10M</text><line x1="300" y1="261" x2="300" y2="269" stroke="#889"/>
+        <text x="470" y="282">50M</text><line x1="470" y1="261" x2="470" y2="269" stroke="#889"/>
+        <text x="600" y="282">100M</text><line x1="600" y1="261" x2="600" y2="269" stroke="#889"/>
+        <text x="675" y="282">200M</text><line x1="675" y1="261" x2="675" y2="269" stroke="#889"/>
+      </g>
+      <!-- 条函数: 5M=150,10M=300,50M=470,100M=600,200M=675 -->
+      <g><text x="144" y="55" font-size="11" text-anchor="end" fill="#334">薄膜</text>
+      <rect x="150" y="46" width="150" height="14" rx="7" fill="#c0392b"/><text x="306" y="57" font-size="9" fill="#c0392b">5–10M</text></g>
+      <g><text x="144" y="85" font-size="11" text-anchor="end" fill="#334">剪刀脚</text>
+      <rect x="150" y="76" width="150" height="14" rx="7" fill="#e07b39"/><text x="306" y="87" font-size="9" fill="#e07b39">5–10M</text></g>
+      <g><text x="144" y="115" font-size="11" text-anchor="end" fill="#334">Topre</text>
+      <rect x="470" y="106" width="130" height="14" rx="7" fill="#8e44ad" opacity=".7"/><text x="606" y="117" font-size="9" fill="#8e44ad">50–100M*冲突</text></g>
+      <g><text x="144" y="145" font-size="11" text-anchor="end" fill="#334">机械</text>
+      <rect x="470" y="136" width="205" height="14" rx="7" fill="#2b6cb0"/><text x="468" y="147" font-size="9" fill="#2b6cb0" text-anchor="end">50–200M+ </text></g>
+      <g><text x="144" y="175" font-size="11" text-anchor="end" fill="#334">光轴</text>
+      <rect x="600" y="166" width="75" height="14" rx="7" fill="#16a085"/><text x="596" y="177" font-size="9" fill="#16a085" text-anchor="end">≥100M标称 </text></g>
+      <g><text x="144" y="205" font-size="11" text-anchor="end" fill="#334">磁轴</text>
+      <rect x="600" y="196" width="75" height="14" rx="7" fill="#1f8a70"/><text x="596" y="207" font-size="9" fill="#1f8a70" text-anchor="end">≥100M标称 </text></g>
+      <text x="150" y="240" font-size="9" fill="#889">← 薄膜/剪刀 5–10M（硬短板，1–4 年） ──── 机械/光轴/磁轴 亿次（厂商标称，整机另算）→</text>
+    </svg>
+    <figcaption>图1 标称寿命量级对比（自绘）。<span class="src">数据据来源 1/2/3/4/5，采集 2026-06；带*为源间冲突，见证伪区</span></figcaption>
+  </figure>
+
+  <!-- ============ 2. 可定制 + 维修 ============ -->
+  <section>
+    <h2>2. 可定制性 &amp; 维修性：热插拔机械是唯一「修得起」的</h2>
+    <h3>论述</h3>
+    <p>这两维高度相关，且是机械（尤其热插拔机械）相对其余五类的最大护城河。逻辑很直白：机械把「轴体」做成可单独更换的标准件，于是<b>坏一颗换一颗、想换手感也换一颗</b>；其余五类把感应、回弹、键帽耦合在一体化结构里，坏了基本是整块报废。磁轴是个有趣的例外——它<u>硬件不可换轴但软件可调到极致</u>（每键触发点 0.1–3.8mm、Rapid Trigger），形成「另一种可定制」。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p>"On hot-swappable boards, you can replace a single switch without soldering. If one switch breaks, you don't have to trash the whole keyboard... In contrast, membrane keyboards are usually not worth repairing—once a rubber dome fails, the entire unit often needs replacing."</p><span class="src">— Switch and Click《Mechanical vs Membrane: Making the Switch》· <a href="https://switchandclick.com/mechanical-keyboards-vs-membrane-keyboards-making-the-switch/">switchandclick.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"Rapid trigger adjusts the reset point to wherever the key is in the travel when you release it... one of the primary advantages of Hall effect keyboards. Wooting's 80HE is capable of using switches to imitate analog movement."</p><span class="src">— PC Gamer《Best Hall effect keyboards in 2026》· <a href="https://www.pcgamer.com/hardware/gaming-keyboards/best-hall-effect-keyboards/">pcgamer.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"The combination of longer-rated switch life and the possibility of replacing a single switch often makes mechanical ownership cheaper over the long run."</p><span class="src">— Switch and Click（同上）· 采集 2026-06-10</span></div>
+    <h3>具体数据</h3>
+    <ul>
+      <li><b>机械：</b>可定制=极高（换轴/键帽/卫星轴/填充）；维修=高（热插拔单轴可换，焊接版需烙铁）。</li>
+      <li><b>磁轴：</b>可定制=软件极高/硬件低（专有磁轴 footprint，不通用 MX）；维修=中。</li>
+      <li><b>光轴：</b>可定制=中（部分品牌有光轴热插拔，但生态远小于 MX）；维修=中。</li>
+      <li><b>Topre / 薄膜 / 剪刀：</b>可定制=几乎无（专有/一体化）；维修=低至「坏=整块换」。Topre 键帽可换（兼容 MX 十字柱）但轴/碗不可换。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>论「修得起 + 可玩」机械独一档；论「软件层可玩」磁轴异军突起（适合竞技调校党）；Topre/薄膜/剪刀在这两维是结构性劣势，买的就是「一体成型、不折腾」。</p>
+  </section>
+
+  <!-- ============ 3. 手感声音 ============ -->
+  <section>
+    <h2>3. 手感与声音：弹簧 vs 橡胶碗，决定「干脆」还是「肉」</h2>
+    <h3>论述</h3>
+    <p>手感声音几乎完全由<b>回弹来源</b>决定。弹簧系（机械/光轴/磁轴）= 全键程、回弹独立可控、声音可调（thock/clack/click）；橡胶碗系（薄膜/剪刀/Topre）= 阻力来自碗，到底有「垫一下」的软着陆。其中 Topre 是橡胶碗系里的异类——碗 + 锥形弹簧 + 电容感应，做出了被发烧友追捧的「肉感(pillowy)」与独特「Topre 声」，所以单价能干到 Cherry 式机械的几倍。</p>
+    <h3>证据</h3>
+    <div class="ugc"><p><b>Topre 的「肉感」机理（具名可点击）：</b>"the tactility comes from the collapse of a rubber dome, the 'bump' is at the very top of the stroke. Each key press is smooth as silk, while also providing just enough of a tactile bump." 即橡胶碗在键程<u>最顶端</u>给出段落感，之后被锥簧顺滑接住——这与机械轴「段落坎在中段」结构性不同。</p><span class="src">— HHKB 官方《Topre Switches Guide: Why They Are Still the Gold Standard in 2026》（官方话术，立场标注：厂商营销）· <a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us/blog/topre-switches</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p><b>第三方力学视角佐证「为什么力曲线无法替代上手」：</b>"Obviously, another big part of learning about switches and drawing conclusions about them is rooted in experience from trying a wide range of switches in hand and that should not be replaced, even partially, by reading and interpreting force curves... there's plenty of ways switches end up in builds that feel nothing quite like what their force curves would suggest."</p><span class="src">— ThereminGoat《A Better Beginner's Guide to Force Curves》（独立测评者，业内 Imada FSA 测力设备）· <a href="https://www.theremingoat.com/blog/a-better-beginners-guide-to-force-curves">theremingoat.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p>"over time, the rubber dome in membrane keyboards can wear down, causing keys to feel mushy or become less responsive."</p><span class="src">— KeebsForAll（同来源 1）· 采集 2026-06-10</span></div>
+    <div class="dimnote">关键判定：<b>线上文字/视频无法完全替代上手</b>——录音设备（麦克风/增益/房间混响）会彻底改变 thock/clack 呈现；触觉（段落的「坎」、到底的软硬）无法被传输；同一颗轴装进不同整机声音手感天差地别（整机&gt;轴，详见 M3）。这条由 ThereminGoat 原文佐证（见上方带链接证据）：力曲线/线上数据「should not be replaced, even partially」，本页沿用为「已成立」。</div>
+    <p class="callout"><b>小结：</b>想要「干脆/可调声」选弹簧系；想要「软着陆/肉」选 Topre；薄膜/剪刀的「糊(mushy)」是结构宿命，不是做工问题。手感声音<b>务必上手</b>，别只信视频。</p>
+  </section>
+
+  <!-- ============ 4. 价格 + 重量便携 ============ -->
+  <section>
+    <h2>4. 价格 &amp; 重量便携：薄膜垫底、Topre 起步最贵、剪刀最薄</h2>
+    <h3>论述</h3>
+    <p>价格带高度重叠（机械从 $30 横跨到 $300+，几乎覆盖所有人），但<b>起步价</b>与<b>天花板</b>区分明显：薄膜 $10 起垫底、Topre $230 起步最贵、剪刀脚靠笔记本内置摊薄成本但独立超薄款（如 Apple Magic）溢价明显。重量便携维度则与厚度强相关——剪刀脚结构最薄最轻，Topre/机械因金属定位板+厚壳偏重。</p>
+    <h3>价格锚点（逐条具名来源，采集 2026-06，USD）</h3>
+    <p class="dimnote">价格是 8 维矩阵里波动最大、最易过期的一维。下面把每个价位锚点拆到「具名零售/官方页 + 数值 + 链接 + 采集日」，而非笼统给区间。</p>
+    <div class="ugc"><p><b>磁轴 / Wooting 60HE v2：</b>官方定价 module（仅 PCB）€149.99（约 $139.99），整机预购起 $179.99，铝壳顶配 $239.99——「There is no price difference between the split space and traditional space bar versions」。本页磁轴区间据此取 $140–$240（模块到顶配），叠加其它品牌入门款下探至 $80。</p><span class="src">— Wooting 官方产品页《Wooting 60HE v2》· <a href="https://wooting.io/wooting-60he-v2">wooting.io/wooting-60he-v2</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p><b>光轴 / Razer Huntsman Mini：</b>官方原价（MSRP）$119.99–$129.99；2026-01 Amazon 历史最低 $69（「47% off ... new all-time low」），常见促销价落在 $59.88–$99.99。天花板由 Razer 限定/Signature 系列拉到 $499 级。</p><span class="src">— PCWorld《Razer's Huntsman Mini keyboard is now 47% off》· <a href="https://www.pcworld.com/article/3029586/razers-huntsman-mini-keyboard-is-now-47-percent-off-its-best-price-yet.html">pcworld.com</a> + Razer 官方页 <a href="https://www.razer.com/gaming-keyboards/razer-huntsman-mini">razer.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p><b>Topre / HHKB Professional Hybrid Type-S：</b>Charcoal Blank Amazon $228.35（2026-05-03，标该时点缺货）；Snow White Printed $299.99（2026-05-05）。HHKB 官方 2026-03 至 05 期间促销「$40 off」、2026-05-12 至 06-30「$35 off」。这是 Topre「起步最贵」的硬锚。</p><span class="src">— camelcamelcamel Amazon 价格追踪（HHKB PD-KB800 系列）· <a href="https://camelcamelcamel.com/product/B083MY84VX">camelcamelcamel.com</a> + HHKB 官方店 <a href="https://hhkeyboard.us/hhkb/pro-hybrid-type-s">hhkeyboard.us</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p><b>Topre 天花板 / Realforce R3 TKL：</b>主流零售 $242–$285；mechanicalkeyboards.com 上 R3S TKL 促销 $156（原价 $166）。综合 HHKB+Realforce，Topre 实际成交价带约 $156–$300，限定/高配可上探 $400+——本页矩阵保守标 $230–$600 覆盖含限定款的天花板。</p><span class="src">— mechanicalkeyboards.com《Realforce R3 / R3S TKL》· <a href="https://mechanicalkeyboards.com/collections/realforce">mechanicalkeyboards.com</a> + keeb-finder 比价 <a href="https://keeb-finder.com/keyboards/topre-realforce-r3">keeb-finder.com</a> · 采集 2026-06-10</span></div>
+    <div class="ugc"><p><b>机械 / 薄膜 / 剪刀 价位带：</b>机械 $30（Keychron 入门）横跨到 $300+（客制化）；薄膜 $10–$40（办公随附为主）；剪刀脚 $30–$200（笔记本内置摊薄，Apple Magic Keyboard 独立款溢价）。机械长期持有更省的逻辑见 Switch and Click。</p><span class="src">— Switch and Click《Mechanical vs Membrane: Making the Switch》· <a href="https://switchandclick.com/mechanical-keyboards-vs-membrane-keyboards-making-the-switch/">switchandclick.com</a> · 采集 2026-06-10</span></div>
+    <h3>具体数据汇总（采集 2026-06，USD；逐条源见上方）</h3>
+    <ul>
+      <li><b>薄膜：</b>$10–$40（办公/随附）— 最轻、便携尚可但通常非主打便携。</li>
+      <li><b>剪刀脚：</b>$30–$200（Apple Magic Keyboard / 笔记本内置）— <span class="pill good">最薄最轻</span>，便携第一。</li>
+      <li><b>机械：</b>$30–$300+（Keychron 入门到客制化）— 偏重，60% 配列可缓解便携。</li>
+      <li><b>磁轴：</b>$80–$240（Wooting 60HE v2 module $140 / 顶配 $240，叠加他牌入门 $80）— 中等重量。</li>
+      <li><b>光轴：</b>$60–$500（Razer Huntsman Mini 促销 $60–$99 / MSRP $120 → 限定/Signature $499）— 中等。</li>
+      <li><b>Topre：</b><span class="pill bad">$156–$600</span>（实际成交 HHKB Type-S ~$228–$300、Realforce R3S 促销 $156；矩阵区间保守覆盖含限定的 $230–$600 天花板）— 起步最贵、偏重。</li>
+    </ul>
+    <p class="callout"><b>小结：</b>预算 &lt;$40 只有薄膜；要便携超薄选剪刀；$80–$300 是机械/磁轴/光轴的主战场（性价比最卷，且光轴促销期可下探到 $60）；Topre 实际成交 ~$156 起、主流 $228–$300，仍是「为特定手感付溢价」的奢侈品逻辑，不是性价比选择。<b>注意：</b>磁轴/光轴促销波动极大（Razer 半年内从 $130 跌到 $69），上述为采集时点 2026-06 快照。</p>
+  </section>
+
+  <!-- ============ 核心交付物：大矩阵 ============ -->
+  <section>
+    <h2>5. 多维对比大矩阵（核心交付物）</h2>
+    <p>点击表头可<b>高亮整列</b>方便横读；每行右侧 <span class="dimnote" style="display:inline;border:none;padding:0;color:#2b6cb0">📌</span> 为「该维度赢家」。寿命/价格均为区间（见证伪区 H2.1/H2.3）。</p>
+    <div class="table-scroll"><table class="matrix">
+      <caption>表1 六大键盘类型 · 8 维深度对比矩阵（点击表头高亮该列）· 采集 2026-06</caption>
+      <thead><tr>
+        <th>维度</th><th>机械</th><th>静电容/Topre</th><th>薄膜</th><th>剪刀脚</th><th>光轴</th><th>磁轴(霍尔)</th><th>📌 该维赢家</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>感应方式</td><td>金属触点</td><td>电容(无接触)</td><td>薄膜导通</td><td>薄膜导通</td><td>光路遮断</td><td>磁场测量</td><td class="win">磁轴(可调/无磨损)</td></tr>
+        <tr><td>回弹来源</td><td>弹簧</td><td>橡胶碗+锥簧</td><td>橡胶碗</td><td>橡胶碗+剪刀</td><td>弹簧</td><td>弹簧</td><td class="win">弹簧系(干脆)</td></tr>
+        <tr><td>典型键程</td><td>~3.5–4mm</td><td>~4mm</td><td>~3.5–4mm</td><td><span class="pill mid">~1.5–2mm</span></td><td>~3.5–4mm</td><td>~3.5–4mm</td><td class="win">看需求(剪刀最短)</td></tr>
+        <tr><td>手感</td><td>多样可选(线/段/响)</td><td>「肉感」软着陆</td><td>糊/软(mushy)</td><td>干脆短促</td><td>接近机械</td><td>顺滑+可调</td><td class="win">机械(选择最多)</td></tr>
+        <tr><td>声音</td><td>thock/clack/click 全可调</td><td>独特「Topre 声」闷润</td><td>沉闷无特色</td><td>轻脆薄</td><td>偏 clacky</td><td>顺滑、可静音</td><td class="win">机械(可塑性最高)</td></tr>
+        <tr><td>寿命(标称)</td><td><span class="pill good">50M–200M+</span></td><td><span class="pill mid">50M–100M*</span></td><td><span class="pill bad">5M–10M</span></td><td><span class="pill bad">5M–10M</span></td><td><span class="pill good">≥100M标称</span></td><td><span class="pill good">≥100M标称</span></td><td class="win">机械/光轴/磁轴</td></tr>
+        <tr><td>可定制性</td><td><span class="pill good">极高(换轴/键帽)</span></td><td><span class="pill bad">很低(键帽可换)</span></td><td><span class="pill bad">几乎无</span></td><td><span class="pill bad">几乎无</span></td><td><span class="pill mid">中(部分热插拔)</span></td><td><span class="pill mid">软件极高/硬件低</span></td><td class="win">机械(硬件)/磁轴(软件)</td></tr>
+        <tr><td>维修性</td><td><span class="pill good">高(单轴可换)</span></td><td><span class="pill bad">低</span></td><td><span class="pill bad">坏=整块换</span></td><td><span class="pill bad">低(腿断=键废)</span></td><td><span class="pill mid">中</span></td><td><span class="pill mid">中</span></td><td class="win">热插拔机械</td></tr>
+        <tr><td>价格(整机)<sup>†</sup></td><td>$30–$300+</td><td><span class="pill bad">$156–$600</span></td><td><span class="pill good">$10–$40</span></td><td>$30–$200</td><td>$60–$500</td><td>$80–$240</td><td class="win">薄膜(最低)</td></tr>
+        <tr><td>重量/便携</td><td>偏重</td><td>偏重</td><td>轻</td><td><span class="pill good">最薄最轻</span></td><td>中</td><td>中</td><td class="win">剪刀脚</td></tr>
+        <tr><td>适用人群</td><td>多数人/折腾党</td><td>码字党/手感发烧</td><td>预算极限/备用</td><td>笔记本/超薄</td><td>追求极速手感</td><td><span class="pill good">竞技游戏/调校党</span></td><td class="win">按需求各取所需</td></tr>
+      </tbody>
+    </table></div>
+    <p class="miniref">注：寿命单值来自厂商标称（触点/感应机构），UGC 实测受弹簧老化、塑料件、进灰影响差异大，故以区间标注。「*」Topre 寿命源间冲突（50M vs 100M+），取保守区间。光轴/磁轴「≥100M」缺独立第三方破坏性实测。<br><b><sup>†</sup>价格逐条具名来源见第 4 节</b>：磁轴=Wooting 官网（来源 7）；光轴=PCWorld 促销+Razer 官网（来源 10/11）；Topre=camelcamelcamel/HHKB 官店+mechanicalkeyboards.com（来源 12/13）；机械/薄膜/剪刀=Switch and Click（来源 6）。均采集 2026-06-10，促销波动大。</p>
+  </section>
+
+  <!-- ============ 关键洞察与机会 ============ -->
+  <section>
+    <h2>6. 关键洞察与产品机会</h2>
+    <p class="callout"><b>洞察 1 · 「寿命亿次」是被滥用的营销锚点。</b>真正决定整机寿命的是弹簧老化/进灰/塑料件磨损，不是触点能不能撞 1 亿次。<b>机会：</b>做一份「整机实测寿命/失效模式」的独立破坏性测评内容（目前全网几乎只有厂商标称），或在带货页用「3–10 年整机可用」替代「亿次」这种用户无感的数字，转化更高。</p>
+    <p class="callout"><b>洞察 2 · 可定制性正在分裂成「硬件可玩(机械)」与「软件可玩(磁轴)」两条路。</b>磁轴用 Rapid Trigger + 每键可调触发点，给了不愿焊接/换轴的人「另一种折腾」。<b>机会：</b>面向竞技玩家主打「软件可调」叙事（而非沿用机械的「换轴」叙事），磁轴的差异化卖点在这里而非手感。</p>
+    <p class="callout"><b>洞察 3 · 价格带 $80–$300 是最拥挤红海，机械/磁轴/光轴贴身肉搏。</b>真正的空白在两端：&lt;$40 仍由难用薄膜统治、缺「便宜但不糊」的入门机械；&gt;$300 除 Topre 外缺「奢侈但可定制」的选项。<b>机会：</b>$30–$50 价位做「人生第一把不糊的机械」获客款；或做「客制化级做工 + Topre 级溢价」的高端机抢 Topre 不可定制的痛点。</p>
+    <p class="callout"><b>洞察 4 · 维修性是被低估的 ESG/省钱卖点。</b>薄膜/剪刀「坏=整块换」既费钱又产生电子垃圾。<b>机会：</b>热插拔 + 模块化叙事可同时打「省钱」与「环保」两张牌，尤其对企业采购/教育市场。</p>
+    <p class="callout"><b>洞察 5 · 手感声音「不可云体验」是天然线下/试用流量入口。</b>既然视频无法替代上手，<b>机会：</b>轴体试用盒、门店体验墙、「7 天可退换轴」等降低决策门槛的设计，比堆参数更能转化犹豫用户。</p>
+  </section>
+
+  <!-- ============ Caveats ============ -->
+  <section class="caveats">
+    <h2>Caveats &amp; 证伪状态</h2>
+    <ul>
+      <li><span class="fbadge partial">部分证伪</span> <b>H2.1（寿命为单一定值）</b>：被证伪 → 全部改区间。机械各源 50M–100M 标称、UGC 有 200M+；薄膜/剪刀多源一致 5M–10M。（来源 1/3/4/5，置信中-高）</li>
+      <li><span class="fbadge open">仍开放</span> <b>H2.2（Topre 寿命）</b>：源间直接冲突——Deskthority/指南系 ~50M，TipTapTypers 标「100M+」。无第三方破坏性实测裁决，本页取保守 50M–100M 并标 *。（来源 2/4，置信低-中）</li>
+      <li><span class="fbadge partial">部分证伪</span> <b>H2.3（价格区间）</b>：上轮笼统给区间已被本轮逐条具名修正——每个价位锚点现配「具名零售/官方页 + 数值 + 链接 + 采集日」（见第 4 节五个 .ugc 块及矩阵 † 注）。关键校正：① 光轴下限被证伪偏高，Razer Huntsman Mini 2026-01 Amazon 历史最低 $69（来源 10），故下调到 $60；② 磁轴上限被证伪偏高，Wooting 60HE v2 官方顶配仅 $239.99（来源 7），故收窄到 $240；③ Topre 下限被证伪偏高，Realforce R3S 促销 $156（来源 13），故下调下限。促销窗口波动剧烈（Razer 半年 $130→$69），数值均为 2026-06-10 快照。（来源 6/7/10/11/12/13，置信中-高）</li>
+      <li><span class="fbadge confirmed">已核实</span> <b>「感应方式 + 回弹来源是区分六类的两条主轴」</b>：六源原理交叉一致，证伪失败=成立。（来源 1–8，置信高）</li>
+      <li><span class="fbadge confirmed">已核实</span> <b>「热插拔机械是唯一可单键维修的类型」</b>：薄膜/剪刀「坏=整块换」多源一致；机械单轴可换有 UGC 支撑。（来源 1/8，置信高）</li>
+      <li><span class="fbadge confirmed">已核实</span> <b>「手感声音线上不可完全替代上手」</b>：录音设备影响声音 + 触觉不可传输 + 整机&gt;轴，三重证据。（M2 源模块 ThereminGoat，置信高）</li>
+      <li><span class="fbadge open">数据缺口</span> 光轴/磁轴「≥100M」几乎全为厂商标称，缺独立破坏性寿命实测；剪刀脚寿命各源略有出入，本页取保守区间。</li>
+      <li><span class="fbadge confirmed">已修正</span> <b>Topre 手感证据的 vague attribution</b>：上轮唯一证据笼统记为「Reddit 社区讨论综述」无链接，本轮已替换为两条<u>可点击具名来源</u>——HHKB 官方（标注为厂商营销立场）给出「bump 在键程顶端、smooth as silk」的机理描述，ThereminGoat《A Better Beginner's Guide to Force Curves》原文佐证「上手不可被力曲线/线上数据替代」。注：Reddit 站点对本环境 WebFetch/WebSearch 爬虫返回 403/封禁，无法直出具名楼层链接，故改用 HHKB+ThereminGoat 两条带链接命名源，而非保留无链接的社区综述。</li>
+      <li><span class="fbadge open">项目级缺口（非本页独有）</span> <b>topnav「📋 完整版」指向的合并报告尚未生成</b>：全站统一引用的 <code>full-report.html</code> 当前不存在于 <code>keyboard-research-pro/</code> 目录（已 ls 核实，该目录仅有各 task_*.html + index.html）。这是全站约定的统一写法、非本页拼写错误。本轮已将本页 topnav「完整版」临时改指向存在的 <code>index.html</code> 以消除死链；待生成合并报告后全站统一回改文件名。</li>
+    </ul>
+  </section>
+
+  <!-- ============ 来源索引 ============ -->
+  <section class="sources">
+    <h2>参考来源索引</h2>
+    <ol>
+      <li>KeebsForAll —《Mechanical vs Membrane Keyboards: Lifespan Compared》（机械 50–100M / 薄膜 5–10M / 6–14 倍 / 橡胶碗老化变糊）：<a href="https://keebsforall.com/blogs/mechanical-keyboards-101/mechanical-vs-membrane-keyboards-lifespan-compared">keebsforall.com</a>（采集 2026-06-10）</li>
+      <li>Deskthority wiki —《Topre switch》（EC/静电容视角、归类与结构）：<a href="https://deskthority.net/wiki/Topre_switch">deskthority.net/wiki/Topre_switch</a>（采集 2026-06-10）</li>
+      <li>Alibaba 行业洞察 —《Wireless Mechanical vs Scissor Switch: Which Lasts Longer》（剪刀 5–10M / 3–4 年退化 / 腿断=键废）：<a href="https://www.alibaba.com/product-insights/wireless-mechanical-keyboard-vs-scissor-switch-which-lasts-longer-for-daily-typing.html">alibaba.com</a>（采集 2026-06-10）</li>
+      <li>TipTapTypers —《Mechanical Keyboard Lifespan And Longevity》（Cherry MX 100M / Topre 100M+ / UGC 200M+ / 标称偏保守）：<a href="https://www.tiptaptypers.com/mechanical-keyboard-lifespan-and-longevity/">tiptaptypers.com</a>（采集 2026-06-10）</li>
+      <li>MacRumors Forums —《Magic Keyboard expected life time?》（剪刀脚真实失效 UGC：轻用 1.5 年多键失灵）：<a href="https://forums.macrumors.com/threads/magic-keyboard-expected-life-time.2316149/">forums.macrumors.com</a>（采集 2026-06-10）</li>
+      <li>Switch and Click —《Mechanical vs Membrane: Making the Switch》（热插拔单轴可换 / 薄膜坏=整块换 / 长期更省）：<a href="https://switchandclick.com/mechanical-keyboards-vs-membrane-keyboards-making-the-switch/">switchandclick.com</a>（采集 2026-06-10）</li>
+      <li>PC Gamer —《Best Hall effect keyboards in 2026》（磁轴 Rapid Trigger / 可调触发 / Wooting 80HE 模拟量）：<a href="https://www.pcgamer.com/hardware/gaming-keyboards/best-hall-effect-keyboards/">pcgamer.com</a>（采集 2026-06-10）</li>
+      <li>RTINGS —《Apple Magic Keyboard 2017 Review》（剪刀脚做工/手感第三方评测）：<a href="https://www.rtings.com/keyboard/reviews/apple/magic-keyboard-2017">rtings.com</a>（采集 2026-06-10）</li>
+      <li>HHKB 官方 —《Topre Switches Guide: Why They Are Still the Gold Standard in 2026》（Topre「bump 在顶端/smooth as silk」手感描述、官方归类话术，标注为营销立场）：<a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us/blog/topre-switches</a>（采集 2026-06-10）</li>
+      <li>PCWorld —《Razer's Huntsman Mini keyboard is now 47% off, its best price yet》（光轴促销价 Razer Huntsman Mini 历史最低 $69 / 原价 $130）：<a href="https://www.pcworld.com/article/3029586/razers-huntsman-mini-keyboard-is-now-47-percent-off-its-best-price-yet.html">pcworld.com</a>（采集 2026-06-10）</li>
+      <li>Razer 官方 —《Razer Huntsman Mini》（光轴 MSRP/规格、官方价位）：<a href="https://www.razer.com/gaming-keyboards/razer-huntsman-mini">razer.com</a>（采集 2026-06-10）</li>
+      <li>Wooting 官方 —《Wooting 60HE v2》（磁轴定价：module €149.99 / 整机 $179.99 起 / 铝壳顶配 $239.99）：<a href="https://wooting.io/wooting-60he-v2">wooting.io/wooting-60he-v2</a>（采集 2026-06-10）</li>
+      <li>camelcamelcamel Amazon 价格追踪 + HHKB 官方店 —（HHKB Pro Hybrid Type-S：Charcoal $228.35 / Snow White $299.99 / 促销 $35–40 off）：<a href="https://camelcamelcamel.com/product/B083MY84VX">camelcamelcamel.com</a> · <a href="https://hhkeyboard.us/hhkb/pro-hybrid-type-s">hhkeyboard.us</a>（采集 2026-06-10）</li>
+      <li>MechanicalKeyboards.com + keeb-finder —（Realforce R3 TKL $242–$285 / R3S TKL 促销 $156 原价 $166）：<a href="https://mechanicalkeyboards.com/collections/realforce">mechanicalkeyboards.com</a> · <a href="https://keeb-finder.com/keyboards/topre-realforce-r3">keeb-finder.com</a>（采集 2026-06-10）</li>
+      <li>ThereminGoat —《A Better Beginner's Guide to Force Curves》（独立测评者：上手体验「should not be replaced, even partially, by reading force curves」，佐证手感线上不可替代）：<a href="https://www.theremingoat.com/blog/a-better-beginners-guide-to-force-curves">theremingoat.com</a>（采集 2026-06-10）</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer><div class="wrap">机械键盘行业深度调研 · 模块2 Task 2.2 · 采集时点 2026-06 · 行业迭代极快，价格/型号以原文为准 · <a href="index.html">返回索引</a></div></footer>
+
+<script>
+document.querySelectorAll('table.matrix').forEach(t=>{
+  t.querySelectorAll('thead th').forEach((th,ci)=>{
+    th.addEventListener('click',()=>{
+      const on=th.classList.toggle('hl');
+      t.querySelectorAll('tr').forEach(r=>{const c=r.children[ci];if(c)c.classList.toggle('hl',on);});
+    });
+  });
+});
+</script>
+</body>
+</html>
