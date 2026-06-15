@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keychron SKU 命名解码手册</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .seg{display:inline-block;padding:6px 10px;margin:2px;border-radius:6px;font-weight:700;font-family:ui-monospace,Menlo,monospace}
+  .s1{background:#dbe9ff;color:#1c3d6e} .s2{background:#ffe6c7;color:#8a4b00}
+  .s3{background:#d7f0d8;color:#1f5d2a} .s4{background:#f3d9f0;color:#7a2b6e} .s5{background:#eee;color:#444}
+  .legend b{font-family:ui-monospace,Menlo,monospace}
+  .ex{font-family:ui-monospace,Menlo,monospace;background:#f6f3ee;padding:2px 6px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<nav class="topnav"><div class="wrap">
+  <a class="home" href="sku-decoder.html">⌨ Keychron SKU 解码手册</a>
+  <span class="spacer"></span>
+  <a href="#how">三步读懂</a><a href="#tables">代号表</a><a href="#kseries">K系列</a><a href="#examples">实例</a>
+</div></nav>
+
+<header class="module-hero"><div class="wrap">
+  <span class="module-tag">SKU DECODER · 内部命名解码</span>
+  <h1>Keychron SKU 命名解码手册</h1>
+  <p class="lede">从内部条码表的 8,730 个真实 SKU 反推出来的命名规律——让你看一眼 SKU（如 <span class="ex">K2M-A3-JIS</span>）就知道它是什么产品、什么轴、什么布局。</p>
+  <p class="meta">数据来源：《Keychron 所有机型的条码.xlsx》278 个 sheet / 8,730 条 SKU 实测归纳 ｜ 配套文件：<b>SKU命名解码字典.xlsx</b>（字典 + 全量 8730 行可筛选解析 + K系列尺寸表 + 型号→官网链接）</p>
+</div></header>
+
+<main class="wrap">
+
+  <section>
+    <h2>0. 先看一眼：SKU 长这样</h2>
+    <p style="font-size:20px;text-align:center;margin:18px 0">
+      <span class="seg s1">K2</span><span class="seg s2">M</span>
+      <span style="font-size:24px">-</span>
+      <span class="seg s3">A</span><span class="seg s4">3</span>
+      <span style="font-size:24px">-</span>
+      <span class="seg s5">JIS</span>
+    </p>
+    <div class="legend grid grid-3">
+      <div class="card"><span class="seg s1">K2</span> + <span class="seg s2">M</span><br><b>型号</b>：系列(K) + 编号(2) + 尾缀(M=Max)。<br>→ <b>Keychron K2 Max</b></div>
+      <div class="card"><span class="seg s3">A</span><span class="seg s4">3</span><br><b>变体</b>：字母(A=某配色/背光族，<u>每个型号自己定</u>) + 数字(<b>3=茶轴</b>)。</div>
+      <div class="card"><span class="seg s5">JIS</span><br><b>地区后缀</b>(可选)：JIS=日本布局。没有后缀=默认美国 ANSI。</div>
+    </div>
+    <p class="callout"><b>一句话：</b>SKU = <b>型号</b>（系列+编号+尾缀） — <b>变体字母</b>（颜色/版本，型号内部自定） + <b>数字</b>（轴体）<b>[-地区]</b>。其中最该记的是<b>数字=轴体</b>和<b>尾缀=配置档</b>，变体字母不用背、看中文信息列即可。</p>
+  </section>
+
+  <section id="how">
+    <h2>1. 三步读懂任意一个 SKU</h2>
+    <div class="grid grid-3">
+      <div class="card"><b>第 1 步 · 看破折号前</b><br>拆成「系列字母 + 数字 + 尾缀字母」。<br>系列告诉你<b>哪条产品线</b>（K/Q/V/B/C/M…），尾缀告诉你<b>什么档</b>（Pro/Max/Ultra/HE/基础）。</div>
+      <div class="card"><b>第 2 步 · 看第一个破折号后的「字母+数字」</b><br><b>数字 = 轴体</b>（1红 2青 3茶 4香蕉 6静音红…，最稳）。字母是该型号自定的颜色/版本族，记不住就对照中文信息列。</div>
+      <div class="card"><b>第 3 步 · 看第二个破折号后（若有）</b><br>那是<b>地区布局后缀</b>（JIS 日本 / UK 英国 / DE 德国…）。没有 = 默认美国 ANSI。<b>-SC = 试产样品</b>，不是地区。</div>
+    </div>
+  </section>
+
+  <section id="tables">
+    <h2>2. 代号对照表（全部从真实数据归纳）</h2>
+
+    <h3>① 系列字母（SKU 最前面）</h3>
+    <div class="table-scroll"><table class="matrix"><thead><tr><th>字母</th><th>含义</th><th>SKU 占比</th></tr></thead><tbody>
+      <tr><td><b>K</b></td><td>主力无线键盘（走量、性价比、Mac 友好）</td><td>最多(~38%)</td></tr>
+      <tr><td><b>Q</b></td><td>全金属 gasket 客制旗舰（QMK，最贵）</td><td>~24%</td></tr>
+      <tr><td><b>V</b></td><td>平价客制（Q 的塑料壳版本）</td><td>~13%</td></tr>
+      <tr><td><b>B</b></td><td>超薄预算入门</td><td>~6%</td></tr>
+      <tr><td><b>C</b></td><td>有线入门（最便宜）</td><td>~5%</td></tr>
+      <tr><td><b>M</b></td><td>鼠标（不是键盘！）</td><td>~3%</td></tr>
+      <tr><td><b>L</b></td><td>Lemokey（游戏子品牌）</td><td>~1%</td></tr>
+      <tr><td>J / G / R / T / F / BM…</td><td>子品牌(JamesDonkey 等)、人体工学、联名或细分线</td><td>少量</td></tr>
+    </tbody></table></div>
+
+    <h3>② 型号尾缀（编号后面的字母，如 K2<span class="hl">M</span>）——决定配置档</h3>
+    <div class="table-scroll"><table class="matrix"><thead><tr><th>尾缀</th><th>含义</th><th>SKU 数</th></tr></thead><tbody>
+      <tr><td>（无）</td><td><b>基础款</b>（初代/标准，常为有线或蓝牙双模）</td><td>2916</td></tr>
+      <tr><td><b>M</b></td><td><b>Max</b>：三模无线 + QMK/VIA + 热插拔，当前主力配置</td><td>1878</td></tr>
+      <tr><td><b>P</b></td><td><b>Pro</b>：在基础款上加 QMK/VIA + 热插拔</td><td>1532</td></tr>
+      <tr><td><b>U</b></td><td><b>Ultra</b>：顶配（常带小屏/更高规格）</td><td>844</td></tr>
+      <tr><td><b>H</b></td><td><b>HE</b>：Hall Effect 磁轴，可调触发点，游戏向</td><td>549</td></tr>
+      <tr><td><b>X</b></td><td>X：特定精简/渠道版</td><td>327</td></tr>
+      <tr><td><b>SE</b></td><td>SE / Retro SE：特别版 / 复古配色</td><td>80</td></tr>
+    </tbody></table></div>
+    <p class="meta">还有少量组合尾缀（PX、HW、UW、MG…）是「档位 + 区域/版本」叠加，遇到时以型号中文名为准。升级阶梯大致是：<b>基础 → Pro（加客制）→ Max（加无线）→ Ultra（顶配）</b>；HE 是平行的磁轴分支。</p>
+
+    <h3>③ 轴体数字 ★最稳的规律（变体字母后面的数字，整机）</h3>
+    <div class="table-scroll"><table class="matrix"><thead><tr><th>数字</th><th>轴体</th><th>手感</th></tr></thead><tbody>
+      <tr><td><b>1</b></td><td>红轴 Red</td><td>线性顺滑（HE 款里 1 常是"星云/磁轴"主款）</td></tr>
+      <tr><td><b>2</b></td><td>青轴 Blue</td><td>段落带响（咔哒声）</td></tr>
+      <tr><td><b>3</b></td><td>茶轴 Brown</td><td>段落有反馈</td></tr>
+      <tr><td><b>4</b></td><td>香蕉轴 Banana</td><td>线性偏顺</td></tr>
+      <tr><td><b>5</b></td><td>光轴 / 香蕉</td><td>—</td></tr>
+      <tr><td><b>6</b></td><td>静音红 Silent Red</td><td>线性 + 静音</td></tr>
+      <tr><td><b>7 / 9</b></td><td>静音茶 / 静音香蕉</td><td>静音系</td></tr>
+    </tbody></table></div>
+    <p class="callout"><b>为什么是这个顺序（猜测）：</b>大致是 Keychron 轴体<b>上市的先后顺序</b>——最早的 Gateron 红/青/茶就是 1/2/3，香蕉(4) 是后来加的主推线性轴，静音系列(6/7/9) 更晚，所以排到后面。数字越小越"经典/老"。</p>
+
+    <h3>④ 套件颜色数字（barebone 套件时，同一位置的数字变成"颜色"）</h3>
+    <p>这是最容易踩坑的点：<b>当 SKU 是不带轴的「套件 barebone」时，那个数字不再是轴体，而是机身颜色。</b></p>
+    <div class="table-scroll"><table class="matrix"><thead><tr><th>数字</th><th>套件颜色</th></tr></thead><tbody>
+      <tr><td>1</td><td>黑色</td></tr><tr><td>2</td><td>灰色</td></tr><tr><td>3</td><td>蓝色</td></tr><tr><td>4</td><td>白色</td></tr><tr><td>5/6</td><td>白 / 绿 / 银（较杂）</td></tr>
+    </tbody></table></div>
+    <p class="meta">判断方法：中文信息里有"套件"且没有任何轴体词 → 数字读作颜色；否则数字读作轴体。颜色 1=黑 是默认色，所以排第一。</p>
+
+    <h3>⑤ 变体字母（第一个破折号后的字母）——⚠ 不要全局背</h3>
+    <p>这是最"乱"的一段，也是你觉得看不懂的根源：<b>同一个字母在不同型号里含义不同</b>。例如 <span class="ex">F</span> 在 Q1 Pro 里是"欧洲 ISO"，在 K2 HE 里是"黑色特别版"，在 V1 Max 里是"白色"。数据印证：字母 M/H/K/D 在全量里都横跨 ANSI/ISO/JIS 多种含义。</p>
+    <p class="callout"><b>结论：变体字母是"型号内部自定义的配色/布局/版本族"，是 model-local 的，没有全局规律。</b>实操上别去背它——<b>要么看中文信息列，要么用配套 Excel 的「全量SKU解析」表筛选</b>。它唯一的<u>弱规律</u>是：团队往往按"区域块"或"上市批次"分配字母（如某型号 B=ANSI、F=ISO、H=JIS）。</p>
+
+    <h3>⑥ 地区后缀（第二个破折号后，如 -<span class="hl">JIS</span>）——全局通用、可背</h3>
+    <div class="table-scroll"><table class="matrix"><thead>
+      <tr><th>后缀</th><th>地区</th><th>后缀</th><th>地区</th><th>后缀</th><th>地区</th></tr></thead><tbody>
+      <tr><td>JIS/JP</td><td>日本</td><td>UK</td><td>英国</td><td>DE</td><td>德国</td></tr>
+      <tr><td>FR</td><td>法国</td><td>ES/SP</td><td>西班牙</td><td>IT</td><td>意大利</td></tr>
+      <tr><td>KR</td><td>韩国</td><td>RU</td><td>俄罗斯</td><td>UA</td><td>乌克兰</td></tr>
+      <tr><td>SW</td><td>瑞典/北欧</td><td>TR</td><td>土耳其</td><td>BR</td><td>巴西</td></tr>
+      <tr><td>PT</td><td>葡萄牙</td><td>BE</td><td>比利时</td><td>HU</td><td>匈牙利</td></tr>
+      <tr><td>CA</td><td>加拿大</td><td>TW</td><td>台湾</td><td>HEB</td><td>希伯来(以色列)</td></tr>
+      <tr><td>IN</td><td>印度</td><td>US</td><td>美国(显式)</td><td><b>SC</b></td><td><b>★试产/样品(非地区)</b></td></tr>
+    </tbody></table></div>
+    <p class="meta">没有后缀 = 默认美国 ANSI 布局。这些后缀是<b>键盘语言布局</b>的本地化版本，全局一致，可放心背。</p>
+  </section>
+
+  <section id="kseries">
+    <h2>3. 专门回答你的困惑：K0–K19 到底什么区别？</h2>
+    <p><b>K 后面的数字不是"第几代 / 越大越新越好"，而是"不同尺寸 × 高度"的型号编号。</b>而且早期有个非常漂亮的规律——</p>
+    <p class="callout">★ <b>K 系列奇数 = 低 profile 超薄，偶数 = 常规高度</b>（K1 低/K2 常规/K3 低/K4 常规…一路精确交替）。所以看到奇数 K 就知道它是矮薄款。</p>
+    <div class="table-scroll"><table class="matrix"><thead><tr><th>型号</th><th>主力布局</th><th>高度</th><th>型号</th><th>主力布局</th><th>高度</th></tr></thead><tbody>
+      <tr><td>K1</td><td>80%/TKL</td><td>低profile</td><td>K9</td><td>60%</td><td>低profile</td></tr>
+      <tr><td><b>K2</b></td><td>75%</td><td><b>常规·经典款</b></td><td>K10</td><td>100% 全尺寸</td><td>常规</td></tr>
+      <tr><td>K3</td><td>75%</td><td>低profile</td><td>K11</td><td>65%</td><td>低profile</td></tr>
+      <tr><td>K4</td><td>96%</td><td>常规</td><td>K12</td><td>60%</td><td>常规</td></tr>
+      <tr><td>K5</td><td>100% 全尺寸</td><td>低profile</td><td>K13</td><td>80%</td><td>低profile</td></tr>
+      <tr><td>K6</td><td>65%</td><td>常规</td><td>K14</td><td>70%</td><td>常规</td></tr>
+      <tr><td>K7</td><td>65%</td><td>低profile</td><td>K15</td><td>75%</td><td>低profile</td></tr>
+      <tr><td>K8</td><td>80%/TKL</td><td>常规</td><td>K17</td><td>96%</td><td>低profile</td></tr>
+    </tbody></table></div>
+    <p>每个 K 型号再叠加尾缀做"配置档"：比如 <span class="ex">K2</span>(基础双模) → <span class="ex">K2 Pro</span>(加 QMK+热插拔) → <span class="ex">K2 Max</span>(再加三模无线) → <span class="ex">K2 HE</span>(磁轴版) → <span class="ex">K2 Ultra</span>(顶配)。<b>所以"K2 Max"和"K8 Pro"的区别 = 尺寸不同(75% vs 80%) + 档位不同(Max vs Pro)</b>，两个维度一拆就清楚了。</p>
+  </section>
+
+  <section id="examples">
+    <h2>4. 五个实例，带你拆一遍</h2>
+    <div class="table-scroll"><table class="matrix"><thead><tr><th>SKU</th><th>拆解</th><th>=什么产品</th></tr></thead><tbody>
+      <tr><td class="ex">K2M-A3</td><td>K2 + M(Max) ｜ A(白光族) ｜ 3(茶轴)</td><td>K2 Max，75% 常规，白光茶轴，美国 ANSI</td></tr>
+      <tr><td class="ex">Q1P-F1</td><td>Q1 + P(Pro) ｜ F(欧洲族) ｜ 1(红轴)</td><td>Q1 Pro 客制旗舰，欧洲 ISO 布局，红轴</td></tr>
+      <tr><td class="ex">K2H-J4</td><td>K2 + H(HE 磁轴) ｜ J(黑色族) ｜ 4(此处为"快速青柠"磁轴)</td><td>K2 HE 磁轴版，黑色，快速青柠磁轴（HE 款数字含义偏磁轴专属，以中文信息为准）</td></tr>
+      <tr><td class="ex">V1M-Z6</td><td>V1 + M(Max) ｜ Z(套件族) ｜ 6(套件→颜色)</td><td>V1 Max <b>barebone 套件</b>（不含轴/键帽），白色系</td></tr>
+      <tr><td class="ex">C3P-A1-JIS</td><td>C3 + P(Pro) ｜ A1(红轴) ｜ JIS</td><td>C3 Pro 有线入门，红轴，日本 JIS 布局</td></tr>
+    </tbody></table></div>
+    <p class="meta">注意第 3 例：HE 磁轴款的数字是磁轴专属型号（星云/快速青柠/青柠静音…），不完全等同普通机械轴的 1红3茶，遇到 HE 一律以中文信息列为准。</p>
+  </section>
+
+  <section>
+    <h2>5. 配套文件怎么用</h2>
+    <ul>
+      <li><b>SKU命名解码字典.xlsx</b>
+        <ul>
+          <li><b>SKU解码字典</b>：上面 6 张表的速查版。</li>
+          <li><b>K系列尺寸规律</b>：K1–K17 尺寸/高度对照。</li>
+          <li><b>全量SKU解析</b>：8,730 行，每个 SKU 已拆成「系列/编号/尾缀/变体字母/轴体或颜色/地区/中文信息」——<b>可直接筛选</b>（比如筛尾缀=Max、轴体=茶轴，秒出清单）。</li>
+          <li><b>型号→官网链接</b>：263 个型号里 158 个已匹配官网 URL，点开就能看实物图（详见 Caveats）。</li>
+        </ul>
+      </li>
+      <li><b>Keychron产品数据库.xlsx</b>（之前那份）：官网在售 702 产品 + URL，做"看实物/查在售"的精确入口。</li>
+    </ul>
+  </section>
+
+  <section class="caveats">
+    <h2>Caveats &amp; 说明</h2>
+    <ul>
+      <li><span class="fbadge confirmed">数据归纳</span> 全部规律来自对 8,730 个真实 SKU 的频次归纳，不是猜的官方文档；个别老型号/联名款可能不完全守规。</li>
+      <li><span class="fbadge partial">字母 model-local</span> 变体字母没有全局含义，务必结合中文信息列；本手册只给"弱规律"。</li>
+      <li><span class="fbadge partial">URL 为弱匹配</span> 「型号→官网链接」是按型号名首次匹配，约 60% 命中，个别可能指到同系列的变体/配件页；要精确请用产品数据库按型号搜。</li>
+      <li><span class="fbadge open">HE/特殊</span> 磁轴(HE)与部分特殊款的数字编码偏专属，以中文信息为准。</li>
+    </ul>
+  </section>
+
+</main>
+<footer><div class="wrap">Keychron SKU 命名解码手册 · 据《所有机型的条码.xlsx》8,730 SKU 归纳 · 配套 SKU命名解码字典.xlsx</div></footer>
+</body>
+</html>
