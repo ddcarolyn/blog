@@ -50,6 +50,12 @@
        padding:11px 14px;border-radius:0 8px 8px 0;display:none}
   .exp.show{display:block}
   .exp b{color:var(--ok)}
+  .namebox{max-width:780px;margin:6px auto 0;padding:0 24px}
+  .namebox label{display:block;font-size:12.5px;color:var(--gray);letter-spacing:.5px;margin:0 2px 8px;text-transform:uppercase}
+  .namebox input{width:100%;font-size:15px;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;
+       background:#fff;color:var(--ink);outline:none;transition:.15s;font-family:inherit}
+  .namebox input:focus{border-color:var(--black)}
+  .namebox input.miss{border-color:var(--bad);background:var(--badbg)}
   .actions{text-align:center;margin:30px 0}
   .btn{appearance:none;border:none;background:var(--black);color:#fff;font-size:14px;font-weight:700;
        letter-spacing:1.5px;text-transform:uppercase;padding:15px 44px;border-radius:999px;cursor:pointer;transition:.2s}
@@ -85,6 +91,10 @@
 </section>
 
 <main>
+  <div class="namebox">
+    <label for="userName">姓名（必填 · 用于记录成绩）</label>
+    <input id="userName" type="text" maxlength="40" placeholder="请输入你的姓名" autocomplete="name">
+  </div>
   <div id="quiz"></div>
   <div class="actions" id="submitWrap">
     <button class="btn" id="submitBtn">提交并查看成绩</button>
@@ -173,7 +183,25 @@ function updateProgress(){
   const done=answers.filter(a=>a!==null).length;
   document.getElementById('prog').style.width=(done/QUESTIONS.length*100)+'%';
 }
+const REPORT_URL="https://keychron-quiz.angelajialun.workers.dev";
+function reportScore(name,score,correct,total,grade){
+  const detail=QUESTIONS.map((item,i)=>`${i+1}${answers[i]===item.a?'✓':'✗'}`).join(' ');
+  try{
+    fetch(REPORT_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name,score,correct,total,grade,detail})}).catch(()=>{});
+  }catch(e){}
+}
 function submit(){
+  const nameEl=document.getElementById('userName');
+  const userName=nameEl.value.trim();
+  if(!userName){
+    nameEl.classList.add('miss');
+    alert('请先在顶部填写你的姓名，再提交成绩。');
+    nameEl.scrollIntoView({behavior:'smooth',block:'center'});
+    nameEl.focus();
+    return;
+  }
+  nameEl.classList.remove('miss');
   const unfilled=answers.findIndex(a=>a===null);
   if(unfilled>-1){
     alert(`还有 ${answers.filter(a=>a===null).length} 题未作答（第 ${unfilled+1} 题等）。`);
@@ -207,6 +235,7 @@ function submit(){
   document.getElementById('grade').textContent=g;
   res.classList.add('show');
   res.scrollIntoView({behavior:'smooth',block:'center'});
+  reportScore(document.getElementById('userName').value.trim(),score,correct,QUESTIONS.length,g);
 }
 function retry(){
   locked=false;
