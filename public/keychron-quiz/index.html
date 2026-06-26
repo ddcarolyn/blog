@@ -112,6 +112,7 @@
     <div class="score"><span id="scoreNum">0</span><small> / 100</small></div>
     <p id="scoreLine">答对 0 / 18 题</p>
     <div class="grade" id="grade">—</div>
+    <p id="reportStatus" style="margin-top:14px;font-size:12.5px;opacity:.85"></p>
   </div>
 
   <div class="actions" id="retryWrap" style="display:none">
@@ -220,10 +221,13 @@ function updateProgress(){
 const REPORT_URL="https://keychron-quiz.angelajialun.workers.dev";
 function reportScore(name,score,correct,total,grade){
   const detail=QUESTIONS.map((item,i)=>`${i+1}${answers[i]===item.a?'✓':'✗'}`).join(' ');
-  try{
-    fetch(REPORT_URL,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name,score,correct,total,grade,detail})}).catch(()=>{});
-  }catch(e){}
+  const st=document.getElementById('reportStatus');
+  if(st) st.textContent='成绩记录中…';
+  fetch(REPORT_URL,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name,score,correct,total,grade,detail})})
+    .then(r=>r.json())
+    .then(d=>{ if(st) st.textContent=(d&&d.ok)?'✓ 成绩已记录到后台':('✗ 记录失败：'+(d&&d.error||'未知')+'（请截图反馈）'); })
+    .catch(err=>{ if(st) st.textContent='✗ 记录失败：网络无法连接后台（请截图反馈）'; });
 }
 function submit(){
   const nameEl=document.getElementById('userName');
