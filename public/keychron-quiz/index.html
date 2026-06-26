@@ -4,29 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Keychron 产品理解测验 · 10 题</title>
+<title>Keychron 产品知识测验</title>
 <style>
   :root{
     --black:#161616; --ink:#1d1d1f; --gray:#6e6e73; --line:#e3e3e6;
     --bg:#f5f5f7; --card:#ffffff; --ok:#1a7f43; --okbg:#e9f6ee;
-    --bad:#c0392b; --badbg:#fbeceb;
+    --bad:#c0392b; --badbg:#fbeceb; --accent:#161616;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
        background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  /* top bar */
   header{position:sticky;top:0;z-index:20;background:var(--black);color:#fff;
          display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
   .brand{font-weight:800;letter-spacing:3px;font-size:18px}
   .brand small{font-weight:500;letter-spacing:1px;opacity:.7;font-size:11px;margin-left:10px}
   .navhint{font-size:12px;opacity:.6;letter-spacing:1px}
+  /* hero */
   .hero{max-width:780px;margin:0 auto;padding:56px 24px 28px;text-align:center}
-  .hero h1{font-size:32px;font-weight:800;letter-spacing:-.5px}
+  .hero h1{font-size:34px;font-weight:800;letter-spacing:-.5px}
   .hero p{color:var(--gray);margin-top:12px;font-size:15px}
   .meta{display:inline-flex;gap:18px;margin-top:22px;flex-wrap:wrap;justify-content:center}
   .meta span{font-size:12.5px;color:var(--gray);letter-spacing:.5px;text-transform:uppercase}
   .meta b{color:var(--ink)}
+  /* progress */
   .bar{position:sticky;top:52px;z-index:15;height:3px;background:var(--line)}
   .bar>i{display:block;height:100%;width:0;background:var(--black);transition:width .3s}
+  /* quiz */
   main{max-width:780px;margin:0 auto;padding:8px 24px 80px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
         padding:26px 26px 22px;margin:18px 0;box-shadow:0 1px 2px rgba(0,0,0,.03)}
@@ -51,12 +55,14 @@
        padding:11px 14px;border-radius:0 8px 8px 0;display:none}
   .exp.show{display:block}
   .exp b{color:var(--ok)}
+  /* name box */
   .namebox{max-width:780px;margin:6px auto 0;padding:0 24px}
   .namebox label{display:block;font-size:12.5px;color:var(--gray);letter-spacing:.5px;margin:0 2px 8px;text-transform:uppercase}
   .namebox input{width:100%;font-size:15px;padding:14px 16px;border:1.5px solid var(--line);border-radius:12px;
        background:#fff;color:var(--ink);outline:none;transition:.15s;font-family:inherit}
   .namebox input:focus{border-color:var(--black)}
   .namebox input.miss{border-color:var(--bad);background:var(--badbg)}
+  /* submit / result */
   .actions{text-align:center;margin:30px 0}
   .btn{appearance:none;border:none;background:var(--black);color:#fff;font-size:14px;font-weight:700;
        letter-spacing:1.5px;text-transform:uppercase;padding:15px 44px;border-radius:999px;cursor:pointer;transition:.2s}
@@ -71,23 +77,23 @@
   .grade{display:inline-block;margin-top:18px;font-size:13px;letter-spacing:2px;text-transform:uppercase;
          border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 18px}
   footer{text-align:center;color:var(--gray);font-size:12px;padding:30px;letter-spacing:.5px}
-  @media(max-width:560px){.hero h1{font-size:24px}.q{font-size:15.5px}}
+  @media(max-width:560px){.hero h1{font-size:26px}.q{font-size:15.5px}}
 </style>
 </head>
 <body>
 <header>
-  <div class="brand">KEYCHRON<small>产品理解测验</small></div>
-  <div class="navhint">10 QUESTIONS</div>
+  <div class="brand">KEYCHRON<small>产品知识测验</small></div>
+  <div class="navhint">PRODUCT QUIZ</div>
 </header>
 <div class="bar"><i id="prog"></i></div>
 
 <section class="hero">
-  <h1>Keychron 产品理解测验</h1>
-  <p>聚焦布局尺寸 · 尺寸取舍 · SKU 换算 · 轴体选择 · 磁轴与 Launcher 技术<br>10 道题，全部作答后点「提交」自动判分并展开答案解析。</p>
+  <h1>Keychron 产品知识测验</h1>
+  <p>覆盖 SKU 解码 · 产品系列 · 价格定位 · 品牌 · Launcher 软件五大维度<br>选完所有题目后点击「提交」即可自动判分并查看答案解析。</p>
   <div class="meta">
-    <span>题量 <b>10 题</b></span>
+    <span>题量 <b>18 题</b></span>
     <span>满分 <b>100 分</b></span>
-    <span>侧重 <b>真实产品理解</b></span>
+    <span>难度 <b>入门 → 进阶</b></span>
   </div>
 </section>
 
@@ -97,53 +103,80 @@
     <input id="userName" type="text" maxlength="40" placeholder="请输入你的姓名" autocomplete="name">
   </div>
   <div id="quiz"></div>
+
   <div class="actions" id="submitWrap">
     <button class="btn" id="submitBtn">提交并查看成绩</button>
   </div>
+
   <div class="result" id="result">
     <div class="score"><span id="scoreNum">0</span><small> / 100</small></div>
-    <p id="scoreLine">答对 0 / 10 题</p>
+    <p id="scoreLine">答对 0 / 18 题</p>
     <div class="grade" id="grade">—</div>
   </div>
+
   <div class="actions" id="retryWrap" style="display:none">
     <button class="btn ghost" id="retryBtn">重新作答</button>
   </div>
 </main>
 
-<footer>内部产品培训用 · 题目与答案基于 Keychron 官网布局尺寸与 SKU / Launcher 培训资料</footer>
+<footer>仅用于内部产品培训 · 答案基于 Keychron 官网与 SKU 培训资料整理</footer>
 
 <script>
 const QUESTIONS = [
-  {cat:"布局识别", q:"Keychron Q 系列里，唯一带完整数字小键盘的「100% 全尺寸」是哪一款？",
-   opts:["Q1（75%）","Q3（80% TKL）","Q5（96%）","Q6（100% 全尺寸）"],
-   a:3, exp:"Q6 = 100% 全尺寸；Q5 虽接近但是 96% 紧凑型，Q1=75%、Q3=80% TKL。"},
-  {cat:"尺寸取舍", q:"用户想要「尽量紧凑、但还要保留独立数字小键盘」，最合适的布局是？",
-   opts:["60%","75%","96%","80% TKL"],
-   a:2, exp:"96%（如 Q5）压缩了键位间隙却仍保留数字小键盘；TKL / 75% / 60% 都没有独立小键盘。"},
-  {cat:"SKU→尺寸", q:"SKU「Q4P-M1」对应的是一把多大布局的键盘？",
-   opts:["75%","65%","60%","96%"],
-   a:2, exp:"机型号 Q4 = 60% 配列；M1 = 黑壳整机 + 红轴。看懂机型号就知道尺寸。"},
-  {cat:"布局概念", q:"80%（TKL，如 Q3）相比 100% 全尺寸，主要少了什么？",
-   opts:["方向键","右侧数字小键盘","F 功能键行","空格键"],
-   a:1, exp:"TKL = Tenkeyless，去掉右侧数字小键盘，方向键、F 行等都保留。"},
-  {cat:"布局取舍", q:"选择 60% 布局（如 Q4）的用户，必须接受哪些键要靠 Fn 组合才能用？",
-   opts:["字母主键区","F 功能键行与方向键","回车键","空格键"],
-   a:1, exp:"60% 去掉了 F 功能行、方向键和编辑键区，这些都靠 Fn 层组合实现。"},
-  {cat:"人体工学", q:"Q8、Q10 这类「Alice 布局」主要是为了满足什么需求？",
-   opts:["更小的体积","更贴合手腕角度的人体工学打字","电竞极限响应","塞进更多快捷键"],
-   a:1, exp:"Alice 把字母区分成左右两半并带角度，减轻手腕外翻，主打长时间打字的舒适度。"},
-  {cat:"轴体选择", q:"客户在安静的开放式办公室、又常加班到深夜，最该推荐哪种轴体？",
-   opts:["红轴","茶轴","香蕉轴","静音红轴"],
-   a:3, exp:"静音红轴 = 线性顺滑 + 消音，最适合办公 / 夜间；茶轴、香蕉轴段落声更明显。"},
-  {cat:"磁轴技术", q:"HE 磁轴的「触发键程」可调，若把它调到很低（接近 0.1mm），会带来什么？",
-   opts:["续航更久","响应更快，但更容易误触","灯光更亮","键盘更安静"],
-   a:1, exp:"触发键程约 0.1–4.0mm，越低触发越快、但打字易误触，文本输入场景不建议过低。"},
-  {cat:"磁轴技术", q:"Rapid Trigger（快速触发）解决了传统机械轴的什么痛点？",
-   opts:["蓝牙连接延迟","必须回弹到固定复位点才能再次触发","键帽容易磨损","灯光会卡顿"],
-   a:1, exp:"它在任意深度检测到手指微抬即复位，急停 / 连击更跟手，适合 FPS 与音游。"},
-  {cat:"性能权衡", q:"把回报率开到 8000Hz（8K），主要代价是什么？无线模式下建议怎么设？",
-   opts:["没有任何代价，随时都该开 8K","显著增加功耗，无线建议 ≤1000Hz","会自动降低 DPI","必须有线，否则键盘无法开机"],
-   a:1, exp:"8K 适合有线竞技；无线开 8K 很费电，建议 ≤1000Hz 以平衡续航。"}
+  {cat:"SKU 解码", q:"SKU「Q1P-M3」代表的是哪一款产品？",
+   opts:["Q1 Pro，灰壳整机，红轴","Q1 Pro，黑壳整机，茶轴","Q1 Pro，白壳套件，茶轴","Q1 Pro，黑壳套件，红轴"],
+   a:1, exp:"M = 旋钮全套整机·黑壳，3 = 茶轴。Q Pro 默认带旋钮 + RGB + 热插拔。"},
+  {cat:"SKU 解码", q:"「Q3P-N3-ISO」的完整含义是？",
+   opts:["Q3 Pro，灰壳整机，茶轴，欧洲 ISO 布局","Q3 Pro，黑壳整机，红轴，日本布局","Q3 Pro，白壳套件，茶轴，美国布局","Q3 Pro，灰壳套件，香蕉轴，ISO"],
+   a:0, exp:"N = 整机灰壳，3 = 茶轴，尾缀 -ISO = 欧洲布局。"},
+  {cat:"SKU 解码", q:"下列哪个 SKU 是「旋钮套件 / barebone」而不是能直接打字的整机？",
+   opts:["Q1P-M1","Q1P-N3","Q1P-B2","Q1P-P4"],
+   a:2, exp:"B = 旋钮套件，只含外壳套件、不含键帽和轴体，需另配后才能使用。M/N/P 开头才是整机。"},
+  {cat:"SKU 解码", q:"客户想要「白色外壳 + 茶轴」的 Q1 Pro 整机，应下单哪个 SKU？",
+   opts:["Q1P-P3","Q1P-M3","Q1P-N3","Q1P-P1"],
+   a:0, exp:"P = 整机白壳，3 = 茶轴。P1 是白壳红轴，M3 是黑壳茶轴。"},
+  {cat:"SKU 解码", q:"SKU 尾缀「-JIS」表示什么？",
+   opts:["静音轴版本","日本布局","无线版本","香槟金配色"],
+   a:1, exp:"-JIS = 日本布局；无尾缀 = 美国 US，-ISO = 欧洲。"},
+  {cat:"情景应用", q:"客户来信：「收到 Q1 Pro，黑色外壳很搭桌垫，但想换克重更大的轴，不太适应它的红轴。」他买的 SKU 最可能是？",
+   opts:["Q1P-M4","Q1P-N3","Q1P-M1","Q1P-P1"],
+   a:2, exp:"黑壳整机 = M；现用红轴 = 1，所以是 M1。M4 是香蕉轴、N3 是灰壳，均不符。"},
+  {cat:"产品系列", q:"把 Q / V / K / B 四个系列按价格「从高到低」排序，正确的是？",
+   opts:["Q > K > V > B","K > Q > B > V","B > V > K > Q","V > Q > K > B"],
+   a:0, exp:"Q（全金属旗舰）最高，B（超薄入门）最低，约 $34 起。"},
+  {cat:"产品系列", q:"V 系列功能与 Q 系列接近，主要靠改了什么来降低成本？",
+   opts:["去掉了热插拔","用塑料外壳替代铝合金外壳","取消 RGB 背光","只能有线连接"],
+   a:1, exp:"V 系列保留 Gasket / 吸音棉 / 热插拔等核心体验，主要差别是塑料壳 vs 铝合金壳。"},
+  {cat:"产品系列", q:"B 系列为什么能做到「超薄 + 最低价」？",
+   opts:["采用剪刀脚 / 薄膜结构（非机械轴）","没有外壳","用单色塑料键帽","完全不支持无线"],
+   a:0, exp:"B 系列以剪刀脚 / 薄膜结构代替机械轴，更薄更轻，价格也最低。"},
+  {cat:"品牌认知", q:"「Lemokey」是什么？",
+   opts:["Keychron 的键帽品牌","Keychron 旗下的电竞磁轴（HE）子品牌","一款无线接收器型号","一个客制化社区"],
+   a:1, exp:"Lemokey 主打 HE 磁轴 + 8K + Rapid Trigger，面向 FPS / 竞技玩家，代表为 P 系列。"},
+  {cat:"产品系列", q:"产品后缀按配置「从低到高」排序，正确的是？",
+   opts:["Pro < Max < HE < Ultra","Ultra < HE < Max < Pro","Max < Pro < Ultra < HE","HE < Pro < Max < Ultra"],
+   a:0, exp:"Standard < Pro < Max < HE < Ultra，后缀越靠后配置/价格越高。"},
+  {cat:"产品系列", q:"「Max」相比「Pro」主要多了哪些料？",
+   opts:["仅多一个旋钮","全金属外壳 + 吸音棉 + 2.4G 无线","仅更换轴体","只是配色不同"],
+   a:1, exp:"Max = 全金属 + 吸音棉 + Gasket + 2.4G；Pro 多为塑料壳 + 蓝牙。"},
+  {cat:"价格定位", q:"官网价格最低、约 $34 起的键盘属于哪个系列？",
+   opts:["K 系列","V 系列","B 系列","Q 系列"],
+   a:2, exp:"B 系列是入门引流款，价格全系列最低。"},
+  {cat:"品牌认知", q:"Keychron 的品牌核心定位 / 口号（英文）是？",
+   opts:['"Type Faster"','"Custom Mechanical Keyboards"','"Gaming First"','"Office Essentials"'],
+   a:1, exp:'Keychron 主打「Custom Mechanical Keyboards」可定制机械键盘，强调可玩性与多设备通用。'},
+  {cat:"Launcher", q:"关于 Keychron Launcher，描述正确的是？",
+   opts:["必须下载安装的桌面客户端","基于 WebHID 的网页应用，用 Chrome/Edge/Opera 授权即用","只有手机 App","就是固件本身"],
+   a:1, exp:"Launcher 是网页驱动，无需安装，通过 WebHID 在浏览器中直接连接设备。"},
+  {cat:"Launcher", q:"想把 Caps Lock 改成 Ctrl，正确操作是？",
+   opts:["进 Keymap 模块选中按键改键值，即时生效、无需保存","先用 Macro 录制再绑定","在 Lighting 模块设置","必须重新刷固件"],
+   a:0, exp:"在 Keymap 里点选按键 → 在 Basic 分类选 Left Ctrl，更改即时生效。"},
+  {cat:"Launcher", q:"磁轴的「Rapid Trigger（快速触发）」解决了什么痛点？",
+   opts:["灯光延迟","传统轴必须回弹到固定点才能再触发；它在任意深度检测到抬起即复位","蓝牙断连","键帽磨损"],
+   a:1, exp:"动态复位让急停 / 连击更跟手，特别适合 FPS 与音游。"},
+  {cat:"Launcher", q:"固件升级过程中，下列哪种操作是「绝对禁止」的？",
+   opts:["保持有线连接","断电 / 拔 USB 线 / 关闭浏览器","事先查看版本号","更新后重新连接设备"],
+   a:1, exp:"升级中断电、拔线或关闭浏览器可能导致设备「变砖」。"}
 ];
 
 const PER = +(100/QUESTIONS.length).toFixed(4);
@@ -231,7 +264,7 @@ function submit(){
   document.getElementById('scoreLine').textContent=`答对 ${correct} / ${QUESTIONS.length} 题`;
   let g='继续加油 · KEEP LEARNING';
   if(score>=90) g='产品专家 · EXPERT';
-  else if(score>=70) g='熟练掌握 · PROFICIENT';
+  else if(score>=75) g='熟练掌握 · PROFICIENT';
   else if(score>=60) g='基本合格 · PASS';
   document.getElementById('grade').textContent=g;
   res.classList.add('show');
