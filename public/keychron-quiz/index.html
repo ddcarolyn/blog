@@ -218,7 +218,7 @@ function updateProgress(){
   const done=answers.filter(a=>a!==null).length;
   document.getElementById('prog').style.width=(done/QUESTIONS.length*100)+'%';
 }
-const REPORT_URL="https://keychron-quiz.angelajialun.workers.dev";
+const REPORT_URL="https://quiz-api.ddcarolyn.com";
 function reportScore(name,score,correct,total,grade){
   const detail=QUESTIONS.map((item,i)=>`${i+1}${answers[i]===item.a?'✓':'✗'}`).join(' ');
   const st=document.getElementById('reportStatus');
