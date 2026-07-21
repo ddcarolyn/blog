@@ -1,14 +1,12 @@
 ---
-title: "Keychron AI (Beta): the Launcher Now Takes Requests"
+title: "Keychron AI: Ask the Launcher, and It Does It"
 date: 2026-07-19
 description: "Keychron's Launcher web app has a built-in AI assistant now. Type what you want in your own language and it connects your keyboard, remaps keys, builds macros and walks you through fixes. Tested against two years of real community questions."
 tags: [Keychron, Launcher, AI, mechanical keyboard, QMK, tutorial]
 category: Keychron Blog Draft
 ---
 
-*Draft preview — prepared for the Keychron blog. Format and sourcing follow the final publishing layout.*
-
-![A keyboard on a desk at night, with a glowing chat bubble above it](/keychron-ai/keychron-ai-hero.png)
+![A keyboard on a desk with a glowing chat bubble rising from the keys](/keychron-ai/keychron-ai-hero.png)
 
 For two years, the same questions kept showing up in keyboard communities. Why won't my keyboard connect to the Launcher? Why does my remapped key type the wrong symbol? What is a layer, and why did my firmware update just stop halfway?
 
@@ -20,7 +18,10 @@ Every quote below links to the original thread. You can check that we didn't inv
 
 ## What the assistant does
 
-![The Keychron AI panel in the Launcher, with suggested requests](/keychron-ai/keychron-ai-panel.jpg)
+<figure style="max-width:340px;margin:1.6em auto;text-align:center">
+  <img src="/keychron-ai/keychron-ai-panel.jpg" alt="The Keychron AI panel inside the Launcher, showing a greeting and three suggested requests" style="border-radius:14px;box-shadow:0 10px 34px rgba(0,0,0,.28)" />
+  <figcaption style="font-size:.85rem;color:var(--text-muted);margin-top:.6em">The AI panel opens on the right side of the Launcher. It greets you, then offers a few things to try.</figcaption>
+</figure>
 
 Click the **AI** button in the top-right corner of the Launcher and type a request. It can:
 
