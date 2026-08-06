@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>唤醒灯 Amazon US 平台补充调研 · 2026-08-06</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+:root{
+  --bg:#0e0f12;--panel:#16181d;--panel-2:#1c1f26;--line:#2a2e37;
+  --ink:#e8eaee;--muted:#9aa0ab;--faint:#6b7280;
+  --accent:#f2a900;--accent-2:#4cc8c0;--good:#5cb87a;--warn:#e06c4f;
+  --r:14px;--maxw:1080px;font-synthesis:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:radial-gradient(1200px 600px at 70% -10%,#1a1d24 0%,var(--bg) 55%) fixed;
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Roboto,Helvetica,Arial,sans-serif;
+  line-height:1.7;font-size:15.5px;letter-spacing:.1px;
+}
+a{color:var(--accent-2);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+/* Header */
+header.top{border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(242,169,0,.06),transparent 70%);padding:54px 0 30px}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:3px;font-size:12px;text-transform:uppercase}
+h1.title{font-size:36px;line-height:1.15;margin:10px 0 6px;font-weight:800;letter-spacing:-.5px}
+h1.title small{display:block;font-size:15px;font-weight:500;color:var(--muted);letter-spacing:0;margin-top:10px}
+.meta{color:var(--faint);font-size:13px;margin-top:12px}
+
+/* Hero cards */
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0 0}
+.hero-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 16px;text-align:center}
+.hero-card .num{font-size:28px;font-weight:800;color:var(--accent);display:block}
+.hero-card .label{font-size:12px;color:var(--muted);margin-top:4px;display:block}
+
+/* Verdict banner */
+.verdict{background:linear-gradient(135deg,rgba(242,169,0,.12),rgba(76,200,192,.08));border:1px solid rgba(242,169,0,.3);border-radius:var(--r);padding:22px 26px;margin:32px 0;font-size:15px;line-height:1.8}
+.verdict strong{color:var(--accent)}
+
+/* Sections */
+section{padding:40px 0;border-bottom:1px solid var(--line)}
+h2{font-size:22px;font-weight:700;margin:0 0 6px;display:flex;align-items:center;gap:10px}
+h2 .badge{background:var(--accent);color:#000;font-size:11px;font-weight:800;padding:2px 10px;border-radius:20px;letter-spacing:1px}
+h3{font-size:17px;font-weight:600;color:var(--accent-2);margin:28px 0 12px}
+p,li{color:var(--muted);font-size:14.5px}
+li{margin-bottom:6px}
+
+/* Tables */
+.tbl-wrap{overflow-x:auto;margin:16px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{background:var(--panel-2);color:var(--accent);font-weight:600;text-align:left;padding:10px 12px;border-bottom:2px solid var(--line);white-space:nowrap}
+td{padding:9px 12px;border-bottom:1px solid var(--line);color:var(--ink)}
+tr:hover td{background:rgba(242,169,0,.04)}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td.brand{font-weight:600}
+
+/* Product cards */
+.prod-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:20px 0}
+.prod-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:flex;gap:14px;align-items:flex-start;transition:border-color .2s}
+.prod-card:hover{border-color:var(--accent)}
+.prod-card img{width:80px;height:80px;object-fit:contain;border-radius:8px;background:#fff;flex-shrink:0}
+.prod-info{flex:1;min-width:0}
+.prod-info .rank{color:var(--accent);font-weight:800;font-size:13px}
+.prod-info .name{font-size:13px;color:var(--ink);margin:4px 0;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.prod-info .stats{font-size:12px;color:var(--muted)}
+.prod-info .stats span{margin-right:10px}
+.prod-info .stats .price{color:var(--accent);font-weight:700}
+.prod-info .asin-link{font-size:11px;color:var(--accent-2);margin-top:4px;display:inline-block}
+
+/* Chart container */
+.chart-box{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px;margin:20px 0}
+.chart-box canvas{max-height:380px}
+.chart-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+.chart-row .chart-box{margin:0}
+
+/* Tags */
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:10px;margin-right:6px;font-weight:600}
+.tag-blue{background:rgba(76,200,192,.15);color:var(--accent-2)}
+.tag-gold{background:rgba(242,169,0,.15);color:var(--accent)}
+.tag-red{background:rgba(224,108,79,.15);color:var(--warn)}
+.tag-green{background:rgba(92,184,122,.15);color:var(--good)}
+
+/* Correction box */
+.correction{background:rgba(224,108,79,.08);border-left:3px solid var(--warn);padding:16px 20px;border-radius:0 var(--r) var(--r) 0;margin:16px 0}
+.correction strong{color:var(--warn)}
+
+/* Opportunity table highlight */
+tr.highlight td{background:rgba(92,184,122,.08)}
+
+/* TOC */
+.toc{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;margin:24px 0}
+.toc summary{cursor:pointer;font-weight:600;color:var(--ink);font-size:14px}
+.toc ol{padding-left:20px;margin:12px 0 0}
+.toc li{margin:6px 0;font-size:13.5px}
+.toc a{color:var(--accent-2)}
+
+/* Footer */
+footer{padding:30px 0;text-align:center;font-size:12px;color:var(--faint)}
+
+/* Responsive */
+@media(max-width:760px){
+  .hero-grid{grid-template-columns:repeat(2,1fr)}
+  .prod-grid{grid-template-columns:1fr}
+  .chart-row{grid-template-columns:1fr}
+  h1.title{font-size:26px}
+  .hero-card .num{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="top">
+<div class="wrap">
+  <div class="eyebrow">Amazon US Market Intelligence</div>
+  <h1 class="title">唤醒灯（Sunrise Alarm Clock）<small>Amazon US 平台竞争度补充调研 — 为薇燕海外市场报告提供电商数据支撑</small></h1>
+  <div class="meta">2026-08-06 · 数据来源：Sorftime API 实时数据 · 277 个独立 Listing / 341 个 ASIN</div>
+
+  <div class="hero-grid">
+    <div class="hero-card"><span class="num">$5.9M</span><span class="label">品类月营收</span></div>
+    <div class="hero-card"><span class="num">61,792</span><span class="label">品类月销量</span></div>
+    <div class="hero-card"><span class="num">HHI 969</span><span class="label">竞争性市场</span></div>
+    <div class="hero-card"><span class="num">7%</span><span class="label">新品成功率 (月销≥500)</span></div>
+  </div>
+</div>
+</header>
+
+<main class="wrap">
+
+<!-- ===== VERDICT ===== -->
+<div class="verdict">
+  <strong>一句话判断：</strong>品类需求真实且增长中，但 $30-50 区间已是中国品牌红海（CN+HK 卖家占 66%）。<strong>$70-170 是定价真空带</strong>，仅 20 个产品吃 1.7% 销量。要做就必须跳出同质化——定价 $70-120 做"中端智能化"，或在产品功能上做出不可替代的差异点（定向光+振动唤醒、中端 APP 控制）。新品成功率仅 7%，盲目铺货风险极高。
+</div>
+
+<!-- ===== TOC ===== -->
+<details class="toc" open>
+  <summary>目录</summary>
+  <ol>
+    <li><a href="#verdict">核心结论与关键修正</a></li>
+    <li><a href="#price-volume">价格 × 销量相关性分析</a></li>
+    <li><a href="#monopoly">品牌集中度与寡头垄断分析</a></li>
+    <li><a href="#newproduct">新品成功度分析</a></li>
+    <li><a href="#competitors">竞品全景图</a></li>
+    <li><a href="#crosscheck">与 Wayne 报告的交叉验证</a></li>
+    <li><a href="#opportunity">机会地图与切入建议</a></li>
+    <li><a href="#watchlist">ASIN 监控清单</a></li>
+  </ol>
+</details>
+
+<!-- ===== 1. CORE CONCLUSIONS ===== -->
+<section id="verdict">
+<h2><span class="badge">01</span> 核心结论</h2>
+
+<div class="tbl-wrap"><table>
+<tr><th>维度</th><th>结论</th><th>对切入的影响</th></tr>
+<tr><td>品类规模</td><td>月销 61,792 件，月营收 $5.9M</td><td>中等体量，非大品类</td></tr>
+<tr><td>价格结构</td><td>主力 $25-50（49%），高端 $170-327 仅 5 个产品吃 <strong>26.7%</strong> 销量</td><td><span class="tag tag-gold">$70-170 定价真空带</span></td></tr>
+<tr><td>品牌集中度</td><td>HHI=969，竞争性市场</td><td><span class="tag tag-green">新品牌可进入</span></td></tr>
+<tr><td>寡头垄断</td><td>Hatch 23.5%，CR3=45.5%</td><td>高端被锁死，中端混战</td></tr>
+<tr><td>新品成功率</td><td>12个月内 7%（月销≥500），14%（月销≥300）</td><td><span class="tag tag-red">必须差异化</span></td></tr>
+<tr><td>卖家来源</td><td>CN+HK 卖家占 66.2%</td><td>同质化竞争激烈</td></tr>
+</table></div>
+
+<div class="correction">
+  <strong>关键修正（对 Wayne 报告）：</strong><br>
+  Wayne 报告基于全球视角，Philips/Lumie/Beurer 在欧洲确实强势。但 <strong>Amazon US 的真正王者是 Hatch Baby</strong>（23.5% 份额，$170-240），不是 Philips（仅 2.8%）。Lumie 和 Beurer 在 Amazon US 几乎不存在。这对美国市场的竞争策略有决定性影响。
+</div>
+</section>
+
+<!-- ===== 2. PRICE-VOLUME ===== -->
+<section id="price-volume">
+<h2><span class="badge">02</span> 价格 × 销量相关性分析</h2>
+
+<div class="chart-row">
+  <div class="chart-box">
+    <canvas id="chartPriceProducts"></canvas>
+  </div>
+  <div class="chart-box">
+    <canvas id="chartPriceSales"></canvas>
+  </div>
+</div>
+
+<div class="chart-box">
+  <canvas id="chartPriceEfficiency"></canvas>
+</div>
+
+<div class="tbl-wrap"><table>
+<tr><th>价格带</th><th class="num">产品数</th><th class="num">产品占比</th><th class="num">月总销量</th><th class="num">销量占比</th><th class="num">均销量/SKU</th><th class="num">均评分</th><th class="num">均评论</th></tr>
+<tr><td>$0-20</td><td class="num">98</td><td class="num">35%</td><td class="num">1,628</td><td class="num">2.6%</td><td class="num">17</td><td class="num">2.0</td><td class="num">154</td></tr>
+<tr><td>$20-30</td><td class="num">49</td><td class="num">18%</td><td class="num">7,491</td><td class="num">12.1%</td><td class="num">153</td><td class="num">4.0</td><td class="num">237</td></tr>
+<tr class="highlight"><td><strong>$30-40</strong></td><td class="num"><strong>57</strong></td><td class="num"><strong>21%</strong></td><td class="num"><strong>16,525</strong></td><td class="num"><strong>26.7%</strong></td><td class="num"><strong>290</strong></td><td class="num">4.1</td><td class="num">803</td></tr>
+<tr><td>$40-50</td><td class="num">28</td><td class="num">10%</td><td class="num">7,734</td><td class="num">12.5%</td><td class="num">276</td><td class="num">4.1</td><td class="num">117</td></tr>
+<tr class="highlight"><td><strong>$50-70</strong></td><td class="num"><strong>21</strong></td><td class="num"><strong>8%</strong></td><td class="num"><strong>11,121</strong></td><td class="num"><strong>18.0%</strong></td><td class="num"><strong>530</strong></td><td class="num">3.0</td><td class="num">156</td></tr>
+<tr><td>$70-100</td><td class="num">13</td><td class="num">5%</td><td class="num">390</td><td class="num">0.6%</td><td class="num">30</td><td class="num">2.6</td><td class="num">22</td></tr>
+<tr><td>$100-170</td><td class="num">7</td><td class="num">3%</td><td class="num">672</td><td class="num">1.1%</td><td class="num">96</td><td class="num">4.4</td><td class="num">97</td></tr>
+<tr class="highlight"><td><strong>$170-300</strong></td><td class="num"><strong>3</strong></td><td class="num"><strong>1%</strong></td><td class="num"><strong>14,782</strong></td><td class="num"><strong>23.9%</strong></td><td class="num"><strong>4,927</strong></td><td class="num">2.9</td><td class="num">1,369</td></tr>
+</table></div>
+
+<h3>关键发现：哑铃型分布</h3>
+<ul>
+  <li><strong>$30-40 是最大中端池</strong>：26.7% 销量，但 57 个产品在抢，竞争最激烈</li>
+  <li><strong>$50-70 是效率最高价格带</strong>：均销量 530/SKU，主要被 Odokee 一家主导</li>
+  <li><strong style="color:var(--accent)">$70-170 是绝对真空</strong>：仅 20 个产品吃 1.7% 销量，几乎无人竞争</li>
+  <li><strong>$170-300 是 Hatch 独占区</strong>：3 个产品吃 23.9% 销量，单品效率碾压全场</li>
+</ul>
+</section>
+
+<!-- ===== 3. MONOPOLY ===== -->
+<section id="monopoly">
+<h2><span class="badge">03</span> 品牌集中度与寡头垄断分析</h2>
+
+<div class="chart-row">
+  <div class="chart-box">
+    <canvas id="chartBrandShare"></canvas>
+  </div>
+  <div class="chart-box">
+    <canvas id="chartSellerOrigin"></canvas>
+  </div>
+</div>
+
+<div class="tbl-wrap"><table>
+<tr><th>#</th><th>品牌</th><th class="num">产品数</th><th class="num">月销量</th><th class="num">份额</th><th class="num">累计</th><th class="num">月营收</th><th>属性</th></tr>
+<tr><td>1</td><td class="brand">Hatch Baby</td><td class="num">4</td><td class="num">14,549</td><td class="num">23.5%</td><td class="num">23.5%</td><td class="num">$3.5M</td><td><span class="tag tag-blue">US本土</span></td></tr>
+<tr><td>2</td><td class="brand">Odokee</td><td class="num">4</td><td class="num">8,448</td><td class="num">13.7%</td><td class="num">37.2%</td><td class="num">$506K</td><td><span class="tag tag-gold">CN</span></td></tr>
+<tr><td>3</td><td class="brand">JALL</td><td class="num">8</td><td class="num">5,096</td><td class="num">8.2%</td><td class="num">45.5%</td><td class="num">$159K</td><td><span class="tag tag-gold">CN</span></td></tr>
+<tr><td>4</td><td class="brand">Geuuap</td><td class="num">3</td><td class="num">4,432</td><td class="num">7.2%</td><td class="num">52.6%</td><td class="num">$196K</td><td><span class="tag tag-gold">CN</span></td></tr>
+<tr><td>5</td><td class="brand">Dreamegg</td><td class="num">9</td><td class="num">3,278</td><td class="num">5.3%</td><td class="num">57.9%</td><td class="num">$173K</td><td><span class="tag tag-gold">CN 有品牌力</span></td></tr>
+<tr><td>6</td><td class="brand">REACHER</td><td class="num">3</td><td class="num">3,108</td><td class="num">5.0%</td><td class="num">63.0%</td><td class="num">$120K</td><td><span class="tag tag-gold">CN</span></td></tr>
+<tr><td>7</td><td class="brand">Vivilumens</td><td class="num">9</td><td class="num">2,742</td><td class="num">4.4%</td><td class="num">67.4%</td><td class="num">$96K</td><td><span class="tag tag-gold">CN</span></td></tr>
+<tr><td>8</td><td class="brand">PHILIPS</td><td class="num">2</td><td class="num">1,736</td><td class="num">2.8%</td><td class="num">70.2%</td><td class="num">$525K</td><td><span class="tag tag-blue">欧洲</span></td></tr>
+<tr><td>9</td><td class="brand">ecozy</td><td class="num">2</td><td class="num">1,539</td><td class="num">2.5%</td><td class="num">72.7%</td><td class="num">$52K</td><td><span class="tag tag-gold">CN</span></td></tr>
+<tr><td>10</td><td class="brand">SUXIO</td><td class="num">1</td><td class="num">1,105</td><td class="num">1.8%</td><td class="num">74.5%</td><td class="num">$24K</td><td><span class="tag tag-gold">CN</span></td></tr>
+</table></div>
+
+<h3>垄断指标</h3>
+<div class="hero-grid" style="grid-template-columns:repeat(3,1fr)">
+  <div class="hero-card"><span class="num">969</span><span class="label">HHI 指数 (竞争性 &lt;1500)</span></div>
+  <div class="hero-card"><span class="num">45.5%</span><span class="label">CR3 前3品牌集中度</span></div>
+  <div class="hero-card"><span class="num">68%</span><span class="label">欧美品牌营收占比</span></div>
+</div>
+<p style="margin-top:16px">整体 HHI=969 属于竞争性市场，但存在<strong>"分层垄断"</strong>：高端 ($170+) Hatch 独占近 100%；中端 ($30-60) 6-8 个中国品牌混战；入门 ($20-30) JALL 领先。<strong>营收维度看，Hatch+Philips 两个欧美品牌吃掉 68% 营收</strong>，中国品牌虽然产品数多但集中在低价位。</p>
+</section>
+
+<!-- ===== 4. NEW PRODUCTS ===== -->
+<section id="newproduct">
+<h2><span class="badge">04</span> 新品成功度分析</h2>
+
+<div class="chart-box">
+  <canvas id="chartNewProduct"></canvas>
+</div>
+
+<div class="tbl-wrap"><table>
+<tr><th>时间窗口</th><th class="num">新品数</th><th class="num">月销≥300</th><th class="num">成功率</th><th class="num">月销≥500</th><th class="num">成功率</th><th class="num">月销≥1000</th><th class="num">成功率</th></tr>
+<tr><td>12个月 (2025-08+)</td><td class="num">110</td><td class="num">15</td><td class="num"><strong>14%</strong></td><td class="num">8</td><td class="num"><strong>7%</strong></td><td class="num">2</td><td class="num"><strong>2%</strong></td></tr>
+<tr><td>6个月 (2026-02+)</td><td class="num">41</td><td class="num">3</td><td class="num">7%</td><td class="num">0</td><td class="num">0%</td><td class="num">0</td><td class="num">0%</td></tr>
+<tr><td>3个月 (2026-05+)</td><td class="num">19</td><td class="num">2</td><td class="num">11%</td><td class="num">0</td><td class="num">0%</td><td class="num">0</td><td class="num">0%</td></tr>
+</table></div>
+
+<h3>成功新品画像（12个月内，月销≥300）</h3>
+<div class="prod-grid">
+  <div class="prod-card">
+    <img src="https://m.media-amazon.com/images/I/41zOFgCaH7L.jpg" alt="Geuuap">
+    <div class="prod-info">
+      <div class="rank">#1 新品 · Geuuap · $41</div>
+      <div class="name">Sunrise Alarm Clock White Noise Machine with Bluetooth Speaker</div>
+      <div class="stats"><span class="price">月销 2,305</span><span>★4.4</span><span>925评</span><span>2025-08</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0FJ1YT6H8" target="_blank">B0FJ1YT6H8 →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://m.media-amazon.com/images/I/41P0-xtd-6L.jpg" alt="Geuuap">
+    <div class="prod-info">
+      <div class="rank">#2 新品 · Geuuap · $48</div>
+      <div class="name">Natural Wake-Up Light White Noise Machine</div>
+      <div class="stats"><span class="price">月销 1,175</span><span>★4.6</span><span>81评</span><span>2026-01</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0GHN1QBMY" target="_blank">B0GHN1QBMY →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://m.media-amazon.com/images/I/413IGn7QftL.jpg" alt="Geuuap Gray">
+    <div class="prod-info">
+      <div class="rank">#3 新品 · Geuuap · $46</div>
+      <div class="name">Natural Wake-Up Light White Noise Machine (Gray)</div>
+      <div class="stats"><span class="price">月销 952</span><span>★4.5</span><span>84评</span><span>2026-01</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0GHNDHR5N" target="_blank">B0GHNDHR5N →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://m.media-amazon.com/images/I/81AzATTaWpL.jpg" alt="MOFOYEAH">
+    <div class="prod-info">
+      <div class="rank">#4 新品 · MOFOYEAH · $47</div>
+      <div class="name">Tap-to-Snooze Sunrise Alarm Clock with Sound Machine</div>
+      <div class="stats"><span class="price">月销 651</span><span>★4.1</span><span>53评</span><span>2025-09</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0FL286HXR" target="_blank">B0FL286HXR →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://m.media-amazon.com/images/I/41Jn9QEgw2L.jpg" alt="Dreamegg">
+    <div class="prod-info">
+      <div class="rank">#5 新品 · Dreamegg · $40</div>
+      <div class="name">Sunrise Alarm Clock, Sound Machine with Alarm Clock & Wake Up Light</div>
+      <div class="stats"><span class="price">月销 639</span><span>★4.2</span><span>129评</span><span>2025-12</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0FXWGVZCK" target="_blank">B0FXWGVZCK →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/41Jn64Xp4aL._AC_UL600_SR600,400_.jpg" alt="Paus">
+    <div class="prod-info">
+      <div class="rank">#7 新品 · Paus · $60</div>
+      <div class="name">Sunrise Alarm Clock White Noise Sound Machine, Natural Wake Up Light</div>
+      <div class="stats"><span class="price">月销 550</span><span>★4.7</span><span>45评</span><span>2025-11</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0G1RKMRW6" target="_blank">B0G1RKMRW6 →</a>
+    </div>
+  </div>
+</div>
+
+<h3>成功新品共性</h3>
+<ul>
+  <li><strong>价格集中 $35-60</strong>：15 个成功新品中 13 个在此区间</li>
+  <li><strong>品牌系列化</strong>：Geuuap 3个、Dreamegg 3个成功新品，系列化打法优势明显</li>
+  <li><strong>评分≥4.0 是底线</strong>：所有成功新品最低 4.0 星</li>
+  <li><strong>差异化有回报</strong>：MOFOYEAH 的"Tap-to-Snooze"、Paus 的高客单高评分路线都跑通了</li>
+</ul>
+</section>
+
+<!-- ===== 5. COMPETITORS ===== -->
+<section id="competitors">
+<h2><span class="badge">05</span> 竞品全景图</h2>
+
+<h3>TOP 10 产品</h3>
+<div class="prod-grid">
+  <div class="prod-card">
+    <img src="https://m.media-amazon.com/images/I/51Gn5MeqJnL.jpg" alt="Hatch Restore 2">
+    <div class="prod-info">
+      <div class="rank">#1 · Hatch Baby · $240</div>
+      <div class="name">Hatch Restore 2 Sunrise Alarm Clock & Sound Machine</div>
+      <div class="stats"><span class="price">月销 14,490</span><span>月营收 $3.5M</span><span>★4.3</span><span>2,835评</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0C5S7K1JK" target="_blank">B0C5S7K1JK →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://m.media-amazon.com/images/I/415exJZYswL.jpg" alt="Odokee">
+    <div class="prod-info">
+      <div class="rank">#2 · Odokee · $60</div>
+      <div class="name">Sunrise Alarm Clock White Noise Machine: Natural Wake Up Light</div>
+      <div class="stats"><span class="price">月销 8,433</span><span>月营收 $506K</span><span>★4.5</span><span>1,876评</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0F7R52WYW" target="_blank">B0F7R52WYW →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/51nodIt5QFL._AC_UL600_SR600,400_.jpg" alt="REACHER">
+    <div class="prod-info">
+      <div class="rank">#3 · REACHER · $38</div>
+      <div class="name">Wood Grain Sunrise Alarm Clock and Sound Machine Nightlight</div>
+      <div class="stats"><span class="price">月销 2,991</span><span>月营收 $114K</span><span>★4.4</span><span>3,593评</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0BZW7WY5M" target="_blank">B0BZW7WY5M →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://m.media-amazon.com/images/I/61Hx5h-nysL.jpg" alt="JALL">
+    <div class="prod-info">
+      <div class="rank">#4 · JALL · $33</div>
+      <div class="name">Full-Screen Wake Up Light Sunrise Alarm Clocks, White Noise Machine</div>
+      <div class="stats"><span class="price">月销 2,863</span><span>月营收 $95K</span><span>★4.3</span><span>28,116评</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B081CHLF46" target="_blank">B081CHLF46 →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://m.media-amazon.com/images/I/71KYUa6V8eL.jpg" alt="Philips">
+    <div class="prod-info">
+      <div class="rank">#6 · PHILIPS · $327</div>
+      <div class="name">SmartSleep Wake-up Light, Colored Sunrise and Sunset Simulation</div>
+      <div class="stats"><span class="price">月销 1,449</span><span>月营收 $474K</span><span>★4.3</span><span>14,690评</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0FD7QH2YM" target="_blank">B0FD7QH2YM →</a>
+    </div>
+  </div>
+  <div class="prod-card">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/91vDPg9j9EL._AC_UL300_SR300,200_.jpg" alt="Dreamegg">
+    <div class="prod-info">
+      <div class="rank">#7 · Dreamegg · $60</div>
+      <div class="name">Sunrise 1 - Sunrise Alarm Clock, Sound Machine for Sleep</div>
+      <div class="stats"><span class="price">月销 1,316</span><span>月营收 $79K</span><span>★4.4</span><span>260评</span></div>
+      <a class="asin-link" href="https://www.amazon.com/dp/B0D5MG7K8R" target="_blank">B0D5MG7K8R →</a>
+    </div>
+  </div>
+</div>
+
+<h3>Wayne 报告提及品牌 × Amazon US 实际表现</h3>
+<div class="tbl-wrap"><table>
+<tr><th>品牌</th><th>Wayne 报告定位</th><th>Amazon US 实际</th><th>判定</th></tr>
+<tr><td class="brand">Hatch Baby</td><td>未重点提及</td><td>#1 王者，$170-240，月销 14,490，23.5%</td><td><span class="tag tag-red">报告遗漏</span></td></tr>
+<tr><td class="brand">Philips SmartSleep</td><td>欧洲强势品牌</td><td>仅 2 款，$180-327，月销 1,736，2.8%</td><td><span class="tag tag-gold">高价低量</span></td></tr>
+<tr><td class="brand">Lumie</td><td>英国本土品牌</td><td>月销仅 215，未进 Top 30</td><td><span class="tag tag-red">几乎不存在</span></td></tr>
+<tr><td class="brand">Beurer</td><td>德国本土活跃</td><td>无唤醒灯产品</td><td><span class="tag tag-red">完全缺席</span></td></tr>
+<tr><td class="brand">JALL</td><td>价格带产品</td><td>#3，$27-33，月销 5,096，评论最多(28K)</td><td><span class="tag tag-green">验证</span></td></tr>
+</table></div>
+</section>
+
+<!-- ===== 6. CROSSCHECK ===== -->
+<section id="crosscheck">
+<h2><span class="badge">06</span> 与 Wayne 报告的交叉验证</h2>
+
+<div class="tbl-wrap"><table>
+<tr><th>Wayne 报告观点</th><th>Amazon 数据验证</th><th>判定</th></tr>
+<tr><td>价格跨度 US$35-259</td><td>实际 $20-327，主力 $25-50，高端 $170-327</td><td><span class="tag tag-gold">修正：上限更高</span></td></tr>
+<tr><td>Philips 为主要竞品</td><td>Philips 仅 2.8%，Hatch 23.5% 才是王者</td><td><span class="tag tag-red">修正</span></td></tr>
+<tr><td>Lumie/Beurer 活跃</td><td>Lumie 月销 215，Beurer 无产品</td><td><span class="tag tag-red">修正</span></td></tr>
+<tr><td>纯光无法保证叫醒</td><td>所有成功产品均为"光+声音"组合</td><td><span class="tag tag-green">完全验证</span></td></tr>
+<tr><td>优先美英法验证</td><td>美国市场最活跃，277 个独立 Listing</td><td><span class="tag tag-green">验证</span></td></tr>
+<tr><td>需要原型试验</td><td>新品成功率 7-14%，同质化严重</td><td><span class="tag tag-green">强烈验证</span></td></tr>
+</table></div>
+</section>
+
+<!-- ===== 7. OPPORTUNITY ===== -->
+<section id="opportunity">
+<h2><span class="badge">07</span> 机会地图与切入建议</h2>
+
+<h3>价格空白地带</h3>
+<div class="tbl-wrap"><table>
+<tr><th>策略</th><th>价格带</th><th>机会度</th><th>依据</th></tr>
+<tr><td>红海杀入</td><td>$30-40</td><td>★★☆☆</td><td>57 个产品混战，需极强运营能力</td></tr>
+<tr class="highlight"><td><strong>效率对标</strong></td><td><strong>$50-70</strong></td><td><strong>★★★☆</strong></td><td>参考 Odokee 路线，均销量 530/SKU</td></tr>
+<tr class="highlight"><td><strong>蓝海探索</strong></td><td><strong>$70-120</strong></td><td><strong>★★★★</strong></td><td>几乎无竞争，BLUEAIR $124 证明需求存在</td></tr>
+<tr><td>高端挑战</td><td>$170+</td><td>★☆☆☆</td><td>Hatch 品牌壁垒极深，不建议</td></tr>
+</table></div>
+
+<h3>差异化功能方向</h3>
+<div class="tbl-wrap"><table>
+<tr><th>方向</th><th>现有竞品</th><th>Wayne 报告呼应</th><th>竞争度</th></tr>
+<tr class="highlight"><td><strong>中端 APP 智能控制</strong></td><td>仅 Hatch($170+) 有，$30-60 全缺</td><td>未涉及但需求明确</td><td><span class="tag tag-green">低</span></td></tr>
+<tr class="highlight"><td><strong>定向光 + 振动唤醒</strong></td><td>市场完全空白</td><td>报告核心建议</td><td><span class="tag tag-green">无</span></td></tr>
+<tr class="highlight"><td><strong>断电记忆 + 自检</strong></td><td>无产品具备</td><td>报告提及可靠性痛点</td><td><span class="tag tag-green">无</span></td></tr>
+<tr><td>白噪音 + 蓝牙音箱</td><td>已是标配</td><td>—</td><td><span class="tag tag-red">高</span></td></tr>
+<tr><td>无线充电集成</td><td>Dekala/blonbar 已切入</td><td>—</td><td><span class="tag tag-gold">中</span></td></tr>
+</table></div>
+
+<h3>建议切入路径</h3>
+<ol>
+  <li><strong>定价 $70-99</strong> — 跳出 $30-50 红海，低于 Hatch $170</li>
+  <li><strong>核心差异化</strong> — 定向光照 + 多通道唤醒（声音+振动），中端价格带首个 APP 控制产品</li>
+  <li><strong>品牌化运营</strong> — 参考 Paus（$60, 4.7星, 45评做到月销550），高评分比堆评论更重要</li>
+  <li><strong>节奏</strong> — 秋冬旺季（10-1月）前上架，小批量验证后再放量</li>
+  <li><strong>避免</strong> — 不做 $30 以下同质化产品，不正面挑战 Hatch</li>
+</ol>
+</section>
+
+<!-- ===== 8. WATCHLIST ===== -->
+<section id="watchlist" style="border-bottom:none">
+<h2><span class="badge">08</span> ASIN 监控清单</h2>
+<p>以下为建议持续监控的核心 ASIN（可导入 Sorftime/SellerSprite 监控）：</p>
+<div class="tbl-wrap"><table>
+<tr><th>品牌</th><th>ASIN</th><th>价格</th><th>月销</th><th>监控原因</th></tr>
+<tr><td class="brand">Hatch Baby</td><td><a href="https://www.amazon.com/dp/B0C5S7K1JK" target="_blank">B0C5S7K1JK</a>, <a href="https://www.amazon.com/dp/B0DLLSCVZW" target="_blank">B0DLLSCVZW</a></td><td>$170-240</td><td>14,490</td><td>品类标杆，监控价格和销量趋势</td></tr>
+<tr><td class="brand">PHILIPS</td><td><a href="https://www.amazon.com/dp/B0FD7QH2YM" target="_blank">B0FD7QH2YM</a></td><td>$327</td><td>1,449</td><td>高价参考，监控是否降价进入中端</td></tr>
+<tr><td class="brand">Odokee</td><td><a href="https://www.amazon.com/dp/B0F7R52WYW" target="_blank">B0F7R52WYW</a></td><td>$60</td><td>8,433</td><td>中端效率王，监控新品策略</td></tr>
+<tr><td class="brand">JALL</td><td><a href="https://www.amazon.com/dp/B081CHLF46" target="_blank">B081CHLF46</a>, <a href="https://www.amazon.com/dp/B0DB8DQJMC" target="_blank">B0DB8DQJMC</a></td><td>$27-33</td><td>5,096</td><td>入门款销量领先，监控评论增速</td></tr>
+<tr><td class="brand">Geuuap</td><td><a href="https://www.amazon.com/dp/B0FJ1YT6H8" target="_blank">B0FJ1YT6H8</a>, <a href="https://www.amazon.com/dp/B0GHN1QBMY" target="_blank">B0GHN1QBMY</a></td><td>$41-48</td><td>4,432</td><td>最成功新品品牌，监控系列化策略</td></tr>
+<tr><td class="brand">Dreamegg</td><td><a href="https://www.amazon.com/dp/B0D5MG7K8R" target="_blank">B0D5MG7K8R</a>, <a href="https://www.amazon.com/dp/B0FWK419S2" target="_blank">B0FWK419S2</a></td><td>$50-60</td><td>3,278</td><td>有品牌力的 CN 品牌，监控定价策略</td></tr>
+<tr><td class="brand">Paus</td><td><a href="https://www.amazon.com/dp/B0G1RKMRW6" target="_blank">B0G1RKMRW6</a></td><td>$60</td><td>550</td><td>高客单新品成功案例，值得深研</td></tr>
+<tr><td class="brand">BLUEAIR</td><td><a href="https://www.amazon.com/dp/B08KTHVWX9" target="_blank">B08KTHVWX9</a></td><td>$124</td><td>493</td><td>$100+ 跨品类案例，验证高价可行性</td></tr>
+</table></div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    数据快照：2026-08-06 · Sorftime API · Amazon US (domain=1) · 搜索范围：sunrise alarm clock + wake up light<br>
+    关联报告：<a href="https://share.dtcwayne.com/wake-up-light-overseas-market-2026" target="_blank">Wayne《唤醒灯海外市场调研 2026》</a>
+  </div>
+</footer>
+
+<!-- ===== CHARTS ===== -->
+<script>
+const gold = '#f2a900', teal = '#4cc8c0', coral = '#e06c4f', green = '#5cb87a';
+const labels8 = ['$0-20','$20-30','$30-40','$40-50','$50-70','$70-100','$100-170','$170-300'];
+
+Chart.defaults.color = '#9aa0ab';
+Chart.defaults.borderColor = '#2a2e37';
+Chart.defaults.font.family = '-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif';
+
+// 1. Price-Products
+new Chart(document.getElementById('chartPriceProducts'), {
+  type: 'bar',
+  data: {
+    labels: labels8,
+    datasets: [{
+      label: '产品数',
+      data: [98, 49, 57, 28, 21, 13, 7, 3],
+      backgroundColor: labels8.map((_,i) => i===5||i===6 ? coral+'99' : teal+'99'),
+      borderRadius: 6
+    }]
+  },
+  options: {
+    plugins: {
+      title: { display: true, text: '各价格带产品数量分布', font: {size:14,weight:'bold'}, color: '#e8eaee' },
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.parsed.y + ' 个产品' }}
+    },
+    scales: { y: { beginAtZero: true, grid: { color: '#2a2e37' } } }
+  }
+});
+
+// 2. Price-Sales Share
+new Chart(document.getElementById('chartPriceSales'), {
+  type: 'bar',
+  data: {
+    labels: labels8,
+    datasets: [{
+      label: '销量占比 %',
+      data: [2.6, 12.1, 26.7, 12.5, 18.0, 0.6, 1.1, 23.9],
+      backgroundColor: [
+        '#4cc8c055','#4cc8c099',gold,teal+'99',green,
+        coral+'99',coral+'99',gold
+      ],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    plugins: {
+      title: { display: true, text: '各价格带销量占比（哑铃型分布）', font: {size:14,weight:'bold'}, color: '#e8eaee' },
+      legend: { display: false },
+      tooltip: { callbacks: { label: ctx => ctx.parsed.y + '%' }},
+      annotation: undefined
+    },
+    scales: { y: { beginAtZero: true, ticks: { callback: v => v+'%' }, grid: { color: '#2a2e37' } } }
+  }
+});
+
+// 3. Price-Efficiency (avg sales per SKU)
+new Chart(document.getElementById('chartPriceEfficiency'), {
+  type: 'bar',
+  data: {
+    labels: labels8,
+    datasets: [
+      {
+        label: '均销量/SKU',
+        data: [17, 153, 290, 276, 530, 30, 96, 4927],
+        backgroundColor: labels8.map((_,i) => i===7 ? gold : i===4 ? green : teal+'88'),
+        borderRadius: 6,
+        yAxisID: 'y'
+      },
+      {
+        label: '均评分',
+        data: [2.0, 4.0, 4.1, 4.1, 3.0, 2.6, 4.4, 2.9],
+        type: 'line',
+        borderColor: coral,
+        backgroundColor: coral,
+        pointRadius: 5,
+        pointBackgroundColor: coral,
+        tension: 0.3,
+        yAxisID: 'y1'
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      title: { display: true, text: '各价格带：单品效率 vs 均评分', font: {size:14,weight:'bold'}, color: '#e8eaee' },
+    },
+    scales: {
+      y: { beginAtZero: true, position: 'left', title: { display: true, text: '均销量/SKU' }, grid: { color: '#2a2e37' } },
+      y1: { min: 0, max: 5, position: 'right', title: { display: true, text: '均评分' }, grid: { display: false } }
+    }
+  }
+});
+
+// 4. Brand Share (top 10)
+new Chart(document.getElementById('chartBrandShare'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Hatch Baby','Odokee','JALL','Geuuap','Dreamegg','REACHER','Vivilumens','PHILIPS','ecozy','SUXIO','其他'],
+    datasets: [{
+      data: [23.5, 13.7, 8.2, 7.2, 5.3, 5.0, 4.4, 2.8, 2.5, 1.8, 25.5],
+      backgroundColor: [gold, teal, '#6366f1', green, '#ec4899', '#8b5cf6', '#14b8a6', '#f97316', '#06b6d4', '#a855f7', '#374151'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    plugins: {
+      title: { display: true, text: '品牌销量份额', font: {size:14,weight:'bold'}, color: '#e8eaee' },
+      legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } },
+      tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.parsed + '%' }}
+    },
+    cutout: '55%'
+  }
+});
+
+// 5. Seller Origin
+new Chart(document.getElementById('chartSellerOrigin'), {
+  type: 'doughnut',
+  data: {
+    labels: ['中国大陆 CN','美国 US','香港 HK','其他'],
+    datasets: [{
+      data: [58.7, 31.6, 7.5, 1.3],
+      backgroundColor: [gold, teal, '#6366f1', '#374151'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    plugins: {
+      title: { display: true, text: '卖家来源分布（按销量）', font: {size:14,weight:'bold'}, color: '#e8eaee' },
+      legend: { position: 'right', labels: { boxWidth: 12, font: { size: 11 } } },
+      tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.parsed + '%' }}
+    },
+    cutout: '55%'
+  }
+});
+
+// 6. New Product Success
+new Chart(document.getElementById('chartNewProduct'), {
+  type: 'bar',
+  data: {
+    labels: ['12个月 (2025-08+)', '6个月 (2026-02+)', '3个月 (2026-05+)'],
+    datasets: [
+      { label: '新品总数', data: [110, 41, 19], backgroundColor: '#374151', borderRadius: 6 },
+      { label: '月销≥300', data: [15, 3, 2], backgroundColor: teal+'cc', borderRadius: 6 },
+      { label: '月销≥500', data: [8, 0, 0], backgroundColor: gold+'cc', borderRadius: 6 },
+      { label: '月销≥1000', data: [2, 0, 0], backgroundColor: coral+'cc', borderRadius: 6 }
+    ]
+  },
+  options: {
+    plugins: {
+      title: { display: true, text: '新品成功度：不同时间窗口 × 不同阈值', font: {size:14,weight:'bold'}, color: '#e8eaee' },
+    },
+    scales: { y: { beginAtZero: true, grid: { color: '#2a2e37' } } }
+  }
+});
+</script>
+
+</body>
+</html>
