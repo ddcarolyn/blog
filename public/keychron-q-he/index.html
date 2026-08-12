@@ -1,0 +1,152 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Keychron Q HE 全系列产品目录</title>
+<style>
+:root{--ink:#17212b;--muted:#64717d;--paper:#f4f1ea;--card:#fff;--line:#ddd8ce;--blue:#12395d;--blue2:#1e6091;--green:#27765b;--lime:#dbf4e7;--amber:#f7e4bf;--red:#a9463e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","Microsoft YaHei",sans-serif}
+a{color:inherit}.wrap{width:min(1420px,calc(100% - 32px));margin:auto}.topbar{padding:18px 0;display:flex;justify-content:space-between;align-items:center}.back{color:var(--blue2);text-decoration:none;font-weight:700}.stamp{font-size:12px;color:var(--muted)}
+.hero{background:linear-gradient(135deg,#102c46 0%,#174f76 62%,#26755f 135%);color:#fff;padding:54px 0 46px;box-shadow:0 14px 34px rgba(14,41,62,.18)}
+.eyebrow{letter-spacing:.14em;font-size:12px;font-weight:800;opacity:.78}.hero h1{font-size:clamp(34px,5vw,64px);line-height:1.02;margin:12px 0 14px}.hero p{max-width:780px;color:#dbe9f4;font-size:17px;line-height:1.7;margin:0}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}.metric{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:16px}.metric strong{display:block;font-size:28px}.metric span{font-size:12px;color:#dbe9f4}
+.notice{margin:26px 0 14px;background:#fffaf0;border:1px solid #ecd9ae;border-radius:12px;padding:14px 16px;color:#664d1e;line-height:1.55;font-size:14px}
+.filters{position:sticky;top:0;z-index:10;background:rgba(244,241,234,.94);backdrop-filter:blur(12px);padding:14px 0;border-bottom:1px solid var(--line)}
+.filter-grid{display:grid;grid-template-columns:minmax(220px,1.8fr) repeat(4,minmax(130px,1fr));gap:10px}.control{width:100%;border:1px solid #cfc8bb;background:#fff;border-radius:10px;padding:11px 12px;color:var(--ink);font:inherit;outline:none}.control:focus{border-color:var(--blue2);box-shadow:0 0 0 3px rgba(30,96,145,.12)}
+.resultbar{display:flex;justify-content:space-between;align-items:center;margin:28px 0 14px}.resultbar h2{margin:0;font-size:22px}.resultbar span{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding-bottom:42px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 7px 24px rgba(32,43,51,.06);display:flex;flex-direction:column}
+.photo{aspect-ratio:16/10;background:linear-gradient(140deg,#f8fafb,#ece9e3);display:grid;place-items:center;overflow:hidden}.photo img{width:100%;height:100%;object-fit:contain;transition:transform .25s,opacity .18s}.card:hover .photo img{transform:scale(1.025)}.photo img.switching{opacity:.28;transform:scale(.985)}
+.body{padding:17px;display:flex;flex-direction:column;gap:12px;flex:1}.title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.title-row h3{font-size:22px;margin:0}.price{font-weight:800;color:var(--blue2);white-space:nowrap}
+.badges{display:flex;flex-wrap:wrap;gap:6px}.badge{font-size:11px;font-weight:750;border-radius:999px;background:#e8eef4;color:#264a68;padding:4px 8px}.badge.green{background:var(--lime);color:#1e6648}.badge.amber{background:var(--amber);color:#7b5512}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:8px}.spec{background:#f7f8f8;border-radius:9px;padding:8px 9px;min-width:0}.spec label{display:block;color:var(--muted);font-size:10px;margin-bottom:2px}.spec b{font-size:12px;line-height:1.35;display:block}
+.colors{font-size:12px;color:var(--muted);line-height:1.55}.selection{min-height:19px;border-radius:8px;background:#eef5f8;color:#24516f;padding:6px 8px;font-size:11px;line-height:1.45}.actions{display:flex;gap:8px;margin-top:auto}.btn{border:0;border-radius:9px;padding:10px 12px;font-weight:750;cursor:pointer;text-decoration:none;text-align:center;font-size:13px}.btn.primary{background:var(--blue);color:#fff;flex:1}.btn.secondary{background:#edf1f3;color:var(--blue)}
+.sku-panel{display:none;border-top:1px solid var(--line);background:#fafafa;padding:0 17px 16px}.sku-panel.open{display:block}.sku-scroll{overflow:auto}.sku-table{width:100%;border-collapse:collapse;font-size:11px;min-width:680px}.sku-table th,.sku-table td{padding:8px 7px;text-align:left;border-bottom:1px solid #e5e5e5;vertical-align:top}.sku-table th{color:var(--muted);font-size:10px}.sku-row{cursor:pointer;transition:background .15s,box-shadow .15s}.sku-row:hover{background:#eef5f8}.sku-row.selected{background:#dceef8;box-shadow:inset 3px 0 0 var(--blue2)}.sku-row:focus-visible{outline:2px solid var(--blue2);outline-offset:-2px}.ok{color:var(--green);font-weight:800}.no{color:var(--red);font-weight:800}
+.empty{grid-column:1/-1;background:#fff;border:1px dashed #bbb;border-radius:14px;padding:44px;text-align:center;color:var(--muted)}
+.footer{border-top:1px solid var(--line);padding:25px 0 46px;color:var(--muted);font-size:12px;line-height:1.65}
+@media(max-width:1050px){.grid{grid-template-columns:repeat(2,1fr)}.filter-grid{grid-template-columns:1.5fr 1fr 1fr}.filter-grid select:nth-last-child(-n+2){grid-column:auto}.metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:680px){.wrap{width:min(100% - 22px,1420px)}.hero{padding:38px 0 34px}.hero p{font-size:15px}.grid{grid-template-columns:1fr}.filter-grid{grid-template-columns:1fr 1fr}.filter-grid input{grid-column:1/-1}.metrics{gap:8px}.metric{padding:12px}.metric strong{font-size:22px}.resultbar{align-items:flex-end}.stamp{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap topbar"><a class="back" href="/">← ddcarolyn</a><span class="stamp" id="stamp">正在读取官网数据…</span></div>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">KEYCHRON PRODUCT CATALOG</div>
+  <h1>Q HE 全系列</h1>
+  <p>把 Q HE 无线、Q HE 8K、铜版与陶瓷版放在同一张可筛选的产品地图里。型号负责看结构差异，展开 SKU 后查看颜色、语言布局、轴体、价格和当前库存。</p>
+  <div class="metrics">
+    <div class="metric"><strong id="mModels">—</strong><span>硬件型号族</span></div>
+    <div class="metric"><strong id="mSkus">—</strong><span>SKU / Variant</span></div>
+    <div class="metric"><strong id="m8k">—</strong><span>8K 型号</span></div>
+    <div class="metric"><strong id="mAvailable">—</strong><span>当前在售 SKU</span></div>
+  </div>
+</div></section>
+<main>
+  <div class="wrap"><div class="notice"><b>结构记忆：</b>主流 Q HE 与 Q HE 8K 为 Double-Gasket；Q16 HE 8K 是陶瓷机身、Cherry 陶瓷键帽和 Tray Mount 的特殊例外。无线 Q HE 使用佳达隆双轨 Nebula，8K 主线使用 Keychron 快速青柠磁轴。</div></div>
+  <section class="filters"><div class="wrap filter-grid">
+    <input id="search" class="control" type="search" placeholder="搜索型号、SKU、颜色或布局…">
+    <select id="series" class="control"><option value="">全部系列</option><option>Q HE 无线</option><option>Q HE 8K 有线</option><option>特别版</option></select>
+    <select id="layout" class="control"><option value="">全部尺寸</option><option>数字键盘</option><option>60%</option><option>65%</option><option>75%</option><option>80% TKL</option><option>96%</option><option>96% Southpaw</option><option>100%</option></select>
+    <select id="mount" class="control"><option value="">全部结构</option><option>Double-Gasket</option><option>Tray Mount</option></select>
+    <select id="stock" class="control"><option value="">全部库存</option><option value="available">有现货 SKU</option><option value="soldout">全部缺货</option></select>
+  </div></section>
+  <div class="wrap">
+    <div class="resultbar"><h2>型号目录</h2><span id="resultCount"></span></div>
+    <section class="grid" id="grid"><div class="empty">正在载入 Q HE 产品…</div></section>
+  </div>
+</main>
+<footer class="footer"><div class="wrap">数据来自 Keychron 官网 Product JSON，当前使用 2026-08-12 数据快照。价格为 USD，库存状态可能随官网变化。公开产品资料，可直接分享。</div></footer>
+<script>
+const SPECS={
+"Q0 HE":{series:"Q HE 无线",layout:"数字键盘",connect:"三模",polling:"1K / 0.1 mm",mount:"Double-Gasket",body:"6063 铝",keycap:"OSA 双色 PBT",sw:"Gateron 双轨 Nebula",note:"独立数字区"},
+"Q1 HE":{series:"Q HE 无线",layout:"75%",connect:"三模",polling:"1K / 0.1 mm",mount:"Double-Gasket",body:"6063 铝",keycap:"OSA 双色 PBT",sw:"Gateron 双轨 Nebula",note:"ANSI / ISO / JIS"},
+"Q1 HE 铜版":{series:"Q HE 无线",special:true,layout:"75%",connect:"三模",polling:"1K / 0.1 mm",mount:"Double-Gasket",body:"全铜机身",keycap:"Cherry PBT",sw:"Gateron 双轨 Nebula",note:"材料旗舰"},
+"Q2 HE":{series:"Q HE 无线",layout:"65%",connect:"三模",polling:"1K / 0.1 mm",mount:"Double-Gasket",body:"6063 铝",keycap:"OSA 双色 PBT",sw:"Gateron 双轨 Nebula",note:"紧凑无线"},
+"Q3 HE":{series:"Q HE 无线",layout:"80% TKL",connect:"三模",polling:"1K / 0.1 mm",mount:"Double-Gasket",body:"6063 铝",keycap:"OSA 双色 PBT",sw:"Gateron 双轨 Nebula",note:"标准 TKL"},
+"Q4 HE":{series:"Q HE 无线",layout:"60%",connect:"三模",polling:"1K / 0.1 mm",mount:"Double-Gasket",body:"6063 铝",keycap:"OSA 双色 PBT",sw:"Gateron 双轨 Nebula",note:"最小主键盘"},
+"Q5 HE":{series:"Q HE 无线",layout:"96%",connect:"三模",polling:"1K / 0.1 mm",mount:"Double-Gasket",body:"6063 铝",keycap:"OSA 双色 PBT",sw:"Gateron 双轨 Nebula",note:"紧凑数字区"},
+"Q6 HE":{series:"Q HE 无线",layout:"100%",connect:"三模",polling:"1K / 0.1 mm",mount:"Double-Gasket",body:"6063 铝",keycap:"OSA 双色 PBT",sw:"Gateron 双轨 Nebula",note:"完整全尺寸"},
+"Q12 HE":{series:"Q HE 无线",layout:"96% Southpaw",connect:"三模",polling:"1K / 0.1 mm",mount:"Double-Gasket",body:"6063 铝",keycap:"OSA 双色 PBT",sw:"Gateron 双轨 Nebula",note:"左侧数字区"},
+"Q1 HE 8K":{series:"Q HE 8K 有线",layout:"75%",connect:"USB-C",polling:"8K / 0.01 mm",mount:"Double-Gasket",body:"全铝",keycap:"OSA 双色 PBT",sw:"Keychron 快速青柠",note:"8K 平衡布局"},
+"Q2 HE 8K":{series:"Q HE 8K 有线",layout:"65%",connect:"USB-C",polling:"8K / 0.01 mm",mount:"Double-Gasket",body:"全铝",keycap:"OSA 双色 PBT",sw:"Keychron 快速青柠",note:"紧凑 8K"},
+"Q3 HE 8K":{series:"Q HE 8K 有线",layout:"80% TKL",connect:"USB-C",polling:"8K / 0.01 mm",mount:"Double-Gasket",body:"全铝",keycap:"OSA 双色 PBT",sw:"Keychron 快速青柠",note:"TKL 8K"},
+"Q5 HE 8K":{series:"Q HE 8K 有线",layout:"96%",connect:"USB-C",polling:"8K / 0.01 mm",mount:"Double-Gasket",body:"全铝",keycap:"OSA 双色 PBT",sw:"Keychron 快速青柠",note:"紧凑全尺寸 8K"},
+"Q6 HE 8K":{series:"Q HE 8K 有线",layout:"100%",connect:"USB-C",polling:"8K / 0.01 mm",mount:"Double-Gasket",body:"全铝",keycap:"OSA 双色 PBT",sw:"Keychron 快速青柠",note:"全尺寸 8K"},
+"Q16 HE 8K":{series:"Q HE 8K 有线",special:true,layout:"65%",connect:"USB-C",polling:"8K / 0.01 mm",mount:"Tray Mount",body:"陶瓷",keycap:"Cherry 陶瓷",sw:"Keychron 快速青柠",note:"陶瓷结构例外"}
+};
+const ORDER=Object.keys(SPECS);
+let models=[];
+const esc=(v)=>String(v==null?"":v).replace(/[&<>"']/g,(c)=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+const groupKey=(p)=>/copper edition/i.test(p.title)?"Q1 HE 铜版":((p.title.match(/Keychron\s+(Q\d+)\s+HE/i)||[])[1]||"Q?")+" HE"+(/\b8K\b/i.test(p.title)?" 8K":"");
+const productUrl=(p)=>"https://www.keychron.com/products/"+p.handle;
+const layoutOf=(p,v)=>/JIS Layout/i.test(p.title)?"JIS":/ISO Layout Collection/i.test(p.title)?(v.option2==="Barebone"?"ISO Barebone":v.option2):((v.option2||"").match(/\((ISO-[^)]+)\)/i)||[])[1]||"ANSI";
+const colorOf=(p,v)=>/ISO Layout Collection/i.test(p.title)?(((v.option1||"").match(/Carbon Black|Shell White/i)||[])[0]||"Carbon Black"):(v.option2||"").replace(/\s*\(ISO-[^)]+\)/i,"");
+function imageOf(p,v){return (v&&v.featured_image&&v.featured_image.src)||(p.images&&p.images[0]&&p.images[0].src)||""}
+function groupProducts(products){
+  return ORDER.map((key)=>{
+    const pages=products.filter((p)=>groupKey(p)===key); if(!pages.length)return null;
+    const variants=pages.flatMap((p)=>p.variants.map((v)=>({p,v,layout:layoutOf(p,v),color:colorOf(p,v)})));
+    const prices=variants.map((x)=>Number(x.v.price)).filter(Number.isFinite);
+    const hero=variants.find((x)=>x.v.available)||variants[0];
+    return {key,spec:SPECS[key],pages,variants,image:imageOf(hero.p,hero.v),min:Math.min(...prices),max:Math.max(...prices),available:variants.filter((x)=>x.v.available).length,
+      colors:[...new Set(variants.map((x)=>x.color).filter(Boolean))],layouts:[...new Set(variants.map((x)=>x.layout).filter(Boolean))]};
+  }).filter(Boolean);
+}
+function cardHtml(m){
+  const price=m.min===m.max?"$"+m.min.toFixed(2):"$"+m.min.toFixed(2)+"–"+m.max.toFixed(2);
+  const rows=m.variants.map((x)=>"<tr class='sku-row' tabindex='0' data-image='"+esc(imageOf(x.p,x.v))+"' data-sku='"+esc(x.v.sku||"—")+"' data-color='"+esc(x.color)+"' data-layout='"+esc(x.layout)+"' data-price='"+esc(x.v.price)+"' data-status='"+(x.v.available?"在售":"缺货")+"' aria-label='查看 "+esc(x.v.sku||"该 SKU")+" 对应图片'><td><b>"+esc(x.v.sku||"—")+"</b></td><td>"+esc(x.layout)+"</td><td>"+esc(x.color)+"</td><td>"+esc(x.v.option1)+"</td><td>"+esc(x.v.option3)+"</td><td>$"+Number(x.v.price).toFixed(2)+"</td><td class='"+(x.v.available?"ok":"no")+"'>"+(x.v.available?"在售":"缺货")+"</td></tr>").join("");
+  return "<article class='card' data-model='"+esc(m.key)+"'><div class='photo'><img class='hero-image' loading='lazy' src='"+esc(m.image)+"' alt='"+esc(m.key)+"'></div><div class='body'>"+
+    "<div class='title-row'><div><h3>"+esc(m.key)+"</h3><div class='badges'><span class='badge'>"+esc(m.spec.series)+"</span><span class='badge green'>"+esc(m.spec.layout)+"</span>"+(m.spec.special?"<span class='badge amber'>特别版</span>":"")+(m.spec.mount==="Tray Mount"?"<span class='badge amber'>结构例外</span>":"")+"</div></div><span class='price'>"+price+"</span></div>"+
+    "<div class='specs'><div class='spec'><label>连接 / 性能</label><b>"+esc(m.spec.connect)+" · "+esc(m.spec.polling)+"</b></div><div class='spec'><label>安装结构</label><b>"+esc(m.spec.mount)+"</b></div><div class='spec'><label>键帽</label><b>"+esc(m.spec.keycap)+"</b></div><div class='spec'><label>轴体</label><b>"+esc(m.spec.sw)+"</b></div></div>"+
+    "<div class='colors'><b>颜色：</b>"+esc(m.colors.join("、"))+"<br><b>布局：</b>"+esc(m.layouts.join("、"))+" · "+m.variants.length+" 个 SKU，"+m.available+" 个在售</div>"+
+    "<div class='selection' aria-live='polite'>展开并点击 SKU，可查看对应颜色与布局图片</div>"+
+    "<div class='actions'><button class='btn primary toggle' data-key='"+esc(m.key)+"'>展开 SKU</button><a class='btn secondary' href='"+esc(productUrl(m.pages[0]))+"' target='_blank' rel='noopener'>官网</a></div></div>"+
+    "<div class='sku-panel' id='sku-"+esc(m.key).replace(/\s+/g,"-")+"'><div class='sku-scroll'><table class='sku-table'><thead><tr><th>SKU</th><th>布局</th><th>颜色</th><th>装配</th><th>轴体</th><th>USD</th><th>状态</th></tr></thead><tbody>"+rows+"</tbody></table></div></div></article>";
+}
+function render(){
+  const q=document.querySelector("#search").value.trim().toLowerCase(),series=document.querySelector("#series").value,layout=document.querySelector("#layout").value,mount=document.querySelector("#mount").value,stock=document.querySelector("#stock").value;
+  const shown=models.filter((m)=>{
+    const hay=[m.key,m.spec.series,m.spec.special?"特别版":"",m.spec.layout,m.spec.sw,m.spec.keycap,m.colors.join(" "),m.layouts.join(" "),...m.variants.map((x)=>x.v.sku)].join(" ").toLowerCase();
+    const seriesMatch=!series||(series==="特别版"?m.spec.special:m.spec.series===series);
+    return (!q||hay.includes(q))&&seriesMatch&&(!layout||m.spec.layout===layout)&&(!mount||m.spec.mount===mount)&&(!stock||(stock==="available"?m.available>0:m.available===0));
+  });
+  document.querySelector("#grid").innerHTML=shown.length?shown.map(cardHtml).join(""):"<div class='empty'>没有符合条件的型号，请清除部分筛选。</div>";
+  document.querySelector("#resultCount").textContent="显示 "+shown.length+" / "+models.length+" 个型号";
+  document.querySelectorAll(".toggle").forEach((button)=>button.addEventListener("click",()=>{
+    const panel=document.querySelector("#sku-"+button.dataset.key.replace(/\s+/g,"-"));panel.classList.toggle("open");button.textContent=panel.classList.contains("open")?"收起 SKU":"展开 SKU";
+  }));
+  const selectSku=(row)=>{
+    const card=row.closest(".card"),hero=card.querySelector(".hero-image"),price=card.querySelector(".price"),selection=card.querySelector(".selection");
+    card.querySelectorAll(".sku-row").forEach((item)=>{item.classList.remove("selected");item.removeAttribute("aria-current")});
+    row.classList.add("selected");row.setAttribute("aria-current","true");
+    price.textContent="$"+Number(row.dataset.price).toFixed(2);
+    selection.textContent="当前展示："+row.dataset.sku+" · "+row.dataset.color+" · "+row.dataset.layout+" · "+row.dataset.status;
+    const next=row.dataset.image;
+    if(!next||hero.src===next){hero.alt=selection.textContent;return}
+    hero.classList.add("switching");
+    const preload=new Image();
+    preload.onload=()=>{hero.src=next;hero.alt=selection.textContent;hero.classList.remove("switching")};
+    preload.onerror=()=>{hero.classList.remove("switching");selection.textContent+="（图片暂时无法载入）"};
+    preload.src=next;
+  };
+  document.querySelectorAll(".sku-row").forEach((row)=>{
+    row.addEventListener("click",()=>selectSku(row));
+    row.addEventListener("keydown",(event)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();selectSku(row)}});
+  });
+}
+async function load(){
+  const mode="数据快照",r=await fetch("/keychron-q-he/snapshot.json");if(!r.ok)throw new Error(r.status);const payload=await r.json();
+  models=groupProducts(payload.products||[]);
+  const skus=models.reduce((n,m)=>n+m.variants.length,0),available=models.reduce((n,m)=>n+m.available,0);
+  document.querySelector("#mModels").textContent=models.length;document.querySelector("#mSkus").textContent=skus;document.querySelector("#m8k").textContent=models.filter((m)=>m.key.includes("8K")).length;document.querySelector("#mAvailable").textContent=available;
+  document.querySelector("#stamp").textContent=mode+" · "+new Date(payload.fetched_at).toLocaleString("zh-CN",{hour12:false});
+  render();
+}
+document.querySelectorAll(".control").forEach((el)=>el.addEventListener(el.tagName==="INPUT"?"input":"change",render));
+load().catch((e)=>{document.querySelector("#grid").innerHTML="<div class='empty'>产品数据加载失败，请稍后刷新。<br>"+esc(e.message)+"</div>"});
+</script>
+</body>
+</html>
+
