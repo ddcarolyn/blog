@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>维度3 · 开放度评分(核心对比)</title>
+<style>
+  :root { --bg: #ffffff; --fg: #1a1a2e; --accent: #0f3460; --border: #e0e0e0; --table-stripe: #f8f9fa; --code-bg: #f4f4f4; --link: #1565c0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", sans-serif; line-height: 1.7; color: var(--fg); background: var(--bg); max-width: 1100px; margin: 0 auto; padding: 2rem 2.5rem; }
+  h1 { font-size: 1.9rem; margin: 2rem 0 1rem; padding-bottom: .4rem; border-bottom: 3px solid var(--accent); color: var(--accent); }
+  h2 { font-size: 1.5rem; margin: 1.8rem 0 .8rem; padding-bottom: .3rem; border-bottom: 1px solid var(--border); color: #16213e; }
+  h3 { font-size: 1.2rem; margin: 1.4rem 0 .6rem; color: #1a1a2e; }
+  p { margin: .6rem 0; }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .92rem; }
+  th, td { border: 1px solid var(--border); padding: .5rem .7rem; text-align: left; }
+  th { background: var(--accent); color: #fff; font-weight: 600; }
+  tr:nth-child(even) { background: var(--table-stripe); }
+  tr:hover { background: #e8f0fe; }
+  blockquote { border-left: 4px solid var(--accent); margin: 1rem 0; padding: .6rem 1.2rem; background: #f0f4ff; color: #333; border-radius: 0 4px 4px 0; }
+  ul, ol { margin: .5rem 0 .5rem 1.8rem; }
+  li { margin: .25rem 0; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+  strong { color: #0d47a1; }
+  .nav { background: #f0f4ff; padding: .8rem 1.2rem; border-radius: 6px; margin-bottom: 2rem; font-size: .9rem; }
+  .nav a { margin-right: 1rem; }
+  .warn { border-left: 4px solid #c62828; background: #fdecea; padding: .6rem 1.2rem; margin: 1rem 0; border-radius: 0 4px 4px 0; }
+  .meta { color: #666; font-size: .9rem; }
+  @media (max-width: 768px) { body { padding: 1rem; } table { font-size: .82rem; } h1 { font-size: 1.5rem; } }
+</style>
+</head>
+<body>
+<div class="nav"><a href="最终调研报告_完整版.html">📋 最终报告</a> <a href="index.html">📂 索引</a></div>
+
+<h1>维度 3:被赞助红人的开放度评分 ⭐ 核心对比维度</h1>
+<p class="meta">口径:公开可识别的品牌传播合作池;每人先主动检索 GitHub/Printables/MakerWorld,找不到才计低分;评分逐人附依据链接</p>
+
+<h2>评分结果(脚本实算,分子/分母显式)</h2>
+<table>
+<tr><th>口径</th><th>Bambu Lab</th><th>Creality</th></tr>
+<tr><td>有效评分人数(分母)</td><td>65</td><td>57</td></tr>
+<tr><td>宽口径:有公开/免费设计发布(2–3 分)</td><td><strong>17/65 = 26.2%</strong></td><td>22/57 = 38.6%</td></tr>
+<tr><td>宽口径剔除低置信条目</td><td>15/65 = 23.1%</td><td><strong>17/57 = 29.8%</strong></td></tr>
+<tr><td>严格口径:活跃开放(仅 3 分)</td><td><strong>8/65 = 12.3%</strong></td><td>8/57 = 14.0%</td></tr>
+</table>
+
+<h2>子总结</h2>
+<ul>
+<li><strong>拓竹高粉头部"高原创、零开放"是主旋律</strong>:Hacksmith(Thangs 会员制)、HeroTech(Patreon 解锁)、Alexandre Chappel(自营付费店)——原创能力强但商业模式与开放相斥,与开源硬件社区(Voron/Klipper 圈)几乎零重叠。</li>
+<li><strong>"官宣开放 vs 实际开放"有落差</strong>:官方博客"创作者运动"标杆 Scott Yu-Jan,实测 MakerWorld 仅 2 个免费模型、活跃徽章过期。</li>
+<li><strong>拓竹日本区被投放的 6 个创作者零开放型</strong>——日本投放全是测评/生活向。</li>
+<li><strong>Creality 侧的 2 分堆里有"平台圈养"水分</strong>:5 个 Creality Cloud 精选设计师许可不可核验(JS 渲染页),已按低置信剔除口径另报。</li>
+<li>个案:Uncle Jessy 身在 Creality 名单,开放主阵地却是拓竹的 MakerWorld;公益大使 Ayúdame3D 送义肢成品但不开放设计文件——"公益 ≠ 开放"。</li>
+</ul>
+
+<div class="warn"><strong>使用边界(对外引用必带)</strong>:本统计对象是"公开可识别的品牌传播合作池",不含 MakerWorld / Creality Cloud 平台内部激励的全体设计师,不能推导为"品牌整体生态开放度"。0 分含义是"截至 2026-08-14 公开检索未发现",不等于确证不存在。</div>
+
+<h2>证伪注记</h2>
+<p>Day-1 假设"2–3 分占比 &lt;25%"对拓竹精确命中(26.2%,证伪线 40% 远未触及)——"开源互补论"数据成立。Creality 处于 29.8–38.6% 区间,如实呈现。</p>
+
+<hr>
+<p class="meta">Keychron × 3D 打印品牌赞助红人调研 · 2026-08-14 · 双引擎调研(Claude ×6 + Codex wide-research ×15)+ CoVe/ACH/Pre-mortem 三重批判修订 · 原始数据与证据链接见配套 xlsx</p>
+</body>
+</html>
