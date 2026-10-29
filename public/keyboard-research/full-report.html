@@ -3,468 +3,1624 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>机械键盘行业深度调研 · 完整版合并报告</title>
-<link rel="stylesheet" href="assets/style.css">
-<style>
-/* 完整版局部：仅做长文锚点导航与小标记，骨架仍走 style.css */
-.toc{display:flex;flex-wrap:wrap;gap:8px;margin:1rem 0 0}
-.toc a{font-size:.82rem;padding:3px 10px;border-radius:12px;background:#eef;border:1px solid #ccd;text-decoration:none;color:#3a3aff}
-.conf{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:10px;margin-right:6px;vertical-align:middle}
-.conf.high{background:#e3f5e8;color:#1f7a48;border:1px solid #8fd9ab}
-.conf.mid{background:#fff6e8;color:#9a6a16;border:1px solid #f0c878}
-.conf.low{background:#fdeef2;color:#b02a55;border:1px solid #f0a9bf}
-.es-list{list-style:none;padding:0;margin:0}
-.es-list>li{padding:.7rem .9rem;margin:.5rem 0;background:#f7f8fb;border:1px solid #e2e5ef;border-radius:10px}
-.es-list .sw{font-weight:700}
-.deep-read{font-size:.9rem;background:#f4f1ff;border-left:3px solid #c4a9f0;border-radius:0 8px 8px 0;padding:.6rem .9rem;margin:.8rem 0}
-.deep-read a{margin-right:.7rem;white-space:nowrap;display:inline-block}
-.module-jump{font-size:.8rem;color:#888;margin-left:.4rem}
-.src-group{margin:1.2rem 0 .3rem;font-weight:700;color:#23234a;font-size:1rem;border-bottom:2px solid #e2e5ef;padding-bottom:4px}
-.matrix-mini caption{caption-side:top;text-align:left;font-weight:600;padding:.3rem 0;color:#445}
-.insight-chain{counter-reset:ic;list-style:none;padding:0}
-.insight-chain>li{position:relative;padding:.6rem .9rem .6rem 2.6rem;margin:.5rem 0;background:#fbfbfe;border:1px solid #e2e5ef;border-radius:10px}
-.insight-chain>li::before{counter-increment:ic;content:counter(ic);position:absolute;left:.7rem;top:.6rem;width:1.5rem;height:1.5rem;line-height:1.5rem;text-align:center;border-radius:50%;background:#23234a;color:#fff;font-weight:700;font-size:.85rem}
-.gap-note{font-size:.85rem;color:#666}
-</style>
+<title>看懂键盘：从第一次选购到理解行业 · 机械键盘调研报告</title>
+<meta name="description" content="给第一次选键盘的人写的调研报告：先讲键盘有哪些区别、手感从哪来、尺寸和连接怎么选、贵的为什么未必适合你，再讲用户买回去遇到什么、各品牌在争什么、行业为什么变成这样。资料采集于 2026 年 6 月。">
+<link rel="stylesheet" href="assets/report.css">
 </head>
 <body>
 
-<nav class="topnav"><div class="wrap">
-  <a class="home" href="index.html">⌨ 调研门户</a>
-  <span class="crumb">/ 完整版合并报告</span>
-  <span class="spacer"></span>
-  <a href="#es">执行摘要</a>
-  <a href="#m1">M1</a><a href="#m2">M2</a><a href="#m3">M3</a><a href="#m4">M4</a><a href="#m5">M5</a><a href="#m6">M6</a>
-  <a href="#insight">战略洞察</a>
-  <a href="#assume">假设</a>
-  <a href="#sources">来源</a>
-</div></nav>
+<header class="topbar">
+  <a class="brand" href="#top">看懂键盘<small>调研报告</small></a>
+  <button class="btn-toc" type="button" id="tocBtn" aria-controls="sidebar" aria-expanded="false">
+    <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3.5h12M2 8h12M2 12.5h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    目录
+  </button>
+</header>
 
-<header class="module-hero"><div class="wrap">
-  <span class="module-tag">完整版 · FULL REPORT</span>
-  <h1>机械键盘行业深度调研 · 完整版</h1>
-  <p class="lede">一份给零基础读者的"键盘世界全景 + 战略地图"：从<strong>类型区别</strong>到<strong>内部构造</strong>，从<strong>人群痛点</strong>到<strong>品牌竞争</strong>，再到<strong>市场格局</strong>——把六个模块串成一条可落地的认知链，并给出原模块没有的跨模块战略洞察。</p>
-  <p class="updated">采集时点：2026-06 · 方法论：AI 调研元方法论 v1.0（七阶推理链 + Stage 6 三重批判）· 数据源优先级 UGC（Reddit r/MechanicalKeyboards 等）&gt; 第三方评测 &gt; 官方话术</p>
-  <div class="toc">
-    <a href="#es">① 执行摘要</a>
-    <a href="#m1">② M1 全景</a>
-    <a href="#m2">③ M2 类型横评</a>
-    <a href="#m3">④ M3 解剖</a>
-    <a href="#m4">⑤ M4 痛点</a>
-    <a href="#m5">⑥ M5 Keychron 与竞品</a>
-    <a href="#m6">⑦ M6 格局</a>
-    <a href="#insight">⑧ 跨模块战略洞察</a>
-    <a href="#assume">⑨ 关键假设与监测信号</a>
-    <a href="#sources">⑩ 全局来源索引</a>
+<nav class="sidebar" id="sidebar" aria-label="章节目录">
+  <div class="side-head">
+    <a class="side-title" href="#top">看懂键盘<small>从第一次选购到理解行业</small></a>
+    <button class="btn-close" type="button" id="tocClose" aria-label="关闭目录">×</button>
   </div>
-</div></header>
-
-<main class="wrap">
-
-<!-- =================== 执行摘要 =================== -->
-<section id="es">
-  <h2><span class="num">①</span> 执行摘要 Executive Summary</h2>
-  <p>下列 11 条统领性结论覆盖六大模块，每条标注置信度（<span class="conf high">高</span>／<span class="conf mid">中</span>／<span class="conf low">谨慎</span>）并附一句"so what"。置信度依据 Stage 6 三重批判与各模块证伪状态校正后给出。</p>
-  <ul class="es-list">
-    <li><span class="conf high">高</span><span class="sw">机械键盘对小白是一个"可拆解的爱好品类"，不是一件单品。</span> 它由四层认知组成：类型区别 → 内部构造 → 人群痛点 → 品牌竞争，整条链由广东供应链驱动。<br><strong>so what：</strong>选购前先想清"我要的是一件工具还是一个爱好入口"，决定你该止步成品还是进折腾循环。</li>
-    <li><span class="conf high">高</span><span class="sw">键盘是外设里"接触频次×时长×直接性"三项拉满的设备。</span> 普通办公族日均敲键约 4 万–6 万次，一年量级达千万次级，边际手感改善会被放大。<br><strong>so what：</strong>"讲究键盘"有客观人因学依据，不是纯消费主义；但日均击键数为跨来源测算区间，不可当精确个体数字引用。</li>
-    <li><span class="conf high">高</span><span class="sw">六种键盘类型的本质差别，是"机器怎么知道你按了"+"手指撞到什么材料"两条线。</span> 前者决定寿命/速度/可调性，后者决定手感/声音。<br><strong>so what：</strong>把这两条线分开，机械/静电容/薄膜/剪刀脚/光轴/磁轴立刻清晰，不必死记参数。</li>
-    <li><span class="conf high">高</span><span class="sw">轴体是机械手感与声音的第一决定因素，但寿命标称不应作为选购主因。</span> Cherry MX Brown 触发≈45gf、Blue≈50gf（55/60g 是操作/峰值力，勿混用）；寿命数字几乎全是厂商自测，真实使用难触上限。<br><strong>so what：</strong>按"线性/段落/带响"和用途选轴，别为"1 亿次 vs 8000 万次"的纸面寿命付溢价。</li>
-    <li><span class="conf high">高</span><span class="sw">"thock"低沉音不是单一部件，而是软定位板+厚 PBT 键帽+消音棉+gasket 的系统结果。</span> 同一颗轴装在不同整机里声音手感天差地别。<br><strong>so what：</strong>追音色要看整机方案，不是只换一颗"网红轴"就能复刻评测视频里的声音；而且线上录音无法等同你桌上的声音。</li>
-    <li><span class="conf mid">中</span><span class="sw">小白最被讨论的痛点不是"看不懂术语"，而是"买回来还要调试"的预期落差与价格焦虑。</span> 注意：此排序是<strong>讨论热度（词频）代理指标，非痛感强度</strong>，仅基于 3 份本地 Reddit 导出、子版块自带投诉偏向。<br><strong>so what：</strong>给小白的正确解法是"开箱即用 + 可选升级"的分层清单（给模板不给作业），而不是上来就教润轴。</li>
-    <li><span class="conf mid">中</span><span class="sw">"智商税"式全盘否定是少数声音，真正理性的对立面是"边际收益递减 / 别为噱头加价"。</span> 语料中 gimmick 仅 2 次、scam/waste of money 0 次命中。<br><strong>so what：</strong>对办公升级与文字工作者人群，营销最该收敛"客制化乐趣"叙事，他们更怕被迫进折腾循环。</li>
-    <li><span class="conf mid">中</span><span class="sw">在发帖讨论的 Mac 用户中，离开妙控的最高频主诉是手感与⌘/⌥键位错位。</span> 但满意妙控者通常沉默（选择偏差），不能外推到全体 Mac 用户。<br><strong>so what：</strong>Mac 心智是 Keychron 最深的护城河，但"X-Cmd 对齐布局 + 一键 Mac/Win 切换"仍是公开的待满足需求。</li>
-    <li><span class="conf mid">中</span><span class="sw">Keychron 强在"矩阵最宽 + 开源 QMK/VIA + Mac 心智"，被三面夹击。</span> 下方 RK/AKKO/MonsGeek 低价蚕食、游戏侧 Wooting 磁轴、信仰位 HHKB/Realforce。<strong>蚕食是抢增量压毛利而非夺存量</strong>——Keychron 2023–2025 仍约 40% 年化增长。<br><strong>so what：</strong>它没在萎缩，但毛利与入门盘心智正被压；自身蓝牙/无线失效+客服一致性是最该补的洞（基于投诉帖，存在幸存者偏差，不代表故障率低于同侪）。</li>
-    <li><span class="conf mid">中</span><span class="sw">热插拔是"新手试轴/入门的民主化杠杆"，不是硬核客制圈主流。</span> 严肃客制圈仍把焊接视为更稳、布局更全的"endgame build"。<br><strong>so what：</strong>新手认准"热插拔 + 支持 VIA"足矣；把热插拔当成"高端客制标配"是误读。</li>
-    <li><span class="conf low">谨慎</span><span class="sw">全球机械键盘市场是一个"几十亿美元级、年增高单位数到双位数"的中型品类。</span> 六家市调机构口径互相打架（估值 16.7–28 亿、CAGR 5.2%–15.4%），<strong>只取量级 ~20–28 亿美元、年增 ~8–12%，任何单一精确数字不可引用</strong>。供应链上，Gateron/TTC 在惠州、Kailh 在东莞，三大轴厂高度集中珠三角，使价格战成为结构性现象。<br><strong>so what：</strong>引用市场规模只报量级；理解"为什么白牌只能拼价格与上新速度"要从轴厂同源说起。</li>
-    <li><span class="conf mid">中</span><span class="sw">磁轴（Hall Effect）+ Rapid Trigger 是机械键盘十年最实质的技术拐点，已从高端差异化走向 2026 新品 baseline。</span> 但它主要影响竞技游戏人群；Snap Tap/SOCD 因"软件替你做反身决策"被 CS2 在 2024-08 封禁，Rapid Trigger 因 1:1 如实上报而保留合法。<br><strong>so what：</strong>纯办公/打字读者不必因"没上磁轴"焦虑；玩 CS2 可放心用 RT，但别开 Snap Tap/SOCD。</li>
-  </ul>
-</section>
-
-<!-- =================== M1 =================== -->
-<section id="m1">
-  <h2><span class="num">②</span> 模块一 · 键盘世界全景</h2>
-  <p>本模块给零基础读者一张"键盘世界地图"，回答三件事：键盘为什么值得讲究、用哪些维度给键盘分类、以及怎么用一棵决策树把自己导到合适的品类。</p>
-  <p><strong>为什么值得讲究。</strong>在键盘/鼠标/显示器三件套里，键盘是接触时间最长、单位时间动作密度最高的设备。按日均 4 万–6 万次、一年 250 个工作日测算，一双手一年要完成约 1000 万–1500 万次击键。当一个动作被重复到这个量级，手感顺不顺、声音吵不吵、键位累不累就不再是玄学，而会累积成肩颈手腕的长期体感差异——这正是人因学把击键量本身当作肌肉骨骼劳损风险因子来研究的原因。</p>
-  <p><strong>六大正交分类轴。</strong>新手最常见的混乱，是把不同维度搅成一句话问（"60% 青轴热插拔三模游戏键盘多少钱"其实横跨五个独立的轴）。把六个相互正交的维度摊开，它们各自回答不同问题、可自由组合、不该混为一谈：触发原理、尺寸布局、连接方式、用途定位、价格带、可定制性。关键纪律——轴与轴互不蕴含："机械"不代表"客制化"，"无线"不代表"游戏"，"60%"不代表"贵"。</p>
-  <p><strong>触发原理是争议最大的轴。</strong>"磁轴算不算机械"是社区活跃争论。结论：主流厂商与社区已不再把磁轴当作机械的子类，而是单列为一个独立取值（Keychron 官网把 Magnetic Switch 列为与机械并列的独立筛选项）。这恰好印证"触发原理"应作为一个完整的轴对待，而非"机械 vs 非机械"的二分。</p>
-  <p><strong>选购决策树是双入口而非单入口。</strong>调研发现新手实务里"首要变量"并非单一预算——主流入门指南几乎都把<strong>用途 + 轴体类型</strong>与<strong>预算</strong>并列作为第一层入口，再用安静度、系统、折腾意愿做收束。</p>
-
-  <div class="table-scroll"><table class="matrix matrix-mini">
-    <caption>表 M1：六种触发原理对照（提炼自 M1 核心表）</caption>
-    <thead><tr><th>原理</th><th>怎么识别按键</th><th>典型体感 / 定位</th><th>新手认知</th></tr></thead>
-    <tbody>
-      <tr><td>机械轴</td><td>金属触点物理接触导通</td><td>段落感丰富、可换轴、声音可调</td><td><span class="pill good">主流核心</span></td></tr>
-      <tr><td>静电容</td><td>按下改变电容值触发</td><td>顺滑、寿命长、偏贵（Topre/HHKB）</td><td><span class="pill mid">小众高端</span></td></tr>
-      <tr><td>薄膜</td><td>三层导电膜被压通</td><td>软、廉价、寿命短，办公标配</td><td><span class="pill mid">非机械基准线</span></td></tr>
-      <tr><td>剪刀脚</td><td>剪刀结构压薄膜（笔记本式）</td><td>短行程、轻、扁平</td><td><span class="pill mid">笔记本/超薄</span></td></tr>
-      <tr><td>光轴</td><td>红外光被遮断触发</td><td>无金属抖动、响应快，多见游戏</td><td><span class="pill mid">机械变体</span></td></tr>
-      <tr><td>磁轴/霍尔</td><td>磁体位移改变磁场强度</td><td>可调触发点、Rapid Trigger，游戏新宠</td><td><span class="pill bad">归属有争议</span></td></tr>
-    </tbody>
-  </table></div>
-
-  <div class="callout"><strong>导流速查：</strong>办公安静党 → 75%/TKL + 红轴或静音轴 + 三模成品；打字党 → 65%/75% 热插拔 + 茶轴/线性轴；游戏党 → TKL/60% + 磁轴（要 Rapid Trigger）或快线性轴 + 有线/2.4G；想入坑客制 → 热插拔 + Gasket + 支持 VIA 的套件。</div>
-
-  <div class="deep-read"><strong>深入阅读（M1 task 页）：</strong>
-    <a href="task_1_1_keyboard_ecosystem.html">Task 1.1 键盘在外设生态中的位置</a>
-    <a href="task_1_2_classification_axes.html">Task 1.2 六大分类轴</a>
-    <a href="task_1_3_buying_decision_tree.html">Task 1.3 小白选购决策树</a>
-  </div>
-</section>
-
-<!-- =================== M2 =================== -->
-<section id="m2">
-  <h2><span class="num">③</span> 模块二 · 键盘类型横评</h2>
-  <p>本模块同台拆解六大类型（机械 / 静电容 Topre / 薄膜 / 剪刀脚 / 光轴 / 磁轴），回答最关心的一句话："我，一个普通人，到底能不能摸出区别？"</p>
-  <p><strong>两条主轴区分六类。</strong>差别的本质是"按下那一刻机器怎么知道你按了"（感应方式：金属触点 / 电容感应 / 薄膜导通 / 光路遮断 / 磁场测量）+"你的手指撞到了什么材料、靠什么回弹"（弹簧 vs 橡胶碗）。前者决定寿命/速度/可调性，后者决定手感/声音。这两条主轴经六源原理交叉验证一致。</p>
-  <p><strong>寿命与价格全部以区间呈现。</strong>各源数值差异大：机械 5000 万–1 亿、薄膜 500 万–1000 万、光轴/磁轴标称 ≥1 亿（"无金属磨损"为耐久卖点，但 UGC 指出实际寿命更受塑料件与弹簧老化制约）。任何单一定值都不准确。</p>
-  <p><strong>线上无法完全替代上手。</strong>三重证据：录音设备（麦克风型号、增益、混响）会彻底改变 thock/clack 的呈现，YouTube 听到的声音≠你桌上的声音；手感是触觉，无法传输；同一颗轴装在不同整机里声音手感天差地别（这部分留给 M3）。</p>
-  <p><strong>Topre 归类两说并存。</strong>本调研以 UGC 为准判定：Topre 更准确的分类是"静电容（EC）"独立一类，业内常称"半机械"；说它"是机械"主要是厂商营销与零售归类的便利说法，社区主流并不把它等同于 Cherry MX 式机械。</p>
-
-  <div class="table-scroll"><table class="matrix matrix-mini">
-    <caption>表 M2：六大类型多维对比（提炼自 M2 核心矩阵；数值为区间）</caption>
-    <thead><tr><th>维度</th><th>机械</th><th>静电容/Topre</th><th>薄膜</th><th>剪刀脚</th><th>光轴</th><th>磁轴(霍尔)</th></tr></thead>
-    <tbody>
-      <tr><td>感应方式</td><td>金属触点</td><td>电容感应</td><td>薄膜导通</td><td>薄膜导通</td><td>光路遮断</td><td>磁场测量</td></tr>
-      <tr><td>典型键程</td><td>~3.5–4mm</td><td>~4mm</td><td>~3.5–4mm</td><td><span class="pill mid">~1.5–2mm</span></td><td>~3.5–4mm</td><td>~3.5–4mm</td></tr>
-      <tr><td>寿命(次/键)</td><td><span class="pill good">5000万–1亿</span></td><td><span class="pill good">~5000万</span></td><td><span class="pill bad">500万–1000万</span></td><td><span class="pill mid">~1000万–2000万</span></td><td><span class="pill good">≥1亿*</span></td><td><span class="pill good">≥1亿*</span></td></tr>
-      <tr><td>可定制性</td><td><span class="pill good">极高</span></td><td><span class="pill bad">很低</span></td><td><span class="pill bad">几乎无</span></td><td><span class="pill bad">几乎无</span></td><td><span class="pill mid">中</span></td><td><span class="pill mid">软件高/硬件低</span></td></tr>
-      <tr><td>价格区间(整机)</td><td>$30–300+</td><td><span class="pill bad">$230–600</span></td><td><span class="pill good">$10–40</span></td><td>$30–200</td><td>$80–500</td><td>$80–300</td></tr>
-      <tr><td>适用人群</td><td>多数人/折腾党</td><td>码字/手感发烧</td><td>预算极限/备用</td><td>笔记本/超薄</td><td>追极速手感</td><td><span class="pill good">竞技游戏/调校党</span></td></tr>
-    </tbody>
-  </table></div>
-  <p class="gap-note">* ≥1 亿次为厂商标称，缺独立第三方破坏性寿命实测；实际寿命更受塑料件与弹簧老化制约。</p>
-
-  <div class="deep-read"><strong>深入阅读（M2 task 页）：</strong>
-    <a href="task_2_1_working_principles.html">Task 2.1 六类工作原理图解</a>
-    <a href="task_2_2_comparison_matrix.html">Task 2.2 多维对比矩阵</a>
-    <a href="task_2_3_feel_sound_language.html">Task 2.3 手感与声音语言化</a>
-    <a href="task_2_4_price_anchors.html">Task 2.4 价格锚点与代表产品</a>
-    <a href="task_2_5_topre_debate.html">Task 2.5 Topre 算不算机械</a>
-  </div>
-</section>
-
-<!-- =================== M3 =================== -->
-<section id="m3">
-  <h2><span class="num">④</span> 模块三 · 机械键盘解剖</h2>
-  <p>一块机械键盘不是"一个整体"，而是一堆可拆解、可替换、可调音的部件：轴体、键帽、定位板、PCB、稳定器、消音棉、外壳。看懂这张"解剖图"，就掌握了选购与折腾的全部底层逻辑。</p>
-  <p><strong>本质：每键一颗独立机械轴。</strong>薄膜 = 一张"共用的导电床垫"；机械 = "一排各自独立的弹簧床"。由此带来三个特性：一致手感（触发克数/键程由轴本身决定，不随位置衰减）、N 键无冲（每颗轴独立扫描）、可单键维修/替换（部件化是可玩、耐用、保值的根）。</p>
-  <p><strong>轴体是手感与声音的第一决定因素。</strong>按段落感分三类：线性（顺滑无段落）、段落（中途一个"坎"、无声）、段落带响（坎 + 清脆"咔哒"声）。关键纠偏：<strong>Cherry MX Brown 触发≈45gf、Blue≈50gf</strong>；常见的 55/60g 是操作力/峰值力，不要与触发力混用，具体以购买批次官方页为准。四大轴厂画像：Cherry（德国，MX 标准鼻祖、品控稳）、Gateron（惠州，顺滑性价比）、Kailh 凯华（东莞，Box 防尘+Choc 低矮）、TTC（惠州，自润 POM）。寿命标称几乎全是厂商自测，真实使用难触上限，<strong>不应作为选购主因</strong>。</p>
-  <p><strong>键帽看两个轴向。</strong>材质：ABS 偏滑温润、声音清脆、数月易打油发亮、便宜；PBT 偏干磨砂、声音低沉、抗磨抗黄、略贵——社区普遍偏好 PBT 耐久。工艺：double-shot 二色注塑字符永不磨掉，dye-sub 热升华可做复杂图案、多用于 PBT。profile 高度从低到高（Cherry / OEM / SA）影响手感与学习成本。</p>
-  <p><strong>"thock"是系统结果，不是单一部件。</strong>软定位板（PC/POM）+ 厚 PBT 键帽 + 消音棉填充 + gasket 叠加才出低沉 thock；硬钢板 + 薄 ABS + 空腔则是清脆 clack。稳定器（卫星轴）是"咔哒/回弹杂音"的头号来源，旷量与未润滑是元凶。</p>
-  <p><strong>布局与连接是"你愿意牺牲什么"。</strong>布局越小越省桌面、离鼠标越近，但越依赖 Fn 层；小白第一块不确定就选 TKL 或 75%。连接上，2.4G 延迟 ~1–2ms 已基本等于有线但多为单设备；蓝牙胜在多设备切换却有 20ms+ 延迟，竞技不推荐；既要无线又要游戏低延迟就买带 2.4G 的三模。</p>
-
-  <div class="table-scroll"><table class="matrix matrix-mini">
-    <caption>表 M3：主流轴体关键参数（提炼自 M3；已按 Stage 6 校正 Brown/Blue 触发力）</caption>
-    <thead><tr><th>轴 / 类型</th><th>类别</th><th>触发克数</th><th>触发键程</th><th>总键程</th><th>典型用途</th></tr></thead>
-    <tbody>
-      <tr><td>Cherry MX Red</td><td><span class="pill mid">线性</span></td><td>45gf</td><td>2.0mm</td><td>4.0mm</td><td>游戏 / 通用</td></tr>
-      <tr><td>Cherry MX Speed Silver</td><td><span class="pill mid">线性</span></td><td>45gf</td><td>1.2mm</td><td>3.4mm</td><td>竞技游戏(快触发)</td></tr>
-      <tr><td>Cherry MX Brown</td><td><span class="pill mid">段落</span></td><td>45gf*</td><td>2.0mm</td><td>4.0mm</td><td>办公 / 打字</td></tr>
-      <tr><td>Cherry MX Blue</td><td><span class="pill bad">段落带响</span></td><td>50gf*</td><td>2.2mm</td><td>4.0mm</td><td>打字爽感(吵)</td></tr>
-      <tr><td>Gateron Yellow</td><td><span class="pill mid">线性</span></td><td>50gf</td><td>2.0mm</td><td>4.0mm</td><td>顺滑党性价比</td></tr>
-      <tr><td>Kailh Box V2 Red</td><td><span class="pill mid">线性</span></td><td>40gf</td><td>1.8mm</td><td>3.6mm</td><td>免折腾顺滑(工厂润)</td></tr>
-      <tr><td>Kailh Box Silent Pink</td><td><span class="pill good">静音线性</span></td><td>35gf</td><td>1.8mm</td><td>3.6mm</td><td>安静办公</td></tr>
-    </tbody>
-  </table></div>
-  <p class="gap-note">* Brown≈45gf / Blue≈50gf 为触发力；55/60g 为操作/峰值力，勿混用。以购买批次官方页为准。</p>
-
-  <div class="deep-read"><strong>深入阅读（M3 task 页）：</strong>
-    <a href="task_3_1_definition_essence.html">Task 3.1 定义与本质</a>
-    <a href="task_3_2_switch_universe.html">Task 3.2 轴体宇宙</a>
-    <a href="task_3_3_keycaps.html">Task 3.3 键帽材质/工艺/profile</a>
-    <a href="task_3_4_structure_parts.html">Task 3.4 结构件</a>
-    <a href="task_3_5_layouts.html">Task 3.5 布局尺寸</a>
-    <a href="task_3_6_connectivity.html">Task 3.6 连接方式</a>
-  </div>
-</section>
-
-<!-- =================== M4 =================== -->
-<section id="m4">
-  <h2><span class="num">⑤</span> 模块四 · 用户真实痛点与人群分层</h2>
-  <div class="callout warn"><span class="lbl">口径校正（Stage 6 #1）</span> 本模块的痛点排序是<strong>按讨论热度（词频）粗排，不是痛感强度排序</strong>——柱子越长只代表被讨论得越多，不代表那件事越痛。它仅基于 3 份本地 Reddit 导出（mechkb-beginner / mac-keyboard / keychron），未做跨平台/跨语言验证；这些子版块天生带"求助—投诉"偏向（开心的人通常不发帖）。词频是代理指标，仅用于相对排序。</div>
-  <p><strong>小白最被讨论的不是术语墙，而是预期落差与价格焦虑。</strong>按词频从高到低：① 调试预期落差——"买回还要润轴/调稳定器"（lube×48、stab×31），小白以为买的是成品，到手才发现"成品"只是起点；② 价格/预算焦虑与"便宜=质量差"（budget×48、cheap×29），且常与"看不懂为什么这么贵"绑定（同型号 Amazon $152、官网 $199）；③ 轴体选择困惑（linear×39、tactile×32）；④ 噪音扰人（loud×23，会立刻被家人/同事投诉）；⑤ 信息过载/二手市场无从下手（"beyond overwhelming"）；⑥ 手感无法线上体验、买错成本（须买两块才试出对的轴）。术语墙（confus×6）反而靠后——更可能是小白懂了之后被劝退，而非它不痛。</p>
-  <p><strong>反方主流是"理性节制"而非"智商税"。</strong>专门去猎泼冷水的声音后发现：gimmick 仅 2 次、scam/waste of money 0 次命中，全盘否定是少数。真实且理性的对立面是两类："边际收益递减，$120 用十年足矣"和"就是个键盘，别为噱头加价"。so what：对办公升级/文字工作者，营销话术常把"客制化乐趣"当卖点，但这类人更怕被迫进折腾循环——给他们"开箱即用+可选升级"的分层清单，而不是教润轴。</p>
-  <p><strong>Mac 用户：手感 + ⌘/⌥键位是最高频主诉，但有选择偏差。</strong>mac-keyboard.md 中 option×54、logitech/logi×62、magic keyboard×32、remap×11，集中指向两件事：妙控剪刀脚手感/人体工学（键程仅约 1mm、不可调倾角、无腕托）与 ⌘/⌥ 同 Win/Alt 的物理错位 + Mac/Win 切换折腾。须注意：本节代表的是主动换键盘、来论坛求助/吐槽的子群体，满意妙控者通常沉默，不能外推到全体 Mac 用户。"缺 Mac 键帽/F 区媒体键"信号较弱（mac keycap 仅 1 次命中），列为数据缺口不夸大。</p>
-
-  <div class="table-scroll"><table class="matrix matrix-mini">
-    <caption>表 M4：五类人群痛点—需求矩阵（提炼自 M4 核心表）</caption>
-    <thead><tr><th>人群</th><th>核心诉求</th><th>偏好轴/布局/连接</th><th>典型抱怨</th></tr></thead>
-    <tbody>
-      <tr><td>程序员 / 重度文字</td><td>长时间打字舒适、能改键位</td><td><span class="pill good">tactile/静音linear</span> · 65%~75% · 有线优先</td><td>组合键被矩阵限制、稳定器响</td></tr>
-      <tr><td>游戏玩家</td><td>响应快、稳定、可调触发</td><td><span class="pill good">linear/HE 磁轴</span> · TKL/60% · 2.4G</td><td>HE 磁轴"不够静音"、软件难用</td></tr>
-      <tr><td>文字工作者(记者/运营)</td><td>低噪、低疲劳、从妙控过渡</td><td><span class="pill mid">低段落 linear/低剖面</span> · 75% · 三模</td><td>怕段落太重、怕吵到同事</td></tr>
-      <tr><td>客制化爱好者</td><td>音色/手感极致可玩、社群表达</td><td><span class="pill good">随心换轴</span> · 60%/40% · 不在乎连接</td><td>群购跳票/失联、QC、预润"少了乐趣"</td></tr>
-      <tr><td>办公升级(从膜键/Logitech)</td><td>一步到位、开箱即用、不折腾</td><td><span class="pill mid">预润 linear/tactile</span> · 全尺寸/96% · 三模</td><td>"为什么开箱还要调"、价格看不懂、线太短</td></tr>
-    </tbody>
-  </table></div>
-
-  <div class="deep-read"><strong>深入阅读（M4 task 页）：</strong>
-    <a href="task_4_1_beginner_pains.html">Task 4.1 入门小白真实痛点</a>
-    <a href="task_4_2_persona_matrix.html">Task 4.2 五类人群痛点-需求矩阵</a>
-    <a href="task_4_3_mac_users.html">Task 4.3 Mac 用户特殊人群</a>
-    <a href="task_4_4_skeptics.html">Task 4.4 反例与证伪：是智商税吗</a>
-  </div>
-</section>
-
-<!-- =================== M5 =================== -->
-<section id="m5">
-  <h2><span class="num">⑥</span> 模块五 · Keychron 品牌与竞品</h2>
-  <div class="callout warn"><span class="lbl">口径校正（Stage 6 #2/#3/#5/#6）</span> 本模块品牌口碑来自 Reddit 投诉帖，<strong>存在幸存者偏差、无分母，不代表故障率，不应据此推断某品牌可靠性低于同侪</strong>。"蚕食"指抢增量、压毛利，<strong>非夺存量</strong>。Wooting 电竞占比为<strong>CS2 约 20.9%、Fortnite 约 17.3%（ProSettings/MKB Guide，2026-01 时点快照，按月剧烈波动）</strong>。RK/AKKO/Glorious 的 Reddit 样本偏薄，已用 web 评测补强。</div>
-  <p><strong>Keychron 画像。</strong>成立于 2017 年、总部香港、制造深圳，靠 Kickstarter 众筹起家（K1≈30 万美元、K2 突破 100 万美元 / 约 1.1 万支持者），验证了"Mac 友好 + 无线机械键盘"的真实需求。"台湾品牌"等说法与多源不符，判为低可信异说。定位三支柱：高性价比（$30 入门到 $200 旗舰全覆盖）、Mac 友好（诞生切口、最深心智锚点）、客制化民主化（<strong>护城河是"热插拔 + 开源 QMK/VIA + 量产价位"三者叠加，而非热插拔单点；热插拔本身面向入门试轴而非硬核客制主流</strong>）。</p>
-  <p><strong>被三面夹击。</strong>① 下方 RK/AKKO/MonsGeek 以 $40–80 三模热插拔蚕食入门盘——但需澄清这是抢增量压毛利，Keychron 2023–2025 仍约 40% 年化增长，自身并未萎缩，RK 在紧凑/无线段销量领先（IndexBox）可作"高威胁"量化旁证；② 游戏侧 Wooting 磁轴 + Rapid Trigger 是竞技标杆，Razer/ROG 磁轴跟进；③ 信仰位 HHKB/Realforce 用 Topre 手感锁住高端打字党。</p>
-  <p><strong>最该补的洞：自身蓝牙/无线失效 + 客服一致性。</strong>keychron.md 中"半年的 K8 蓝牙彻底坏""换了 PCB 还没修好、后续邮件石沉大海"等反复出现。须分开看待：蓝牙/无线失效<strong>可能与特定批次/固件相关</strong>（有帖指与 2026-03 的 0.2.4 无线固件时间相关、且无法降级），或随固件更新消失；而客服一致性是更长期、跨型号的结构性问题。同时 NuPhy/Epomaker 客服口碑更差，属行业通病而非 Keychron 独有。护城河旁证：社区"不碰没有 QMK/VIA 的板子"是真实门槛，Keychron 占住了这条护城河——但差异化边际在收窄（Glorious 走 VIA、社区 QMK 化 RK/HHKB、NuPhy/AKKO 部分追平 Mac 友好）。</p>
-
-  <div class="table-scroll"><table class="matrix matrix-mini">
-    <caption>表 M5：Keychron vs 主要竞品（提炼自 M5 核心矩阵；价格为 2026-06 区间估计）</caption>
-    <thead><tr><th>品牌</th><th>价格带</th><th>主打技术</th><th>可定制</th><th>无线</th><th>Mac 友好</th><th>相对 Keychron 差异化</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Keychron</strong></td><td>$30–230</td><td>MX/低姿态/磁轴全覆盖</td><td><span class="pill good">热插拔+QMK</span></td><td><span class="pill good">三模(多数)</span></td><td><span class="pill good">原生</span></td><td>基准：最宽矩阵+开源QMK+Mac 心智</td></tr>
-      <tr><td>Royal Kludge</td><td>$30–80</td><td>MX/磁轴</td><td><span class="pill mid">热插拔/专有</span></td><td><span class="pill good">三模</span></td><td><span class="pill mid">可用</span></td><td>更低价；软件/QC 口碑差</td></tr>
-      <tr><td>AKKO</td><td>$40–120</td><td>自研 CS 轴/PBT 键帽</td><td><span class="pill mid">部分热插拔</span></td><td><span class="pill mid">视型号</span></td><td><span class="pill mid">可用</span></td><td>出厂手感/键帽更"值"；客制深度不如 Q</td></tr>
-      <tr><td>NuPhy</td><td>$100–200</td><td>低姿态 Nano 轴</td><td><span class="pill mid">热插拔/专有</span></td><td><span class="pill good">三模</span></td><td><span class="pill good">友好</span></td><td>颜值更冲；QC/客服被大量差评</td></tr>
-      <tr><td>Wooting</td><td>$175–245+</td><td>霍尔磁轴+Rapid Trigger</td><td><span class="pill mid">非主打客制</span></td><td><span class="pill bad">有线</span></td><td><span class="pill mid">可用</span></td><td>磁轴/电竞口碑标杆，从游戏侧夹击</td></tr>
-      <tr><td>HHKB / Realforce</td><td>$200–350</td><td>Topre 静电容</td><td><span class="pill bad">不可改/无 QMK</span></td><td><span class="pill mid">HHKB 蓝牙</span></td><td><span class="pill good">HHKB 友好</span></td><td>独占 Topre 手感；贵、不热插拔</td></tr>
-    </tbody>
-  </table></div>
-
-  <div class="deep-read"><strong>深入阅读（M5 task 页）：</strong>
-    <a href="task_5_1_keychron_profile.html">Task 5.1 Keychron 品牌画像与产品线矩阵</a>
-    <a href="task_5_2_competitor_landscape.html">Task 5.2 竞品四层全景</a>
-    <a href="task_5_3_multi_dim_matrix.html">Task 5.3 多维对比大矩阵</a>
-    <a href="task_5_4_keychron_position.html">Task 5.4 Keychron 相对位置：被谁夹击</a>
-  </div>
-</section>
-
-<!-- =================== M6 =================== -->
-<section id="m6">
-  <h2><span class="num">⑦</span> 模块六 · 竞争格局与行业现状</h2>
-  <div class="callout warn"><span class="lbl">口径校正（Stage 6 #8/#9）</span> 市场规模是本调研里最不可信的一类数字：六家市调机构对同一品类估值从 16.7 亿喊到 20.5+ 亿，CAGR 从 5.2% 到 15.4%。<strong>只看量级和方向，不看小数点——约 20–28 亿美元、年增 ~8–12%，任何单一精确数字不可引用。</strong>磁轴 CAGR 各家口径打架（9%–17%），只取量级：显著快于行业整体。</div>
-  <p><strong>它不是一个市场，而是几个气质不同的市场叠在一起。</strong>三层主结构 + 信仰位 + 新势力：① 游戏大厂（Logitech/Razer/Corsair/SteelSeries/HyperX，靠品牌、电竞代言、线下渠道卖溢价，Top5 合计约 55% 份额，口径粗略）；② 客制/极客（Keychron/Ducky/Varmilo + 团购客制圈，社区驱动、单价高、量不大）；③ 出海低价（Royal Kludge/Epomaker/Aula 及大量白牌，靠价格战抢入门）；信仰位是静电容 HHKB/Realforce；新势力是磁轴 HE。</p>
-  <p><strong>价格战是结构性的，根在广东。</strong>全球三大轴厂——Gateron/TTC 在惠州、Kailh 在东莞——总部与主产能几乎全压在珠三角方圆百余公里内。逻辑链：三大轴厂同处广东 → 任何品牌（哪怕欧美大厂）的"自研轴"也大多由这几家代工或同源生产 → 上游零件高度同源、打样到量产极快（区域配套据称缩短交期 30–50%）→ 准入门槛被压到极低 → 出海/白牌层无法在硬件上做出真差异 → 只能在价格和上新速度上厮杀。须留一个证伪点：轴厂集中已确认，但整机代工是否同样集中于广东、还是已外溢至江浙/越南，本调研尚无一手产能数据。</p>
-  <p><strong>磁轴正在重写游戏键盘的规则。</strong>由 Wooting 用自研 Lekker 轴带入消费级（最初由 Huano 代工），如今 Razer/Corsair/SteelSeries 全面跟进，磁轴已从高端差异化走向 2026 新品 baseline。Rapid Trigger（按多深报多深、抬一丝即复位）让 FPS 急停更跟手，因 1:1 如实上报物理状态被 CS2 判为合法；而 Snap Tap（Razer）/ SOCD（同按反向键自动取最后一个）因"软件替你做反身决策"被 Valve 在 2024-08 封禁。对小白的实操含义：买磁轴用 RT 完全没问题，玩 CS2 别开 Snap Tap/SOCD，否则会被反作弊踢。此变量主要影响竞技游戏人群，纯办公关系不大。</p>
-
-  <div class="table-scroll"><table class="matrix matrix-mini">
-    <caption>表 M6：磁轴三大功能的电竞合法性（以 CS2 为例，2024-08 裁决）</caption>
-    <thead><tr><th>功能</th><th>它做什么</th><th>本质</th><th>CS2 裁决</th></tr></thead>
-    <tbody>
-      <tr><td>Rapid Trigger</td><td>按多深报多深，抬一丝即复位</td><td>1:1 硬件如实上报</td><td><span class="pill good">合法</span></td></tr>
-      <tr><td>Snap Tap (Razer)</td><td>同按 A/D 时自动取最后一个</td><td>软件替你做反身决策</td><td><span class="pill bad">禁用·会被踢</span></td></tr>
-      <tr><td>SOCD / null-bind</td><td>反向键同按时自动清除冲突</td><td>软件替你做反身决策</td><td><span class="pill bad">禁用·会被踢</span></td></tr>
-    </tbody>
-  </table></div>
-
-  <div class="deep-read"><strong>深入阅读（M6 task 页）：</strong>
-    <a href="task_6_1_market_size.html">Task 6.1 市场规模三角验证</a>
-    <a href="task_6_2_competitive_ecosystem.html">Task 6.2 竞争格局生态图</a>
-    <a href="task_6_3_supply_chain.html">Task 6.3 供应链地理</a>
-    <a href="task_6_4_magnetic_switch.html">Task 6.4 磁轴+Rapid Trigger+SOCD 争议</a>
-  </div>
-</section>
-
-<!-- =================== 跨模块战略洞察 =================== -->
-<section id="insight">
-  <h2><span class="num">⑧</span> 跨模块战略洞察（完整版增值）</h2>
-  <p>单看任何一个模块，都只是"键盘世界"的一个切片。把六个模块串起来，会浮现出原模块里看不到的几条因果链与机会空白。这是完整版相对于 task 页的核心增值。</p>
-
-  <h3>① 小白认知漏斗：一句话总纲</h3>
-  <div class="callout"><strong>机械键盘对小白不是"买一件工具"，而是"踏进一个可拆解的爱好品类的漏斗"——</strong>先在"类型层"判断自己能不能感觉到差别（M2），再在"构造层"理解它是一堆可拆替部件（M3），然后撞上"痛点层"的信息过载与调试预期落差（M4），最后在"品牌层"被各家心智争夺（M5），而整个漏斗的水流速度由广东供应链与磁轴技术迁移决定（M6）。<strong>漏斗的关键摩擦点不在"懂不懂术语"，而在"我究竟想止步成品、还是被卷进折腾循环"。</strong></div>
-
-  <h3>② 把五层串成一条逻辑链</h3>
-  <ol class="insight-chain">
-    <li><strong>类型区别（M2）决定"够不够格被讨论"。</strong>机械之所以成为主流核心、值得整个品类围绕它转，是因为它在"可调性 + 可维修 + 手感多样"上同时领先——这正是后面构造、痛点、品牌全部展开的前提。薄膜/剪刀脚不进这条链，因为它们几乎不可拆替。</li>
-    <li><strong>机械构造（M3）把"一件商品"炸成"一堆部件"。</strong>每键独立轴 + 热插拔 + 键帽/定位板/消音棉/gasket 的系统化音色，意味着同一块键盘有无数个可调旋钮——这既是乐趣来源，也是 M4 痛点的直接温床。</li>
-    <li><strong>构造的可拆替直接生成 M4 的头号痛点：调试预期落差。</strong>正因为"成品只是起点、音色还得自己润轴调稳定器"，小白才会在 lube×48、stab×31 上反复发帖。换句话说，M3 的"优点"在小白视角下转译成了 M4 的"痛点"。</li>
-    <li><strong>痛点（M4）划定品牌竞争（M5）的心智战场。</strong>谁能把"调试落差""价格焦虑""Mac 键位错位""开箱即用"这些痛点解决得最好，谁就占住心智。Keychron 用"热插拔+QMK+Mac 友好+量产价位"恰好正面命中了入门痛点，这才是它宽矩阵之外的真护城河。</li>
-    <li><strong>品牌竞争（M5）的胜负被市场格局（M6）的结构性力量框定。</strong>因为轴厂同源、价格战结构性，低价白牌能无限逼近 Keychron 的硬件规格——于是 Keychron 只能靠软件（QMK/VIA）、心智（Mac）、整机调音与服务做差异；而磁轴这个技术迁移又从游戏侧另开一条 Keychron 短期难撼动的战线（Wooting）。</li>
+  <ol class="toc" id="toc">
+    <li><a href="#start"><span class="n">起</span>这份报告怎么用</a></li>
+    <li><a href="#ch01"><span class="n">01</span>键盘到底有哪些区别？</a></li>
+    <li><a href="#ch02"><span class="n">02</span>按起来的感觉是怎么来的？</a></li>
+    <li><a href="#ch03"><span class="n">03</span>大小和连接方式怎么选？</a></li>
+    <li><a href="#ch04"><span class="n">04</span>为什么贵的键盘也可能不适合你？</a></li>
+    <li><a href="#ch05"><span class="n">05</span>按自己的需求，列出选购条件</a></li>
+    <li><a href="#ch06"><span class="n">06</span>用户买回去以后，最常遇到什么？</a></li>
+    <li><a href="#ch07"><span class="n">07</span>各品牌在争什么？Keychron 在哪里？</a></li>
+    <li><a href="#ch08"><span class="n">08</span>这个行业为什么会变成这样？</a></li>
+    <li class="sep" role="presentation"></li>
+    <li><a href="#appendix"><span class="n">附</span>术语、研究方法与来源</a></li>
   </ol>
+  <div class="side-foot">
+    资料采集 2026-06 · 页面改版 2026-10-29<br>
+    <a href="index.html">原始研究页索引</a> · <a href="full-report-legacy.html">改版前版本</a>
+  </div>
+</nav>
 
-  <h3>③ Keychron 被三面夹击：矩阵图解</h3>
-  <p>把"威胁方向 × 用什么武器 × Keychron 的防御"摊成一张矩阵，能一眼看清它的处境：强在覆盖宽度，弱在每一面都有更专一的对手。</p>
-  <div class="table-scroll"><table class="matrix matrix-mini">
-    <caption>表 INS-1：Keychron 三面夹击格局（综合 M5 + M6）</caption>
-    <thead><tr><th>夹击方向</th><th>代表对手</th><th>进攻武器</th><th>威胁度</th><th>Keychron 的防御</th></tr></thead>
-    <tbody>
-      <tr><td>下方 · 低价入门</td><td>Royal Kludge / AKKO / MonsGeek</td><td>$40–80 三模热插拔、出厂手感超值</td><td><span class="pill bad">高（抢增量压毛利）</span></td><td>QMK/VIA 开源 + Mac 心智 + 整机调音/服务</td></tr>
-      <tr><td>游戏侧 · 磁轴</td><td>Wooting（Razer/ROG 跟进）</td><td>霍尔磁轴 + Rapid Trigger + 电竞口碑（CS2≈20.9%）</td><td><span class="pill mid">中</span></td><td>自家 HE/Lemokey 线，但电竞心智短期难撼</td></tr>
-      <tr><td>信仰位 · 高端打字</td><td>HHKB / Realforce</td><td>Topre 静电容独占手感 + 25 年死忠</td><td><span class="pill mid">中</span></td><td>Q/Q Max 全金属 gasket"准客制"性价比</td></tr>
-      <tr><td>自身 · 软肋</td><td>—（内部）</td><td>蓝牙/无线失效 + 客服一致性（投诉帖，无分母）</td><td><span class="pill mid">中（结构性）</span></td><td>需区分批次性 bug 与长期可靠性、补客服</td></tr>
-    </tbody>
-  </table></div>
+<div class="page" id="top">
+<main class="content">
 
-  <h3>④ 未被满足的需求 / 产品机会（M4 痛点 × M5 竞品空白推导）</h3>
-  <p>把 M4 真实痛点与 M5 竞品矩阵叠在一起找空白，能推导出几条理性的产品机会（基于证据推导，非市场预测）：</p>
+<!-- ======================= 首屏 ======================= -->
+<section class="hero" id="hero">
+  <div class="kicker">机械键盘调研报告 · 阅读版</div>
+  <h1>看懂键盘：从第一次选购到理解行业</h1>
+  <p class="lede">这份报告从"键盘有哪些区别"讲起，一路讲到手感、尺寸、价格和自己的选购条件；后半部分讲用户买回去遇到什么、各品牌在争什么、行业为什么会变成这样。读完前五章，你能说清自己要什么、愿意放弃什么；读完后三章，你能看懂论坛和新闻里关于键盘品牌的争论。</p>
+  <div class="entries">
+    <a class="btn primary" href="#ch01">从头开始阅读</a>
+    <a class="btn ghost" href="#ch07">直接看品牌与行业</a>
+  </div>
+  <p class="dates"><b>资料采集日期：2026 年 6 月</b>（电竞键盘使用率另有 2026 年 1 月与 6 月两个快照）。<b>页面改版日期：2026 年 10 月 29 日</b>，本次只重排内容和阅读体验，没有重新核实市场数据，价格和型号仍以 2026 年 6 月为准。</p>
+</section>
+
+<!-- ======================= 开始阅读 ======================= -->
+<section class="chapter" id="start">
+  <span class="alias" id="es"></span>
+  <div class="ch-num">开始阅读</div>
+  <h2>这份报告怎么用</h2>
+
+  <p>这份报告的底料，是 Reddit 上几个键盘版块的两万多条帖子和评论，加上第三方评测、学术论文和厂商资料。它不是推荐清单，也不替任何品牌说话。每一章先用一个日常问题引入，用几句话直接回答，再展开原理和数据，章末留一个小练习。</p>
+
+  <h3>三条读法</h3>
   <ul>
-    <li><strong>机会 A：真正的"开箱即用 + 可选升级"分层 SKU。</strong>M4 显示办公升级/文字工作者最怕被卷进折腾循环，而当前各家要么"成品但音色平庸"、要么"可玩但要自己调"。一条"出厂即调好稳定器/润好轴 + 留热插拔后路"的产品线，正中"既不想折腾、又怕买到平庸"的夹缝。</li>
-    <li><strong>机会 B：X-Cmd 对齐 + 一键 Mac/Win 切换的 Mac 键盘。</strong>M4 Mac 专栏里 ⌘ 与 X 键不对齐导致手指拉伸、Mac/Win 需手动切换是高频主诉，而 M5 里连 Keychron 都未把这点做到"零摩擦"。这是 Mac 人群明确、公开、尚未被完美满足的需求。</li>
-    <li><strong>机会 C：低噪 + 不牺牲手感的"深夜友好"键盘。</strong>噪音痛点（loud×23）极具画面感（"以为外面在下冰雹"），而 HE 磁轴评测者自承"不够静音"。把静音轴/阻尼方案与磁轴/好手感结合，是游戏侧与办公侧都买账的空白。</li>
-    <li><strong>机会 D：可信赖的"新手二手/试轴"入口。</strong>"r/mechmarket 浏览起来 beyond overwhelming"是结构性痛点，而手感无法线上体验又放大买错成本。一个带试轴器、低门槛二手认证的渠道（而非又一块键盘）能直接降低漏斗摩擦。</li>
-    <li><strong>机会 E：把"客服一致性"做成差异化。</strong>M5 显示蓝牙失效 + 客服拖延是 Keychron 软肋，而 NuPhy/Epomaker 更差——整个品类的售后口碑都偏弱。谁能把保修与固件可回退做成可信承诺，谁就能在同源硬件的红海里建一道软护城河。</li>
+    <li><strong>第一次买键盘</strong>：按顺序读第 01 到 05 章。读完能列出自己的选购条件，知道哪些参数该忽略。</li>
+    <li><strong>想理解用户和市场</strong>：读第 06 到 08 章。第 06 章讲真实用户买回去遇到什么，第 07 章讲品牌竞争，第 08 章讲行业结构。</li>
+    <li><strong>只想查某个词</strong>：正文里带虚线下划线的词可以悬停或点击看解释，附录还有术语表。</li>
   </ul>
 
-  <h3>⑤ 给不同人群的一句话选购建议</h3>
-  <div class="table-scroll"><table class="matrix matrix-mini">
-    <caption>表 INS-2：分人群一句话选购建议（综合 M1/M3/M4/M5）</caption>
-    <thead><tr><th>人群</th><th>一句话建议</th></tr></thead>
-    <tbody>
-      <tr><td>程序员 / 重度文字</td><td>65%~75% 热插拔 + 段落或静音线性轴 + 支持 QMK/VIA 改键，有线优先求稳；别被"客制乐趣"绑架，留后路即可。</td></tr>
-      <tr><td>游戏玩家</td><td>TKL/60% + 磁轴（认准 Rapid Trigger）或快线性轴 + 2.4G；玩 CS2 用 RT 没问题，别开 Snap Tap/SOCD。</td></tr>
-      <tr><td>Mac 用户</td><td>选预装 Mac 键帽、能一键 Mac/Win 切换、最好 X-Cmd 对齐的低剖面三模键盘；Keychron 是稳妥默认，但留意键位错位。</td></tr>
-      <tr><td>办公升级（不想折腾）</td><td>75%/TKL + 静音轴/红轴 + 三模成品，认准"出厂已调稳定器/预润轴"；要安静优先静音轴，避免青轴。</td></tr>
-      <tr><td>想入坑客制</td><td>第一把先热插拔 + 支持 VIA 的成品试轴；真要进硬核 endgame 再考虑焊接（更稳、布局更全），别一开始就上套件。</td></tr>
-    </tbody>
-  </table></div>
-</section>
-
-<!-- =================== 关键假设与监测信号 =================== -->
-<section id="assume">
-  <h2><span class="num">⑨</span> 关键假设与监测信号</h2>
-  <p><strong>统领性答案（Governing Answer）：</strong>机械键盘对小白是一个"可拆解的爱好品类"而非单品；理解它要分四层——类型区别 → 内部构造 → 真实人群痛点（信息过载与调试落差为主）→ 品牌竞争（Keychron 以宽矩阵 + 开源 + Mac 心智占位，被低价/磁轴/信仰位三面夹击）。整个品类由中国（广东）供应链驱动，价格战结构性，磁轴是当前最实质的技术迁移。</p>
-
-  <div class="table-scroll"><table class="matrix matrix-mini">
-    <caption>表 ASM：关键假设 / 置信度 / 失效条件（提炼自 Stage 7）</caption>
-    <thead><tr><th>假设</th><th>置信度</th><th>什么会使它失效</th></tr></thead>
-    <tbody>
-      <tr><td>A1 小白决策首要变量是预算/用途双入口，而非单看轴体段落</td><td><span class="conf mid">中</span></td><td>大样本选购调研显示轴体是唯一首选因子</td></tr>
-      <tr><td>A2 机械寿命 50–100M、薄膜 ~5M 的量级成立</td><td><span class="conf high">高</span></td><td>厂商 datasheet 大幅修订或第三方寿命实测推翻</td></tr>
-      <tr><td>A3 热插拔=新手试轴民主化杠杆，焊接仍是硬核 endgame</td><td><span class="conf high">高</span></td><td>严肃客制圈 UGC 转向"热插拔已成 endgame 主流"</td></tr>
-      <tr><td>A4 M4 痛点排序仅是讨论热度代理指标</td><td><span class="conf mid">已显式声明为代理</span></td><td>不适用：本就不作为痛感强度结论</td></tr>
-      <tr><td>A5 Keychron 仍高速增长（约 40% 年化），低价侧抢增量非夺存量</td><td><span class="conf mid">中</span></td><td>出现 Keychron 份额/营收下滑的一手数据</td></tr>
-      <tr><td>A6 RK/AKKO 低价侧、Wooting 磁轴侧、HHKB 信仰位三面夹击</td><td><span class="conf mid">中</span></td><td>销量/份额数据显示某一侧并未实际侵蚀</td></tr>
-      <tr><td>A7 市场量级 ~20–28 亿美元、年增 ~8–12%</td><td><span class="conf low">低（量级而非精确）</span></td><td>一手出货/海关数据与此量级差异巨大</td></tr>
-      <tr><td>A8 轴厂代工集中广东 → 价格战结构性</td><td><span class="conf high">高</span></td><td>主要轴厂/代工地理显著分散</td></tr>
-      <tr><td>A9 磁轴 + Rapid Trigger 已成 2026 游戏新品 baseline</td><td><span class="conf mid">中-高</span></td><td>2026–2027 新品中磁轴渗透回落</td></tr>
-    </tbody>
-  </table></div>
-
-  <h3>监测信号 / Signposts（交付后 6 个月需盯）</h3>
+  <h3>读之前先记住的四件事</h3>
   <ol>
-    <li><strong>Keychron 财报/营收口径或第三方销量</strong>——验证 A5/A6"抢增量 vs 夺存量"。</li>
-    <li><strong>RK/AKKO/MonsGeek 在 Amazon BSR 与 r/budgetkeebs 口碑趋势</strong>——低价侧侵蚀强度。</li>
-    <li><strong>磁轴新品占比</strong>（各品牌 2026 H2 发布会磁轴 SKU 比例）——验证 A9 baseline 化。</li>
-    <li><strong>电竞规则动向</strong>（CS2/VALORANT 对 Rapid Trigger 的后续裁定）——SOCD 之后是否进一步收紧。</li>
-    <li><strong>Cherry/Gateron/TTC 产能或并购新闻</strong>——供应链集中度变化（A8）。</li>
-    <li><strong>Keychron 无线/蓝牙固件投诉是否随版本消退</strong>——区分批次性 bug 与长期可靠性（M5 幸存者偏差点）。</li>
+    <li>手感和声音在网上试不出来。视频里的敲击声受麦克风和压缩影响，连评测者自己都说打字音视频只能当娱乐。能摸到整机再决定最稳妥。</li>
+    <li>"寿命 1 亿次"这类数字几乎全是厂商自测，正常使用碰不到上限。别为它付溢价。</li>
+    <li>不是每个新手都需要热插拔或改键功能。它们对想试不同轴体的人有用，对只想插上就用的人是多余成本。</li>
+    <li>报告里的市场规模、品牌份额都只能看量级。各家市调机构的数字互相打架，任何一个精确数字都不该直接引用。</li>
   </ol>
 
-  <h3>数据缺口（诚实列出，不编造）</h3>
+  <h3>这份报告的边界</h3>
+  <p>论坛样本有偏向：会上网发帖的多是来求助或吐槽的人，买得满意的人通常不说话。所以第 06、07 章提到的"讨论得多"不等于"问题普遍"，投诉数量也不能换算成故障率。详细的研究方法、假设和数据缺口都放在附录，想追溯证据的读者可以从那里进入 26 份原始研究页。</p>
+</section>
+
+<!-- ======================= 01 ======================= -->
+<section class="chapter" id="ch01">
+  <span class="alias" id="m1"></span><span class="alias" id="m2"></span>
+  <div class="ch-num">第 01 章</div>
+  <h2>键盘到底有哪些区别？</h2>
+
+  <p class="q">新手最常见的提问是"我想要一把 60% 的青轴热插拔三模游戏键盘，大概多少钱？"这一句话里到底问了几件事？</p>
+  <div class="answer">
+    <span class="lbl">直接回答</span>
+    <p>问了五件互不相关的事：尺寸（60%）、手感（青轴）、能不能换轴（热插拔）、怎么连电脑（三模）、拿来干什么（游戏）。键盘的区别分两层：第一层是<strong>机器怎么知道你按了键</strong>，叫触发方式，常见六种；第二层是<strong>这把键盘怎么组装</strong>，包括尺寸、连接、能否改造、用途和价格，每一条都能单独选。"青轴"这种手感描述，是机械轴内部的子分类，不和"机械"并列。</p>
+  </div>
+
+  <h3>先把两层分开</h3>
+  <p>把这两层分开，是读懂后面所有内容的前提。触发方式决定了寿命、响应速度和能不能在软件里调触发点；结构形式决定了占多大桌面、能连几台设备、坏了能不能修。两层之间互不推断：机械键盘可以很便宜，也可以不能换轴；无线键盘可以是办公用的，也可以是游戏用的；60% 的小键盘可以一百多块，也可以两千多。</p>
+
+  <figure>
+    <div class="fig wide">
+      <svg viewBox="0 0 760 470" role="img" aria-labelledby="f1t">
+        <title id="f1t">键盘分类示意：第一层触发方式六种，第二层结构形式五条独立坐标；手感三类归在机械轴之下</title>
+        <style>
+          .f1 text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}
+        </style>
+        <g class="f1">
+          <text x="20" y="30" font-size="15" font-weight="700" fill="#1c1a17">第一层：机器怎么知道你按了（触发方式）</text>
+          <!-- group brackets -->
+          <rect x="20" y="46" width="340" height="112" rx="10" fill="#f6e7d3" opacity=".55"/>
+          <text x="32" y="66" font-size="12.5" fill="#8f4e12" font-weight="700">靠东西碰到：接触式</text>
+          <rect x="380" y="46" width="360" height="112" rx="10" fill="#f0ece5"/>
+          <text x="392" y="66" font-size="12.5" fill="#4a463f" font-weight="700">不用碰到：隔空感应</text>
+          <!-- six boxes -->
+          <g font-size="13.5" text-anchor="middle">
+            <rect x="32" y="78" width="100" height="66" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="82" y="104" font-weight="700" fill="#1c1a17">薄膜</text>
+            <text x="82" y="124" font-size="11.5" fill="#7d776c">三层膜压通</text>
+            <rect x="140" y="78" width="100" height="66" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="190" y="104" font-weight="700" fill="#1c1a17">剪刀脚</text>
+            <text x="190" y="124" font-size="11.5" fill="#7d776c">薄膜加支架</text>
+            <rect x="248" y="78" width="100" height="66" rx="8" fill="#fffdf9" stroke="#b8661a" stroke-width="2"/>
+            <text x="298" y="104" font-weight="700" fill="#1c1a17">机械</text>
+            <text x="298" y="124" font-size="11.5" fill="#7d776c">金属触点相碰</text>
+            <rect x="392" y="78" width="100" height="66" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="442" y="104" font-weight="700" fill="#1c1a17">光轴</text>
+            <text x="442" y="124" font-size="11.5" fill="#7d776c">挡住一束光</text>
+            <rect x="508" y="78" width="100" height="66" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="558" y="104" font-weight="700" fill="#1c1a17">磁轴</text>
+            <text x="558" y="124" font-size="11.5" fill="#7d776c">测磁场强弱</text>
+            <rect x="624" y="78" width="104" height="66" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="676" y="104" font-weight="700" fill="#1c1a17">静电容</text>
+            <text x="676" y="124" font-size="11.5" fill="#7d776c">电容值变化</text>
+          </g>
+          <!-- sub-classification under mechanical -->
+          <path d="M298 144 v22" stroke="#b8661a" stroke-width="1.5" fill="none"/>
+          <rect x="138" y="166" width="320" height="46" rx="8" fill="#fbf3e8" stroke="#b8661a" stroke-dasharray="4 3"/>
+          <text x="298" y="185" font-size="12.5" text-anchor="middle" fill="#8f4e12" font-weight="700">机械轴内部的手感分类</text>
+          <text x="298" y="203" font-size="12" text-anchor="middle" fill="#4a463f">线性 · 段落 · 段落带响（红/茶/青是厂商配色）</text>
+
+          <text x="20" y="252" font-size="15" font-weight="700" fill="#1c1a17">第二层：这把键盘怎么组装（结构形式，每一条单独选）</text>
+          <g font-size="12.5">
+            <!-- 5 axes -->
+            <rect x="20" y="268" width="138" height="150" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="89" y="290" text-anchor="middle" font-weight="700" fill="#1c1a17">尺寸</text>
+            <text x="89" y="312" text-anchor="middle" fill="#4a463f">100% · 96%</text>
+            <text x="89" y="330" text-anchor="middle" fill="#4a463f">80% · 75%</text>
+            <text x="89" y="348" text-anchor="middle" fill="#4a463f">65% · 60% · 40%</text>
+            <text x="89" y="380" text-anchor="middle" font-size="11.5" fill="#7d776c">保留哪些键</text>
+
+            <rect x="170" y="268" width="138" height="150" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="239" y="290" text-anchor="middle" font-weight="700" fill="#1c1a17">连接</text>
+            <text x="239" y="312" text-anchor="middle" fill="#4a463f">有线</text>
+            <text x="239" y="330" text-anchor="middle" fill="#4a463f">2.4G · 蓝牙</text>
+            <text x="239" y="348" text-anchor="middle" fill="#4a463f">三模（三合一）</text>
+            <text x="239" y="380" text-anchor="middle" font-size="11.5" fill="#7d776c">怎么连电脑</text>
+
+            <rect x="320" y="268" width="138" height="150" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="389" y="290" text-anchor="middle" font-weight="700" fill="#1c1a17">能否改造</text>
+            <text x="389" y="312" text-anchor="middle" fill="#4a463f">焊死</text>
+            <text x="389" y="330" text-anchor="middle" fill="#4a463f">热插拔</text>
+            <text x="389" y="348" text-anchor="middle" fill="#4a463f">可改键 · 套件</text>
+            <text x="389" y="380" text-anchor="middle" font-size="11.5" fill="#7d776c">出厂后能动多少</text>
+
+            <rect x="470" y="268" width="138" height="150" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="539" y="290" text-anchor="middle" font-weight="700" fill="#1c1a17">用途</text>
+            <text x="539" y="312" text-anchor="middle" fill="#4a463f">打字 · 办公</text>
+            <text x="539" y="330" text-anchor="middle" fill="#4a463f">游戏</text>
+            <text x="539" y="348" text-anchor="middle" fill="#4a463f">当爱好折腾</text>
+            <text x="539" y="380" text-anchor="middle" font-size="11.5" fill="#7d776c">先定它，其他范围缩一半</text>
+
+            <rect x="620" y="268" width="120" height="150" rx="8" fill="#fffdf9" stroke="#cfc7b8"/>
+            <text x="680" y="290" text-anchor="middle" font-weight="700" fill="#1c1a17">价格</text>
+            <text x="680" y="312" text-anchor="middle" fill="#4a463f">¥100–300</text>
+            <text x="680" y="330" text-anchor="middle" fill="#4a463f">¥300–800</text>
+            <text x="680" y="348" text-anchor="middle" fill="#4a463f">¥800 以上</text>
+            <text x="680" y="380" text-anchor="middle" font-size="11.5" fill="#7d776c">横切所有条</text>
+          </g>
+          <text x="20" y="452" font-size="12.5" fill="#7d776c">任意一条的取值推不出另一条：便宜的也能热插拔，无线的也能打游戏，60% 不代表贵。</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>图 1·键盘的两层分类。</b>上层是六种触发方式，按"要不要东西碰到"分成两组；手感三类挂在机械轴之下。下层五条结构坐标各自独立。示意图，依据 RTINGS、Keychron、Corsair、Fantech 等公开资料整理，采集 2026-06。</figcaption>
+  </figure>
+
+  <h3>六种触发方式，每种一句话</h3>
+  <p>按下去那一刻，键盘内部发生的事只有两件：有个东西让电路知道"按了"，有个东西把键顶回来。把这两件事看清，六种类型就不用死记。</p>
   <ul>
-    <li>缺 2024+ 大样本"日均击键量"一手研究，M1 用较早的 Wellnomics 量级，仅取数量级。</li>
-    <li>RK/AKKO/Glorious 的 Reddit 样本偏薄（约 12/9/14 帖），竞品口碑以 web 评测补强。</li>
-    <li>缺权威一手出货/海关数据，市场规模只能取报告量级区间（M6）。</li>
-    <li>电竞使用率为 2026-01 时点快照，按月剧烈波动（M5）。</li>
-    <li>整机代工地理（是否集中广东 vs 外溢江浙/越南）缺一手产能数据（M6 H6.3 仍开放）。</li>
-    <li>磁轴/光轴"≥1 亿次"寿命多为厂商标称，缺独立第三方破坏性实测（M2）。</li>
-    <li>词频→人头无去重与情感打分；"手感无法线上体验"为结构性推断，缺直接量化（M4）。</li>
+    <li><strong>薄膜键盘</strong>：三层软膜叠在一起，键帽下是一个橡胶碗。按下去橡胶碗塌陷，上下两层膜透过中间的孔碰到，电路接通。整张膜是一体的，所以便宜，也所以坏一个键常要换整块。回弹靠橡胶碗，到底发软，这就是"糊"的来源。</li>
+    <li><strong>剪刀脚键盘</strong>：底下还是薄膜加橡胶碗，只是键帽和橡胶碗之间多了一个 X 形支架，让薄薄的键帽按哪个角都能平稳下去。笔记本和苹果妙控键盘就是它。键程压到 1 到 2 毫米多，手感短促。它不是新的触发方式，是更薄更稳的薄膜。</li>
+    <li><strong>机械键盘</strong>：每个键下面是一颗独立的轴体，壳里有弹簧和两片金属叶片。按到大约 2 毫米深，轴芯让两片金属碰上，电路接通。线性、段落、带响三种手感，差别全在轴芯斜面的形状和有没有发声片，与触发原理无关。</li>
+    <li><strong>光轴</strong>：外形和机械轴差不多，也有弹簧和轴芯，但轴里横着一束红外光。轴芯落下挡住光，接收管发现光没了，立刻判定触发。光的通断是干净的数字信号，不需要像金属触点那样等几毫秒去抖动。</li>
+    <li><strong>磁轴</strong>（也叫霍尔轴、HE 轴）：轴芯底部有一块小磁铁，电路板上有一颗<button type="button" class="term" data-tip="一种能测量磁场强度的电子元件。磁铁离得越近，读数越大，键盘据此算出按键被压下了多少毫米。">霍尔传感器</button>。按得越深磁铁越近，传感器连续读出"现在按到了第几毫米"。所以触发点可以在软件里任意设，也能做出后面第 08 章会讲的 Rapid Trigger。硬件上不能换轴，定制全靠软件。</li>
+    <li><strong>静电容</strong>（Topre，HHKB 和 Realforce 用它）：橡胶碗提供阻力，碗里立着一根锥形弹簧。按下去弹簧被压扁、靠近电路板，电容值变化到阈值就算触发，全程没有金属相碰。它既不是普通橡胶碗，也不是金属触点机械，社区一般单列为一类。</li>
   </ul>
+
+  <div class="tbl compact stack">
+    <table>
+      <caption>六种触发方式速查。寿命一列是厂商标称，不是整机实测，第 04 章会解释为什么它不该当选购依据。</caption>
+      <thead><tr><th>类型</th><th>机器怎么知道你按了</th><th>手指在对抗什么</th><th>标称寿命（次/键）</th><th>常见场景</th></tr></thead>
+      <tbody>
+        <tr><th>机械</th><td data-l="怎么知道">金属触点相碰</td><td data-l="对抗什么">弹簧</td><td data-l="标称寿命" class="num">5000 万–1 亿</td><td data-l="常见场景">多数人的默认选项</td></tr>
+        <tr><th>静电容</th><td data-l="怎么知道">电容值变化，无接触</td><td data-l="对抗什么">橡胶碗 + 锥形弹簧</td><td data-l="标称寿命" class="num">约 5000 万（有来源称 1 亿以上）</td><td data-l="常见场景">高端打字键盘</td></tr>
+        <tr><th>薄膜</th><td data-l="怎么知道">两层导电膜接触</td><td data-l="对抗什么">橡胶碗</td><td data-l="标称寿命" class="num">500 万–1000 万</td><td data-l="常见场景">办公随机附带</td></tr>
+        <tr><th>剪刀脚</th><td data-l="怎么知道">同薄膜</td><td data-l="对抗什么">橡胶碗 + X 形支架</td><td data-l="标称寿命" class="num">各来源 500 万–2000 万不一</td><td data-l="常见场景">笔记本、超薄键盘</td></tr>
+        <tr><th>光轴</th><td data-l="怎么知道">红外光被挡住</td><td data-l="对抗什么">弹簧</td><td data-l="标称寿命" class="num">厂商标 1 亿以上</td><td data-l="常见场景">游戏键盘</td></tr>
+        <tr><th>磁轴</th><td data-l="怎么知道">磁场强度连续测量</td><td data-l="对抗什么">弹簧</td><td data-l="标称寿命" class="num">厂商标 1 亿以上</td><td data-l="常见场景">竞技游戏</td></tr>
+      </tbody>
+    </table>
+    <div class="tbl-hint">表格可左右滑动</div>
+  </div>
+
+  <div class="limit">
+    <p>光轴和磁轴的"1 亿次以上"没有独立第三方的破坏性测试，用户反馈里实际先坏的往往是弹簧、塑料件或进灰。静电容的寿命两个来源给出 5000 万和 1 亿以上，互相冲突，表里都列出。</p>
+  </div>
+
+  <h3>"算不算机械"为什么吵不完</h3>
+  <p>磁轴算不算机械键盘，Topre 算不算机械键盘，论坛上都吵了很多年。原因是"机械键盘"这个词从来没有行业标准定义，大家用的是两套判据。一套看触发方式：有金属触点相碰才算，这样磁轴和 Topre 都不算。另一套看结构体验：每个键独立、有弹簧、能在压到底之前触发，这样两者都算得上"广义机械"。两套各自自洽，所以同一把键盘在一套里算、在另一套里不算。</p>
+  <p>产品端已经用脚投票。Keychron 官网把磁轴列为和机械并列的筛选项，不当作子类；HHKB 自己的官方博客用的是"半机械"这个词，承认社区有分歧。这份报告沿用社区主流做法：按触发方式把六类并列，体验层面可以说磁轴和 Topre"像机械"。记住这一点，你就不会被"磁轴是不是机械键盘"这类标题带着走。</p>
+
+  <h3>机械键盘的本质：每个键一颗独立开关</h3>
+  <p>薄膜键盘是一张全键共用的橡胶床垫，机械键盘是一排各自独立的弹簧床。这个结构差别带来三件事：</p>
+  <ul>
+    <li><strong>全键手感一致</strong>。每颗轴的克数由自己的弹簧决定，不随位置衰减。薄膜键盘常按的空格和回车会先变软，几年后键与键之间手感不一样。</li>
+    <li><strong>坏一个换一个</strong>。热插拔的板子拔下坏轴换一颗就行，焊接的板子补焊一颗。薄膜键盘的导电层破了，通常整块报废。这才是机械键盘相对薄膜最硬的优势。</li>
+    <li><strong>多键同按不漏</strong>。每颗轴有独立焊点，有空间给每个键串一颗二极管，防止"鬼键"。但要在系统里做到任意多键同时识别，还需要固件配合，不是有了独立轴就自动满足。</li>
+  </ul>
+  <p>要纠正一个说法："机械键盘手感永不衰减"。用户帖子里有 Keychron V3 Max 用了一年多八颗轴开始连击的例子。独立轴让衰减更慢更均匀，但它不是免疫，真正的护城河是坏了能单颗换。</p>
+
+  <h3>为什么键盘值得讲究</h3>
+  <p>在键盘、鼠标、显示器三件里，键盘是手指接触最久、动作最密的那个。一项调查给出全职员工每周打字约 22 小时，科技、金融岗位的打字时间占比在八成以上。日均击键次数各来源差别很大：一项实测口径给出约 1.6 万次每天，常被转述的"4 万到 6 万次"更接近人因学测算，缺少 2024 年以后的大样本研究。无论取哪一档，一年都是几百万到上千万次，任何手感上的细小差别都会被放大。</p>
+  <p>健康上的证据要分两半说。一项 461 人的队列研究（Eleftheriou 等，2012）发现累积击键量越高，腕管综合征患病率越高，高暴露组风险约为低暴露组的 2.2 倍。但多篇综述也指出，单看"每天敲多少下"并不预测肌骨损伤，姿势、时长和工位设置更关键。拆分键盘能把手腕尺偏从约 12 度拉回 5 度以内，且不影响打字速度。所以"讲究键盘"最该落在省力、中性的姿势上，而不是声音好不好听。</p>
+  <div class="limit">
+    <p>"机械轴不用压到底所以更护手"主要来自 Cherry 等厂商的说法，缺独立对照实验。结构和布局带来的人因学收益，证据比轴体类型的"护手"收益硬得多。</p>
+  </div>
+
+  <div class="try">
+    <h4>试一试</h4>
+    <p>把开头那句"60% 的青轴热插拔三模游戏键盘"拆开，每个词填进图 1 的哪一格？</p>
+    <details><summary>看答案</summary>
+      <p>60% 是尺寸，青轴是机械轴下的"段落带响"手感，热插拔是能否改造，三模是连接，游戏是用途。价格那一格这句话没给，所以"大概多少钱"其实没法回答，从一百多到两千多都有符合描述的产品。</p>
+    </details>
+  </div>
+
+  <details class="more sources">
+    <summary>本章依据的原始研究页与主要来源</summary>
+    <div class="body">
+      <ol>
+        <li>原始研究页：<a href="task_1_1_keyboard_ecosystem.html">键盘在外设生态中的位置</a>、<a href="task_1_2_classification_axes.html">六大分类轴</a>、<a href="task_2_1_working_principles.html">六类工作原理</a>、<a href="task_2_2_comparison_matrix.html">六类多维对比</a>、<a href="task_2_5_topre_debate.html">Topre 算不算机械</a>、<a href="task_3_1_definition_essence.html">机械键盘的定义与本质</a></li>
+        <li>Deskthority wiki（Switch / Scissor switch / Topre switch 词条）；Tom's Hardware《What Are Optical Keyboard Switches》；Wooting《What are Hall Effect switches》；HHKB《Topre Switches Guide》；Cherry《Scissor Technology (SX)》</li>
+        <li>Keychron 官网筛选器把 Magnetic Switch 单列；geekhack 2017 年论战帖 #88817（Topre 两方原声）</li>
+        <li>Eleftheriou A. et al., Cumulative keyboard strokes: a possible risk factor for carpal tunnel syndrome, J Occup Med Toxicol 2012（n=461，OR 2.23）；Wellnomics 白皮书；Rempel/Gerr 拆分键盘人因学研究（PubMed 10774127）</li>
+        <li>MKBGuide《N-Key Rollover and Anti-Ghosting Explained》；TMK/QMK 固件文档 USB NKRO 说明；r/Keychron 用户帖（V3 Max 一年八颗轴连击，导出文件 keychron.md）</li>
+      </ol>
+    </div>
+  </details>
+
+  <div class="next"><a href="#ch02"><small>下一章</small><b>02 按起来的感觉是怎么来的？</b></a></div>
 </section>
 
-<!-- =================== 全局来源索引 =================== -->
-<section id="sources" class="sources">
-  <h2><span class="num">⑩</span> 全局参考来源索引</h2>
-  <p>下列来源去重汇总自六大模块及其下属 task 页，按"UGC 社区 / 第三方评测 / 官方与众筹 / 行业报告"分组。全部采集/检索于 2026-06（电竞使用率为 2026-01 快照）；行业迭代极快，价格/型号/百分比以原文为准。</p>
+<!-- ======================= 02 ======================= -->
+<section class="chapter" id="ch02">
+  <span class="alias" id="m3"></span>
+  <div class="ch-num">第 02 章</div>
+  <h2>按起来的感觉是怎么来的？</h2>
 
-  <div class="src-group">A. UGC 社区与论坛</div>
+  <p class="q">两把键盘都写着"红轴"，为什么一把顺滑安静，另一把发涩还有杂音？</p>
+  <div class="answer">
+    <span class="lbl">直接回答</span>
+    <p>手感主要由<strong>轴体</strong>决定，声音由<strong>整机</strong>决定。轴体只分三种感觉：线性是一路顺滑到底，段落是半路顶到一个坎，带响是在坎上再炸一声。同一颗轴装进不同的键帽、定位板、填充和外壳里，声音可以差出两个世界。你听到的"咔哒"和"旷量"，多半不是轴，是长键下面的稳定器。</p>
+  </div>
+
+  <h3>先说手指的感觉，再说参数</h3>
+  <p>按下一颗键，手指走过大约 4 毫米。这 4 毫米里每一毫米遇到的阻力怎么变，就是手感。</p>
+  <ul>
+    <li><strong>线性</strong>：阻力平滑地越来越大，没有任何坎，没有声音。红轴、银轴、多数磁轴都是线性。打游戏和想要安静的人常选它。</li>
+    <li><strong>段落</strong>：按到一半，手指顶到一个明显的坎，越过去之后忽然变轻。坎本身不出声，所以段落轴可以是安静的。茶轴是最常见的段落轴。</li>
+    <li><strong>段落带响</strong>：在段落的坎上多了一个发声机构，越过坎时"咔哒"一声。青轴是代表。很多新手把"想要段落感"误买成青轴，然后被同事投诉。</li>
+  </ul>
+  <p>段落和出声是两个独立的维度。想要手指有确认感又不吵，选段落轴；想要连声音也有，才选带响。</p>
+
+  <figure>
+    <div class="fig wide">
+      <svg viewBox="0 0 760 400" role="img" aria-labelledby="f2t">
+        <title id="f2t">按键行程与三类力曲线示意：左侧标出预行程、触发点、总行程；右侧三条曲线分别是线性、段落、带响</title>
+        <style>.f2 text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}</style>
+        <g class="f2">
+          <!-- Left: travel scale -->
+          <text x="20" y="28" font-size="15" font-weight="700" fill="#1c1a17">按键行程（以 Cherry MX 常见规格为例）</text>
+          <!-- key cap top / bottom positions -->
+          <g>
+            <!-- scale line -->
+            <line x1="120" y1="70" x2="120" y2="310" stroke="#4a463f" stroke-width="1.5"/>
+            <g font-size="12" fill="#4a463f">
+              <line x1="112" y1="70" x2="128" y2="70" stroke="#4a463f"/><text x="60" y="74">0 mm</text>
+              <line x1="112" y1="130" x2="128" y2="130" stroke="#4a463f"/><text x="60" y="134">1 mm</text>
+              <line x1="112" y1="190" x2="128" y2="190" stroke="#4a463f"/><text x="60" y="194">2 mm</text>
+              <line x1="112" y1="250" x2="128" y2="250" stroke="#4a463f"/><text x="60" y="254">3 mm</text>
+              <line x1="112" y1="310" x2="128" y2="310" stroke="#4a463f"/><text x="60" y="314">4 mm</text>
+            </g>
+            <!-- keycap at rest and pressed -->
+            <rect x="150" y="56" width="90" height="28" rx="5" fill="#fffdf9" stroke="#1c1a17" stroke-width="1.5"/>
+            <text x="195" y="75" font-size="11.5" text-anchor="middle" fill="#1c1a17">键帽（静止）</text>
+            <rect x="150" y="296" width="90" height="28" rx="5" fill="#f0ece5" stroke="#7d776c" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <text x="195" y="315" font-size="11.5" text-anchor="middle" fill="#7d776c">按到底</text>
+            <!-- arrows -->
+            <line x1="275" y1="70" x2="275" y2="190" stroke="#b8661a" stroke-width="2"/>
+            <polygon points="270,182 280,182 275,192" fill="#b8661a"/>
+            <text x="286" y="128" font-size="12.5" fill="#8f4e12" font-weight="700">预行程 ≈ 2.0 mm</text>
+            <text x="286" y="146" font-size="11.5" fill="#7d776c">按到这里就算"按了"</text>
+            <line x1="130" y1="190" x2="400" y2="190" stroke="#b8661a" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <text x="286" y="206" font-size="12.5" fill="#8f4e12" font-weight="700">触发点</text>
+            <line x1="130" y1="172" x2="400" y2="172" stroke="#7d776c" stroke-width="1" stroke-dasharray="2 3"/>
+            <text x="286" y="168" font-size="11" fill="#7d776c">复位点（抬回这里才算松开）</text>
+            <line x1="345" y1="70" x2="345" y2="310" stroke="#4a463f" stroke-width="2"/>
+            <polygon points="340,302 350,302 345,312" fill="#4a463f"/>
+            <text x="286" y="262" font-size="12.5" fill="#1c1a17" font-weight="700">总行程 ≈ 4.0 mm</text>
+            <text x="286" y="280" font-size="11.5" fill="#7d776c">速度轴 1.2 / 3.4 mm，Box 轴 1.8 / 3.6 mm</text>
+            <text x="20" y="352" font-size="12" fill="#7d776c">磁轴的触发点不是固定的，可在软件里设成 0.1 到 3.8 mm 之间任意值。</text>
+          </g>
+          <!-- Right: force curves -->
+          <g transform="translate(430,0)">
+            <text x="0" y="28" font-size="15" font-weight="700" fill="#1c1a17">三类手感的力曲线（示意）</text>
+            <line x1="40" y1="300" x2="310" y2="300" stroke="#4a463f" stroke-width="1.5"/>
+            <line x1="40" y1="300" x2="40" y2="60" stroke="#4a463f" stroke-width="1.5"/>
+            <text x="316" y="304" font-size="11.5" fill="#4a463f">行程</text>
+            <text x="28" y="54" font-size="11.5" fill="#4a463f">力</text>
+            <!-- linear -->
+            <path d="M40 270 L300 150" stroke="#7d776c" stroke-width="2.5" fill="none"/>
+            <text x="236" y="150" font-size="12" fill="#4a463f" font-weight="700">线性</text>
+            <!-- tactile -->
+            <path d="M40 262 C 90 240, 120 232, 150 196 C 165 178, 180 205, 200 216 L300 170" stroke="#b8661a" stroke-width="2.5" fill="none"/>
+            <text x="186" y="248" font-size="12" fill="#8f4e12" font-weight="700">段落：中段一个坎</text>
+            <line x1="184" y1="236" x2="166" y2="212" stroke="#8f4e12" stroke-width="1" stroke-dasharray="2 2"/>
+            <!-- clicky -->
+            <path d="M40 258 C 90 232, 125 220, 155 178 L160 176 L166 224 C 190 232, 220 222, 300 190" stroke="#1c1a17" stroke-width="2.5" fill="none" stroke-dasharray="6 3"/>
+            <text x="166" y="100" font-size="12" fill="#1c1a17" font-weight="700">带响：坎顶断崖式落下</text>
+            <text x="166" y="116" font-size="11" fill="#7d776c">并触发发声片</text>
+            <line x1="160" y1="122" x2="160" y2="170" stroke="#1c1a17" stroke-width="1" stroke-dasharray="2 2"/>
+            <!-- annotation: actuation vs peak -->
+            <circle cx="150" cy="196" r="4" fill="#b8661a"/>
+            <text x="48" y="330" font-size="11.5" fill="#7d776c">● 坎顶的力叫"操作力/峰值力"，电路接通那一刻的力叫"触发力"，两者不同。</text>
+            <text x="48" y="350" font-size="11.5" fill="#7d776c">曲线形状为示意，不是任何一款轴的实测数据。</text>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>图 2·行程与力曲线。</b>左图的 2.0 / 4.0 毫米是 Cherry MX 红轴、茶轴、青轴的规格，别的轴会不同。右图三条曲线按 GlacierPC 和 Matias 的文字描述画出，只表示形状。</figcaption>
+  </figure>
+
+  <h3>四个参数，其中一个全网经常写错</h3>
+  <p>看懂一颗轴只需要四个数：<button type="button" class="term" data-tip="电路被识别那一刻需要的力，单位克力（gf）或厘牛（cN），两者数值几乎相同。">触发力</button>、<button type="button" class="term" data-tip="从键帽静止到电路接通，键被按下的深度。常见 2.0 毫米，速度轴约 1.2 毫米。">触发键程</button>、总键程，以及有没有出厂润滑。容易搞混的是力：触发力是电路接通时的力，<button type="button" class="term" data-tip="段落轴越过坎的那一瞬间的最大力，也叫峰值力。厂商常把它印在轴体规格上。">操作力</button>是段落轴越过坎时的峰值，底部力是按到底的力。三个数完全不同。</p>
+  <p>Cherry 官方规格里，MX 茶轴触发力 45 克力、操作力 55 克力；MX 青轴触发力 50 克力、操作力 60 克力。但很多二手评测站把 55 和 60 直接写成"触发力"，连头部内容站也这么写。所以茶轴和青轴并不比红轴"重"，重的只是越过坎的那一瞬间。买轴时如果页面只给一个克数，默认它写的是操作力，触发力一般再低 10 克。</p>
+
+  <div class="tbl compact stack">
+    <table>
+      <caption>常见轴体参数。力按官方规格的触发力口径；预润一列决定"开盒顺不顺"。采集 2026-06，以购买批次的官方页为准。</caption>
+      <thead><tr><th>轴</th><th>类别</th><th>触发力</th><th>触发/总键程</th><th>出厂润滑</th><th>适合</th></tr></thead>
+      <tbody>
+        <tr><th>Cherry MX Red</th><td data-l="类别">线性</td><td data-l="触发力" class="num">45 gf</td><td data-l="键程" class="num">2.0 / 4.0 mm</td><td data-l="出厂润滑">无（2024 年 MX2A 起有）</td><td data-l="适合">游戏、通用</td></tr>
+        <tr><th>Cherry MX Brown</th><td data-l="类别">段落</td><td data-l="触发力" class="num">45 gf（操作力 55）</td><td data-l="键程" class="num">2.0 / 4.0 mm</td><td data-l="出厂润滑">无</td><td data-l="适合">办公打字，坎偏弱</td></tr>
+        <tr><th>Cherry MX Blue</th><td data-l="类别">段落带响</td><td data-l="触发力" class="num">50 gf（操作力 60）</td><td data-l="键程" class="num">2.2 / 4.0 mm</td><td data-l="出厂润滑">无</td><td data-l="适合">喜欢声音，环境允许吵</td></tr>
+        <tr><th>Cherry MX Speed Silver</th><td data-l="类别">线性</td><td data-l="触发力" class="num">45 gf</td><td data-l="键程" class="num">1.2 / 3.4 mm</td><td data-l="出厂润滑">无</td><td data-l="适合">竞技快触发，日常易误触</td></tr>
+        <tr><th>Gateron Yellow</th><td data-l="类别">线性</td><td data-l="触发力" class="num">50 gf（批次 35–50）</td><td data-l="键程" class="num">2.0 / 4.0 mm</td><td data-l="出厂润滑">多数有</td><td data-l="适合">顺滑、性价比</td></tr>
+        <tr><th>Kailh Box V2 Red</th><td data-l="类别">线性</td><td data-l="触发力" class="num">40 gf</td><td data-l="键程" class="num">1.8 / 3.6 mm</td><td data-l="出厂润滑">有</td><td data-l="适合">免折腾、防尘</td></tr>
+        <tr><th>Cherry / Gateron Silent Red</th><td data-l="类别">静音线性</td><td data-l="触发力" class="num">45 gf</td><td data-l="键程" class="num">约 1.9–2.0 / 3.7–4.0 mm</td><td data-l="出厂润滑">带橡胶阻尼</td><td data-l="适合">安静办公</td></tr>
+      </tbody>
+    </table>
+    <div class="tbl-hint">表格可左右滑动</div>
+  </div>
+
+  <details class="more">
+    <summary>完整轴体参数表<small>12 款，含 TTC、Boba 等</small></summary>
+    <div class="body">
+      <div class="tbl wide">
+        <table>
+          <thead><tr><th>轴 / 型号</th><th>类别</th><th>触发力</th><th>触发键程</th><th>总键程</th><th>出厂润滑</th><th>最适用途</th></tr></thead>
+          <tbody>
+            <tr><th>Cherry MX Red</th><td>线性</td><td class="num">45 gf</td><td class="num">2.0 mm</td><td class="num">4.0 mm</td><td>否（MX2A 起有润）</td><td>游戏 / 通用</td></tr>
+            <tr><th>Cherry MX Speed Silver</th><td>线性</td><td class="num">45 gf</td><td class="num">1.2 mm</td><td class="num">3.4 mm</td><td>否</td><td>竞技快触发（易误触）</td></tr>
+            <tr><th>Cherry MX Brown</th><td>段落</td><td class="num">45 gf（操作力 55）</td><td class="num">2.0 mm</td><td class="num">4.0 mm</td><td>否</td><td>办公打字（坎弱）</td></tr>
+            <tr><th>Cherry MX Blue</th><td>段落带响</td><td class="num">50 gf（操作力 60）</td><td class="num">2.2 mm</td><td class="num">4.0 mm</td><td>否</td><td>打字爽感（吵）</td></tr>
+            <tr><th>Cherry MX Silent Red</th><td>静音线性</td><td class="num">45 gf</td><td class="num">1.9 mm</td><td class="num">3.7 mm</td><td>内置橡胶阻尼</td><td>安静办公</td></tr>
+            <tr><th>Gateron Yellow</th><td>线性</td><td class="num">50 gf</td><td class="num">2.0 mm</td><td class="num">4.0 mm</td><td>多数款有</td><td>顺滑性价比 / 游戏</td></tr>
+            <tr><th>Gateron Silent Red</th><td>静音线性</td><td class="num">45 gf</td><td class="num">2.0 mm</td><td class="num">4.0 mm</td><td>部分款（带阻尼垫）</td><td>安静办公（平价）</td></tr>
+            <tr><th>Kailh Box White</th><td>段落带响</td><td class="num">45 gf</td><td class="num">1.8 mm</td><td class="num">3.6 mm</td><td>否</td><td>防尘的带响轴</td></tr>
+            <tr><th>Kailh Box V2 Red</th><td>线性</td><td class="num">40 gf</td><td class="num">1.8 mm</td><td class="num">3.6 mm</td><td>工厂润</td><td>免折腾顺滑、防尘</td></tr>
+            <tr><th>TTC Gold Pink V2</th><td>线性</td><td class="num">37 gf</td><td class="num">2.0 mm</td><td class="num">4.0 mm</td><td>自润滑 POM 材料</td><td>超轻顺滑</td></tr>
+            <tr><th>Boba U4T</th><td>段落</td><td class="num">62 gf</td><td class="num">2.0 mm</td><td class="num">4.0 mm</td><td>否</td><td>强段落打字（坎明显）</td></tr>
+            <tr><th>Boba U4（静音）</th><td>静音段落</td><td class="num">62 gf</td><td class="num">2.0 mm</td><td class="num">4.0 mm</td><td>带硅胶阻尼</td><td>安静办公 + 段落感</td></tr>
+          </tbody>
+        </table>
+        <div class="tbl-hint">表格可左右滑动</div>
+      </div>
+      <p class="small">来源：Cherry 官方 datasheet、Keybumps、Switch and Click、TheGamingSetup 轴体表、各厂官方页，2026-06。Gateron Yellow 不同批次 35–50 克力都有；Boba U4/U4T 为 Gazzew 出品，不属四大轴厂，因是社区段落代表故列入。</p>
+    </div>
+  </details>
+
+  <h3>四家轴厂，各自一句话</h3>
+  <p>同样叫红轴，不同厂做出来差别很大。Cherry 是德国老牌，MX 十字轴心是全行业兼容基准，品控稳，但原版开盒偏涩，2024 年的 MX2A 改款加了出厂润滑，差距从"显著"缩到"微小"。Gateron 在惠州，开盒就顺，多数出厂预润，性价比高。Kailh 凯华在东莞，强项不在顺滑而在结构，Box 方形轴心防尘防水、不易晃。TTC 在惠州，用会自己释放润滑膜的 POM 材料做轴芯，不润也顺。零售散轴单价大致每颗 0.2 到 0.5 美元。</p>
+  <p>社区对 Cherry 茶轴的高频批评是涩、糊、坎弱到几乎摸不到，常被形容成"加了点阻力的红轴"。想要明显段落感的人，社区更多推荐 Boba U4T 这类新一代段落轴。这条判断来自评测站对 Reddit 共识的转述，原帖热度没有单独核到。</p>
+
+  <h3>轴体之外：一把键盘由哪些部件叠起来</h3>
+  <p>轴体决定手感，但声音是整条叠层的合力。敲击产生的振动要穿过定位板、电路板、填充和外壳，每一层都在改变它。下面这张图把部件从上到下摊开。</p>
+
+  <figure>
+    <div class="fig wide">
+      <svg viewBox="0 0 760 520" role="img" aria-labelledby="f3t">
+        <title id="f3t">机械键盘部件分层示意：从上到下是键帽、轴体、定位板、电路板、填充棉、外壳，侧边标出稳定器和 gasket 胶条的位置</title>
+        <style>.f3 text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}</style>
+        <g class="f3">
+          <!-- layers: skewed parallelograms to suggest exploded view -->
+          <g>
+            <!-- keycap -->
+            <polygon points="140,40 400,40 440,70 180,70" fill="#fffdf9" stroke="#1c1a17" stroke-width="1.6"/>
+            <polygon points="140,40 180,70 180,88 140,58" fill="#f0ece5" stroke="#1c1a17" stroke-width="1.2"/>
+            <polygon points="180,70 440,70 440,88 180,88" fill="#e6e0d6" stroke="#1c1a17" stroke-width="1.2"/>
+            <text x="470" y="62" font-size="14.5" font-weight="700" fill="#1c1a17">键帽</text>
+            <text x="470" y="80" font-size="12.5" fill="#4a463f">手指碰到的东西。材质（ABS/PBT）决定耐磨和</text>
+            <text x="470" y="97" font-size="12.5" fill="#4a463f">上色，壁厚比材质更影响声音。</text>
+            <!-- switches -->
+            <g>
+              <rect x="190" y="118" width="46" height="40" rx="4" fill="#fffdf9" stroke="#b8661a" stroke-width="1.8"/>
+              <rect x="206" y="108" width="14" height="14" fill="#b8661a"/>
+              <rect x="268" y="118" width="46" height="40" rx="4" fill="#fffdf9" stroke="#b8661a" stroke-width="1.8"/>
+              <rect x="284" y="108" width="14" height="14" fill="#b8661a"/>
+              <rect x="346" y="118" width="46" height="40" rx="4" fill="#fffdf9" stroke="#b8661a" stroke-width="1.8"/>
+              <rect x="362" y="108" width="14" height="14" fill="#b8661a"/>
+            </g>
+            <text x="470" y="134" font-size="14.5" font-weight="700" fill="#1c1a17">轴体</text>
+            <text x="470" y="152" font-size="12.5" fill="#4a463f">弹簧 + 金属叶片。决定线性/段落/带响，</text>
+            <text x="470" y="169" font-size="12.5" fill="#4a463f">是手感的第一决定因素。</text>
+            <!-- plate -->
+            <polygon points="120,190 410,190 450,220 160,220" fill="#d9d2c5" stroke="#1c1a17" stroke-width="1.4"/>
+            <g fill="#f7f5f1" stroke="#7d776c" stroke-width=".8">
+              <polygon points="180,195 206,195 214,201 188,201"/><polygon points="236,195 262,195 270,201 244,201"/><polygon points="292,195 318,195 326,201 300,201"/><polygon points="348,195 374,195 382,201 356,201"/>
+              <polygon points="196,208 222,208 230,214 204,214"/><polygon points="252,208 278,208 286,214 260,214"/><polygon points="308,208 334,208 342,214 316,214"/>
+            </g>
+            <text x="470" y="206" font-size="14.5" font-weight="700" fill="#1c1a17">定位板</text>
+            <text x="470" y="224" font-size="12.5" fill="#4a463f">开孔的板子，固定轴的位置。越硬越脆响，</text>
+            <text x="470" y="241" font-size="12.5" fill="#4a463f">越软越低沉（黄铜/钢/铝 → FR4 → PC/POM）。</text>
+            <!-- gasket strips -->
+            <rect x="124" y="226" width="40" height="7" rx="3" fill="#b8661a"/>
+            <rect x="412" y="226" width="40" height="7" rx="3" fill="#b8661a"/>
+            <text x="20" y="246" font-size="12" fill="#8f4e12" font-weight="700">gasket 胶条</text>
+            <text x="20" y="262" font-size="11.5" fill="#7d776c">夹在板与壳之间，</text>
+            <text x="20" y="277" font-size="11.5" fill="#7d776c">整板可微微下沉</text>
+            <!-- PCB -->
+            <polygon points="110,262 400,262 440,292 150,292" fill="#2f5a46" opacity=".85" stroke="#1c1a17" stroke-width="1.4"/>
+            <g fill="#f2c98f">
+              <rect x="192" y="270" width="12" height="7"/><rect x="248" y="270" width="12" height="7"/><rect x="304" y="270" width="12" height="7"/><rect x="360" y="270" width="12" height="7"/>
+            </g>
+            <text x="470" y="278" font-size="14.5" font-weight="700" fill="#1c1a17">电路板（PCB）</text>
+            <text x="470" y="296" font-size="12.5" fill="#4a463f">扫描按键。轴焊死在上面，或插进预装的</text>
+            <text x="470" y="313" font-size="12.5" fill="#4a463f">热插拔插座里（免焊换轴）。</text>
+            <!-- foam -->
+            <polygon points="110,322 400,322 440,352 150,352" fill="#e9e2d6" stroke="#7d776c" stroke-width="1.2" stroke-dasharray="4 3"/>
+            <text x="470" y="340" font-size="14.5" font-weight="700" fill="#1c1a17">填充棉</text>
+            <text x="470" y="358" font-size="12.5" fill="#4a463f">填掉空腔，吸掉空响和金属余音。填太满会把声音闷死。</text>
+            <!-- case -->
+            <polygon points="90,380 420,380 470,420 140,420" fill="#4a463f" stroke="#1c1a17" stroke-width="1.6"/>
+            <polygon points="90,380 140,420 140,450 90,410" fill="#332f29" stroke="#1c1a17" stroke-width="1.2"/>
+            <polygon points="140,420 470,420 470,450 140,450" fill="#3d3833" stroke="#1c1a17" stroke-width="1.2"/>
+            <text x="490" y="412" font-size="14.5" font-weight="700" fill="#1c1a17">外壳</text>
+            <text x="490" y="430" font-size="12.5" fill="#4a463f">塑料或铝。决定重量、共振和最后的音色。</text>
+          </g>
+          <!-- stabilizer callout -->
+          <g>
+            <rect x="24" y="118" width="110" height="40" rx="4" fill="#fffdf9" stroke="#7d776c" stroke-width="1.4"/>
+            <line x1="36" y1="152" x2="122" y2="152" stroke="#7d776c" stroke-width="2"/>
+            <rect x="30" y="136" width="12" height="16" fill="#e6e0d6" stroke="#7d776c"/>
+            <rect x="116" y="136" width="12" height="16" fill="#e6e0d6" stroke="#7d776c"/>
+            <text x="22" y="110" font-size="12" fill="#4a463f" font-weight="700">稳定器（卫星轴）</text>
+            <text x="22" y="176" font-size="11.5" fill="#7d776c">空格、回车等长键下面的</text>
+            <text x="22" y="191" font-size="11.5" fill="#7d776c">金属丝支架。"咔哒"和</text>
+            <text x="22" y="206" font-size="11.5" fill="#7d776c">"旷量"杂音的头号来源。</text>
+          </g>
+          <text x="20" y="492" font-size="12.5" fill="#7d776c">示意图，层间距离放大以便看清，不是工程图。gasket 和填充棉并非每把键盘都有。</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>图 3·部件分层。</b>敲击振动从键帽往下穿过每一层，所以"低沉"或"清脆"是整条链的结果。原理依据 Kineticlabs、MKBGuide 的结构说明整理。</figcaption>
+  </figure>
+
+  <h3>键帽：材质、工艺、高度</h3>
+  <p>键帽不参与触发，却决定指腹的触感、字符会不会磨掉、用半年会不会打油发亮。它有三条互不相关的坐标。</p>
+  <p><strong>材质</strong>。PBT 更硬更密，抗磨、不易打油，天生偏低沉，缺点是难做鲜艳大色块；ABS 更软，上色自由，能做透光和饱和配色，几个月后会被指腹磨出油亮。要打掉一个误解："PBT 一定比 ABS 声音好"把材质和厚度混在一起了。KeebTalk 上几位资深用户和 MKBGuide 都指出，壁厚才是声音的第一变量，预算套件常为压成本把键帽做薄，这才是声音让人失望的真正原因。行业标杆 GMK 用约 1.5 毫米厚的 ABS 做出了公认的高端声音。</p>
+  <p><strong>字符工艺</strong>。<button type="button" class="term" data-tip="二色注塑：两种颜色的塑料分别注塑，字符是实体嵌进键帽，物理上磨不掉，也能透光。缺点是每种颜色要一套模具，成本高。">double-shot</button> 的字符永不磨掉、可做 RGB 透光，但颜色组合受模具限制；<button type="button" class="term" data-tip="热升华：染料受热渗入键帽表层，像高分辨率打印，能印复杂图案和渐变。通常只能深底浅字，染料挡光，基本不透光。">dye-sub</button> 能印任意图案，更便宜，但基本不透光，字符会随顶面一起缓慢磨损。两者都远胜几个月就掉字的激光刻和丝印。</p>
+  <p><strong>高度（profile）</strong>。出厂默认多是 OEM 高度，零学习成本；客制圈偏爱矮约 2 毫米的 Cherry 高度，MKBGuide 称它在客制市场占约八成；SA 是高高的球面复古高度，声音饱满但需要一两周适应，还会放大敲击噪音。不同来源量出的高度数字不一致，是测量基准不同，别较真某个单一数值。</p>
+
+  <h3>结构件：谁在决定声音</h3>
+  <p><strong>定位板</strong>是第一个该调的"音色旋钮"。从硬到软：黄铜、钢、铝、FR4 玻纤、PC、POM。越硬越脆响，钢和黄铜还容易有金属余音；越软越低沉，POM 被形容成"在蹦床上打字"。原厂多给铝或 FR4，取中间值。</p>
+  <p><strong>热插拔和焊接</strong>。热插拔是把轴直接插进预装插座，不用烙铁就能换轴，这是新手试轴的最大便利。坊间说插座"只能插拔 100 次"，那是早期规格；2021 年起的二代 Kailh 插座标称 6000 次，插上不动就是零消耗。真正的脆弱点是廉价电路板上插座的焊点，反复横向用力会撬裂。焊接的板子布局更自由（分裂空格、异形键位），在硬核客制圈仍被当作"最终形态"，但"焊接明显更稳"在日常使用里更多是信念，评测者自己也说没感觉出差别。</p>
+  <p><strong>稳定器</strong>是杂音投诉第一名。空格、回车、Shift 下面有一根金属丝连着键帽两端，防止按一边翘另一边。MKBGuide 的拆解把杂音来源归为金属丝撞壳（约四成案例）和轴芯碰金属丝（约三成）。花 5 到 10 美元给原厂稳定器上润滑脂、贴一小块胶带，往往比换一套 15 到 25 美元的高级稳定器收益更大。看到差评说"有咔哒、有旷量"，先想到的应该是出厂稳定器没调好，而不是键盘报废。</p>
+  <p><strong>gasket 结构</strong>是近几年最被强调的卖点：定位板不拧死在外壳上，而是用软胶条夹着，按下去整板微微下沉。它带来的是"不同"，不一定是"更好"。做得差的 gasket 软塌空洞，做得好的传统 top mount 反而精致一致。把它当一种风味，不要当等级。</p>
+  <p><strong>填充</strong>。空腔越多越空洞，填得越满越厚实。在电路板背面贴两三层胶带（tape mod）零成本、可逆，是新手最划算的入门改动。社区追捧的"thock"低沉音，是软定位板、厚键帽、填充和 gasket 叠出来的，没有哪一个部件能单独买到它。</p>
+
+  <h3>关于声音的词</h3>
+  <p>论坛里的 thock 指低沉闷润的"咚"，clack 指清脆高频的"啪"。但头部轴体评测人 ThereminGoat 公开批评这两个词把音高、音量、刮擦感压成了一个二元对立，让整个社区"原地踏步"；KeebTalk 上有人直接说它们已经变成营销"蛇油"。当一个商品页拼命强调自己 thocky 却说不出具体音高和质地，可以把它当作营销话术的信号。</p>
+
+  <div class="limit">
+    <p>力曲线图和部件图都是示意。茶轴"坎弱"的差评方向多来源一致，但具体原帖和赞数没有逐条核到。稳定器杂音的四成、三成是 MKBGuide 单一来源的归纳，不是实验统计。</p>
+  </div>
+
+  <div class="try">
+    <h4>试一试</h4>
+    <p>朋友说"我想要有段落感、又不吵同事、开盒不想自己润"的轴。按本章的内容，三句话里各对应什么条件？</p>
+    <details><summary>看答案</summary>
+      <p>有段落感且不吵，排除带响轴，在段落轴里选，再看是否带静音阻尼（如 Boba U4）；不想自己润，优先出厂预润的型号。同时提醒：吵不吵一半取决于整机，长键的杂音多来自稳定器，与轴无关。</p>
+    </details>
+  </div>
+
+  <details class="more sources">
+    <summary>本章依据的原始研究页与主要来源</summary>
+    <div class="body">
+      <ol>
+        <li>原始研究页：<a href="task_2_3_feel_sound_language.html">手感与声音的语言化</a>、<a href="task_3_2_switch_universe.html">轴体宇宙</a>、<a href="task_3_3_keycaps.html">键帽材质/工艺/高度</a>、<a href="task_3_4_structure_parts.html">结构件</a></li>
+        <li>Cherry 官方 datasheet 与 MX2A 产品页；Keybumps（引用官方 45/55 克力）；Switch and Click《Cherry MX Guide》（将操作力误标为触发力的反例）</li>
+        <li>MKBGuide：Cherry vs Gateron、TTC 指南、PBT vs ABS、Keycap Profiles、Fix Rattly Stabilizers、Gasket vs Tray、Tape Mod、PE Foam；Kineticlabs：Plate Materials、Hot-Swap vs Solderable、Dye-Sub vs Double-Shot；Attack Shark《The 100-Cycle Limit》</li>
+        <li>KeebTalk 用户帖《Does Thick ABS perform the same as Thick PBT?》（Surefoot / ventamora / fanf）；UniKeys 关于 GMK 壁厚约 1.5 mm</li>
+        <li>ThereminGoat《What the thock is clack?》与《A Better Beginner's Guide to Force Curves》；GlacierPC《What Are Force Curves》；Matias《Tactility on Keyboards》</li>
+      </ol>
+    </div>
+  </details>
+
+  <div class="next"><a href="#ch03"><small>下一章</small><b>03 大小和连接方式怎么选？</b></a></div>
+</section>
+
+<!-- ======================= 03 ======================= -->
+<section class="chapter" id="ch03">
+  <div class="ch-num">第 03 章</div>
+  <h2>大小和连接方式怎么选？</h2>
+
+  <p class="q">75% 和 65% 的键盘宽度只差一厘米，价格也差不多，为什么论坛说这是最容易买错的一步？</p>
+  <div class="answer">
+    <span class="lbl">直接回答</span>
+    <p>因为尺寸不是连续的滑块，每缩一档就整片砍掉一个键区。75% 和 65% 之间砍掉的是整条 F 键行。你每天按几次 F 键，决定了这一厘米值不值。连接方式也类似：同样叫"无线"，蓝牙和 2.4G 是两套东西，一个为多设备和省电而生，一个为低延迟而生，别把它们当一回事。</p>
+  </div>
+
+  <h3>尺寸：缩一档，砍一个键区</h3>
+  <p>"百分比"是口语，指相对全尺寸保留了多少键，不是精确比例。真正的规律是砍键顺序：先砍右边的数字小键盘（96% 把它压紧，TKL 直接去掉），再砍顶上的 F 功能行（65% 起没有），再砍方向键（60% 起没有），最后连数字行也砍（40%）。缺掉的键靠按住 Fn 组合调出来。</p>
+
+  <figure>
+    <div class="fig wide">
+      <svg viewBox="0 0 760 500" role="img" aria-labelledby="f4t">
+        <title id="f4t">七档键盘尺寸同比例对比：每行是一档，实色块为保留的键区，斜纹块为被取消的键区</title>
+        <defs>
+          <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+            <rect width="7" height="7" fill="#f7f5f1"/><line x1="0" y1="0" x2="0" y2="7" stroke="#cfc7b8" stroke-width="2"/>
+          </pattern>
+        </defs>
+        <style>.f4 text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}</style>
+        <g class="f4">
+          <text x="20" y="26" font-size="15" font-weight="700" fill="#1c1a17">同一比例下的七档尺寸（1 毫米 = 1.3 像素）</text>
+          <g font-size="12">
+            <rect x="20" y="40" width="14" height="10" fill="#e6d7c3" stroke="#b8661a"/><text x="40" y="49" fill="#4a463f">保留的键区</text>
+            <rect x="130" y="40" width="14" height="10" fill="url(#hatch)" stroke="#cfc7b8"/><text x="150" y="49" fill="#4a463f">被取消（靠 Fn 组合代替）</text>
+            <rect x="320" y="40" width="14" height="6" fill="#d9c7a8"/><text x="340" y="49" fill="#4a463f">顶部细条 = F 功能行</text>
+          </g>
+
+          <!-- Row template: y0; F strip 8px; main 30px -->
+          <!-- 100% -->
+          <g transform="translate(0,66)">
+            <text x="20" y="14" font-size="13.5" font-weight="700" fill="#1c1a17">100%</text><text x="20" y="29" font-size="10.5" fill="#7d776c">约 104 键</text><text x="20" y="42" font-size="10.5" fill="#7d776c">约 440 mm</text>
+            <rect x="120" y="0" width="462" height="8" fill="#d9c7a8"/>
+            <rect x="120" y="10" width="383" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="311" y="30" font-size="11.5" text-anchor="middle" fill="#4a463f">主字母区（含数字行）</text>
+            <rect x="510" y="10" width="72" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="546" y="30" font-size="11" text-anchor="middle" fill="#4a463f">导航+方向</text>
+            <rect x="590" y="0" width="102" height="40" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="641" y="25" font-size="11.5" text-anchor="middle" fill="#4a463f">数字小键盘</text>
+          </g>
+          <!-- 96% -->
+          <g transform="translate(0,122)">
+            <text x="20" y="14" font-size="13.5" font-weight="700" fill="#1c1a17">96%</text><text x="20" y="29" font-size="10.5" fill="#7d776c">约 98 键</text><text x="20" y="42" font-size="10.5" fill="#7d776c">约 395 mm</text>
+            <rect x="120" y="0" width="513" height="8" fill="#d9c7a8"/>
+            <rect x="120" y="10" width="383" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <rect x="505" y="10" width="36" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="523" y="30" font-size="10.5" text-anchor="middle" fill="#4a463f">方向</text>
+            <rect x="543" y="0" width="90" height="40" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="588" y="25" font-size="11" text-anchor="middle" fill="#4a463f">小键盘贴紧</text>
+            <rect x="636" y="0" width="56" height="40" fill="url(#hatch)" stroke="#cfc7b8"/>
+            <text x="120" y="54" font-size="11" fill="#7d776c">砍掉的是键区之间的缝隙，相邻键贴太紧，误触略多</text>
+          </g>
+          <!-- TKL -->
+          <g transform="translate(0,190)">
+            <text x="20" y="14" font-size="13.5" font-weight="700" fill="#1c1a17">80% TKL</text><text x="20" y="29" font-size="10.5" fill="#7d776c">约 87 键</text><text x="20" y="42" font-size="10.5" fill="#7d776c">约 360 mm</text>
+            <rect x="120" y="0" width="462" height="8" fill="#d9c7a8"/>
+            <rect x="120" y="10" width="383" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <rect x="510" y="10" width="78" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="549" y="30" font-size="11" text-anchor="middle" fill="#4a463f">导航+方向</text>
+            <rect x="596" y="0" width="96" height="40" fill="url(#hatch)" stroke="#cfc7b8"/>
+            <text x="644" y="25" font-size="11" text-anchor="middle" fill="#7d776c">小键盘</text>
+          </g>
+          <!-- 75% -->
+          <g transform="translate(0,246)">
+            <text x="20" y="14" font-size="13.5" font-weight="700" fill="#1c1a17">75%</text><text x="20" y="29" font-size="10.5" fill="#7d776c">约 82–84 键</text><text x="20" y="42" font-size="10.5" fill="#7d776c">约 330 mm</text>
+            <rect x="120" y="0" width="429" height="8" fill="#d9c7a8"/>
+            <rect x="120" y="10" width="377" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <rect x="499" y="10" width="50" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="524" y="30" font-size="10.5" text-anchor="middle" fill="#4a463f">方向贴紧</text>
+            <rect x="553" y="0" width="139" height="40" fill="url(#hatch)" stroke="#cfc7b8"/>
+            <text x="622" y="25" font-size="11" text-anchor="middle" fill="#7d776c">导航簇压缩 + 小键盘</text>
+          </g>
+          <!-- 65% -->
+          <g transform="translate(0,302)">
+            <text x="20" y="14" font-size="13.5" font-weight="700" fill="#1c1a17">65%</text><text x="20" y="29" font-size="10.5" fill="#7d776c">约 67–68 键</text><text x="20" y="42" font-size="10.5" fill="#7d776c">约 320 mm</text>
+            <rect x="120" y="0" width="416" height="8" fill="url(#hatch)" stroke="#cfc7b8"/>
+            <text x="328" y="-3" font-size="10.5" text-anchor="middle" fill="#8f4e12" font-weight="700">↑ 这里砍掉了整条 F 行，宽度只比 75% 少约 10 mm</text>
+            <rect x="120" y="10" width="377" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <rect x="499" y="10" width="37" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="517" y="30" font-size="10.5" text-anchor="middle" fill="#4a463f">方向</text>
+            <rect x="540" y="0" width="152" height="40" fill="url(#hatch)" stroke="#cfc7b8"/>
+          </g>
+          <!-- 60% -->
+          <g transform="translate(0,358)">
+            <text x="20" y="14" font-size="13.5" font-weight="700" fill="#1c1a17">60%</text><text x="20" y="29" font-size="10.5" fill="#7d776c">约 61 键</text><text x="20" y="42" font-size="10.5" fill="#7d776c">约 290 mm</text>
+            <rect x="120" y="0" width="377" height="8" fill="url(#hatch)" stroke="#cfc7b8"/>
+            <rect x="120" y="10" width="377" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="308" y="30" font-size="11.5" text-anchor="middle" fill="#4a463f">只剩主字母区，方向键也进 Fn 层</text>
+            <rect x="501" y="0" width="191" height="40" fill="url(#hatch)" stroke="#cfc7b8"/>
+          </g>
+          <!-- 40% -->
+          <g transform="translate(0,414)">
+            <text x="20" y="14" font-size="13.5" font-weight="700" fill="#1c1a17">40%</text><text x="20" y="29" font-size="10.5" fill="#7d776c">约 47 键</text><text x="20" y="42" font-size="10.5" fill="#7d776c">约 250 mm</text>
+            <rect x="120" y="0" width="325" height="8" fill="url(#hatch)" stroke="#cfc7b8"/>
+            <rect x="120" y="10" width="325" height="30" fill="#e6d7c3" stroke="#b8661a"/>
+            <text x="282" y="30" font-size="11.5" text-anchor="middle" fill="#4a463f">连数字行都砍掉</text>
+            <rect x="449" y="0" width="243" height="40" fill="url(#hatch)" stroke="#cfc7b8"/>
+            <text x="120" y="56" font-size="11" fill="#7d776c">数字和符号全靠多层组合，适应期以周计</text>
+          </g>
+          <text x="20" y="490" font-size="12" fill="#7d776c">键数和宽度为行业通行近似值，具体型号会差几键；块的划分为示意。依据 MKBGuide、KeebsForAll、RTINGS，2026-06。</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>图 4·七档尺寸同比例对比。</b>每行从左对齐，宽度按真实毫米数缩放。最该看的一档是 75% 到 65%：宽度只少一厘米，功能上少了整条 F 行。</figcaption>
+  </figure>
+
+  <h3>每一档的取舍</h3>
+  <p><strong>全尺寸和 96%</strong>：功能都齐，差别在桌面。全尺寸把鼠标推得最远，长时间用肩膀会外展。96% 保留小键盘但压掉所有缝隙，适合要输数字又嫌全尺寸占地的人，代价是相邻键贴太紧，Print Screen 和 Delete 容易按错。</p>
+  <p><strong>TKL</strong>（去掉小键盘）：省地约三分之一，鼠标能回到肩线正下方，零学习成本。不确定买什么，它是最稳的默认。</p>
+  <p><strong>75% 和 65%</strong>：这是最该细想的岔路。把"每天按几次 F 键"当唯一判据。程序员、设计师、Adobe 重度用户每天几十次，选 75%；几乎不按 F 键的人，65% 更省地也更好看。拿不准就选 75%。</p>
+  <p><strong>60% 和 40%</strong>：60% 砍掉方向键，是程序员、极简党和出差族的成熟选择。40% 连数字行也砍，所有缺键靠可编程的多层组合，评测给出的适应期是 2 到 4 周，从 60% 再缩到 40% 省下的桌面有限。不要把 40% 当第一把键盘。</p>
+
+  <h3>不砍键，改几何：Alice 和分体</h3>
+  <p>Alice 布局把键盘从中间分成两半，各向外转一个角度，手腕不用往内扭。它保留了常规的行交错，评测说大约一周就能适应。两个真实的小麻烦：左右各有一个 B 键，标准键帽套只配一个；从苹果妙控直接跳过来适应期会更长。分体键盘（Corne、Moonlander、Kinesis）干脆一分为二，常配列交错排布，拆开本身一两天就习惯，列交错要 2 到 4 周才恢复打字速度。长测博主写过"不止一次把它装回盒子"，第一次买分体的放弃率不低。</p>
+
+  <details class="more">
+    <summary>完整尺寸与人体工学对照表<small>九种布局：键数、宽度、砍掉了什么、适合谁</small></summary>
+    <div class="body">
+      <div class="tbl wide">
+        <table>
+          <thead><tr><th>布局</th><th>约键数</th><th>约宽度</th><th>砍掉了什么</th><th>学习曲线</th><th>桌面/鼠标</th><th>最适合谁</th></tr></thead>
+          <tbody>
+            <tr><th>100% 全尺寸</th><td class="num">~104</td><td class="num">~440 mm</td><td>什么都保留</td><td>零</td><td>占地大，鼠标远</td><td>财会、重度数字录入</td></tr>
+            <tr><th>96% / 1800</th><td class="num">~98</td><td class="num">~395 mm</td><td>键区缝隙（误触略升）</td><td>几乎零</td><td>略省，仍有小键盘</td><td>要小键盘又想省地</td></tr>
+            <tr><th>80% TKL</th><td class="num">~87</td><td class="num">~360 mm</td><td>数字小键盘</td><td>零</td><td>省约 35%，鼠标近</td><td>最稳的全能默认</td></tr>
+            <tr><th>75%</th><td class="num">~82–84</td><td class="num">~330 mm</td><td>键区间距（F 行、方向键贴紧）</td><td>很低</td><td>小而全</td><td>要 F 行又要小</td></tr>
+            <tr><th>65%</th><td class="num">~67–68</td><td class="num">~320 mm</td><td>整条 F 行（留方向键）</td><td>低，需记 Fn</td><td>省约 40%</td><td>少按 F 键的人</td></tr>
+            <tr><th>60%</th><td class="num">~61</td><td class="num">~290 mm</td><td>F 行 + 方向键</td><td>中</td><td>极省，便携</td><td>程序员、极简党、出差</td></tr>
+            <tr><th>40%</th><td class="num">~47</td><td class="num">~250 mm</td><td>再砍数字行、符号</td><td>陡，2–4 周</td><td>最小</td><td>爱好者，不建议作第一把</td></tr>
+            <tr><th>Alice（人体工学）</th><td class="num">~65–68</td><td>看型号</td><td>基本不砍，左右分角</td><td>约 1 周</td><td>一体式，占地中</td><td>手腕不舒服但怕折腾</td></tr>
+            <tr><th>分体 Split</th><td class="num">42–80</td><td>可调</td><td>常不砍，一分为二，常配列交错</td><td>2 周到 2 个月</td><td>两块，可调角度</td><td>有明确 RSI，愿意熬过低速期</td></tr>
+          </tbody>
+        </table>
+        <div class="tbl-hint">表格可左右滑动</div>
+      </div>
+      <p class="small">来源：MKBGuide（65 vs 75、40% Guide、Alice Guide）、KeebsForAll、RTINGS、remoteworkgeek 分体横评、Josh Collinsworth Moonlander 长测，2026-06。"Alice 让打字更快"多来自厂商评测页的用户感受，缺独立对照实验，这里只认舒适度收益。</p>
+    </div>
+  </details>
+
+  <h3>连接：先把"无线"拆成两种</h3>
+  <p><strong>蓝牙</strong>走通用协议，为省电和一对多设备设计，常见能在三台设备之间切换。代价是协议把上报频率钉死在大约每秒 125 次，再加上省电休眠，实际输入延迟常落在 20 到 40 毫秒。<strong>2.4G</strong> 用厂商私有协议和一个专用 USB 接收器，上报每秒 1000 次起，延迟与有线相差 1 到 2 毫秒。代价是通常只能绑一台电脑，占一个 USB 口，接收器容易丢。<strong>三模</strong>是把有线、2.4G、蓝牙三套塞进同一把键盘，靠拨杆或组合键切换。</p>
+  <p>对打字和办公，蓝牙的延迟你感觉不出来。对第一人称射击和格斗游戏，超过 10 毫秒左右开始影响判定，这就是"竞技别用蓝牙"的来源。</p>
+
+  <div class="tbl compact stack">
+    <table>
+      <caption>四种连接方式的取舍。延迟是各来源区间的综合，不是某一型号的实测。</caption>
+      <thead><tr><th>方式</th><th>延迟量级</th><th>多设备</th><th>常见翻车</th><th>适合</th></tr></thead>
+      <tbody>
+        <tr><th>有线 USB</th><td data-l="延迟" class="num">1–3 ms</td><td data-l="多设备">不适用</td><td data-l="常见翻车">线材、接口接触不良</td><td data-l="适合">竞技、台式主力、客制</td></tr>
+        <tr><th>2.4G 接收器</th><td data-l="延迟" class="num">约 1–4 ms</td><td data-l="多设备">通常单设备</td><td data-l="常见翻车">和无线鼠标抢信道、用久漏键、接收器丢</td><td data-l="适合">要无线又要低延迟</td></tr>
+        <tr><th>蓝牙</th><td data-l="延迟" class="num">20–40 ms 以上</td><td data-l="多设备">一对多，最方便</td><td data-l="常见翻车">随机断连、休眠后吞掉前几个字</td><td data-l="适合">办公、平板手机、多设备切换</td></tr>
+        <tr><th>三模</th><td data-l="延迟">取当前模式</td><td data-l="多设备">2.4G 连主机 + 蓝牙连副机</td><td data-l="常见翻车">切换错乱、某一模块坏</td><td data-l="适合">既要游戏低延迟又要多设备</td></tr>
+      </tbody>
+    </table>
+    <div class="tbl-hint">表格可左右滑动</div>
+  </div>
+
+  <h3>真正让人放弃无线的不是延迟</h3>
+  <p>评测站比的是理想延迟数字，用户帖子里劝退人的几乎都是稳定性：蓝牙用着用着随机掉线，休眠唤醒后前几个字没打上，2.4G 键盘和 2.4G 鼠标互相干扰，用一两年后开始漏键或多打空格，甚至无线模块直接坏掉、只剩插线能用。r/Keychron 上有人把 J1 键盘的开源固件源码翻出来，定位到"关掉背光反而更容易断蓝牙"是代码里的真实耦合，Keychron 方面回应已知此问题、后续修复。反复出现的对照句是"以前用罗技好几年从没蓝牙问题"，指向客制系厂商在无线固件成熟度上落后于专业外设大厂。</p>
+  <p>续航也不是电池越大越好。蓝牙省电靠激进休眠，休眠越狠，唤醒越慢、越容易丢首键；2.4G 开着灯效续航会骤降。看无线键盘别只看官方的最大续航小时数，要看它唤醒是否丢键、电池能不能换。有用户提醒，廉价锂电池长期插线保持满电本身有安全隐患。</p>
+  <div class="limit">
+    <p>延迟毫秒数是多来源区间的综合示意，精确到型号要查 RTINGS 的逐款测试。"客制厂商无线不如罗技"来自多条用户对照句，方向可信，但没有大样本断连率统计。</p>
+  </div>
+
+  <h3>按场景对号</h3>
+  <ul>
+    <li>竞技游戏：有线优先，其次带 2.4G 的键盘。键鼠都用 2.4G 时把接收器拉开距离或接延长线。</li>
+    <li>单机办公、写作：蓝牙足够，重点看唤醒是否丢字。</li>
+    <li>电脑加平板加手机来回切：蓝牙是唯一优雅的解。受不了偶发断连就买三模，主力机用 2.4G。</li>
+    <li>出差：蓝牙免带接收器，但一定带根数据线兜底。</li>
+    <li>Mac 用户：用户帖里苹果蓝牙栈加第三方键盘是断连重灾区，重度使用优先 2.4G 或有线。</li>
+  </ul>
+
+  <div class="try">
+    <h4>试一试</h4>
+    <p>回答三个问题，就能定下尺寸和连接：你每天按几次 F1–F12？要不要在两台以上设备之间切换？玩不玩需要快速反应的竞技游戏？</p>
+    <details><summary>看一种常见组合</summary>
+      <p>每天几十次 F 键、两台设备、不玩竞技：75% 加三模，日常走蓝牙。几乎不按 F 键、一台电脑、玩竞技：65% 或 TKL，有线或 2.4G。</p>
+    </details>
+  </div>
+
+  <details class="more sources">
+    <summary>本章依据的原始研究页与主要来源</summary>
+    <div class="body">
+      <ol>
+        <li>原始研究页：<a href="task_3_5_layouts.html">布局尺寸 100%→40% + 人体工学</a>、<a href="task_3_6_connectivity.html">连接方式</a>、<a href="task_1_2_classification_axes.html">六大分类轴</a>（连接一节）</li>
+        <li>RTINGS《Different Keyboard Sizes Explained》与《Our Keyboard Tests: Latency》；MKBGuide《65% vs 75%》《40% Keyboard Guide》《Alice Layout Guide》《Best Wireless Gaming Keyboards: 2.4GHz vs Bluetooth》；KeebsForAll《60 vs 65 vs 75》</li>
+        <li>Josh Collinsworth《Impressions of the ZSA Moonlander at one month》；remoteworkgeek《Split Ergonomic Keyboards 2026》；MakeUseOf / AppleInsider Keychron Q8 评测</li>
+        <li>loadsyn、digit.in 有线与无线延迟实测综述；Fantech《What is Tri-Mode Connectivity》</li>
+        <li>用户帖：r/Keychron《J1 Bluetooth randomly disconnects》（含固件源码级分析回复）、《V3 MAX 2.4GHz & Bluetooth modes stopped working》、《wireless interference with M5 mouse + K4 HE》；r/NuPhy《Air 75 v3 bluetooth lag》；r/RoyalKludge 长期插线电池提醒</li>
+      </ol>
+    </div>
+  </details>
+
+  <div class="next"><a href="#ch04"><small>下一章</small><b>04 为什么贵的键盘也可能不适合你？</b></a></div>
+</section>
+
+<!-- ======================= 04 ======================= -->
+<section class="chapter" id="ch04">
+  <div class="ch-num">第 04 章</div>
+  <h2>为什么贵的键盘也可能不适合你？</h2>
+
+  <p class="q">300 美元的 HHKB 一定比 80 美元的机械键盘好吗？"寿命 1 亿次"值不值得多花钱？</p>
+  <div class="answer">
+    <span class="lbl">直接回答</span>
+    <p>不一定。不同类型的键盘，钱花在完全不同的地方：Topre 贵在封闭的专有结构和一种独特手感，光轴贵在品牌，国产磁轴已经把价格压到了一百美元以下。寿命数字几乎全是厂商自测，正常使用碰不到上限，不该当选购理由。声音和手感在网上试不出来。论坛里对机械键盘最站得住的批评不是"智商税"，而是"超过入门档以后，多花的钱换不回多少体验"。</p>
+  </div>
+
+  <h3>先建立价格直觉：三根桩</h3>
+  <p>看到一把键盘的标价，先问它属于哪一类，再对照三根桩，就知道是正常、捡漏还是被宰。薄膜键盘的地板约 20 美元（罗技 K120 常年这个价）。机械键盘的甜点区在 70 到 100 美元，社区和评测在这里高度一致，Keychron V1 8K 标价 74 美元被 Tom's Guide 称为"便宜键盘的新金标准"。Topre 的天花板约 300 美元，HHKB Professional Hybrid Type-S 标价 299.99 美元，它的起步款 Realforce R3S 约 159 美元就已经接近多数机械键盘的上限。</p>
+
+  <div class="tbl compact stack">
+    <table>
+      <caption>六类键盘的价格锚点（美元，2026 年 6 月 10 日采集）。促销波动极大，磁轴和光轴尤其明显，只当量级参考。</caption>
+      <thead><tr><th>类型</th><th>入门</th><th>主流</th><th>天花板</th><th>记忆值</th></tr></thead>
+      <tbody>
+        <tr><th>薄膜</th><td data-l="入门">Logitech K120 约 $20</td><td data-l="主流">—</td><td data-l="天花板">—</td><td data-l="记忆值" class="num">$20</td></tr>
+        <tr><th>剪刀脚</th><td data-l="入门">笔记本内置、杂牌约 $30</td><td data-l="主流">Apple Magic Keyboard $99（曾低至 $79.99）</td><td data-l="天花板">带 Touch ID 和数字键 $199</td><td data-l="记忆值" class="num">$99</td></tr>
+        <tr><th>机械</th><td data-l="入门">裸机入门 $25–55</td><td data-l="主流">Keychron V1 8K $74、K8、C1 Pro</td><td data-l="天花板">客制套件 $150–300 以上</td><td data-l="记忆值" class="num">$70–100</td></tr>
+        <tr><th>磁轴</th><td data-l="入门">国产铝壳 8K 轮询 $80–100</td><td data-l="主流">DrunkDeer A75 约 $129</td><td data-l="天花板">Wooting 60HE+ $175、80HE $195–245</td><td data-l="记忆值" class="num">$100 上下</td></tr>
+        <tr><th>光轴</th><td data-l="入门">Razer Huntsman Mini 约 $120（促销曾到 $69）</td><td data-l="主流">Huntsman V3 Pro Mini $160–185</td><td data-l="天花板">限定、Analog 版 $250–500</td><td data-l="记忆值" class="num">$160 以上</td></tr>
+        <tr><th>静电容 Topre</th><td data-l="入门">Realforce R3S 约 $159</td><td data-l="主流">Realforce R3 $242–285</td><td data-l="天花板">HHKB Pro Hybrid Type-S $299.99，限定款 $400 以上</td><td data-l="记忆值" class="num">$300</td></tr>
+      </tbody>
+    </table>
+    <div class="tbl-hint">表格可左右滑动</div>
+  </div>
+
+  <h3>贵在哪里：两种完全不同的贵</h3>
+  <p>Topre 贵在专有结构、小众工艺和不能换轴的封闭生态。你为一种别处买不到的手感一次性付费，买了就别想折腾。社区对它值不值一直有争论，Realforce R4 的评测者直说"180 欧元仍然偏贵，键帽和稳定器再好点才配这个价"。</p>
+  <p>光轴贵主要在品牌。Razer Huntsman V3 Pro Mini 的用料并不比国产磁轴高，溢价来自品牌和软件生态。同样要 Rapid Trigger，国产磁轴 DrunkDeer A75 起价约 129 美元，功能重叠却便宜一截。</p>
+  <p>磁轴是六类里价格变动最快的。2023 到 2024 年 Wooting 60HE 还是"175 美元的标杆"，到 2026 年国产品牌用铝壳加 8000 赫兹轮询把锚点拉到 80 到 100 美元，Wooting 的溢价转成了软件和可靠性。Reddit 评价聚合给出的购买共识是：为排位和稳定选 Wooting，预算紧或想要铝壳选国产，但要能忍受软件毛病。</p>
+  <div class="limit">
+    <p>"国产磁轴 80 到 100 美元"是社区归纳的概称，DrunkDeer A75 的 128.99 美元起价有比价站实证，更低的地板价没有逐一核到具体型号。Razer 的官方当日定价没有直读官网，这里用的是比价站的历史价。</p>
+  </div>
+
+  <h3>越过入门档，多花的钱换不回多少</h3>
+  <p>这是反方里最站得住的一条。从薄膜升到一把好用的入门机械，体验跳一大截；从入门机械再往上堆到旗舰或客制，体验变平，价格却直线上涨。一位用了十二年的玩家说，他 120 美元买的 Cooler Master 茶轴键盘被泼过好几次饮料，至今每天在用。另一位说同一块 GMMK3，65 美元算超值，300 美元"不值"。连 Keychron Q6 Max 的资深用户也在帖子里主动问怎么避开"低收益的升级"。RTINGS 的结论是对多数人"性能差异是边际的"，优质薄膜 15 到 20 美元，优质机械 50 美元起。</p>
+  <p>所以用户帖子里的"超值"集中在 60 到 120 美元，"不值"集中在 180 美元以上。这个拐点会随入门机械的均价下移而移动，它是 2026 年 6 月的快照。</p>
+
+  <h3>寿命：标称和整机是两个概念</h3>
+  <p>厂商标的"1 亿次"是触点或感应机构的实验室寿命，不是整机寿命。实际先坏的往往是弹簧老化、塑料件磨损、进灰导致的连击，这些在用户反馈里差异极大。薄膜和剪刀脚的 500 万到 1000 万次是真短板，大约对应一到四年；机械、光轴、磁轴的"亿次"更多是营销锚点。Cherry 标 1 亿次，Gateron 标 5000 万次，正常使用几年都碰不到任何一个上限，这个差异在体验里可以忽略。</p>
+
+  <div class="tbl compact stack">
+    <table>
+      <caption>标称寿命区间（次/键）。全部来自厂商规格或评测转述，没有独立的破坏性整机测试。</caption>
+      <thead><tr><th>类型</th><th>标称区间</th><th>来源之间的分歧</th></tr></thead>
+      <tbody>
+        <tr><th>机械</th><td data-l="标称区间" class="num">5000 万–1 亿</td><td data-l="分歧">用户反馈有 2 亿次以上无故障的案例，也有一年多连击的案例</td></tr>
+        <tr><th>静电容 Topre</th><td data-l="标称区间" class="num">约 5000 万，另有来源称 1 亿以上</td><td data-l="分歧">Deskthority 与 TipTapTypers 口径直接冲突，取保守值</td></tr>
+        <tr><th>薄膜</th><td data-l="标称区间" class="num">500 万–1000 万</td><td data-l="分歧">多源一致，橡胶碗老化是主要失效</td></tr>
+        <tr><th>剪刀脚</th><td data-l="标称区间" class="num">500 万–2000 万</td><td data-l="分歧">两份原始研究页分别给 500 万–1000 万和 1000 万–2000 万，这里合并为宽区间；塑料支架断裂是常见失效</td></tr>
+        <tr><th>光轴 / 磁轴</th><td data-l="标称区间" class="num">厂商标 1 亿以上</td><td data-l="分歧">缺独立实测，用户指出弹簧和塑料件先老化</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>手感和声音，为什么在网上试不出来</h3>
+  <p>这不是"图片不够清楚"的程度问题，而是四个结构性断点。第一，录音链条会系统性地美化或丑化声音：麦克风、录音软件、平台压缩、你的耳机，每一环都在改写它。ThereminGoat 的原话是打字音视频"除了当娱乐，基本毫无价值"。第二，手感是触觉，坎有多锐、触底有多软，只有指腹能判断，力曲线图只是一个形状。第三，喜不喜欢是主观的，KeebTalk 上有人说"我听到的、感受到的、喜不喜欢，全发生在我脑子里"。第四，连试轴器都不够：同一颗轴装进整机，键帽、填充、定位板和外壳共振会彻底改写结果。</p>
+  <p>能线上确定的只有分类（线性还是段落）和大致克数。坎的锐利度、触底软硬、真实音色和你自己的偏好，都得摸真键盘，最好是整机。</p>
+
+  <h3>机械键盘是"智商税"吗</h3>
+  <p>我们专门去论坛语料里找泼冷水的声音。结果是"骗局"、"浪费钱"这类全盘否定的词几乎没有命中，"噱头"一词出现时多指某个具体功能（小屏幕、侧板、触控条），不是否定整个品类。"智商税"这个标签在用户讨论里站不住。</p>
+  <p>真正成立的反方有三条。一是上面说的边际收益递减。二是打字不会更快：多数研究显示机械键盘对每分钟字数没有统计显著的提升，有限优势只出现在已经 60 字以上的熟练者身上，对新手"可以忽略"。冲着提速买，接近错配。三是别为噱头加价：小屏幕、侧板、过度灯效抬高价格又窄化受众，用户希望它们默认可关、可拆。</p>
+  <p>按这三条，有四类人确实没必要买机械键盘：环境必须极度安静又不愿折腾的人（要静音就得选静音轴加消音，这本身又是折腾）；只想打字更快的人；要求开箱就是最终状态、拒绝任何调试的人；预算紧又忍不住往上加的人。反过来，每天敲几个小时、对手感和疲劳敏感、环境允许有声音的重度打字者和程序员，用户帖几乎一致认为值。准确的说法是：它对窄人群高价值，对宽人群低必要。</p>
+  <div class="limit">
+    <p>"智商税不是主流"的结论来自键盘爱好者版块，这些版块本来就不是骂场，真正认为完全没必要的人可能根本不来发帖。所以它只说明"在讨论键盘的人里不是主流"，不能外推到所有消费者。打字速度的研究互相矛盾（一项称熟练者快约 12%，多项称无显著差异），没有拿到可全文核验的单一权威研究。</p>
+  </div>
+
+  <div class="try">
+    <h4>试一试</h4>
+    <p>商品页写着"1 亿次寿命、深邃 thock 音、客制级做工"，标价 1200 元。按本章的内容，这三个卖点各该怎么读？</p>
+    <details><summary>看答案</summary>
+      <p>寿命是厂商标称，正常使用碰不到，不作为付费理由；"thock 音"是被评测圈批评的笼统词，视频里也听不准，要看它能不能说出键帽壁厚、定位板材质这些具体东西；"客制级做工"要看出厂稳定器调没调、能不能换轴。1200 元约合 170 美元，已经越过了用户帖里"超值"集中的 60 到 120 美元区间，要想清楚多出来的钱买的是什么。</p>
+    </details>
+  </div>
+
+  <details class="more sources">
+    <summary>本章依据的原始研究页与主要来源</summary>
+    <div class="body">
+      <ol>
+        <li>原始研究页：<a href="task_2_4_price_anchors.html">各类型价格锚点与代表产品</a>、<a href="task_2_2_comparison_matrix.html">六类多维对比</a>（寿命与价格）、<a href="task_2_3_feel_sound_language.html">手感与声音的语言化</a>、<a href="task_4_4_skeptics.html">反例与证伪：是智商税吗</a></li>
+        <li>价格：Wooting 官网 60HE v2 / 80HE 定价页；HHKB 官方店与 camelcamelcamel 价格追踪；mechanicalkeyboards.com 与 keeb-finder（Realforce R3 / R3S、DrunkDeer A75）；PCWorld、Pangoly（Razer Huntsman 价格史）；9to5Toys（Apple Magic Keyboard）；Tom's Guide《Keychron V1 8K Review》；RedditRecs（Wooting 60HE+ 评价聚合）</li>
+        <li>寿命：KeebsForAll《Mechanical vs Membrane: Lifespan Compared》；TipTapTypers；Alibaba 行业洞察（剪刀脚）；MacRumors 论坛（Magic Keyboard 寿命）</li>
+        <li>线上不可替代上手：ThereminGoat《What the thock is clack?》；GlacierPC《What Are Force Curves》；KeebTalk 用户 DasGnome、Extra_Fox 原话；Tom's Hardware 轴体测试方法</li>
+        <li>反方：本地 Reddit 导出词频（scam / waste of money / gimmick 等）；r/MechanicalKeyboards 用户帖（$120 用十二年、GMMK3 $65 vs $300、Realforce R4 €180）；RTINGS《Mechanical vs Membrane》；TypingTest 与 IJHCI 打字速度研究综述（原文未全文核验）</li>
+      </ol>
+    </div>
+  </details>
+
+  <div class="next"><a href="#ch05"><small>下一章</small><b>05 按自己的需求，列出选购条件</b></a></div>
+</section>
+
+<!-- ======================= 05 ======================= -->
+<section class="chapter" id="ch05">
+  <div class="ch-num">第 05 章</div>
+  <h2>按自己的需求，列出选购条件</h2>
+
+  <p class="q">预算五百块，该买哪一把？</p>
+  <div class="answer">
+    <span class="lbl">直接回答</span>
+    <p>这个问题反了。同样五百块，给游戏玩家和给写稿的人答案完全不同。先回答六个关于自己的问题：拿来干什么、需要哪些键、要多安静、用什么系统和几台设备、预算多少、愿不愿意动手改。把答案翻译成一张条件清单，再拿清单去筛产品。清单上不该有"别人说新手都要"的东西，热插拔和改键功能只在你真的会用时才写进去。</p>
+  </div>
+
+  <h3>为什么先问用途而不是先问预算</h3>
+  <p>主流入门指南几乎都把用途和预算并列放在第一层，真实的新手提问也是这个顺序。r/BudgetKeebs 上一条典型求助是："想要一把声音好但不太吵的键盘，预算三四千卢比，可靠比花哨重要，主要打字加休闲游戏。"用户自己先抛预算，紧跟用途，再补安静度。预算的作用是剪枝，排除不可能的组合；用途决定钱该花在哪个维度上。安静程度、系统设备和折腾意愿是最后的三道筛子。</p>
+
+  <h3>六个问题，逐个回答</h3>
+
+  <h4>一、主要拿来干什么</h4>
+  <p>打字和写作：钱花在手感上，段落轴或轻软的线性轴，键程够长。办公：钱花在安静和多设备切换上。游戏：钱花在响应上，线性轴或磁轴，低延迟连接。想当爱好折腾：钱花在可改造性上，这类人不需要这份清单。一个人可以有两个用途，那就可能需要两把键盘，不必强求一把兼顾。</p>
+
+  <h4>二、需要哪些键</h4>
+  <p>回到第 03 章的砍键顺序。每天输大量数字，保留小键盘（全尺寸或 96%）。每天几十次 F 键，保留 F 行（75% 或 TKL）。几乎不按 F 键但要方向键，65%。方向键也愿意用组合键代替，60%。不确定就写"TKL 或 75%"。</p>
+
+  <h4>三、要多安静</h4>
+  <p>吵不吵的顺序是：静音轴最安静，然后线性轴，然后段落轴，带响轴最吵。合租、开放工位、深夜用，先排除带响轴，再在静音轴和线性轴里选；厚键帽和内部填充能再压一点声音。一位用户的妻子"以为外面在下冰雹"，另一位说带响轴"不适合办公室，如果你还想被同事喜欢"。共享空间的用户反复把安静排在手感前面。</p>
+
+  <h4>四、用什么系统，连几台设备</h4>
+  <p>Windows 用户几乎没有操作，绝大多数键盘默认即用。Mac 用户有两个坑：一是键位，很多机械键盘的 Command 键和 X 键错位，常用快捷键的人手指会累，r/mac-keyboard 上有人因此多年抗拒机械键盘；二是要有 Mac 模式和 Mac 键帽，并接受手动切换 Mac/Windows 布局的小麻烦。磁轴游戏键盘的调校软件常常 Windows 优先，Mac 上功能受限。设备数量决定连接：一台电脑可以有线或 2.4G，两台以上要蓝牙或三模，Mac 重度用户优先 2.4G。</p>
+
+  <h4>五、预算多少</h4>
+  <p>人民币 150 到 400 元能买到热插拔加无线，但用料、稳定器和声音是"够用"级。400 到 900 元是社区最常推荐的一档：热插拔加三模加双系统键帽的成品，能一步到位也留了换轴的后路。900 元以上是全金属 gasket 结构、磁轴旗舰或套件分买，为特定诉求付溢价。第 04 章说过，用户帖里"超值"集中在 60 到 120 美元，再往上体验变平。</p>
+
+  <h4>六、愿不愿意动手改</h4>
+  <p>完全不想：买出厂已经调好稳定器、预润过的成品，看到"可升级"字样就忽略。它对你是成本不是卖点。想留个后路：认准热插拔，先换轴换键帽这种零风险操作，确认真有兴趣再考虑套件。想马上进坑：也别第一把就上焊接套件。有新手把稳定器钢丝装到了轴芯下面，装到九成才发现，全拆重来。热插拔成品是低风险的入口。</p>
+
+  <h3>把答案翻成条件清单</h3>
+  <div class="tbl compact stack">
+    <table>
+      <caption>条件清单模板。左列是你的答案，右列是该写进清单的条件。没写到的项目留空，不要为了"齐全"补上。</caption>
+      <thead><tr><th>问题</th><th>如果你的答案是…</th><th>写进清单的条件</th></tr></thead>
+      <tbody>
+        <tr><th>用途</th><td data-l="答案">打字、写作</td><td data-l="条件">段落轴或轻软线性轴；全键程（非低剖面）或低剖面看个人</td></tr>
+        <tr><th></th><td data-l="答案">办公</td><td data-l="条件">静音轴或线性轴；三模</td></tr>
+        <tr><th></th><td data-l="答案">竞技游戏</td><td data-l="条件">线性轴或磁轴（Rapid Trigger）；有线或 2.4G</td></tr>
+        <tr><th>按键</th><td data-l="答案">要小键盘 / 要 F 行 / 要方向键 / 都可用组合键</td><td data-l="条件">100% 或 96% / 75% 或 TKL / 65% / 60%</td></tr>
+        <tr><th>安静</th><td data-l="答案">共享空间、深夜用</td><td data-l="条件">排除带响轴；静音轴优先；厚键帽和填充加分</td></tr>
+        <tr><th>系统</th><td data-l="答案">Mac</td><td data-l="条件">Mac 键帽、Mac/Win 切换；常用快捷键多的话看 Command 与 X 是否对齐</td></tr>
+        <tr><th>设备</th><td data-l="答案">两台以上</td><td data-l="条件">蓝牙多设备或三模</td></tr>
+        <tr><th>预算</th><td data-l="答案">¥400–900</td><td data-l="条件">热插拔三模成品；别为"亿次寿命"和"客制级"加钱</td></tr>
+        <tr><th>改造</th><td data-l="答案">完全不想 / 留后路 / 想进坑</td><td data-l="条件">出厂调好稳定器的成品，忽略"可升级" / 热插拔 / 热插拔 + 支持 VIA 改键，第一把不上焊接套件</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>四种常见组合，作参考不作指定</h3>
+  <p>下面四种是原始研究里出现最多的组合，它们是起点，不是答案。你的清单和它们不同很正常。</p>
+  <ul>
+    <li><strong>办公，要安静，不想折腾</strong>：75% 或 TKL，静音轴或线性轴，三模成品，认准出厂已调稳定器。</li>
+    <li><strong>重度打字、程序员</strong>：65% 到 75%，段落轴或静音线性轴，支持 QMK/VIA 改键，有线或 2.4G 求稳。程序员的真实痛点是买回来键位改不动，所以改键能力对这群人是硬需求，对别人不是。</li>
+    <li><strong>竞技游戏</strong>：TKL 或 60%，磁轴（认准 Rapid Trigger）或快线性轴，有线或 2.4G。玩 CS2 开 Rapid Trigger 没问题，别开 Snap Tap 或 SOCD，第 08 章解释原因。</li>
+    <li><strong>想进坑折腾</strong>：第一把选热插拔、支持 VIA 的成品先试轴，确认兴趣再上 gasket 套件甚至焊接。</li>
+  </ul>
+
+  <h3>Mac 用户多看三样</h3>
+  <p>一看键帽和切换：Keychron 这类"Mac 优先"品牌默认装 Mac 键帽、机身带 Mac/Win 物理拨钮、F 区默认是亮度和音量，第三方评测把这三点列为它在 Mac 圈口碑稳的原因。二看 Command 键对齐：2026 年还有用户把"第一次见到 Command 和 X 对齐的 Mac 机械键盘"当稀缺卖点，说明多数默认布局没为快捷键重度用户优化。三看连接：苹果蓝牙加第三方键盘是用户帖里断连最多的组合，重度使用选 2.4G 或有线更稳。另外要知道，机械键盘补不上妙控的 Touch ID，不少 Mac 用户研究一圈机械键盘后还是为指纹解锁留在了妙控。</p>
+
+  <details class="more">
+    <summary>代表型号与价格<small>2026 年 6 月采集，只作锚点，下单前以购买页为准</small></summary>
+    <div class="body">
+      <div class="tbl wide">
+        <table>
+          <thead><tr><th>组合</th><th>推荐尺寸</th><th>轴体方向</th><th>连接</th><th>热插拔</th><th>代表型号</th><th>价位（2026-06）</th><th>Mac 友好</th><th>新手风险</th></tr></thead>
+          <tbody>
+            <tr><th>办公安静</th><td>75% / TKL</td><td>静音轴 / 线性</td><td>三模</td><td>建议有</td><td>Keychron K8 Pro、RK84</td><td class="num">约 ¥420–650</td><td>高（双系统键帽）</td><td>低</td></tr>
+            <tr><th>打字进阶</th><td>65% / 75%</td><td>段落 / 线性</td><td>三模 / 有线</td><td>有</td><td>Keychron K6、V1</td><td class="num">约 ¥450–700</td><td>高</td><td>低</td></tr>
+            <tr><th>竞技游戏</th><td>60% / TKL</td><td>磁轴（RT）/ 快线性</td><td>有线 / 2.4G</td><td>磁轴本身免焊</td><td>Wooting 60HE v2；预算紧看国产磁轴</td><td class="num">$179.99 起（约 ¥1300）</td><td>RT 软件多 Win 优先</td><td>中（配置学习）</td></tr>
+            <tr><th>想进坑</th><td>65% / 75%</td><td>自选，先线性试水</td><td>看 PCB</td><td>必须有</td><td>MonsGeek M1、GMK67 套件</td><td class="num">套件 ¥300–800 另加轴和键帽</td><td>看固件（VIA 跨平台）</td><td>高（翻车税）</td></tr>
+          </tbody>
+        </table>
+        <div class="tbl-hint">表格可左右滑动</div>
+      </div>
+      <p class="small">美元价为官网或 Amazon 采集（RK68 $52.99、RK84 $59.99、Wooting 60HE v2 $179.99 起，2026-06-10），人民币为粗略换算区间，不是实时国行报价。来源：Keychron、Wooting、RK 官网；RTINGS、Switch and Click、Tom's Hardware 入门指南。</p>
+    </div>
+  </details>
+
+  <div class="try">
+    <h4>试一试</h4>
+    <p>照着六个问题，用一分钟写下你自己的答案，再对着条件清单模板填右列。填完数一数：清单上有几条是你真的会用到的，有几条是"别人说新手都要"？</p>
+  </div>
+
+  <details class="more sources">
+    <summary>本章依据的原始研究页与主要来源</summary>
+    <div class="body">
+      <ol>
+        <li>原始研究页：<a href="task_1_3_buying_decision_tree.html">小白选购决策树</a>、<a href="task_4_2_persona_matrix.html">五类人群痛点—需求矩阵</a>、<a href="task_4_3_mac_users.html">Mac 用户作为特殊人群</a>、<a href="task_1_2_classification_axes.html">六大分类轴</a>（用途与价格带）</li>
+        <li>r/BudgetKeebs 与 r/MechanicalKeyboards 真实提问（导出文件 mechkb-beginner.md 行 21–23、191–192、380、396、414、526、543）；r/mac-keyboard Akko Air 01 讨论（mac-keyboard.md 行 38、208–211）；r/Keychron《B6 Pro Ghosting Issue》</li>
+        <li>RTINGS《Keyboard Size Guide》《Best Keyboards for Programming 2026》；Switch and Click《Under $50》；Tom's Hardware《Best Budget Mechanical Keyboards》；iMore《Best mechanical keyboards for Mac in 2026》</li>
+        <li>Keychron / Wooting / Royal Kludge 官网价目（2026-06-10）</li>
+      </ol>
+    </div>
+  </details>
+
+  <div class="next"><a href="#ch06"><small>下一章</small><b>06 用户买回去以后，最常遇到什么？</b></a></div>
+</section>
+
+<!-- ======================= 06 ======================= -->
+<section class="chapter" id="ch06">
+  <span class="alias" id="m4"></span>
+  <div class="ch-num">第 06 章</div>
+  <h2>用户买回去以后，最常遇到什么？</h2>
+
+  <p class="q">键盘买回来了，为什么论坛上这么多人在问"怎么润轴"、"怎么调稳定器"？他们不是买的成品吗？</p>
+  <div class="answer">
+    <span class="lbl">直接回答</span>
+    <p>在我们统计的 Reddit 新手版块里，讨论最多的两件事是价格看不懂（同一型号官网和 Amazon 差几十美元）和"成品只是起点"的预期落差：到手发现稳定器响、个别键发软，想要视频里的声音还得自己润轴。术语看不懂反而排在后面。但请注意，这个顺序衡量的是"大家在谈什么"，不是"什么最痛"：信息过载和"手感网上试不出来"被提到的次数很少，每次出现语气却最重。</p>
+  </div>
+
+  <div class="limit">
+    <p>这些结果来自三份本地导出的 Reddit 语料（r/MechanicalKeyboards 新手帖、r/Keychron、Mac 键盘讨论，合计约两千帖、两万多条评论）的词频统计。同一帖里多次出现会被重复计数，没有做跨平台和跨语言验证。这些版块天生偏向求助和投诉，买得满意的人通常不发帖。所以它不能代表所有用户，也不能据此计算任何产品的故障率。两轮统计给出的具体次数不一致，本页只保留相对顺序，数字放在附录"口径冲突"一节。</p>
+  </div>
+
+  <h3>八类常见遭遇，按讨论热度排</h3>
   <ol>
-    <li>本地 Reddit 导出 — <code>reddit-exports/mechkb-beginner.md</code>（872 帖 / 12837 评论）</li>
-    <li>本地 Reddit 导出 — <code>reddit-exports/mac-keyboard.md</code>（272 帖 / 4792 评论）</li>
-    <li>本地 Reddit 导出 — <code>reddit-exports/keychron.md</code>（864 帖 / 6397 评论）</li>
-    <li>本地 Reddit 导出 — RoyalKludge / AKKO / NuPhy / Glorious / HHKB / Wooting / Epomaker.md 及 <code>_INDEX.md</code></li>
-    <li>词频统计 — 对上述 .md 语料 grep -i 计数（lube×48、budget×48、linear×39、stab×31、option×54、logi×62 等）</li>
-    <li>r/Keychron — "My 6-Month-Old Keychron K8's Bluetooth Completely Died"（蓝牙失效+客服）— <a href="https://www.reddit.com/r/Keychron/comments/1txj0ez/my_6monthold_keychron_k8s_bluetooth_completely/">reddit.com</a></li>
-    <li>r/Keychron — "Help needed Q6 HE 8K"（换 PCB 仍未修好）— <a href="https://www.reddit.com/r/Keychron/comments/1sl9j5r/help_needed_q6_he_8k/">reddit.com</a></li>
-    <li>r/MechanicalKeyboards — "Discussion: The entry-level mechanical keyboard market is confusing"（不碰没 QMK/VIA 的板）— <a href="https://www.reddit.com/r/MechanicalKeyboards/comments/1sgl03u/discussion_the_entrylevel_mechanical_keyboard/">reddit.com</a></li>
-    <li>r/MechanicalKeyboards — Royal Kludge RK96 $7 thrift find 讨论 — <a href="https://www.reddit.com/r/MechanicalKeyboards/comments/1tmu0yq">reddit.com</a></li>
-    <li>r/MechanicalKeyboards — Yunzii B68（出厂手感超值）— <a href="https://www.reddit.com/r/MechanicalKeyboards/comments/1tixepx/i_cant_believe_the_sale_price_on_this_yunzi_b68/">reddit.com</a></li>
-    <li>r/MechanicalKeyboards — "Joining the Hall Effect Gang"（Wooting 60HE v2 入坑）— <a href="https://i.redd.it/q1u5ex3tf81h1.jpeg">i.redd.it</a></li>
-    <li>r/topre — "I have converted to The Way of the Rubber Dome"（Realforce 手感）— <a href="https://www.reddit.com/r/topre/comments/1tl6ycz/i_have_converted_to_the_way_of_the_rubber_dome/">reddit.com</a></li>
-    <li>r/NuPhy — "Day 50ish with my Node 100"（QC/客服差，反衬 Keychron）— <a href="https://www.reddit.com/r/NuPhy/comments/1tj6hh1/day_50ish_with_my_node_100_anyone_else_dealing/">reddit.com</a></li>
-    <li>r/NuPhy — "Rare breed of garbage"（QC/固件/客服）— <a href="https://v.redd.it/fsicfgr88u4h1">v.redd.it</a></li>
-    <li>HardForum — "Mechanical keyboards are dead? Magnetic keyboards?"（磁轴归属辩论）— <a href="https://hardforum.com/threads/mechanical-keyboards-are-dead-magnetic-keyboards.2037974/">hardforum.com</a></li>
-    <li>Deskthority wiki — Topre switch（EC 视角技术资料）— <a href="https://deskthority.net/wiki/Topre_switch">deskthority.net</a></li>
-    <li>MacRumors 论坛 — "Apple needs to fix the Magic Keyboard" — <a href="https://forums.macrumors.com/threads/apple-needs-to-fix-the-magic-keyboard.2434433/">forums.macrumors.com</a></li>
-    <li>Hacker News — 妙控键盘键距/键程讨论 — <a href="https://news.ycombinator.com/item?id=22286652">news.ycombinator.com</a></li>
-    <li>Tildes — Valve bans Razer & Wooting features in CS2 — <a href="https://tildes.net/~games/1ib0/valve_bans_razer_and_wootings_new_keyboard_features_in_counter_strike_2">tildes.net</a></li>
+    <li><strong>价格看不懂。</strong>Keychron P6 Ultra 在 Amazon 卖 152 美元、官网 199 美元，评测者反复说"这太让人困惑了"。老手的翻译是"Amazon 仓库货和第三方卖家把价格搞乱了，152 美元买一把全铝 8K 键盘其实很值"。痛点不是贵，是没法判断贵得值不值。</li>
+    <li><strong>买回来还要调。</strong>一位 Keychron P1 HE 新手说退格和 Shift"从一开始就在响"，退格"非常绵"，他"完全是新手，谁能推荐一些新手友好的改法或兼容的稳定器"。老手对同类问题的回复是"抹点润滑脂、贴条胶带就好了"，这句对老手是举手之劳，对新手是另一道术语墙。</li>
+    <li><strong>轴体选择困惑。</strong>线性和段落哪个适合自己，论坛问得最多，第 02 章已经讲过。</li>
+    <li><strong>"便宜等于质量差"的预设。</strong>预算有限的新手不敢买对的东西，而老手认证 120 到 135 美元的 Akko、Feker 都好用。</li>
+    <li><strong>噪音扰人。</strong>"办公室隔壁是卧室，白天她以为外面在下冰雹"，"带响轴不适合办公室，如果你还想被同事喜欢"。噪音会立刻被家人同事投诉，驱动一条明确的补救消费链：买静音轴、加垫。</li>
+    <li><strong>键帽、轴体不兼容。</strong>想换键帽美化时才发现自己键盘的底排是非标尺寸，买回来的套装装不上；磁轴、光轴、Topre 和普通 MX 轴也不通用。老手的提醒是"第一把就买标准布局"。</li>
+    <li><strong>信息过载。</strong>词频很低，但语气最重："逛 r/mechmarket 让人崩溃到不知所措"，"我连从哪开始看键帽都不知道"。一条 25 赞的帖子通篇在问"为什么入门市场这么多互相矛盾的取舍"。</li>
+    <li><strong>手感网上试不了，买错了。</strong>有人买了两把才试出自己受不了段落轴的震感。这是行业的结构性缺陷，词频低是因为买错的人默默吃亏或转手二手，不会专门发帖喊后悔。试轴器这个品类的存在本身就是这条痛点的商业注脚，新手往往不知道它。</li>
   </ol>
+  <p>把词频顺序和推断的痛感放在一起看，背离最大的是第 7、8 两条：讨论最少，痛感最高。谁能解决这两条，才是抓住了新手决策的真正瓶颈。</p>
 
-  <div class="src-group">B. 第三方评测与科普</div>
-  <ol start="20">
-    <li>RTINGS — Different Keyboard Sizes Explained — <a href="https://www.rtings.com/keyboard/learn/keyboard-size-guide">rtings.com</a></li>
-    <li>RTINGS — The 4 Best Keychron Keyboards of 2026 — <a href="https://www.rtings.com/keyboard/reviews/keychron">rtings.com</a></li>
-    <li>Switch and Click — Keyboard Sizes and Layouts Explained — <a href="https://switchandclick.com/keyboard-sizes/">switchandclick.com</a></li>
-    <li>ThereminGoat's Switches — "What the thock is clack?"（声音/录音变量）— <a href="https://www.theremingoat.com/blog/what-the-thock-is-clack-a-discussion-on-switch-sound">theremingoat.com</a></li>
-    <li>Tom's Hardware — What Are Optical Keyboard Switches — <a href="https://www.tomshardware.com/news/what-are-optical-keyboard-switches,32352.html">tomshardware.com</a></li>
-    <li>HowToGeek — What are Scissor Switches — <a href="https://www.howtogeek.com/what-are-scissor-switches/">howtogeek.com</a></li>
-    <li>KeebsForAll — Mechanical vs Membrane Lifespan Compared — <a href="https://keebsforall.com/blogs/mechanical-keyboards-101/mechanical-vs-membrane-keyboards-lifespan-compared">keebsforall.com</a></li>
-    <li>TechGenyz — Mechanical vs Optical vs Membrane — <a href="https://techgenyz.com/mechanical-optical-and-membrane-keyboards/">techgenyz.com</a></li>
-    <li>MKB Guide — Kailh Box Switches Complete Guide — <a href="https://mkbguide.com/blog/kailh-box-switches-complete-guide">mkbguide.com</a></li>
-    <li>kordu.tools — Mechanical Keyboard Switch Comparison Chart 2026 — <a href="https://kordu.tools/blog/keyboard-switches-compared-mechanical-guide/">kordu.tools</a></li>
-    <li>MakeUseOf — Cherry MX vs Kailh vs Gateron — <a href="https://www.makeuseof.com/cherry-mx-vs-kailh-vs-gateron-switches/">makeuseof.com</a></li>
-    <li>MelGeek Lab — TTC Switch Comparison — <a href="https://www.melgeek.com/blogs/melgeek-lab/ttc-switch-comparison-find-the-best-for-ttc-switchs-your-keyboard">melgeek.com</a></li>
-    <li>Toronto KeyboardMan — Keyboard Plate Comparisons — <a href="https://torontokeyboardman.ca/blogs/news/keyboard-plate-comparisons">torontokeyboardman.ca</a></li>
-    <li>Goblintechkeys — Hotswap vs Soldered PCBs — <a href="https://goblintechkeys.com/blogs/news/unplugging-the-differences-hot-swappable-vs-soldered-pcbs">goblintechkeys.com</a></li>
-    <li>Nextrift — Custom Keyboard Hotswap vs Solderable PCB — <a href="https://nextrift.com/custom-keyboard-hotswap-vs-solderable-pcb-which-is-superior/">nextrift.com</a></li>
-    <li>Kineticlabs — Hot-Swap vs Solderable Keyboard PCBs — <a href="https://kineticlabs.com/blog/hot-swap-vs-solderable-keyboard-pcbs">kineticlabs.com</a></li>
-    <li>Voltcave — Mechanical Keyboard Sizes Visual Comparison — <a href="https://voltcave.com/keyboard-sizes/">voltcave.com</a></li>
-    <li>MKB Guide — Best Wireless Gaming Keyboards: 2.4GHz vs Bluetooth — <a href="https://mkbguide.com/blog/best-wireless-gaming-keyboards">mkbguide.com</a></li>
-    <li>Monsgeek — 2.4GHz vs Bluetooth Gaming — <a href="https://www.monsgeek.com/blog/2-4ghz-vs-bluetooth-gaming/">monsgeek.com</a></li>
-    <li>GlacierPCGaming — Hall Effect vs Mechanical Switches — <a href="https://glacierpcgaming.com/blogs/news/hall-effect-vs-mechanical-switches-understanding-the-key-differences">glacierpcgaming.com</a></li>
-    <li>MKB Guide — Wooting 60HE/80HE Guide + 电竞使用率 — <a href="https://mkbguide.com/blog/wooting-60he-80he-guide">mkbguide.com</a></li>
-    <li>MKB Guide — Razer Keyboard Lineup 2026 价格 — <a href="https://mkbguide.com/blog/razer-keyboard-lineup-guide-which-to-buy">mkbguide.com</a></li>
-    <li>PicksLab — Keychron Alternatives Under $100 (2026) — <a href="https://pickslab.net/blog/keychron-alternatives-under-100/">pickslab.net</a></li>
-    <li>keeb-finder — Wooting 60HE V2 价格 — <a href="https://keeb-finder.com/keyboards/wooting-60he-v2-magnetic-8k-keyboard">keeb-finder.com</a></li>
-    <li>MakeUseOf — Why I Regret Buying an Apple Magic Keyboard — <a href="https://www.makeuseof.com/why-i-regret-buying-mac-magic-keyboard/">makeuseof.com</a></li>
-    <li>Corsair Explorer — Are Rapid Trigger keyboards banned in CS2? — <a href="https://www.corsair.com/us/en/explorer/gamer/keyboards/are-rapid-trigger-keyboards-banned-in-cs2/">corsair.com</a></li>
-    <li>AttackShark — Counter-Strafing & Rapid Trigger in CS2 — <a href="https://attackshark.com/blogs/knowledges/counter-strafing-rapid-trigger-cs2-meta">attackshark.com</a></li>
-    <li>Engadget — Topre Realforce R2 long-term review — <a href="https://www.engadget.com/topre-realforce-r2-pfu-keyboard-irl-153030722.html">engadget.com</a></li>
-    <li>The Keyboard Co. — What is NKRO? Rollover & Anti-Ghosting — <a href="https://www.thekeyboardco.com/blog/index.php/2016/03/what-is-nkro-our-guide-to-rollover-anti-ghosting-and-choosing-the-right-keyboard/">thekeyboardco.com</a></li>
-    <li>Fantech — What is Tri-Mode Connectivity — <a href="https://fantechworld.com/blogs/fantech-tips/what-is-tri-mode-connectivity-why-does-it-matter-for-gaming-keyboards-or-mice">fantechworld.com</a></li>
-  </ol>
+  <h3>五类人，盯的指标几乎不重叠</h3>
+  <p>同一把键盘，程序员看键位能不能改，玩家看延迟，写稿的人看疲劳，爱好者看可玩性，从罗技升级过来的办公族只看能不能插上就用。</p>
 
-  <div class="src-group">C. 官方与众筹</div>
-  <ol start="50">
-    <li>Keychron — What Are Hall Effect Switches（Magnetic 单列筛选项）— <a href="https://www.keychron.com/blogs/news/what-are-hall-effect-switches">keychron.com</a></li>
-    <li>Keychron — Types of Keyboard Switches: Linear vs Tactile vs Clicky — <a href="https://www.keychron.com/blogs/news/types-of-keyboard-switches">keychron.com</a></li>
-    <li>Keychron — Keyboard Size & Layout Buying Guide — <a href="https://www.keychron.com/blogs/news/keyboard-size-layout-buying-guide">keychron.com</a></li>
-    <li>Keychron — 官方键盘对比页 / About Us — <a href="https://www.keychron.com/pages/keyboards-comparison">keychron.com</a></li>
-    <li>Keychron K2 — Kickstarter 官方项目页（约 1.1 万支持者 / $1M+）— <a href="https://www.kickstarter.com/projects/keytron/keychron-k2-a-sleek-compact-wireless-mechanical-ke">kickstarter.com</a></li>
-    <li>PRNewswire — Keychron K2 HE 上市新闻稿（含 Kickstarter $1M+）— <a href="https://www.prnewswire.com/news-releases/keychron-launches-award-winning-k2-he-wireless-magnetic-custom-keyboard-for-direct-sales-following-1m-kickstarter-success-302330977.html">prnewswire.com</a></li>
-    <li>CORSAIR — Keyboard Switch Types 101 / Sizes Explained — <a href="https://www.corsair.com/us/en/explorer/gamer/keyboards/key-switch-types-101/">corsair.com</a></li>
-    <li>Wooting — What are Hall Effect keyboard Switches — <a href="https://wooting.io/post/what-are-hall-effect-keyboard-switches">wooting.io</a></li>
-    <li>Wooting — 官方产品/定价页（80HE）— <a href="https://wooting.io/wooting-80he">wooting.io</a></li>
-    <li>HHKB / hhkeyboard.us — Topre Switches Guide — <a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us</a></li>
-    <li>HHKB Realforce — R3 价格页 — <a href="https://hhkeyboard.us/realforce">hhkeyboard.us</a></li>
-    <li>NuPhy — What is a Hall Effect Keyboard? — <a href="https://nuphy.com/blogs/journal/what-is-a-hall-effect-keyboard-the-new-he-keyboards-in-2024">nuphy.com</a></li>
-    <li>GATERON 公司简介（惠州，2000 创立）— <a href="https://en.gateron.cn/intro/1.html">en.gateron.cn</a></li>
-    <li>Wellnomics — Keystrokes vs Time as a risk factor for MSDs（白皮书）— <a href="https://wellnomics.com/wp-content/uploads/2020/01/Wellnomics-white-paper-Keystrokes-vs-Time-as-a-risk-factor-for-MSDs.pdf">wellnomics.com</a></li>
-    <li>Alibaba — Gateron Switch Supplier / 珠三角采购摘要 — <a href="https://www.alibaba.com/price-comparison/gateron-switches-producer">alibaba.com</a></li>
-    <li>sonusgear / Alibaba — Royal Kludge 选购指南（出海低价定位）— <a href="https://sonusgear.alibaba.com/buyingguides/royal-kludge-keyboard">sonusgear.alibaba.com</a></li>
-  </ol>
+  <div class="tbl compact stack">
+    <table>
+      <caption>五类人群的诉求、偏好与典型抱怨。来自论坛语料归纳，代表的是"会上网讨论键盘"的活跃子群体。</caption>
+      <thead><tr><th>人群</th><th>核心诉求</th><th>偏好</th><th>典型抱怨</th><th>对他们无效甚至反效的卖点</th></tr></thead>
+      <tbody>
+        <tr><th>程序员、重度打字</th><td data-l="核心诉求">连敲 8 小时不累，键位随心改</td><td data-l="偏好">段落或静音线性；65%–75%；有线或 2.4G</td><td data-l="典型抱怨">组合键被固件锁死，有人花 5 小时才映射成功还得靠 AutoHotkey</td><td data-l="无效卖点">灯效、小屏幕、旋钮</td></tr>
+        <tr><th>游戏玩家</th><td data-l="核心诉求">低延迟、可调触发，深夜不扰人</td><td data-l="偏好">磁轴、线性；TKL 或 60%；2.4G</td><td data-l="典型抱怨">磁轴"快但吵"，软件难用，2.4G 掉线</td><td data-l="无效卖点">"静音"宣传（多数磁轴其实偏吵）</td></tr>
+        <tr><th>文字工作者</th><td data-l="核心诉求">从妙控平滑过渡，低噪低疲劳</td><td data-l="偏好">低剖面或轻软线性；75%；三模</td><td data-l="典型抱怨">段落轴震手不适，吵到同事家人</td><td data-l="无效卖点">"客制化乐趣"是负担</td></tr>
+        <tr><th>客制爱好者</th><td data-l="核心诉求">把键盘当作品</td><td data-l="偏好">裸板随心换轴；60% 或 40%；不在乎连接</td><td data-l="典型抱怨">团购跳票、商家失联；"预润反而少了乐趣"</td><td data-l="无效卖点">"开箱即用"反而扫兴</td></tr>
+        <tr><th>办公升级</th><td data-l="核心诉求">一步到位，插上就用</td><td data-l="偏好">预润成品；全尺寸或 96%；三模</td><td data-l="典型抱怨">"成品还要调"、价格看不懂、线太短、键帽毛刺</td><td data-l="无效卖点">"可升级、可 mod"</td></tr>
+      </tbody>
+    </table>
+    <div class="tbl-hint">表格可左右滑动</div>
+  </div>
 
-  <div class="src-group">D. 行业与市场报告（口径不一，仅取量级）</div>
-  <ol start="66">
-    <li>Mordor Intelligence — Mechanical Keyboard Market — <a href="https://www.mordorintelligence.com/industry-reports/mechanical-keyboard-market">mordorintelligence.com</a></li>
-    <li>SkyQuest — Mechanical Keyboard Market Report — <a href="https://www.skyquestt.com/report/mechanical-keyboard-market">skyquestt.com</a></li>
-    <li>Coherent Market Insights — Mechanical Keyboard Market — <a href="https://www.coherentmarketinsights.com/market-insight/mechanical-keyboard-market-1888">coherentmarketinsights.com</a></li>
-    <li>Market Research Future — Mechanical Keyboard Market — <a href="https://www.marketresearchfuture.com/reports/mechanical-keyboard-market-1215">marketresearchfuture.com</a></li>
-    <li>The Business Research Company — Mechanical Keyboard Global Market Report — <a href="https://www.thebusinessresearchcompany.com/report/mechanical-keyboard-global-market-report">thebusinessresearchcompany.com</a></li>
-    <li>ResearchAndMarkets — Mechanical Keyboards Market Global Forecast 2026–2032 — <a href="https://www.researchandmarkets.com/reports/6123262/mechanical-keyboards-market-global-forecast">researchandmarkets.com</a></li>
-    <li>Reportprime — Top Mechanical Keyboards Market Companies — <a href="https://www.reportprime.com/mechanical-keyboards-r17731/company">reportprime.com</a></li>
-    <li>MKBGuide — TTC Switches Complete Guide（惠州 Trantek，1998）— <a href="https://mkbguide.com/blog/ttc-switches-complete-guide">mkbguide.com</a></li>
-    <li>IndexBox — 紧凑/无线键盘细分销量（RK 领先量化旁证，口径粗略）<span class="ts">(采集 2026-06)</span></li>
-    <li>ProSettings / MKB Guide — 电竞键盘使用率快照（Wooting CS2≈20.9% / Fortnite≈17.3%，2026-01 时点）<span class="ts">(采集 2026-01 快照)</span></li>
-  </ol>
-  <p class="src">注：Reddit 单帖深链以导出文件内记录的原始 URL 为准；市场报告数值口径与时点不透明，仅作量级参考，不可精确引用。全部链接采集/检索于 2026-06（电竞使用率为 2026-01 快照）。</p>
+  <p>这五类人其实排在一条"愿不愿意折腾"的光谱上：客制爱好者最爱折腾，然后是程序员、玩家、文字工作者，办公升级者最恨折腾。两头的诉求完全对立，预润轴对爱好者是"剥夺乐趣"，对办公族是刚需。一把键盘很难同时讨好两头。</p>
+
+  <h3>Mac 用户：发帖的人在抱怨什么，不发帖的人为什么留下</h3>
+  <p>在主动来论坛发帖的 Mac 用户里，离开妙控键盘的两条最高频理由是手感（键程约 1 毫米，触发点几乎就是触底点，不可调倾角，没有腕托）和键位（Command、Option 和 Windows 键盘的 Alt、Win 物理位置对不上，跨平台的人反复撕裂肌肉记忆）。一位用户说典型机械键盘"Command 键和 X 键错位导致手指劳损"，所以多年只用剪刀脚。</p>
+  <p>但这是发帖人群的画像。到 r/mac 这种不是键盘吐槽版的地方看，大量用户为了 Touch ID 指纹解锁主动选择妙控："研究了一圈键盘、差点买 Keychron，最后为了指纹识别买了妙控。"一个 83 赞的回复甚至认为拇指按 Command 比小指按 Ctrl 更舒服。所以键位主诉的本质是"切换成本加默认布局没对齐"，不是 Command 键设计得差；而"妙控很差"也不是 Mac 用户的共识。任何 Mac 键盘决策都得先回答：你拿什么补 Touch ID。</p>
+  <div class="limit">
+    <p>手感软肋的客观依据扎实（四点都有第三方评测），但用户直接骂"剪刀脚"、"糊"的次数极低，不满更多以"终于换了机械、值回票价"的间接方式表达。"缺 Mac 键帽"的信号也偏弱，列为次级痛点。</p>
+  </div>
+
+  <h3>对品牌意味着什么</h3>
+  <p><span class="tag judge">分析判断</span>这一章的数据指向一个共同的解法：给办公族和文字工作者一份"开箱即用，想玩再升级"的分层清单，默认静音轴、出厂调好稳定器、配够长的线，把花哨功能做成可关可拆，而不是上来就教润轴。给程序员和办公族都需要的"预设层"：出厂内置 Mac/Win 和常用快捷键预设，把那 5 小时省掉。价格方面，一张"70、120、200 美元各能买到什么"的锚点表加渠道差价提醒，比堆参数更能解决"看不懂贵得值不值"。</p>
+  <p><span class="tag idea">待验证机会</span>玩家市场里"深夜安静又低延迟"的磁轴是一块空白，评测者自己承认磁轴市场"充斥着吵的选项"；"先花 15 美元买试轴器再买 150 美元键盘"的前置触达能降低买错率。这两条是从痛点推导出来的方向，没有市场验证。</p>
+
+  <div class="try">
+    <h4>判断一下</h4>
+    <p>某品牌看到"lube（润轴）"是论坛高频词，决定在新品页主推"支持用户自行润轴"。按本章的证据，这个决定对哪类人有效、对哪类人反效？</p>
+    <details><summary>看答案</summary>
+      <p>对客制爱好者有效，他们把润轴当乐趣。对办公升级者和文字工作者反效，他们发帖问"怎么润轴"是因为被迫，不是因为想。词频高说明被讨论得多，不说明用户喜欢它。</p>
+    </details>
+  </div>
+
+  <details class="more sources">
+    <summary>本章依据的原始研究页与主要来源</summary>
+    <div class="body">
+      <ol>
+        <li>原始研究页：<a href="task_4_1_beginner_pains.html">入门小白真实痛点</a>、<a href="task_4_2_persona_matrix.html">五类人群痛点—需求矩阵</a>、<a href="task_4_3_mac_users.html">Mac 用户作为特殊人群</a>、<a href="task_4_4_skeptics.html">反例与证伪</a></li>
+        <li>本地 Reddit 导出：mechkb-beginner.md（872 帖 / 12837 评论；引用行 8、44、68、95、110、161、191–192、254、316、330、348、664、786、873、882、932–934、943、975、1015、1045）、keychron.md（864 帖 / 6397 评论；引用行 84、317、325、527）、mac-keyboard.md（272 帖 / 4792 评论；引用行 125、208–211、342–345、550–551、805、991、1323）</li>
+        <li>第三方对照：GlacierPC 与 The Tech Sidekick 入门指南；KeebsForAll《Keycaps Not Fitting》；Keychron《Are Keycaps Universal?》；Kinetic Labs《Switch Testers Are Underrated》；RTINGS《Best Keyboards for Programming 2026》；MakeUseOf《Why I Regret Buying an Apple Magic Keyboard》；iMore《Best mechanical keyboards for Mac in 2026》</li>
+      </ol>
+    </div>
+  </details>
+
+  <div class="next"><a href="#ch07"><small>下一章</small><b>07 各品牌在争什么？Keychron 在哪里？</b></a></div>
 </section>
+
+<!-- ======================= 07 ======================= -->
+<section class="chapter" id="ch07">
+  <span class="alias" id="m5"></span>
+  <div class="ch-num">第 07 章</div>
+  <h2>各品牌在争什么？Keychron 在哪里？</h2>
+
+  <p class="q">为什么 Reddit 上一边推荐 Keychron，一边又在骂它蓝牙？它到底算强还是弱？</p>
+  <div class="answer">
+    <span class="lbl">直接回答</span>
+    <p>两件事可以同时成立。Keychron 没有任何一项单项第一，但它是少数在价格、可改键、无线、Mac 支持、型号覆盖等维度上都不掉到"差"的品牌，社区因为开源改键固件（QMK/VIA）锁定它。它正被三个方向挤：下方的 Royal Kludge、AKKO、MonsGeek 用更低的价卖同样的三模热插拔；游戏侧的 Wooting 用磁轴锁住了竞技心智；上方的 HHKB、Realforce 用 Topre 手感锁住高端打字者。它自己最该补的洞是无线固件的稳定性和客服一致性。这些软肋来自投诉帖，没有分母，不能换算成故障率。</p>
+  </div>
+
+  <h3>Keychron 是谁</h3>
+  <p>2017 年，三位键盘爱好者在香港创立，制造放在深圳。第一款 K1 在 Kickstarter 上只设了 1 万美元目标，最后募到 30 万美元以上、约 4000 名支持者；第二款 K2 突破 100 万美元、约 1.1 万名支持者。它验证的是一个当时被主流厂商忽视的需求：对 Mac 友好的无线机械键盘。网上偶见"台湾品牌"的说法，与官网、Tracxn、LinkedIn 多源不符，判为低可信异说。</p>
+  <p>它的产品线命名一开始就劝退新手，这里给一把钥匙。字母是定位：C 有线入门，B 入门无线超薄，K 主力无线，V 塑料壳可改键，Q 全金属旗舰，X 超薄，HE 磁轴，Alice 人体工学布局，Lemokey 是游戏子品牌。后缀是档位：裸名基础版，Pro 加开源固件和无线，Max 再加更稳的无线，Ultra 是 2026 年新增的档，换成专为无线设计的 ZMK 开源固件，做到 8000 赫兹无线轮询和最长 660 小时续航。同一个数字（V1、V1 Max、V1 Ultra）是同一布局的不同档位。</p>
+
+  <details class="more">
+    <summary>Keychron 产品线速查表<small>11 条产品线的定位、价格带、固件</small></summary>
+    <div class="body">
+      <div class="tbl wide">
+        <table>
+          <thead><tr><th>系列</th><th>定位</th><th>价格带（美元）</th><th>壳料</th><th>无线</th><th>固件</th><th>代表型号</th><th>最适合</th></tr></thead>
+          <tbody>
+            <tr><th>C</th><td>有线极简入门</td><td class="num">~$33–50</td><td>塑料</td><td>有线</td><td>QMK/VIA</td><td>C1 / C2 / C3</td><td>第一把机械键盘</td></tr>
+            <tr><th>B</th><td>入门无线、超薄轻量</td><td class="num">~$33–60</td><td>塑料</td><td>三模</td><td>部分专有</td><td>B1 / B6</td><td>预算紧又要无线</td></tr>
+            <tr><th>K / K Pro / K Max</th><td>主力无线，型号最多</td><td class="num">~$60–130</td><td>塑料</td><td>三模</td><td>Pro/Max 为 QMK/VIA</td><td>K2 / K8 Pro / K5 Max</td><td>大众日常加 Mac</td></tr>
+            <tr><th>V / V Max</th><td>塑料壳可改键</td><td class="num">~$60–110</td><td>塑料</td><td>Max 为三模</td><td>QMK/VIA</td><td>V1 / V5 Max</td><td>想改键但不想花大钱</td></tr>
+            <tr><th>V Ultra</th><td>2026 新，塑料壳 ZMK 8K</td><td class="num">~$115–120</td><td>塑料</td><td>三模 8K</td><td>ZMK 开源</td><td>V1 / V3 / V5 Ultra</td><td>要高刷长续航的平价党</td></tr>
+            <tr><th>X</th><td>超薄低剖面</td><td class="num">~$80–120</td><td>塑料/铝</td><td>三模</td><td>QMK/VIA</td><td>X1</td><td>笔记本手感</td></tr>
+            <tr><th>Q / Q Max</th><td>全金属旗舰，gasket</td><td class="num">~$150–220</td><td>CNC 铝</td><td>Max 为三模</td><td>QMK/VIA</td><td>Q1 / Q6 Max</td><td>一步到位的准客制</td></tr>
+            <tr><th>Q Ultra</th><td>2026 新，铝壳 ZMK 8K 长续航</td><td class="num">~$230–240</td><td>CNC 铝</td><td>三模 8K</td><td>ZMK 开源</td><td>Q1 / Q3 / Q6 Ultra</td><td>无线旗舰</td></tr>
+            <tr><th>HE 磁轴</th><td>磁轴 / TMR，跨 K、Q、Lemokey</td><td class="num">~$90–240</td><td>塑料/铝</td><td>多为三模</td><td>磁轴软件</td><td>K3 HE / Q6 HE 8K</td><td>游戏加打字兼顾</td></tr>
+            <tr><th>Alice</th><td>人体工学布局，跨 Q、K、V</td><td class="num">~$90–200</td><td>塑料/铝</td><td>视型号</td><td>QMK/VIA</td><td>K11 / K15 / Q8</td><td>手腕外八的打字者</td></tr>
+            <tr><th>Lemokey</th><td>游戏子品牌，铝壳磁轴</td><td class="num">~$160–230</td><td>CNC 铝</td><td>三模</td><td>磁轴软件 / QMK</td><td>L1 / L3 / P1 HE</td><td>要颜值的高端游戏</td></tr>
+          </tbody>
+        </table>
+        <div class="tbl-hint">表格可左右滑动</div>
+      </div>
+      <p class="small">Ultra 系列价格来自 2026 年 1 月新闻稿（Q Ultra $229.99–239.99、V Ultra $114.99–119.99），其余为美区独立站常见区间估计，未逐型核到购买页。来源：Keychron 官网、Tom's Hardware、AppleInsider、PRNewswire、KeebFinder、RTINGS，2026-06。</p>
+    </div>
+  </details>
+
+  <h3>它的强处是叠加出来的</h3>
+  <p>把"Keychron 强"拆成可以反驳的四条：型号覆盖最宽，从 30 美元到 230 美元、从 60% 到全尺寸、Alice、低剖面、磁轴都有；开箱就支持开源改键固件 QMK/VIA；Mac 友好是它诞生的切口；Q 系列把全金属 gasket 结构压到了客制圈以下的价位。四条里最硬的是第二条。r/MechanicalKeyboards 一条 28 赞的回复说："我们这里一大批人根本不考虑没有 VIA/QMK 支持的键盘，受够了翻译稀烂、更新拉胯的专有驱动。"热插拔不是它的护城河，如今几乎所有出海品牌都标配；真正难复制的是开源固件、热插拔和量产价位三者叠加。</p>
+  <p>第三方对比给了具体数字：Royal Kludge RK84 Plus 做到 75% 无线热插拔约 55 美元，比对位的 Keychron V3 Max（约 85 到 100 美元）便宜约 35 美元。但 Royal Kludge 因为没按开源协议提供源码，被 QMK 项目暂停了它名下所有代码合并请求，r/MechanicalKeyboards 的机器人会在每个 RK 帖下自动贴出违规提示。AKKO 自家键盘没有 QMK/VIA，要改键得买它的子品牌 MonsGeek，而且多为有线。"无线、全布局、开箱开源固件"同时成立，目前只有 Keychron 做到。</p>
+
+  <h3>四类对手，各抢一块</h3>
+  <p>按"抢哪块心智"而不是按价格分，对手分四层。</p>
+
+  <figure>
+    <div class="fig wide">
+      <svg viewBox="0 0 760 460" role="img" aria-labelledby="f5t">
+        <title id="f5t">品牌竞争方向示意：Keychron 居中，四个方向分别是下方低价同侪、游戏侧磁轴、上方静电容信仰位、以及渠道型游戏大厂；每个方向标出依据与威胁判断</title>
+        <style>.f5 text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}</style>
+        <g class="f5">
+          <text x="20" y="26" font-size="15" font-weight="700" fill="#1c1a17">谁从哪个方向挤 Keychron（定性示意，不是评分或市占）</text>
+          <!-- center -->
+          <rect x="280" y="190" width="200" height="90" rx="12" fill="#f6e7d3" stroke="#b8661a" stroke-width="2"/>
+          <text x="380" y="222" font-size="16" font-weight="700" text-anchor="middle" fill="#1c1a17">Keychron</text>
+          <text x="380" y="243" font-size="11.5" text-anchor="middle" fill="#4a463f">$30–230 全覆盖 · 开源 QMK/VIA</text>
+          <text x="380" y="260" font-size="11.5" text-anchor="middle" fill="#4a463f">Mac 优先 · 三模 · 无单项第一</text>
+          <!-- top: faith -->
+          <rect x="250" y="48" width="260" height="78" rx="10" fill="#fffdf9" stroke="#cfc7b8"/>
+          <text x="380" y="70" font-size="13.5" font-weight="700" text-anchor="middle" fill="#1c1a17">上方 · 静电容信仰位</text>
+          <text x="380" y="88" font-size="11.5" text-anchor="middle" fill="#4a463f">HHKB / Realforce（Topre）· $200–350</text>
+          <text x="380" y="104" font-size="11.5" text-anchor="middle" fill="#4a463f">独占手感锁住高端打字者</text>
+          <text x="380" y="120" font-size="11" text-anchor="middle" fill="#7d776c">威胁：中。不抢量，抢"极致手感"标签</text>
+          <line x1="380" y1="126" x2="380" y2="188" stroke="#7d776c" stroke-width="1.5" stroke-dasharray="4 3"/>
+          <polygon points="375,180 385,180 380,190" fill="#7d776c"/>
+          <!-- bottom: low price -->
+          <rect x="250" y="346" width="260" height="90" rx="10" fill="#fffdf9" stroke="#b8661a" stroke-width="2"/>
+          <text x="380" y="368" font-size="13.5" font-weight="700" text-anchor="middle" fill="#1c1a17">下方 · 低价同侪</text>
+          <text x="380" y="386" font-size="11.5" text-anchor="middle" fill="#4a463f">Royal Kludge / AKKO / MonsGeek / Yunzii</text>
+          <text x="380" y="402" font-size="11.5" text-anchor="middle" fill="#4a463f">同规格约低 $35，出厂手感超值</text>
+          <text x="380" y="420" font-size="11" text-anchor="middle" fill="#8f4e12" font-weight="700">威胁：高。抢增量、压毛利，不是夺存量</text>
+          <line x1="380" y1="344" x2="380" y2="282" stroke="#b8661a" stroke-width="2"/>
+          <polygon points="375,290 385,290 380,280" fill="#b8661a"/>
+          <!-- left: gaming Wooting -->
+          <rect x="20" y="170" width="220" height="130" rx="10" fill="#fffdf9" stroke="#7d776c"/>
+          <text x="130" y="192" font-size="13.5" font-weight="700" text-anchor="middle" fill="#1c1a17">游戏侧 · 磁轴标杆</text>
+          <text x="130" y="210" font-size="11.5" text-anchor="middle" fill="#4a463f">Wooting（Razer / ROG 跟进）</text>
+          <text x="130" y="226" font-size="11.5" text-anchor="middle" fill="#4a463f">$175–245 · 纯有线 · Rapid Trigger</text>
+          <text x="130" y="244" font-size="11" text-anchor="middle" fill="#4a463f">CS2 职业选手使用率第一</text>
+          <text x="130" y="260" font-size="11" text-anchor="middle" fill="#7d776c">（2026-01 约 21%，2026-06 约 35%）</text>
+          <text x="130" y="282" font-size="11" text-anchor="middle" fill="#7d776c">威胁：中。心智壁垒，短期难撼</text>
+          <line x1="242" y1="235" x2="278" y2="235" stroke="#7d776c" stroke-width="1.5"/>
+          <polygon points="270,230 270,240 280,235" fill="#7d776c"/>
+          <!-- right: big brands -->
+          <rect x="520" y="170" width="220" height="130" rx="10" fill="#fffdf9" stroke="#cfc7b8"/>
+          <text x="630" y="192" font-size="13.5" font-weight="700" text-anchor="middle" fill="#1c1a17">侧面 · 渠道型游戏大厂</text>
+          <text x="630" y="210" font-size="11.5" text-anchor="middle" fill="#4a463f">Logitech G / Razer / Corsair / ROG</text>
+          <text x="630" y="226" font-size="11.5" text-anchor="middle" fill="#4a463f">靠渠道、电竞代言卖溢价</text>
+          <text x="630" y="244" font-size="11" text-anchor="middle" fill="#4a463f">用户嫌"塑料、专有软件、售后甩锅"</text>
+          <text x="630" y="282" font-size="11" text-anchor="middle" fill="#7d776c">威胁：中。边界对峙，不贴身</text>
+          <line x1="518" y1="235" x2="482" y2="235" stroke="#cfc7b8" stroke-width="1.5"/>
+          <polygon points="490,230 490,240 480,235" fill="#cfc7b8"/>
+          <!-- self weakness -->
+          <text x="20" y="320" font-size="11.5" fill="#8f4e12" font-weight="700">自身软肋：</text>
+          <text x="92" y="320" font-size="11.5" fill="#4a463f">2026 年无线固件相关的蓝牙失效投诉、客服执行不一致（投诉帖，无分母）</text>
+          <text x="20" y="452" font-size="12" fill="#7d776c">威胁等级为定性判断，依据 8 份 Reddit 品牌语料、ProSettings、RTINGS、PicksLab 等交叉，采集 2026-06。线条粗细只表示判断强弱，没有量化依据。</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>图 5·竞争方向。</b>下方低价同侪是唯一标"高"的方向，机制是抢增量、压毛利：Keychron 同期仍有第三方估算的约四成年化增长，与"存量被夺"的说法矛盾。</figcaption>
+  </figure>
+
+  <p><strong>游戏大厂</strong>（罗技、雷蛇、海盗船、ROG）靠渠道、品牌和电竞代言卖溢价，2026 年集体扑向磁轴。用户帖里它们被嫌"190 欧元一个会咯吱响的塑料壳"，"软件随机忘记 Rapid Trigger 设置，报了一年的 bug 没修"。它们抢的是 Keychron 本就不强的纯游戏盘。</p>
+  <p><strong>客制、极客向</strong>（NuPhy、Epomaker、Glorious、Ducky、Wooting）抢的是 Keychron 最想守的口碑高地。戏剧性的是，冲得最猛的 NuPhy 和 Epomaker 自己的品控和客服先塌了："别买 NuPhy，品控烂，固件烂，客服通常也烂"，"官网写 30 天无理由退货，结果逼你走检测流程，拖到窗口过期"。这反过来衬出 Keychron"还算稳"。真正从正面压住它的是 Wooting，但压的是游戏侧。</p>
+  <p><strong>中国出海同侪</strong>（Royal Kludge、AKKO、MonsGeek、Womier）打的是同一套三模加热插拔，价格砍到 Keychron 入门盘以下。AKKO 的轴和 PBT 键帽还被客制圈当"超值耗材"大量采购，相当于在 Keychron 上游也赚钱。它们不夺 Keychron 的存量用户，而是把"第一把机械键盘"的价格心智往 30 到 50 美元拽，挤薄入门线的毛利。它们的软肋是专有软件、品控口碑和开源协议争议。</p>
+  <p><strong>静电容信仰位</strong>（HHKB、Realforce）用一种 MX 和磁轴都做不出的手感锁住高端打字者。一位在圈子里换了七年轴的玩家最后"皈依橡胶碗之道"，买了 Realforce R3S 之后"每天都期待打字"。Keychron 进不去这块，这不是价格问题，是物理结构问题。有用户用 Q6 加 TTC 静音轴模拟出"接近 Topre"的手感，这是 Keychron 能接住的边缘人群。</p>
+
+  <h3>游戏侧的数字：两个时点都给</h3>
+  <p>Wooting 在 CS2 职业选手里的使用率，2026 年 1 月的快照约 20.9%（Fortnite 约 17.3%）；2026 年 6 月复核 ProSettings 912 名选手的数据库，Wooting 品牌升到约 34.8%，其中 80HE 单型号 27.6%，雷蛇 25.6%、罗技 20.4% 紧随。电竞外设排名按月剧烈波动，两个时点都摆出来供对照。无论取哪一个，Wooting 都是 CS2 里单一最强的存在，Keychron 的磁轴和 Lemokey 几乎不入榜。Keychron 在磁轴技术广度上不输，它的 K3 HE 被用户称为首款 TMR 低剖面三模磁轴键盘，但讨论语境是"打字办公便携"，不是"电竞夺冠"。</p>
+
+  <h3>自身软肋：无线固件和客服</h3>
+  <p>在 r/Keychron 的求助语料里，蓝牙和无线模块失效、客服拖延反复出现，并且跨型号（K8、J1、V3 Max、Q6 HE、K6 HE）集中在同一时间段。多位用户和高赞回复把它指向 2026 年 3 月前后的无线固件 0.2.4 版本，且官方封锁了降级。典型的帖子："半年的 K8 蓝牙彻底坏了，客服是噩梦，这已经是第二把坏的。"另一位 Q6 HE 8K 用户换了电路板仍未修好，"后续邮件没有回音，360 欧元打水漂"。</p>
+  <p>两类问题要分开看。蓝牙失效有强烈的批次和固件时间相关性，可能随更新消失；客服一致性是更长期、跨型号的结构性问题。开源固件在这里是双刃剑：有用户把 J1 的问题追到了代码层，Keychron 方面确认已知并将修复，专有固件的竞品连让用户这样诊断的机会都没有。</p>
+  <div class="limit">
+    <p>这些软肋全部来自投诉帖，没有分母，不能换算故障率，也不应据此推断 Keychron 的可靠性低于同侪。同一批语料里 NuPhy、Epomaker 的客服口碑更差，说明客服和品控是行业通病。Keychron 的营收增速来自 ECDB 和 Similarweb 的第三方估算，同一来源出现过两种口径，只能当量级。</p>
+  </div>
+
+  <details class="more">
+    <summary>Keychron 与 8 个主要竞品的多维对比<small>基准列是 Keychron，每格写"相对它高还是低、代价是什么"</small></summary>
+    <div class="body">
+      <div class="tbl wide">
+        <table>
+          <thead><tr><th>品牌</th><th>价格带（美元）</th><th>主打技术</th><th>目标人群</th><th>可定制</th><th>无线</th><th>Mac 友好</th><th>相对 Keychron 的差异</th></tr></thead>
+          <tbody>
+            <tr><th>Keychron（基准）</th><td class="num">$30–230</td><td>MX / 低剖面 / 磁轴全覆盖</td><td>大众 + Mac + 准极客</td><td>热插拔 + 开箱 QMK/VIA</td><td>三模（多数）</td><td>原生、最深</td><td>唯一在各维度都不掉到"差"；护城河是宽度、开源、Mac 的叠加</td></tr>
+            <tr><th>Royal Kludge</th><td class="num">$30–80</td><td>MX / 磁轴</td><td>极致预算</td><td>热插拔 / 专有软件；QMK 协议争议</td><td>三模</td><td>可用</td><td>同功能约低 $35；代价是软件差、品控口碑差、QMK 合并请求被暂停</td></tr>
+            <tr><th>AKKO / MonsGeek</th><td class="num">$40–120</td><td>自研轴 / PBT 键帽</td><td>预算 + 颜值</td><td>部分热插拔；自家无 QMK，要 VIA 买 MonsGeek（多有线）</td><td>视型号</td><td>可用</td><td>出厂手感和键帽更值；要开源固件就得放弃无线</td></tr>
+            <tr><th>NuPhy</th><td class="num">$100–200</td><td>低剖面 Nano / Halo 轴</td><td>低剖面颜值</td><td>热插拔 / 专有</td><td>三模</td><td>友好</td><td>低剖面手感约 $20 差价更好；品控和客服跨型号被大量差评</td></tr>
+            <tr><th>Epomaker</th><td class="num">$35–150</td><td>MX / 磁轴，带屏</td><td>玩法 + 性价比</td><td>热插拔 / 专有网页驱动</td><td>三模</td><td>可用</td><td>花活多价低；专有驱动有关服风险，客服口碑两极</td></tr>
+            <tr><th>Glorious (GMMK)</th><td class="num">$60–180</td><td>MX / 磁轴</td><td>北美客制入门</td><td>热插拔 / 开箱 VIA</td><td>部分</td><td>可用</td><td>同样开箱可改；无线弱、自家轴溢价</td></tr>
+            <tr><th>Wooting</th><td class="num">$175–245+</td><td>霍尔磁轴 + Rapid Trigger，8K</td><td>竞技 FPS</td><td>非主打客制</td><td>纯有线（主动取舍）</td><td>可用</td><td>游戏延迟和固件标杆，从游戏侧夹击</td></tr>
+            <tr><th>Razer / ROG / Logitech G</th><td class="num">$100–350</td><td>磁轴 / 光轴，高刷</td><td>主流游戏玩家</td><td>弱 / 专有封闭</td><td>多为无线</td><td>可用</td><td>渠道和品牌强；手感和客制弱、生态封闭、贵</td></tr>
+            <tr><th>HHKB / Realforce</th><td class="num">$229–385</td><td>Topre 静电容</td><td>打字信仰</td><td>不可改 / 无开箱 QMK</td><td>HHKB 蓝牙 / GX1 有线</td><td>HHKB 友好</td><td>独占 Topre 手感；贵、不热插拔、无开源固件</td></tr>
+          </tbody>
+        </table>
+        <div class="tbl-hint">表格可左右滑动</div>
+      </div>
+      <p class="small">价格为 2026 年 6 月美区时点估计，以购买页为准。来源：8 份 Reddit 品牌语料、PicksLab《Keychron Alternatives Under $100》、keeb-finder 逐型对比、QMK 开源协议违规清单与 GitHub Issue #24085、MKB Guide、Wooting 与 HHKB 官网、RTINGS。</p>
+    </div>
+  </details>
+
+  <h3>对品牌意味着什么</h3>
+  <p><span class="tag fact">研究发现</span>Keychron 在 9 个对比维度里拿下 4 个单项领先（可定制、无线覆盖、Mac、型号覆盖），4 个处于劣势（入门价、低剖面手感、竞技延迟、Topre 手感），客服一致性是行业通病里"不算最差"。没有任何对手能在两个以上维度同时压过它。</p>
+  <p><span class="tag judge">分析判断</span>三面挤压的方向不同，打法也该不同：对下方是毛利战，靠开源固件和"贵一点但不踩坑"的靠谱度守住溢价，不跟 RK 比绝对价格；对游戏侧是心智战，不去 CS2 职业榜硬刚，吃"会打字也想偶尔竞技"的兼顾人群，这是有线、不主打客制的 Wooting 够不到的缝；对信仰位是缝隙战，做好"够用的 Topre 平替"，不必硬攻。最大的内部风险不是竞品，是无线固件的信任：蓝牙失效加封锁降级加客服慢，三者叠加直接打在"Mac 友好无线"这个诞生心智上。</p>
+  <p><span class="tag idea">待验证机会</span>把"任何无线固件版本都能回退"写成承诺，正面回应最痛的"封锁降级"；入门线用"开箱开源固件加可见的保修响应时限"把 10 到 20 美元溢价说圆；磁轴线主攻"会议室能打字、晚上能开黑"的兼顾人群。这几条是推导，不是已验证的市场空白。</p>
+
+  <div class="try">
+    <h4>判断一下</h4>
+    <p>有人说"RK 这么便宜，Keychron 的入门盘要被抢光了"。按本章的数据，这句话哪里对、哪里不对？</p>
+    <details><summary>看答案</summary>
+      <p>对的部分：RK 同规格确实便宜约 35 美元，入门价心智被往下拽，Keychron 入门线的毛利被压。不对的部分：Keychron 同期有第三方估算的约四成年化增长，与"被抢光"矛盾；更合理的解释是大盘在扩张，低价品牌吃最底层增量，Keychron 吃中高端增量。另外 RK 的专有软件和品控口碑差，压价但没压掉 Keychron"靠谱"的心智。</p>
+    </details>
+  </div>
+
+  <details class="more sources">
+    <summary>本章依据的原始研究页与主要来源</summary>
+    <div class="body">
+      <ol>
+        <li>原始研究页：<a href="task_5_1_keychron_profile.html">Keychron 品牌画像与产品线矩阵</a>、<a href="task_5_2_competitor_landscape.html">竞品四层全景</a>、<a href="task_5_3_multi_dim_matrix.html">多维对比大矩阵</a>、<a href="task_5_4_keychron_position.html">Keychron 的相对位置</a></li>
+        <li>起源：Kickstarter "keytron" 项目页（K1、K2）；ReferralCandy 创业案例；Keychron 官网 About Us；Tracxn；PRNewswire K2 HE 新闻稿</li>
+        <li>Ultra / ZMK：Tom's Hardware、AppleInsider、PRNewswire（2026-01）</li>
+        <li>竞品与差价：PicksLab《Keychron Alternatives Under $100 (2026)》；keeb-finder《Keychron vs MonsGeek》；QMK License Violations 页与 GitHub Issue #24085；GamesRadar 2026 磁轴横评；Wooting 官网 80HE 定价</li>
+        <li>电竞使用率：ProSettings《Best Keyboard for CS2 [912 Pro Players]》（2026-06）与 MKB Guide Wooting 指南（2026-01 快照）</li>
+        <li>营收与份额估算：ECDB《Keychron Company & Revenue》；IndexBox 紧凑键盘市场报告；Keychron 官方 Warranty 页</li>
+        <li>用户帖：r/Keychron《My 6-Month-Old K8's Bluetooth Completely Died》《Help needed Q6 HE 8K》《J1 Bluetooth randomly disconnects》；r/MechanicalKeyboards《entry-level market is confusing》（28 赞 QMK/VIA 回复）、《A year ago I had two keyboards》、RK96 $7 二手帖、Yunzii B68、MonsGeek M1 V5 TMR 评测；r/NuPhy《Day 50ish with my Node 100》《Rare breed of garbage》；r/topre《I have converted to The Way of the Rubber Dome》</li>
+      </ol>
+    </div>
+  </details>
+
+  <div class="next"><a href="#ch08"><small>下一章</small><b>08 这个行业为什么会变成这样？</b></a></div>
+</section>
+
+<!-- ======================= 08 ======================= -->
+<section class="chapter" id="ch08">
+  <span class="alias" id="m6"></span><span class="alias" id="insight"></span>
+  <div class="ch-num">第 08 章</div>
+  <h2>这个行业为什么会变成这样？</h2>
+
+  <p class="q">为什么 30 美元的白牌和 200 美元的大厂键盘，用的轴差不多？为什么这个行业只剩价格战和每三个月出新品？</p>
+  <div class="answer">
+    <span class="lbl">直接回答</span>
+    <p>因为全球三家叫得上名的轴厂挤在广东惠州和东莞方圆几十公里内，2014 年 Cherry 的 MX 专利到期后造轴变成了公共能力，珠三角的出厂成本表人人共享。硬件层被抹平，白牌只能拼价格和上新速度，品牌只能在软件、设计和服务上做差异。市场规模各家市调机构说法互相打架，只能看量级：约 17 到 28 亿美元、年增约 8% 到 12%。磁轴是这十年最实质的技术变化，它主要改写的是游戏键盘，对纯办公用户关系不大。</p>
+  </div>
+
+  <h3>这个市场有多大：只能看量级</h3>
+  <p>"市场规模"听起来是硬数据，在这个品类里其实是软数据。机械键盘没有独立的海关编码，没有上市公司单独披露这条产品线，也没有行业协会的出货统计。市面上所有"全球机械键盘市场 X 亿美元"都来自按需付费的市调报告，口径各不相同，报告本身的目的是促成购买。</p>
+  <p>我们把九家机构摆在一起对账：同一年份的基线从 Coherent 的 16.7 亿美元到 ResearchAndMarkets 的 27.9 亿美元，差出五成以上；年增速从 Mordor 的 5.19% 到 Coherent 的 15.4%，差近三倍；连"谁是大头"都对不上，SNS 说游戏占六成四、北美第一，Mordor 说亚太第一、有线占七成。剔掉用增量口径的 Technavio 和内部矛盾的 Coherent，其余七家在"基线 17 到 28 亿美元、年增 8% 到 12%"两个区间大致收敛。这是本报告唯一愿意背书的结论，表里的任何具体数字都不该当真值引用。</p>
+  <p>还有一个隐蔽的陷阱：同一份报告页的数字会随访问月份自动滚动。Coherent 的页面在几个月内把基年后移一年，基线从 16.7 亿变成 18.4 亿，没有任何新的市场观测，纯粹是基年换了。引用这类数字必须带采集时点。</p>
+
+  <details class="more">
+    <summary>九家市调机构对账表<small>基线、增速、终值与时间锚</small></summary>
+    <div class="body">
+      <div class="tbl wide">
+        <table>
+          <thead><tr><th>机构</th><th>基线估值（基年）</th><th>声称年增速</th><th>预测终值 / 年份</th><th>时间锚</th><th>备注</th></tr></thead>
+          <tbody>
+            <tr><th>Mordor Intelligence</th><td class="num">2.53B（2025）→ 2.66B（2026）</td><td class="num">5.19%</td><td class="num">3.43B / 2031</td><td>页面无日期，采集 2026-06</td><td>增速最保守</td></tr>
+            <tr><th>Technavio</th><td>增量口径，无基线</td><td class="num">6.0%</td><td class="num">+362.6M / 2026–2030</td><td>采集 2026-06</td><td>口径不可比，单列</td></tr>
+            <tr><th>SkyQuest</th><td class="num">1.98B（2024）→ 2.2B（2025）</td><td class="num">11.2%</td><td class="num">5.15B / 2033</td><td>采集 2026-06</td><td>居中偏乐观</td></tr>
+            <tr><th>Market Research Future</th><td class="num">2.05B（2024）→ 2.30B（2025）</td><td class="num">约 10.9%</td><td class="num">— / 2035</td><td>采集 2026-06</td><td>居中</td></tr>
+            <tr><th>Straits Research</th><td class="num">2.05B（2024）→ 2.30B（2025）</td><td class="num">11.9%</td><td class="num">5.68B / 2033</td><td>采集 2026-06</td><td>居中</td></tr>
+            <tr><th>ResearchAndMarkets</th><td class="num">2.79B（2026e）</td><td class="num">11.62%</td><td class="num">3.60B / 2032</td><td>采集 2026-06</td><td>基线偏高</td></tr>
+            <tr><th>SNS Insider</th><td class="num">1.97B（2024）</td><td class="num">13.12%</td><td class="num">5.26B / 2032</td><td>新闻稿 2025-11-06</td><td>偏激进，但有明确日期</td></tr>
+            <tr><th>The Business Research Co.</th><td class="num">1.84B（2026）</td><td>—</td><td class="num">— / 2035</td><td>采集 2026-06</td><td>基线偏低</td></tr>
+            <tr><th>Coherent Market Insights</th><td class="num">1.67B（2025）→ 1.84B（2026）</td><td class="num">15.4%</td><td class="num">— / 2033</td><td>快照，页面已后移一年</td><td>最低基线配最高增速，离群</td></tr>
+            <tr><th>Knowledge Sourcing</th><td>—</td><td>—</td><td class="num">3.87B / 2030</td><td>采集 2026-06</td><td>仅终值</td></tr>
+          </tbody>
+        </table>
+        <div class="tbl-hint">表格可左右滑动</div>
+      </div>
+      <p class="small">B 为十亿美元。Technavio 只报告 2026–2030 增长 3.626 亿美元，若属实，说明年新增规模是亿美元级，总盘子上限可能靠近区间下沿。</p>
+    </div>
+  </details>
+
+  <h3>不是一个市场，是几个叠在一起</h3>
+  <p>699 元的雷蛇和 99 元的 Aula 几乎不在一条赛道抢人。按"靠什么活着"分，有四层加一根纵轴。游戏大厂（罗技、海盗船、雷蛇、赛睿、HyperX）靠渠道和电竞代言卖溢价，一份市调口径给罗技约 18%、海盗船约 14%，前五家合计约 42% 到 46%。客制和极客层（Keychron、Ducky、Varmilo、KBDfans）靠社区和手感收高溢价、走低量，Keychron 是这一层最大的变量，它把原本属于小作坊和团购圈的需求工业化了，第三方估算它 2025 年自营商店销售额约 1.24 亿美元。出海低价层（Royal Kludge、Epomaker、Aula 和两百多个白牌）在 30 到 80 美元卖"蓝牙加热插拔加还不错的声音"，TikTok 的敲击声视频成了新货架，Aula F75 靠这个在 2025 年成了现象级爆款。静电容信仰位（HHKB、Realforce）不参与价格战，靠 25 年沉淀的手感圈住"一把用十年"的死忠。横切这四层的纵轴是磁轴。</p>
+  <div class="limit">
+    <p>品牌份额来自市调摘要，口径和时点不透明。旧版报告引用的"前五家约 55%"已按本次采集的 42% 到 46% 下修，两者都只能当量级。Keychron 营收是 ECDB 和 Similarweb 的第三方估算，不是审计财报。</p>
+  </div>
+
+  <h3>价格战为什么是结构性的</h3>
+  <p>先把坐标钉死。Gateron 2000 年创立于惠州仲恺高新区；TTC 1998 年创立于惠州，和 Gateron 同城；Kailh 凯华在东莞塘厦镇。惠州到东莞直线五六十公里，加上做电路板和组装的深圳、做注塑和键帽的广州，整条"轴、板、帽、壳、组装"链条压在一小时车程里。TTC 进入键盘轴之前就是罗技、雷蛇、赛睿的鼠标微动供应商，欧美大厂的"自研轴"叙事之前，零件早就来自惠州。</p>
+  <p>地理集中是空间条件，还需要一个时间扳机：2014 年 Cherry MX 专利到期。此前十字轴心受专利保护，造轴是难的；之后惠州东莞的轴厂可以合法量产兼容 MX 的轴，Gateron、Kailh、Outemu 集体涌入，"造轴"从专有技术变成珠三角的公共能力。最锋利的反证是 Cherry 自己：发明者如今深陷财务危机，考虑出售外设部门。</p>
+  <p>最后一根稻草是成本透明。珠三角采购指南直接摊牌：一把热插拔机械键盘的 B2B 出厂价随起订量低至 35 美元，同类零售 55 到 220 美元；热插拔、USB-C 可拆线、无线已经是标配而不是卖点；新布局每三到六个月一轮。当成千上万的白牌拿着同一张成本表，价格和上新速度就成了仅剩的两个硬件维度。这不是谁在"打"价格战，是结构逼着所有人跳水。</p>
+  <p>集群抹平的是硬件层，抹不平的是品牌、社区、软件调校和磁轴算法，这些东西广东代工不了。对普通买家的实操含义是：同价位白牌的轴大概率同源，纠结用了谁家的轴意义不大，真正拉开体验的是外壳键帽工艺、软件可玩性和售后。</p>
+  <div class="limit">
+    <p>"珠三角交期比别处快 30% 到 50%"是产业方常用的宣称，没有一手测量。轴厂集中已确认，但整机代工是否同样集中在广东、还是已外溢到江浙和越南，没有一手产能数据。欧美大厂"自研轴"里多大比例由这三家代工，没有逐厂披露。</p>
+  </div>
+
+  <h3>磁轴：从"开关"到"模拟尺"</h3>
+  <p>传统机械轴是开关，金属触点接通是 1、断开是 0，触发点固定。磁轴读的是连续值：按得越深磁铁越近，键盘随时知道这颗键被压下了几毫米。两个直接后果：没有金属触点，所以没有触点磨损和抖动；触发点可以在软件里任意调，WASD 设 0.1 毫米极灵敏，Shift 设 3 毫米防误触。</p>
+  <p>Rapid Trigger 是在这个基础上做的事。传统轴有固定的触发点和复位点，复位点比触发点高，连按两次同一个键中间有一段"死行程"。Rapid Trigger 抛弃固定复位点，键往下走一点就触发，往上抬一丝就复位。在 CS2 这类游戏里，急停的每一毫秒都是"能不能开枪"的毫秒，所以 FPS 玩家觉得"回不去了"。Wooting 2022 年用 60HE 把它带火，如今几乎所有磁轴键盘都标配。</p>
+  <p>厂商接着把急停这一步也自动化了：Snap Tap（雷蛇命名）、SOCD、null-bind 都是同一件事，同时按住左右两个方向键时，键盘自动只保留最后按的那一个。这越过了一条线。Rapid Trigger 是把你的手指动作更快更准地如实上报，Snap Tap 是替你做了"该往哪停"的决定。2024 年 8 月，Valve 在 CS2 更新里写道"我们决定划一条清晰的界线"，硬件辅助的急停在官方服务器上检测到即踢出比赛，Rapid Trigger 保留合法。IEM 科隆站上几乎所有顶尖战队都在用 Snap Tap 类功能，雷蛇还专门为 CS2 打过广告，这不是小众论坛的争吵。</p>
+
+  <div class="tbl compact stack">
+    <table>
+      <caption>磁轴三大功能在 CS2 的合法性（Valve 2024 年 8 月裁决，至 2026 年仍是规则）。</caption>
+      <thead><tr><th>功能</th><th>它做什么</th><th>本质</th><th>CS2 裁决</th></tr></thead>
+      <tbody>
+        <tr><th>可调触发点</th><td data-l="做什么">软件自定义每键触发深度</td><td data-l="本质">个性化设置</td><td data-l="裁决">合法</td></tr>
+        <tr><th>Rapid Trigger</th><td data-l="做什么">按多深报多深，抬一丝即复位</td><td data-l="本质">如实上报物理状态</td><td data-l="裁决">合法</td></tr>
+        <tr><th>Snap Tap / SOCD</th><td data-l="做什么">同按 A 和 D 时自动只取最后按下的方向</td><td data-l="本质">软件替你做急停决策</td><td data-l="裁决">禁用，检测到即踢</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>给普通读者的锚：这整套东西主要影响竞技游戏人群，纯办公、写作的人不必因为"没上磁轴"焦虑。磁轴的手感未必比顶级机械轴或 Topre 好，不少评测说它的顺滑度仍逊于高端线性轴，它的杀手锏是功能，不是手感。磁轴专项的市场增速各家口径从 9% 到 17% 甚至 20% 以上，只取"明显快于行业整体"这一个判断。</p>
+  <div class="limit">
+    <p>"无触点所以几乎不磨损"是厂商乐观侧的说法，弹簧、导轨、键帽柱仍会磨损，缺长期第三方耐久实测。Valve 如何区分硬件 SOCD 和手速极快的玩家、误判率多少，官方未公开。本章结论以 CS2 为准，Valorant 等其他游戏的政策不完全一致。</p>
+  </div>
+
+  <h3>把全篇串起来</h3>
+  <p>读到这里可以把八章收成一条线。机械键盘之所以成为这个品类的中心，是因为它在可调、可修、手感多样上同时领先（第 01 章）；可调可修意味着一把键盘有无数个旋钮（第 02 章），这既是乐趣来源，也是新手"买回来还要调"的温床（第 06 章）；谁把"调试落差、价格焦虑、Mac 键位、开箱即用"这些痛点解决得最好，谁就占住心智，Keychron 用开源固件、热插拔、Mac 友好、量产价位正面命中了入门痛点（第 07 章）；而轴厂同源、价格战结构性，让低价白牌能无限逼近它的硬件规格，于是它只能靠软件、心智和服务做差异，磁轴又从游戏侧另开了一条它短期难撼动的战线（本章）。整条漏斗的关键摩擦点，不在"懂不懂术语"，而在"我想止步成品，还是被卷进折腾循环"。</p>
+
+  <h3>事实、判断和机会，分开列</h3>
+  <p><span class="tag fact">研究发现</span>三大轴厂集中于惠州东莞，2014 年专利到期触发集体涌入，B2B 出厂价与零售价存在鸿沟，CS2 封禁 Snap Tap 保留 Rapid Trigger。这些有多源一致的公开证据。</p>
+  <p><span class="tag judge">分析判断</span>市场规模"17 到 28 亿美元、年增 8% 到 12%"是剔离群值后的收敛带，不是测量值；"存量办公盘缓增、增量游戏磁轴盘快增"是对增速分歧的合理解释，没有任何一家报告做过这种拆分；"硬件同源所以护城河在软件和服务"是推论。</p>
+  <p><span class="tag idea">待验证机会</span>原始研究里推导出几个方向：真正"出厂调好、留热插拔后路"的分层产品；Command 键与 X 对齐、一键切换 Mac/Win 的键盘；安静又低延迟的磁轴；带试轴器和认证二手的新手入口；把客服一致性和固件可回退做成可信承诺；驱动里一键切换"赛事合规模式"。它们来自痛点与竞品空白的交叉，没有市场验证，不能写成已证实的空白。</p>
+
+  <details class="more">
+    <summary>关键假设、置信度与失效条件<small>原方法论"第七阶"的产出，另附交付后六个月要盯的信号</small></summary>
+    <div class="body">
+      <div class="tbl wide">
+        <table>
+          <thead><tr><th>假设</th><th>置信度</th><th>什么会让它失效</th></tr></thead>
+          <tbody>
+            <tr><th>新手决策首要变量是预算与用途双入口，而非单看轴体</th><td>中</td><td>大样本选购调研显示轴体是唯一首选因子</td></tr>
+            <tr><th>机械寿命 5000 万到 1 亿、薄膜约 500 万的量级成立</th><td>高</td><td>厂商规格大幅修订或第三方寿命实测推翻</td></tr>
+            <tr><th>热插拔是新手试轴杠杆，焊接仍是硬核客制主流</th><td>高</td><td>严肃客制圈转向"热插拔已成主流"</td></tr>
+            <tr><th>痛点排序只是讨论热度代理指标</th><td>已显式声明</td><td>不适用</td></tr>
+            <tr><th>Keychron 仍高速增长（第三方估算约 40% 年化），低价侧抢增量非夺存量</th><td>中</td><td>出现 Keychron 份额或营收下滑的一手数据</td></tr>
+            <tr><th>低价侧、磁轴侧、信仰位三面挤压</th><td>中</td><td>销量数据显示某一侧并未实际侵蚀</td></tr>
+            <tr><th>市场量级 17–28 亿美元、年增 8–12%</th><td>低（量级而非精确）</td><td>一手出货或海关数据与此量级差异巨大</td></tr>
+            <tr><th>轴厂集中广东导致价格战结构性</th><td>高</td><td>主要轴厂或代工地理显著分散</td></tr>
+            <tr><th>磁轴加 Rapid Trigger 已成 2026 游戏新品标配</th><td>中到高</td><td>2026–2027 新品中磁轴渗透回落</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>要盯的信号</strong>：Keychron 的营收口径或第三方销量；RK、AKKO、MonsGeek 在 Amazon 畅销榜和 r/budgetkeebs 的口碑趋势；各品牌 2026 下半年新品里磁轴的占比；CS2、Valorant 对 Rapid Trigger 的后续裁定；Cherry、Gateron、TTC 的产能或并购新闻；Keychron 无线固件投诉是否随版本消退。</p>
+    </div>
+  </details>
+
+  <div class="try">
+    <h4>判断一下</h4>
+    <p>一份出海 BP 写着"全球机械键盘市场 25.3 亿美元、年增 11.9%，我们用更好的轴体做差异化"。按本章的内容，这两句各有什么问题？</p>
+    <details><summary>看答案</summary>
+      <p>第一句把某一家市调报告的数字当成了真值，而九家机构的基线差五成、增速差三倍，只能说"约 20 亿量级、年增高个位数到低双位数"，并注明采集时点。第二句的差异化方向撞在了结构上：三大轴厂同源，轴体层面几乎做不出真差异，护城河只能在软件、设计语言、社区和服务。</p>
+    </details>
+  </div>
+
+  <details class="more sources">
+    <summary>本章依据的原始研究页与主要来源</summary>
+    <div class="body">
+      <ol>
+        <li>原始研究页：<a href="task_6_1_market_size.html">市场规模三角验证</a>、<a href="task_6_2_competitive_ecosystem.html">竞争格局生态图</a>、<a href="task_6_3_supply_chain.html">供应链地理</a>、<a href="task_6_4_magnetic_switch.html">磁轴 + Rapid Trigger + SOCD 争议</a></li>
+        <li>市场报告（口径不一，仅量级）：Mordor Intelligence、SkyQuest、Straits Research、Coherent Market Insights、Market Research Future、The Business Research Company、ResearchAndMarkets、SNS Insider（GlobeNewswire 2025-11-06）、Technavio、Knowledge Sourcing、Reportprime</li>
+        <li>供应链：Gateron 公司简介（惠州仲恺）；Kailh 官网（东莞塘厦）；MKBGuide《TTC Switches Complete Guide》；南方日报转载 TTC 报道；Keyboards Expert《History of Cherry MX》；Tom's Hardware（Cherry 财务危机）；Alibaba《Shenzhen Mechanical Keyboard Guide》（B2B 出厂价）</li>
+        <li>格局：ecdb 与 Grips Intelligence（Keychron 电商流水）；redditrecs（Aula F75 评价聚合）；LTT Labs《Hall Effect Keyboards, A History》；Engadget Realforce R2 长测</li>
+        <li>磁轴与规则：Valve CS2 2024-08 更新说明；PC Gamer、esports.gg、ResetEra 报道与讨论；Wooting《What are Hall Effect switches》《Rapid Trigger》《CS2 Guide》；Corsair Explorer《Are Rapid Trigger keyboards banned in CS2?》；DataIntelo 与 Verified Market Reports（磁轴增速口径）</li>
+      </ol>
+    </div>
+  </details>
+
+  <div class="next"><a href="#appendix"><small>最后</small><b>附录：术语、研究方法与来源</b></a></div>
+</section>
+
+<!-- ======================= 附录 ======================= -->
+<section class="chapter" id="appendix">
+  <span class="alias" id="assume"></span>
+  <div class="ch-num">附录</div>
+  <h2>术语、研究方法与来源</h2>
+  <p>这一部分供查阅。正文里首次出现的术语都已就地解释，术语表只是备忘；研究方法一节把原来散在正文里的流程名称集中到这里；来源索引保留了旧版的全部条目，每一章的章末还有各自的来源折叠。</p>
+
+  <h3 id="glossary">A. 术语表</h3>
+  <dl class="gloss">
+    <div><dt>触发方式<small>第 01 章</small></dt><dd>键盘用什么物理量判断"按下了"。常见六种：薄膜、剪刀脚、机械、光轴、磁轴、静电容。</dd></div>
+    <div><dt>机械键盘</dt><dd>每个键下有一颗独立的轴体（弹簧加金属叶片）。没有行业标准定义，狭义看金属触点，广义看"每键独立、触底前触发"。</dd></div>
+    <div><dt>磁轴<small>霍尔轴、HE 轴、模拟轴</small></dt><dd>轴底磁铁靠近电路板上的霍尔传感器，连续读出按下深度。触发点可调，不能换轴。</dd></div>
+    <div><dt>静电容<small>Topre、EC</small></dt><dd>橡胶碗提供阻力，碗内锥形弹簧被压扁改变电容值触发，无金属相碰。HHKB 和 Realforce 使用。</dd></div>
+    <div><dt>线性 / 段落 / 带响<small>第 02 章</small></dt><dd>机械轴三种手感。线性顺滑无坎，段落中途有坎但不出声，带响在坎上加一声"咔哒"。红、茶、青是厂商配色习惯。</dd></div>
+    <div><dt>触发力 / 操作力 / 底部力</dt><dd>分别是电路接通时的力、段落轴越过坎的峰值力、按到底的力。规格页常混用前两者。</dd></div>
+    <div><dt>预行程 / 总行程</dt><dd>按下多深算触发、按到底的总深度。Cherry MX 常见 2.0 / 4.0 毫米。</dd></div>
+    <div><dt>力曲线</dt><dd>横轴行程、纵轴力的曲线，比单个克数更能预测手感，但仍不能代替上手。</dd></div>
+    <div><dt>热插拔</dt><dd>电路板预装插座，轴直接插拔，不用焊接。新手试轴的便利，不是高端标配。</dd></div>
+    <div><dt>QMK / VIA / ZMK</dt><dd>开源键盘固件和改键工具。QMK 为有线设计，ZMK 为无线设计更省电。社区把"有没有开源固件"当购买红线。</dd></div>
+    <div><dt>定位板<small>plate</small></dt><dd>固定轴体的开孔板。材质从硬到软：黄铜、钢、铝、FR4、PC、POM；越硬越脆响。</dd></div>
+    <div><dt>稳定器<small>卫星轴</small></dt><dd>长键下连接两端的金属丝支架。"咔哒"、"旷量"杂音的头号来源。</dd></div>
+    <div><dt>gasket 结构</dt><dd>定位板用软胶条夹在外壳里，整板可微微下沉。一种风味，不是等级。</dd></div>
+    <div><dt>填充 / tape mod</dt><dd>用棉或胶带填掉内部空腔，吸掉空响。胶带贴电路板背面零成本可逆。</dd></div>
+    <div><dt>thock / clack</dt><dd>论坛用的两个拟声词，分别指低沉闷润和清脆高频。评测者批评它们过于笼统。</dd></div>
+    <div><dt>ABS / PBT</dt><dd>两种键帽塑料。ABS 上色自由但会打油，PBT 抗磨偏低沉。壁厚比材质更影响声音。</dd></div>
+    <div><dt>double-shot / dye-sub</dt><dd>键帽字符两种工艺：二色注塑字符永不掉、可透光；热升华能印复杂图案、不透光。</dd></div>
+    <div><dt>profile<small>键帽高度</small></dt><dd>键帽的高度和弧面。OEM 出厂默认，Cherry 矮一点为客制圈偏爱，SA 高且复古。</dd></div>
+    <div><dt>TKL<small>80%</small></dt><dd>去掉数字小键盘的尺寸，约 87 键。</dd></div>
+    <div><dt>Fn 层</dt><dd>按住 Fn 键时整块键盘变成另一套键位，小尺寸键盘靠它补回被砍掉的键。</dd></div>
+    <div><dt>Alice 布局</dt><dd>键盘从中间分成两半、各向外转角的人体工学布局，约一周适应。</dd></div>
+    <div><dt>2.4G / 蓝牙 / 三模<small>第 03 章</small></dt><dd>两种无线：2.4G 用专用接收器低延迟，蓝牙多设备省电但延迟高。三模是有线、2.4G、蓝牙三合一。</dd></div>
+    <div><dt>轮询率<small>polling rate</small></dt><dd>键盘每秒向电脑上报多少次。有线 1000 赫兹起，部分 8000 赫兹，蓝牙约 125 赫兹。</dd></div>
+    <div><dt>NKRO / 防鬼键</dt><dd>多键同按都能识别。防鬼键靠每键一颗二极管，完全 NKRO 还需要固件配合。</dd></div>
+    <div><dt>Rapid Trigger<small>第 08 章</small></dt><dd>磁轴功能：键往下一点即触发，抬一丝即复位，消除死行程。CS2 合法。</dd></div>
+    <div><dt>Snap Tap / SOCD</dt><dd>同按两个反向键时键盘自动只保留最后一个。CS2 2024 年 8 月起禁用。</dd></div>
+    <div><dt>UGC</dt><dd>用户自己发的内容，这里指 Reddit、KeebTalk、geekhack 等论坛的帖子和评论。</dd></div>
+  </dl>
+
+  <h3 id="method">B. 研究方法与局限</h3>
+  <p>这份报告由 26 个窄问题各自独立研究后汇总而成，每个问题一页，就是附录 E 列出的原始研究页。数据来源的优先级是：用户自发内容高于第三方评测，第三方评测高于厂商官方说法。用户语料主要是三份本地导出的 Reddit 文件：r/MechanicalKeyboards 新手相关帖 872 帖、12837 条评论；r/Keychron 864 帖、6397 条评论；Mac 键盘相关 272 帖、4792 条评论。另有 Royal Kludge、AKKO、NuPhy、Glorious、HHKB、Wooting、Epomaker 七个品牌版块的导出用于第 07 章。Reddit 对爬虫返回 403，部分原帖只能经评测站转述，这些地方正文都标了"转述"。</p>
+  <p>研究流程沿用了一套内部方法论（七阶推理链）。其中第六阶是三重批判：一个角色专门核验每条事实是否有来源支撑（CoVe），一个角色用竞争假设分析法检查结论是否被过早锁定（ACH），一个角色做"事前验尸"（Pre-mortem）假设结论错了会是哪里错。第七阶产出关键假设表和监测信号，见第 08 章折叠区。这些流程名称只在这里出现，正文里不再使用。</p>
+  <p>几条贯穿全篇的局限：</p>
+  <ul>
+    <li>词频是代理指标。同一帖多次出现会重复计数，词根会跨语境命中（budget 也出现在非痛点句里）。它只用于相对排序，不作绝对人头，更不是痛感强度。</li>
+    <li>论坛有幸存者偏差。求助和投诉帖远多于满意帖。投诉数量不能换算成故障率，也不能用来比较品牌可靠性。</li>
+    <li>市场数据只取量级。市调报告口径互斥、页面数字随基年滚动，任何单值都要带采集时点。</li>
+    <li>价格、型号、电竞使用率是 2026 年 6 月的快照（电竞使用率另有 2026 年 1 月快照），行业迭代极快。</li>
+    <li>样本只覆盖英文社区，没有中文、B 站、小红书等语境，中文用户的痛点排序可能不同。</li>
+  </ul>
+
+  <h3 id="gaps">C. 数据缺口与本次改版发现的口径冲突</h3>
+  <p><strong>数据缺口</strong>（原始研究已列，未补）：缺 2024 年以后大样本的日均击键量一手研究；RK、AKKO、Glorious 的 Reddit 样本偏薄（约 12、9、14 帖），用网页评测补强；缺权威的出货或海关数据；整机代工地理（广东还是外溢江浙越南）缺一手产能数据；光轴和磁轴的亿次寿命缺独立破坏性测试；词频到人头没有去重和情感打分。</p>
+  <p><strong>本次改版核对出的冲突</strong>（2026-10-29，原始 Reddit 导出文件不在本项目内，无法复核，故只收窄措辞）：</p>
+  <ul>
+    <li>新手痛点词频：旧版合并报告写 lube 48、stab 31、budget 48、cheap 29、linear 39、tactile 32、loud 23、confus 6；原始研究页写 budget 82、lube 61、stab 52、linear 49、tactile 44、cheap 33、loud 26、confus 8。两组相对顺序基本一致，具体次数不一致，可能是不同轮次的统计范围不同。正文只保留顺序，标为待核实。</li>
+    <li>游戏大厂前五合计份额：旧版引用约 55%，原始研究页复核为 42% 到 46%。采用较新口径，均只作量级。</li>
+    <li>市场规模下限：旧版写 16.7 亿与 20 亿两种下限，原始研究页剔离群值后收敛为 17 到 28 亿美元。采用后者。</li>
+    <li>剪刀脚寿命：两份原始研究页分别给 500 万到 1000 万和 1000 万到 2000 万，正文合并为宽区间。</li>
+    <li>Topre 寿命：5000 万与 1 亿以上两说，正文并列。</li>
+    <li>Topre 价格带：一页写 230 到 600 美元（含限定款天花板），另一页写实际成交 160 到 300 美元。正文用后者，限定款另注。</li>
+    <li>Wooting CS2 使用率：2026 年 1 月约 20.9%，2026 年 6 月约 34.8%，不是冲突而是两个时点，正文都给出。</li>
+    <li>Keychron 营收：同一第三方来源出现 1.236 亿与 4800 万美元两种口径，只作量级。</li>
+    <li>Keychron 磁轴半年售 200 万台：厂商口径经市调引述，无独立佐证，正文未采用。</li>
+  </ul>
+
+  <h3 id="legacy">D. 旧版编号对应表</h3>
+  <p>改版前的报告按模块 M1 到 M6 组织，26 个原始研究页按 Task 编号命名。它们全部保留在线，便于追溯。</p>
+  <div class="tbl compact stack">
+    <table>
+      <thead><tr><th>旧版模块</th><th>新版去处</th><th>原始研究页</th></tr></thead>
+      <tbody>
+        <tr><th>M1 键盘世界全景</th><td data-l="新版去处">第 01 章；选购决策树并入第 05 章</td><td data-l="原始研究页"><a href="task_1_1_keyboard_ecosystem.html">1.1</a> · <a href="task_1_2_classification_axes.html">1.2</a> · <a href="task_1_3_buying_decision_tree.html">1.3</a></td></tr>
+        <tr><th>M2 键盘类型横评</th><td data-l="新版去处">第 01 章；价格、寿命、声音限制并入第 04 章；手感语言并入第 02 章</td><td data-l="原始研究页"><a href="task_2_1_working_principles.html">2.1</a> · <a href="task_2_2_comparison_matrix.html">2.2</a> · <a href="task_2_3_feel_sound_language.html">2.3</a> · <a href="task_2_4_price_anchors.html">2.4</a> · <a href="task_2_5_topre_debate.html">2.5</a></td></tr>
+        <tr><th>M3 机械键盘解剖</th><td data-l="新版去处">定义并入第 01 章；轴体、键帽、结构件进第 02 章；布局、连接进第 03 章</td><td data-l="原始研究页"><a href="task_3_1_definition_essence.html">3.1</a> · <a href="task_3_2_switch_universe.html">3.2</a> · <a href="task_3_3_keycaps.html">3.3</a> · <a href="task_3_4_structure_parts.html">3.4</a> · <a href="task_3_5_layouts.html">3.5</a> · <a href="task_3_6_connectivity.html">3.6</a></td></tr>
+        <tr><th>M4 用户真实痛点</th><td data-l="新版去处">第 06 章；"智商税"反方并入第 04 章；人群建议并入第 05 章</td><td data-l="原始研究页"><a href="task_4_1_beginner_pains.html">4.1</a> · <a href="task_4_2_persona_matrix.html">4.2</a> · <a href="task_4_3_mac_users.html">4.3</a> · <a href="task_4_4_skeptics.html">4.4</a></td></tr>
+        <tr><th>M5 Keychron 与竞品</th><td data-l="新版去处">第 07 章</td><td data-l="原始研究页"><a href="task_5_1_keychron_profile.html">5.1</a> · <a href="task_5_2_competitor_landscape.html">5.2</a> · <a href="task_5_3_multi_dim_matrix.html">5.3</a> · <a href="task_5_4_keychron_position.html">5.4</a></td></tr>
+        <tr><th>M6 竞争格局与行业现状</th><td data-l="新版去处">第 08 章</td><td data-l="原始研究页"><a href="task_6_1_market_size.html">6.1</a> · <a href="task_6_2_competitive_ecosystem.html">6.2</a> · <a href="task_6_3_supply_chain.html">6.3</a> · <a href="task_6_4_magnetic_switch.html">6.4</a></td></tr>
+        <tr><th>执行摘要</th><td data-l="新版去处">11 条结论分配回各章的"直接回答"</td><td data-l="原始研究页">—</td></tr>
+        <tr><th>跨模块战略洞察</th><td data-l="新版去处">第 08 章"把全篇串起来"与"事实、判断和机会"；分人群建议并入第 05 章</td><td data-l="原始研究页">—</td></tr>
+        <tr><th>关键假设与监测信号</th><td data-l="新版去处">第 08 章折叠区</td><td data-l="原始研究页">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">旧版页面内锚点（#es、#m1 到 #m6、#insight、#assume、#sources）仍然有效，会落到对应的新章节。改版前的完整版保存为 <a href="full-report-legacy.html">full-report-legacy.html</a>，<a href="index.html">index.html</a> 是 26 份原始研究页的索引。</p>
+
+  <h3 id="sources-index">E. 全局来源索引</h3>
+  <span class="alias" id="sources"></span>
+  <div class="sources">
+    <p class="small">去重汇总自六大模块及其原始研究页，按来源类型分组。全部采集或检索于 2026 年 6 月（电竞使用率为 2026 年 1 月快照）。Reddit 单帖深链以导出文件内记录的原始 URL 为准；市场报告数值口径与时点不透明，只作量级参考。各章折叠区另列了该章专用来源。</p>
+
+    <div class="src-group">A. 用户社区与论坛</div>
+    <ol>
+      <li>本地 Reddit 导出 — <code>reddit-exports/mechkb-beginner.md</code>（872 帖 / 12837 评论）</li>
+      <li>本地 Reddit 导出 — <code>reddit-exports/mac-keyboard.md</code>（272 帖 / 4792 评论）</li>
+      <li>本地 Reddit 导出 — <code>reddit-exports/keychron.md</code>（864 帖 / 6397 评论）</li>
+      <li>本地 Reddit 导出 — RoyalKludge / AKKO / NuPhy / Glorious / HHKB / Wooting / Epomaker.md 及 <code>_INDEX.md</code></li>
+      <li>词频统计 — 对上述 .md 语料 grep -i 计数（两轮统计次数不一致，见附录 C）</li>
+      <li>r/Keychron — "My 6-Month-Old Keychron K8's Bluetooth Completely Died" — <a href="https://www.reddit.com/r/Keychron/comments/1txj0ez/my_6monthold_keychron_k8s_bluetooth_completely/">reddit.com</a></li>
+      <li>r/Keychron — "Help needed Q6 HE 8K" — <a href="https://www.reddit.com/r/Keychron/comments/1sl9j5r/help_needed_q6_he_8k/">reddit.com</a></li>
+      <li>r/MechanicalKeyboards — "Discussion: The entry-level mechanical keyboard market is confusing" — <a href="https://www.reddit.com/r/MechanicalKeyboards/comments/1sgl03u/discussion_the_entrylevel_mechanical_keyboard/">reddit.com</a></li>
+      <li>r/MechanicalKeyboards — Royal Kludge RK96 $7 thrift find — <a href="https://www.reddit.com/r/MechanicalKeyboards/comments/1tmu0yq">reddit.com</a></li>
+      <li>r/MechanicalKeyboards — Yunzii B68 — <a href="https://www.reddit.com/r/MechanicalKeyboards/comments/1tixepx/i_cant_believe_the_sale_price_on_this_yunzi_b68/">reddit.com</a></li>
+      <li>r/MechanicalKeyboards — "Joining the Hall Effect Gang" — <a href="https://i.redd.it/q1u5ex3tf81h1.jpeg">i.redd.it</a></li>
+      <li>r/topre — "I have converted to The Way of the Rubber Dome" — <a href="https://www.reddit.com/r/topre/comments/1tl6ycz/i_have_converted_to_the_way_of_the_rubber_dome/">reddit.com</a></li>
+      <li>r/NuPhy — "Day 50ish with my Node 100" — <a href="https://www.reddit.com/r/NuPhy/comments/1tj6hh1/day_50ish_with_my_node_100_anyone_else_dealing/">reddit.com</a></li>
+      <li>r/NuPhy — "Rare breed of garbage" — <a href="https://v.redd.it/fsicfgr88u4h1">v.redd.it</a></li>
+      <li>HardForum — "Mechanical keyboards are dead? Magnetic keyboards?" — <a href="https://hardforum.com/threads/mechanical-keyboards-are-dead-magnetic-keyboards.2037974/">hardforum.com</a></li>
+      <li>Deskthority wiki — Topre switch — <a href="https://deskthority.net/wiki/Topre_switch">deskthority.net</a></li>
+      <li>MacRumors 论坛 — "Apple needs to fix the Magic Keyboard" — <a href="https://forums.macrumors.com/threads/apple-needs-to-fix-the-magic-keyboard.2434433/">forums.macrumors.com</a></li>
+      <li>Hacker News — 妙控键盘键距/键程讨论 — <a href="https://news.ycombinator.com/item?id=22286652">news.ycombinator.com</a></li>
+      <li>Tildes — Valve bans Razer &amp; Wooting features in CS2 — <a href="https://tildes.net/~games/1ib0/valve_bans_razer_and_wootings_new_keyboard_features_in_counter_strike_2">tildes.net</a></li>
+    </ol>
+
+    <div class="src-group">B. 第三方评测与科普</div>
+    <ol start="20">
+      <li>RTINGS — Different Keyboard Sizes Explained — <a href="https://www.rtings.com/keyboard/learn/keyboard-size-guide">rtings.com</a></li>
+      <li>RTINGS — The 4 Best Keychron Keyboards of 2026 — <a href="https://www.rtings.com/keyboard/reviews/keychron">rtings.com</a></li>
+      <li>Switch and Click — Keyboard Sizes and Layouts Explained — <a href="https://switchandclick.com/keyboard-sizes/">switchandclick.com</a></li>
+      <li>ThereminGoat's Switches — "What the thock is clack?" — <a href="https://www.theremingoat.com/blog/what-the-thock-is-clack-a-discussion-on-switch-sound">theremingoat.com</a></li>
+      <li>Tom's Hardware — What Are Optical Keyboard Switches — <a href="https://www.tomshardware.com/news/what-are-optical-keyboard-switches,32352.html">tomshardware.com</a></li>
+      <li>HowToGeek — What are Scissor Switches — <a href="https://www.howtogeek.com/what-are-scissor-switches/">howtogeek.com</a></li>
+      <li>KeebsForAll — Mechanical vs Membrane Lifespan Compared — <a href="https://keebsforall.com/blogs/mechanical-keyboards-101/mechanical-vs-membrane-keyboards-lifespan-compared">keebsforall.com</a></li>
+      <li>TechGenyz — Mechanical vs Optical vs Membrane — <a href="https://techgenyz.com/mechanical-optical-and-membrane-keyboards/">techgenyz.com</a></li>
+      <li>MKB Guide — Kailh Box Switches Complete Guide — <a href="https://mkbguide.com/blog/kailh-box-switches-complete-guide">mkbguide.com</a></li>
+      <li>kordu.tools — Mechanical Keyboard Switch Comparison Chart 2026 — <a href="https://kordu.tools/blog/keyboard-switches-compared-mechanical-guide/">kordu.tools</a></li>
+      <li>MakeUseOf — Cherry MX vs Kailh vs Gateron — <a href="https://www.makeuseof.com/cherry-mx-vs-kailh-vs-gateron-switches/">makeuseof.com</a></li>
+      <li>MelGeek Lab — TTC Switch Comparison — <a href="https://www.melgeek.com/blogs/melgeek-lab/ttc-switch-comparison-find-the-best-for-ttc-switchs-your-keyboard">melgeek.com</a></li>
+      <li>Toronto KeyboardMan — Keyboard Plate Comparisons — <a href="https://torontokeyboardman.ca/blogs/news/keyboard-plate-comparisons">torontokeyboardman.ca</a></li>
+      <li>Goblintechkeys — Hotswap vs Soldered PCBs — <a href="https://goblintechkeys.com/blogs/news/unplugging-the-differences-hot-swappable-vs-soldered-pcbs">goblintechkeys.com</a></li>
+      <li>Nextrift — Custom Keyboard Hotswap vs Solderable PCB — <a href="https://nextrift.com/custom-keyboard-hotswap-vs-solderable-pcb-which-is-superior/">nextrift.com</a></li>
+      <li>Kineticlabs — Hot-Swap vs Solderable Keyboard PCBs — <a href="https://kineticlabs.com/blog/hot-swap-vs-solderable-keyboard-pcbs">kineticlabs.com</a></li>
+      <li>Voltcave — Mechanical Keyboard Sizes Visual Comparison — <a href="https://voltcave.com/keyboard-sizes/">voltcave.com</a></li>
+      <li>MKB Guide — Best Wireless Gaming Keyboards: 2.4GHz vs Bluetooth — <a href="https://mkbguide.com/blog/best-wireless-gaming-keyboards">mkbguide.com</a></li>
+      <li>Monsgeek — 2.4GHz vs Bluetooth Gaming — <a href="https://www.monsgeek.com/blog/2-4ghz-vs-bluetooth-gaming/">monsgeek.com</a></li>
+      <li>GlacierPCGaming — Hall Effect vs Mechanical Switches — <a href="https://glacierpcgaming.com/blogs/news/hall-effect-vs-mechanical-switches-understanding-the-key-differences">glacierpcgaming.com</a></li>
+      <li>MKB Guide — Wooting 60HE/80HE Guide + 电竞使用率 — <a href="https://mkbguide.com/blog/wooting-60he-80he-guide">mkbguide.com</a></li>
+      <li>MKB Guide — Razer Keyboard Lineup 2026 — <a href="https://mkbguide.com/blog/razer-keyboard-lineup-guide-which-to-buy">mkbguide.com</a></li>
+      <li>PicksLab — Keychron Alternatives Under $100 (2026) — <a href="https://pickslab.net/blog/keychron-alternatives-under-100/">pickslab.net</a></li>
+      <li>keeb-finder — Wooting 60HE V2 价格 — <a href="https://keeb-finder.com/keyboards/wooting-60he-v2-magnetic-8k-keyboard">keeb-finder.com</a></li>
+      <li>MakeUseOf — Why I Regret Buying an Apple Magic Keyboard — <a href="https://www.makeuseof.com/why-i-regret-buying-mac-magic-keyboard/">makeuseof.com</a></li>
+      <li>Corsair Explorer — Are Rapid Trigger keyboards banned in CS2? — <a href="https://www.corsair.com/us/en/explorer/gamer/keyboards/are-rapid-trigger-keyboards-banned-in-cs2/">corsair.com</a></li>
+      <li>AttackShark — Counter-Strafing &amp; Rapid Trigger in CS2 — <a href="https://attackshark.com/blogs/knowledges/counter-strafing-rapid-trigger-cs2-meta">attackshark.com</a></li>
+      <li>Engadget — Topre Realforce R2 long-term review — <a href="https://www.engadget.com/topre-realforce-r2-pfu-keyboard-irl-153030722.html">engadget.com</a></li>
+      <li>The Keyboard Co. — What is NKRO? — <a href="https://www.thekeyboardco.com/blog/index.php/2016/03/what-is-nkro-our-guide-to-rollover-anti-ghosting-and-choosing-the-right-keyboard/">thekeyboardco.com</a></li>
+      <li>Fantech — What is Tri-Mode Connectivity — <a href="https://fantechworld.com/blogs/fantech-tips/what-is-tri-mode-connectivity-why-does-it-matter-for-gaming-keyboards-or-mice">fantechworld.com</a></li>
+    </ol>
+
+    <div class="src-group">C. 官方与众筹</div>
+    <ol start="50">
+      <li>Keychron — What Are Hall Effect Switches — <a href="https://www.keychron.com/blogs/news/what-are-hall-effect-switches">keychron.com</a></li>
+      <li>Keychron — Types of Keyboard Switches: Linear vs Tactile vs Clicky — <a href="https://www.keychron.com/blogs/news/types-of-keyboard-switches">keychron.com</a></li>
+      <li>Keychron — Keyboard Size &amp; Layout Buying Guide — <a href="https://www.keychron.com/blogs/news/keyboard-size-layout-buying-guide">keychron.com</a></li>
+      <li>Keychron — 官方键盘对比页 / About Us — <a href="https://www.keychron.com/pages/keyboards-comparison">keychron.com</a></li>
+      <li>Keychron K2 — Kickstarter 项目页 — <a href="https://www.kickstarter.com/projects/keytron/keychron-k2-a-sleek-compact-wireless-mechanical-ke">kickstarter.com</a></li>
+      <li>PRNewswire — Keychron K2 HE 上市新闻稿 — <a href="https://www.prnewswire.com/news-releases/keychron-launches-award-winning-k2-he-wireless-magnetic-custom-keyboard-for-direct-sales-following-1m-kickstarter-success-302330977.html">prnewswire.com</a></li>
+      <li>CORSAIR — Keyboard Switch Types 101 — <a href="https://www.corsair.com/us/en/explorer/gamer/keyboards/key-switch-types-101/">corsair.com</a></li>
+      <li>Wooting — What are Hall Effect keyboard Switches — <a href="https://wooting.io/post/what-are-hall-effect-keyboard-switches">wooting.io</a></li>
+      <li>Wooting — 80HE 产品/定价页 — <a href="https://wooting.io/wooting-80he">wooting.io</a></li>
+      <li>HHKB — Topre Switches Guide — <a href="https://hhkeyboard.us/blog/topre-switches">hhkeyboard.us</a></li>
+      <li>HHKB Realforce — R3 价格页 — <a href="https://hhkeyboard.us/realforce">hhkeyboard.us</a></li>
+      <li>NuPhy — What is a Hall Effect Keyboard? — <a href="https://nuphy.com/blogs/journal/what-is-a-hall-effect-keyboard-the-new-he-keyboards-in-2024">nuphy.com</a></li>
+      <li>GATERON 公司简介 — <a href="https://en.gateron.cn/intro/1.html">en.gateron.cn</a></li>
+      <li>Wellnomics — Keystrokes vs Time as a risk factor for MSDs — <a href="https://wellnomics.com/wp-content/uploads/2020/01/Wellnomics-white-paper-Keystrokes-vs-Time-as-a-risk-factor-for-MSDs.pdf">wellnomics.com</a></li>
+      <li>Alibaba — Gateron Switch Supplier / 珠三角采购摘要 — <a href="https://www.alibaba.com/price-comparison/gateron-switches-producer">alibaba.com</a></li>
+      <li>sonusgear / Alibaba — Royal Kludge 选购指南 — <a href="https://sonusgear.alibaba.com/buyingguides/royal-kludge-keyboard">sonusgear.alibaba.com</a></li>
+    </ol>
+
+    <div class="src-group">D. 行业与市场报告（口径不一，仅取量级）</div>
+    <ol start="66">
+      <li>Mordor Intelligence — Mechanical Keyboard Market — <a href="https://www.mordorintelligence.com/industry-reports/mechanical-keyboard-market">mordorintelligence.com</a></li>
+      <li>SkyQuest — Mechanical Keyboard Market Report — <a href="https://www.skyquestt.com/report/mechanical-keyboard-market">skyquestt.com</a></li>
+      <li>Coherent Market Insights — Mechanical Keyboard Market — <a href="https://www.coherentmarketinsights.com/market-insight/mechanical-keyboard-market-1888">coherentmarketinsights.com</a></li>
+      <li>Market Research Future — Mechanical Keyboard Market — <a href="https://www.marketresearchfuture.com/reports/mechanical-keyboard-market-1215">marketresearchfuture.com</a></li>
+      <li>The Business Research Company — Mechanical Keyboard Global Market Report — <a href="https://www.thebusinessresearchcompany.com/report/mechanical-keyboard-global-market-report">thebusinessresearchcompany.com</a></li>
+      <li>ResearchAndMarkets — Mechanical Keyboards Market Global Forecast 2026–2032 — <a href="https://www.researchandmarkets.com/reports/6123262/mechanical-keyboards-market-global-forecast">researchandmarkets.com</a></li>
+      <li>Reportprime — Top Mechanical Keyboards Market Companies — <a href="https://www.reportprime.com/mechanical-keyboards-r17731/company">reportprime.com</a></li>
+      <li>MKBGuide — TTC Switches Complete Guide — <a href="https://mkbguide.com/blog/ttc-switches-complete-guide">mkbguide.com</a></li>
+      <li>IndexBox — 紧凑/无线键盘细分销量（口径粗略，采集 2026-06）</li>
+      <li>ProSettings / MKB Guide — 电竞键盘使用率快照（2026-01；2026-06 复核见第 07 章）</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="foot">
+  <strong>看懂键盘：从第一次选购到理解行业</strong> · 机械键盘调研报告阅读版<br>
+  资料采集 2026 年 6 月（电竞使用率另有 2026 年 1 月与 6 月快照）· 页面改版 2026 年 10 月 29 日，未重新核实市场数据<br>
+  数据来源优先级：用户社区 &gt; 第三方评测 &gt; 官方说法 · 论坛样本有求助与投诉偏向，投诉数量不代表故障率 · 市场规模与份额只作量级<br>
+  <a href="index.html">26 份原始研究页索引</a> · <a href="full-report-legacy.html">改版前版本</a> · <a href="/">返回 ddcarolyn.com</a>
+</footer>
 
 </main>
+</div>
 
-<footer><div class="wrap">
-  <strong>机械键盘行业深度调研 · 完整版合并报告</strong><br>
-  方法论：AI 调研元方法论 v1.0（七阶推理链 + Stage 6 三重批判：CoVe 怀疑论验证者 / ACH 情报分析师 / Pre-mortem）。<br>
-  <strong>Caveats 汇总：</strong>M4 痛点排序＝讨论热度代理指标（非痛感强度，子版块投诉偏向）；M5 品牌口碑来自投诉帖，有幸存者偏差、无分母，不代表故障率；M6 市场规模各报告口径矛盾，仅取量级 ~20–28 亿美元、年增 ~8–12%；价格/型号/电竞使用率随时间剧烈波动，全部以 2026-06 为采集时点（电竞使用率为 2026-01 快照）。<br>
-  采集时点 2026-06 · 数据源优先级 UGC &gt; 第三方评测 &gt; 官方话术 · <a href="index.html">← 返回门户</a>
-</div></footer>
+<div id="tip" role="tooltip" aria-hidden="true"><span class="tip-name"></span><span class="tip-body"></span><button type="button" class="tip-x" aria-label="关闭">×</button></div>
 
+<script>
+(function(){
+  var sidebar=document.getElementById('sidebar');
+  var btn=document.getElementById('tocBtn');
+  var close=document.getElementById('tocClose');
+  var toc=document.getElementById('toc');
+  var isDesktop=function(){return window.matchMedia('(min-width:1024px)').matches;};
+
+  function openToc(){sidebar.classList.add('open');btn.setAttribute('aria-expanded','true');var f=sidebar.querySelector('a');if(f)f.focus();}
+  function closeToc(){sidebar.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+  btn.addEventListener('click',function(){sidebar.classList.contains('open')?closeToc():openToc();});
+  close.addEventListener('click',function(){closeToc();btn.focus();});
+  toc.addEventListener('click',function(e){if(e.target.closest('a')&&!isDesktop())closeToc();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){if(sidebar.classList.contains('open')&&!isDesktop()){closeToc();btn.focus();}hideTip();}});
+  document.addEventListener('click',function(e){
+    if(!isDesktop()&&sidebar.classList.contains('open')&&!sidebar.contains(e.target)&&!btn.contains(e.target))closeToc();
+  });
+
+  /* 当前章节高亮 */
+  var links=Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]'));
+  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var targets=Object.keys(map).map(function(id){return document.getElementById(id);}).filter(Boolean);
+  function setActive(id){links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+id);});}
+  if('IntersectionObserver' in window){
+    var visible={};
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){visible[en.target.id]=en.isIntersecting;});
+      var first=targets.filter(function(t){return visible[t.id];})[0];
+      if(first)setActive(first.id);
+    },{rootMargin:'-20% 0px -65% 0px',threshold:0});
+    targets.forEach(function(t){io.observe(t);});
+  }
+  function fallbackActive(){
+    var y=window.scrollY+120,cur=targets[0];
+    targets.forEach(function(t){if(t.offsetTop<=y)cur=t;});
+    if(cur)setActive(cur.id);
+  }
+  window.addEventListener('scroll',function(){if(!('IntersectionObserver' in window))fallbackActive();},{passive:true});
+  fallbackActive();
+
+  /* 术语解释：桌面悬停 + 焦点，手机点击；点击在任何设备都可切换 */
+  var tip=document.getElementById('tip');
+  var tipName=tip.querySelector('.tip-name'),tipBody=tip.querySelector('.tip-body'),tipX=tip.querySelector('.tip-x');
+  var current=null,hoverTimer=null;
+  function showTip(el){
+    if(current&&current!==el)current.classList.remove('on');
+    current=el;el.classList.add('on');
+    tipName.textContent=el.textContent.trim();
+    tipBody.textContent=el.getAttribute('data-tip')||'';
+    tip.setAttribute('aria-hidden','false');tip.classList.add('show');
+    if(window.matchMedia('(max-width:760px)').matches){tip.style.left='';tip.style.top='';return;}
+    var r=el.getBoundingClientRect();
+    var w=tip.offsetWidth,h=tip.offsetHeight;
+    var left=r.left+window.scrollX+r.width/2-w/2;
+    var minL=window.scrollX+12,maxL=window.scrollX+document.documentElement.clientWidth-w-12;
+    left=Math.max(minL,Math.min(left,maxL));
+    var top=r.bottom+window.scrollY+8;
+    if(r.bottom+h+16>window.innerHeight)top=r.top+window.scrollY-h-8;
+    tip.style.left=left+'px';tip.style.top=top+'px';
+  }
+  function hideTip(){
+    if(current)current.classList.remove('on');
+    current=null;tip.classList.remove('show');tip.setAttribute('aria-hidden','true');
+  }
+  document.querySelectorAll('.term').forEach(function(el){
+    el.setAttribute('aria-describedby','tip');
+    el.addEventListener('click',function(e){e.stopPropagation();if(current===el){hideTip();}else{showTip(el);}});
+    el.addEventListener('mouseenter',function(){if(!isDesktop())return;clearTimeout(hoverTimer);hoverTimer=setTimeout(function(){showTip(el);},120);});
+    el.addEventListener('mouseleave',function(){if(!isDesktop())return;clearTimeout(hoverTimer);hoverTimer=setTimeout(function(){if(document.activeElement!==el)hideTip();},160);});
+    el.addEventListener('focus',function(){showTip(el);});
+    el.addEventListener('blur',function(){setTimeout(function(){if(current===el&&!tip.matches(':hover'))hideTip();},120);});
+  });
+  tip.addEventListener('mouseenter',function(){clearTimeout(hoverTimer);});
+  tip.addEventListener('mouseleave',function(){if(isDesktop())hideTip();});
+  tipX.addEventListener('click',hideTip);
+  document.addEventListener('click',function(e){if(current&&!tip.contains(e.target)&&!e.target.closest('.term'))hideTip();});
+  window.addEventListener('resize',function(){if(current)showTip(current);});
+
+  /* 打印时展开所有折叠 */
+  var opened=[];
+  window.addEventListener('beforeprint',function(){
+    opened=[];document.querySelectorAll('details').forEach(function(d){if(!d.open){d.open=true;opened.push(d);}});
+  });
+  window.addEventListener('afterprint',function(){opened.forEach(function(d){d.open=false;});opened=[];});
+
+  /* 锚点落在折叠区内时自动展开 */
+  function openForHash(){
+    var id=location.hash.slice(1);if(!id)return;
+    var t=document.getElementById(id);if(!t)return;
+    var d=t.closest('details');if(d&&!d.open)d.open=true;
+  }
+  window.addEventListener('hashchange',openForHash);openForHash();
+
+  /* 带锚点打开页面时，若浏览器没有滚到位（部分内嵌浏览器会这样），补一次 */
+  function settleHash(){
+    var id=location.hash.slice(1);if(!id)return;
+    var t=document.getElementById(id);if(!t)return;
+    var top=t.getBoundingClientRect().top+window.scrollY;
+    if(window.scrollY<10&&top>120){
+      var prev=document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior='auto';
+      window.scrollTo(0,Math.max(0,top-(isDesktop()?24:72)));
+      document.documentElement.style.scrollBehavior=prev;
+    }
+  }
+  window.addEventListener('load',function(){setTimeout(settleHash,60);});
+})();
+</script>
 </body>
 </html>
