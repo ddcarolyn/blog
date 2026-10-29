@@ -1,0 +1,24 @@
+---
+import { coverUrl, postUrl, type Post } from '../lib/posts';
+
+interface Props {
+  post: Post;
+}
+const { post } = Astro.props;
+---
+
+<li>
+  <a class="home-row" href={postUrl(post)}>
+    <img
+      src={coverUrl(post)}
+      alt=""
+      loading="lazy"
+      width="188"
+      height="106"
+    />
+    <span class="home-row-copy">
+      <h3>{post.data.title}</h3>
+      {post.data.description && <p>{post.data.description}</p>}
+    </span>
+  </a>
+</li>

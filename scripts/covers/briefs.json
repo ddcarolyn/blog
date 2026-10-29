@@ -1,0 +1,63 @@
+{
+  "_style": "Soft editorial illustration for a personal blog cover, 16:9. Clean warm cream paper background, muted palette (sand, slate blue, sage green, terracotta) with one accent color, gentle flat shading, soft rounded shapes, light grain-free finish. Not photorealistic, no glossy 3D, no neon, no heavy gradients, no glow. One clear main subject, generous negative space, composition still readable when the image is shrunk to 188 pixels wide. Include the Chinese labels exactly as given, each inside a small rounded callout tag with a solid light fill; write the characters accurately and do not add any other text, letters, numbers, logos, brand marks or watermark.",
+  "posts": {
+    "feishu-login-cloudflare-pages": {
+      "scene": "An office glass door with a tablet-style QR code panel beside it. A smiling colleague holds up a phone to scan the code and the door opens with a soft glow. On the outside of a glass wall, a small cartoon web crawler spider and a boxy little AI robot are gently stopped, looking puzzled. Behind the door, a wall screen shows simple dashboard charts.",
+      "labels": [
+        "同事扫码进",
+        "爬虫进不来"
+      ]
+    },
+    "cloudflare-access-private-subsite-guide": {
+      "scene": "A cozy desk with an open laptop showing a personal blog page; a large friendly padlock icon sits on the screen. A person holding a small key is reading, relaxed. Outside a low picket fence to the right, a cartoon spider crawler and a small AI robot wait and cannot get in. A few paper notes and a plant on the desk.",
+      "labels": [
+        "有权限才能看",
+        "挡住爬虫和 AI"
+      ]
+    },
+    "shopify-payment-currency-hongkong-guide": {
+      "scene": "An online shop storefront on a laptop screen. In front of it a small balance scale: one pan holds a coin marked with a Hong Kong dollar symbol, the other a coin with a US dollar symbol. A payout envelope with a bank card slides toward a piggy bank. One sales-channel toggle on the screen shows a soft red cross. Simple, tidy, bookkeeping mood.",
+      "labels": [
+        "港币 payout",
+        "币种要选对"
+      ]
+    },
+    "shopify-theme-audit": {
+      "scene": "Two tall stacks of printed code pages side by side on a desk, one labeled by a torn-in-half folder. A large magnifying glass hovers over the pages, revealing highlighted lines in soft red and green like a code diff. A detective-style notebook and pen sit beside it. Calm investigative mood.",
+      "labels": [
+        "只给一半代码",
+        "diff 查出来"
+      ]
+    },
+    "mechanical-keyboard-research": {
+      "scene": "An exploded-view mechanical keyboard floating slightly above a desk: keycaps lifted off, a row of colorful switches visible underneath, then the metal plate and case below. Next to it a thick stapled booklet fanned open with small diagrams. A few tiny speech bubbles with ellipses drift in from the side, suggesting community chatter.",
+      "labels": [
+        "轴体",
+        "键帽",
+        "26 页"
+      ]
+    },
+    "attention-toolkit": {
+      "scene": "A tidy desk seen from above with four printed template cards laid out: a checklist card with ticked boxes, a card with a single hill-shaped curve and a dot on it, a card with one short blank ruled line at the top and nothing written on it, and a card with a simple circle and a question mark. A pen, a mug of tea, and a small seven-day calendar strip with the days ticked off. The cards carry no handwriting.",
+      "labels": [
+        "Done List",
+        "Hill Chart",
+        "7 天上线"
+      ]
+    },
+    "why-busy-but-no-accomplishment": {
+      "scene": "A person sits at a desk at dusk, slightly slumped, surrounded by a swarm of many tiny floating notification bubbles each with a small check mark, in bright warm colors. On the desk, one large important task card lies dim and empty with nothing checked. Window light fading to evening blue. Reflective, slightly tired mood but still warm.",
+      "labels": [
+        "忙了一整天",
+        "没成就感"
+      ]
+    },
+    "reading-yage-ai-design-workflow": {
+      "scene": "An open hardcover book on a desk with a notebook beside it. On the notebook page a hand-drawn triangle diagram with three small nodes at the corners, connected by arrows, one corner highlighted in amber. A pencil, reading glasses and a cup of coffee. Quiet reading-notes mood, soft morning light.",
+      "labels": [
+        "成本三角",
+        "读书笔记"
+      ]
+    }
+  }
+}

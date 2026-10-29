@@ -1,21 +1,29 @@
 ---
 import '../styles/global.css';
+import { SITE } from '../lib/posts';
 
 interface Props {
   title?: string;
   description?: string;
-  active?: 'home' | 'archive' | 'share' | 'about' | 'rss';
+  active?: 'home' | 'archive' | 'about' | 'rss';
+  /** 双栏宽版（首页、文章页、标签页） */
   wide?: boolean;
+  ogType?: 'website' | 'article';
+  /** 不让搜索引擎收录（草稿、内部页） */
+  noindex?: boolean;
 }
 
 const {
-  title = 'ddcarolyn',
-  description = 'Carolyn 的个人博客',
+  title = SITE.name,
+  description = `${SITE.tagline}：跨境电商、独立站、AI 调研、新品增长。`,
   active,
   wide = false,
+  ogType = 'website',
+  noindex = false,
 } = Astro.props;
 
-const fullTitle = title === 'ddcarolyn' ? title : `${title} · ddcarolyn`;
+const fullTitle = title === SITE.name ? `${SITE.name} — ${SITE.tagline}` : `${title} · ${SITE.name}`;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
 ---
 
 <!doctype html>
@@ -25,10 +33,20 @@ const fullTitle = title === 'ddcarolyn' ? title : `${title} · ddcarolyn`;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <title>{fullTitle}</title>
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
     <link
       rel="alternate"
       type="application/rss+xml"
-      title="ddcarolyn"
+      title={SITE.name}
       href="/rss.xml"
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -48,15 +66,13 @@ const fullTitle = title === 'ddcarolyn' ? title : `${title} · ddcarolyn`;
   <body class={wide ? 'wide' : ''}>
     <div class="container">
       <header class="site-header">
-        <h1 class="site-title">
-          <a href="/">ddcarolyn</a>
-        </h1>
+        <a href="/" class="brand"><strong>{SITE.name}</strong></a>
         <nav class="site-nav">
           <a href="/" class={active === 'home' ? 'active' : ''}>首页</a>
+          <a href="/#articles">我的文章</a>
           <a href="/archive/" class={active === 'archive' ? 'active' : ''}
             >归档</a
           >
-          <a href="/share/" class={active === 'share' ? 'active' : ''}>Share</a>
           <a href="/about/" class={active === 'about' ? 'active' : ''}>关于</a>
           <a href="/rss.xml">RSS</a>
           <button
@@ -76,7 +92,11 @@ const fullTitle = title === 'ddcarolyn' ? title : `${title} · ddcarolyn`;
       </main>
 
       <footer class="site-footer">
-        <p>© {new Date().getFullYear()} ddcarolyn · Built with Astro</p>
+        <p>
+          © {new Date().getFullYear()}
+          {SITE.name} · {SITE.tagline} ·
+          <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+        </p>
       </footer>
     </div>
 
@@ -92,7 +112,7 @@ const fullTitle = title === 'ddcarolyn' ? title : `${title} · ddcarolyn`;
         >×</button
       >
       <div class="subscribe-popup__body">
-        <h3 class="subscribe-popup__heading">Carolyn 的出海笔记</h3>
+        <h3 class="subscribe-popup__heading">{SITE.tagline}</h3>
         <p class="subscribe-popup__desc">
           不定期更新：跨境电商、独立站、AI 调研、新品增长。一封邮件一条线索，不灌水。
         </p>

@@ -1,9 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import { fmtDate, getPublishedPosts, SITE, tagUrl } from '../../lib/posts';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const posts = await getPublishedPosts();
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
@@ -12,26 +13,43 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
-
-const fmt = (d: Date) =>
-  `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(
-    d.getDate()
-  ).padStart(2, '0')}`;
 ---
 
-<BaseLayout title={post.data.title} description={post.data.description}>
-  <article>
-    <header class="article-header">
-      <h1 class="article-title">{post.data.title}</h1>
-      <div class="article-meta">
-        {fmt(post.data.date)}
-        {post.data.tags.length > 0 && (
-          <span> · {post.data.tags.map((t) => `#${t}`).join(' ')}</span>
-        )}
-      </div>
-    </header>
-    <div class="article-body">
-      <Content />
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogType="article"
+  wide
+>
+  <div class="layout-with-sidebar">
+    <div>
+      <article class="visual-article">
+        <header class="article-header">
+          <h1 class="article-title">{post.data.title}</h1>
+          <div class="article-meta">
+            <span>{SITE.author} · {fmtDate(post.data.date)}</span>
+            {
+              post.data.tags.length > 0 && (
+                <span class="article-tags">
+                  {' · '}
+                  {post.data.tags.map((t, i) => (
+                    <>
+                      {i > 0 && ' '}
+                      <a href={tagUrl(t)}>#{t}</a>
+                    </>
+                  ))}
+                </span>
+              )
+            }
+          </div>
+        </header>
+        <div class="article-body">
+          <Content />
+        </div>
+        <p class="article-back"><a href="/">← 回到首页</a></p>
+      </article>
     </div>
-  </article>
+
+    <Sidebar currentSlug={post.slug} />
+  </div>
 </BaseLayout>
