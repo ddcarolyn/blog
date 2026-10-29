@@ -1,14 +1,24 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/posts';
 ---
 
 <BaseLayout title="关于" active="about">
-  <article class="article-body">
+  <article class="article-body about-page">
     <h1 class="article-title">关于</h1>
     <p>你好，我是 Carolyn。</p>
-    <p>这里是我记录想法、项目和日常的地方。</p>
     <p>
-      联系我：<a href="mailto:gracerosedd@gmail.com">gracerosedd@gmail.com</a>
+      我在做出海 DTC 品牌的独立站增长，平时花最多时间的三件事：跨境电商与独立站运营、用
+      AI 做市场调研、新产品从 0 到 1 的增长。
     </p>
+    <p>
+      这个博客是我的公开研究记录：发现问题、整理线索、形成判断，把过程原样写出来。每一篇都来自真实跑过的项目，能照着做的部分会尽量给出步骤和代码。
+    </p>
+    <p>
+      想交流、对账方法论，或者聊合作，直接写邮件给我：<a
+        href={`mailto:${SITE.email}`}>{SITE.email}</a
+      >
+    </p>
+    <p class="article-back"><a href="/">← 回到首页</a></p>
   </article>
 </BaseLayout>

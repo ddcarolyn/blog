@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostRow from '../../components/PostRow.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import { getPublishedPosts, tagCounts } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return tagCounts(posts).map(([tag]) => ({
+    params: { tag },
+    props: { tag, posts: posts.filter((p) => p.data.tags.includes(tag)) },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={`标签：${tag}`}
+  description={`ddcarolyn 博客里带「${tag}」标签的 ${posts.length} 篇文章`}
+  wide
+>
+  <div class="home-only">
+    <div class="home-columns">
+      <section class="home-posts">
+        <h2>
+          #{tag} <span class="muted">· {posts.length} 篇</span>
+        </h2>
+        <ul class="home-list">
+          {posts.map((post) => <PostRow post={post} />)}
+        </ul>
+        <p class="article-back"><a href="/">← 回到首页</a></p>
+      </section>
+
+      <Sidebar />
+    </div>
+  </div>
+</BaseLayout>

@@ -4,6 +4,7 @@ date: 2026-06-20
 description: 用香港公司开 Shopify 独立站，payout 默认是港币——这个新手想不到的细节，让我一个官方销售渠道死活开不了。收款工具、币种关系、和到底要不要花钱解决，一篇讲清。
 tags: [Shopify, 独立站, 跨境电商, 收款]
 category: 出海笔记
+cover: /covers/shopify-payment-currency-hongkong-guide.webp
 ---
 
 如果你刚开 Shopify 独立站，还没完全搞懂"钱到底怎么进我口袋"，这篇能帮你省下好几天查资料的时间。

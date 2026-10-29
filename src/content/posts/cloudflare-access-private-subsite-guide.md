@@ -4,6 +4,7 @@ date: 2026-06-20
 description: 个人博客是很好用的「随身资料库」，但默认全公开——只要知道网址，任何人、任何爬虫、任何 AI Agent 都能看到你的内容。这篇用大白话讲清原理，并给出一份实测可用的 Cloudflare 免费方案 SOP；最唬人的步骤其实都能交给 AI 帮你做，你只要点一下授权。
 tags: [Cloudflare, 建站, 隐私, 权限管理]
 category: 建站笔记
+cover: /covers/cloudflare-access-private-subsite-guide.webp
 ---
 
 ## 一、背景：博客是个超好用的「随身资料库」

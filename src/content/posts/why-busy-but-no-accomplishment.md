@@ -4,6 +4,7 @@ date: 2026-05-10
 description: 上班一整天却觉得啥都没做？这不是不专注、不是不努力——是大脑用你最重要的注意力换了一天廉价的秒级正反馈。
 tags: [注意力, 成就感, 知识工作, 长任务, Done List]
 category: Carolyn Log
+cover: /covers/why-busy-but-no-accomplishment.webp
 ---
 
 你有没有过这种状态——

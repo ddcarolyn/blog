@@ -1,0 +1,45 @@
+---
+import { getPublishedPosts, postUrl, tagCounts, tagUrl } from '../lib/posts';
+
+interface Props {
+  /** 当前文章 slug，侧栏「近期文章」里会跳过它 */
+  currentSlug?: string;
+}
+const { currentSlug } = Astro.props;
+
+const posts = await getPublishedPosts();
+const recent = posts.filter((p) => p.slug !== currentSlug).slice(0, 6);
+const tags = tagCounts(posts);
+---
+
+<aside class="sidebar">
+  {
+    recent.length > 0 && (
+      <section class="sidebar-section">
+        <h3 class="sidebar-heading">近期文章</h3>
+        <ul class="sidebar-list">
+          {recent.map((p) => (
+            <li>
+              <a href={postUrl(p)}>{p.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
+  {
+    tags.length > 0 && (
+      <section class="sidebar-section">
+        <h3 class="sidebar-heading">标签</h3>
+        <div class="tag-cloud">
+          {tags.map(([t, n]) => (
+            <a href={tagUrl(t)} class="tag-chip" title={`${n} 篇`}>
+              {t}
+            </a>
+          ))}
+        </div>
+      </section>
+    )
+  }
+</aside>

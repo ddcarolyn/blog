@@ -4,6 +4,7 @@ date: 2026-05-10
 description: Done List、明天的第一行、Hill Chart、Meaning Check —— 4 张可以直接复制到 Notion 或打印的模板。配 7 天上线计划。
 tags: [注意力, 模板, 工具包, Done List, Hill Chart]
 category: Carolyn Log
+cover: /covers/attention-toolkit.webp
 ---
 
 这是我自己在用的 4 张模板，单独整理在这一页方便随时翻。

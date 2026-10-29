@@ -1,10 +1,8 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getPublishedPosts, postUrl } from '../lib/posts';
 
-const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const posts = await getPublishedPosts();
 
 const byYear = new Map<number, typeof posts>();
 for (const p of posts) {
@@ -22,6 +20,8 @@ const mdDay = (d: Date) =>
 ---
 
 <BaseLayout title="归档" active="archive">
+  <h1 class="article-title">归档</h1>
+  <p class="muted">共 {posts.length} 篇</p>
   {
     posts.length === 0 ? (
       <p class="empty">暂无归档</p>
@@ -33,7 +33,7 @@ const mdDay = (d: Date) =>
             {byYear.get(y)!.map((p) => (
               <li class="archive-item">
                 <span class="archive-date">{mdDay(p.data.date)}</span>
-                <a href={`/posts/${p.slug}/`}>{p.data.title}</a>
+                <a href={postUrl(p)}>{p.data.title}</a>
               </li>
             ))}
           </ul>
