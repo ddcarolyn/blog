@@ -19,6 +19,7 @@ const { Content } = await post.render();
   title={post.data.title}
   description={post.data.description}
   ogType="article"
+  image={post.data.cover}
   wide
 >
   <div class="layout-with-sidebar">
@@ -43,6 +44,19 @@ const { Content } = await post.render();
             }
           </div>
         </header>
+        {
+          post.data.cover && (
+            <figure class="article-cover">
+              <img
+                src={post.data.cover}
+                alt=""
+                width="1536"
+                height="864"
+                fetchpriority="high"
+              />
+            </figure>
+          )
+        }
         <div class="article-body">
           <Content />
         </div>

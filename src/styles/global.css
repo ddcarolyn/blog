@@ -395,6 +395,28 @@ body.wide .container {
   color: var(--text-muted);
   font-size: 0.9rem;
 }
+/* 文章头图：和列表缩略图同一张封面 */
+.article-cover {
+  margin: -1rem 0 2.25rem;
+}
+.article-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--inline-bg);
+}
+@media (max-width: 600px) {
+  .article-cover {
+    margin: -0.5rem 0 1.5rem;
+  }
+  .article-cover img {
+    border-radius: 8px;
+  }
+}
 .article-meta a {
   color: var(--text-muted);
   text-decoration: none;

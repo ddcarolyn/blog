@@ -1,4 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { existsSync } from 'node:fs';
 
 export type Post = CollectionEntry<'posts'>;
 
@@ -23,6 +24,17 @@ export const fmtDate = (d: Date) =>
 export const postUrl = (p: Post) => `/posts/${p.slug}/`;
 
 export const coverUrl = (p: Post) => p.data.cover ?? `/covers/${p.slug}.svg`;
+
+/**
+ * 列表用的小图：public/covers/thumbs/<文件名>（376×212，scripts/covers/make_thumbs.py 生成）。
+ * 没生成过就退回原图，页面不会坏。
+ */
+export function coverThumbUrl(p: Post): string {
+  const full = coverUrl(p);
+  const thumb = full.replace(/^\/covers\//, '/covers/thumbs/');
+  if (thumb === full) return full;
+  return existsSync(`public${thumb}`) ? thumb : full;
+}
 
 export const tagUrl = (t: string) => `/tags/${encodeURIComponent(t)}/`;
 

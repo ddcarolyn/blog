@@ -1,18 +1,23 @@
 ---
-import { coverUrl, postUrl, type Post } from '../lib/posts';
+import { coverThumbUrl, coverUrl, postUrl, type Post } from '../lib/posts';
 
 interface Props {
   post: Post;
 }
 const { post } = Astro.props;
+const full = coverUrl(post);
+const thumb = coverThumbUrl(post);
 ---
 
 <li>
   <a class="home-row" href={postUrl(post)}>
     <img
-      src={coverUrl(post)}
+      src={thumb}
+      srcset={thumb !== full ? `${thumb} 376w, ${full} 1536w` : undefined}
+      sizes={thumb !== full ? '(max-width: 600px) 92px, 188px' : undefined}
       alt=""
       loading="lazy"
+      decoding="async"
       width="188"
       height="106"
     />
