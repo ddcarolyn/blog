@@ -1,0 +1,53 @@
+---
+import CategoryPill from './CategoryPill.astro';
+import { coverSources, coverThumbUrl, fmtDate, postUrl, type Post } from '../lib/posts';
+
+interface Props {
+  hero: Post;
+  side: Post[];
+}
+const { hero, side } = Astro.props;
+const heroCover = coverSources(hero);
+---
+
+<section class="featured" aria-label="最新文章">
+  <a class="featured-hero" href={postUrl(hero)}>
+    <span class="featured-hero-media">
+      <img
+        src={heroCover.mid}
+        srcset={heroCover.srcset}
+        sizes="(max-width: 960px) 100vw, 640px"
+        alt=""
+        width="1536"
+        height="864"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </span>
+    <span class="featured-hero-body">
+      <span class="post-card-meta">
+        <CategoryPill slug={hero.data.category} plain />
+        <time datetime={hero.data.date.toISOString()}>{fmtDate(hero.data.date)}</time>
+      </span>
+      <h2>{hero.data.title}</h2>
+      {hero.data.description && <p>{hero.data.description}</p>}
+    </span>
+  </a>
+  {
+    side.length > 0 && (
+      <ul class="featured-side">
+        {side.map((p) => (
+          <li>
+            <a href={postUrl(p)}>
+              <img src={coverThumbUrl(p)} alt="" width="376" height="212" loading="eager" decoding="async" />
+              <span>
+                <CategoryPill slug={p.data.category} plain />
+                <strong>{p.data.title}</strong>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>

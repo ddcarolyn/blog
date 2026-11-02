@@ -1,0 +1,22 @@
+---
+import { categoryUrl, getCategory } from '../lib/categories';
+
+interface Props {
+  slug?: string;
+  /** 不带链接(卡片整体已经是链接时用) */
+  plain?: boolean;
+}
+const { slug, plain = false } = Astro.props;
+const c = getCategory(slug);
+---
+
+{
+  c &&
+    (plain ? (
+      <span class="cat-pill" style={`--cat:${c.accent};--cat-dark:${c.accentDark}`}>{c.name}</span>
+    ) : (
+      <a class="cat-pill" href={categoryUrl(c)} style={`--cat:${c.accent};--cat-dark:${c.accentDark}`}>
+        {c.name}
+      </a>
+    ))
+}

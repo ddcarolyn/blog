@@ -3,7 +3,7 @@ title: 外包公司只给了一半代码？教你主动查清他们改了什么�
 date: 2026-06-19
 description: 和前端外包结束合作，对方说"代码只给一半"。但 Shopify 是 SaaS，线上跑的整套主题本来就在你后台。这篇是我整理的可照做 SOP——用 diff 把他们改过的每一行查出来。
 tags: [Shopify, 主题, 外包交接, SOP, 独立站运营, diff]
-category: Carolyn Log
+category: work
 cover: /covers/shopify-theme-audit.webp
 ---
 

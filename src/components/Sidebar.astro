@@ -1,5 +1,6 @@
 ---
-import { getPublishedPosts, postUrl, tagCounts, tagUrl } from '../lib/posts';
+import { getPublishedPosts, postsByCategory, postUrl, tagCounts, tagUrl } from '../lib/posts';
+import { categoryUrl } from '../lib/categories';
 
 interface Props {
   /** 当前文章 slug，侧栏「近期文章」里会跳过它 */
@@ -10,9 +11,27 @@ const { currentSlug } = Astro.props;
 const posts = await getPublishedPosts();
 const recent = posts.filter((p) => p.slug !== currentSlug).slice(0, 6);
 const tags = tagCounts(posts);
+const groups = postsByCategory(posts);
 ---
 
 <aside class="sidebar">
+  {
+    groups.length > 0 && (
+      <section class="sidebar-section">
+        <h3 class="sidebar-heading">专栏</h3>
+        <ul class="sidebar-list sidebar-cats">
+          {groups.map(({ category, posts }) => (
+            <li style={`--cat:${category.accent};--cat-dark:${category.accentDark}`}>
+              <a href={categoryUrl(category)}>
+                <i class="cat-dot" />
+                {category.name} <span class="muted">{posts.length}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
   {
     recent.length > 0 && (
       <section class="sidebar-section">

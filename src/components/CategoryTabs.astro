@@ -1,0 +1,28 @@
+---
+import { CATEGORIES, categoryUrl } from '../lib/categories';
+import { getPublishedPosts } from '../lib/posts';
+
+interface Props {
+  /** 'all' 或专栏 slug */
+  active: string;
+}
+const { active } = Astro.props;
+const posts = await getPublishedPosts();
+const tabs = CATEGORIES.filter((c) => posts.some((p) => p.data.category === c.slug));
+---
+
+<nav class="cat-tabs" aria-label="专栏">
+  <a href="/" class={active === 'all' ? 'is-active' : ''} aria-current={active === 'all' ? 'page' : undefined}>全部</a>
+  {
+    tabs.map((c) => (
+      <a
+        href={categoryUrl(c)}
+        class={active === c.slug ? 'is-active' : ''}
+        aria-current={active === c.slug ? 'page' : undefined}
+        style={`--cat:${c.accent};--cat-dark:${c.accentDark}`}
+      >
+        {c.name}
+      </a>
+    ))
+  }
+</nav>

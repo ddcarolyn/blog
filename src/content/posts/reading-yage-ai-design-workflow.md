@@ -3,7 +3,7 @@ title: 读《AI 驱动 UI 设计工作流的范式》—— 关于"成本三角"
 date: 2026-04-23
 description: Yage 把 AI 设计工具的竞争格局拆成了三个互锁的成本驱动因素，这个坐标系挺好用。
 tags: [读后感, AI, 设计]
-category: 读书笔记
+category: books
 cover: /covers/reading-yage-ai-design-workflow.webp
 ---
 
