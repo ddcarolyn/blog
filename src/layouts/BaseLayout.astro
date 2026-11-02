@@ -11,6 +11,8 @@ interface Props {
   ogType?: 'website' | 'article';
   /** 不让搜索引擎收录（草稿、内部页） */
   noindex?: boolean;
+  /** 分享卡片图（站内相对路径，如 /covers/xxx.webp） */
+  image?: string;
 }
 
 const {
@@ -20,10 +22,12 @@ const {
   wide = false,
   ogType = 'website',
   noindex = false,
+  image,
 } = Astro.props;
 
 const fullTitle = title === SITE.name ? `${SITE.name} — ${SITE.tagline}` : `${title} · ${SITE.name}`;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const ogImage = image ? new URL(image, SITE.url).href : undefined;
 ---
 
 <!doctype html>
@@ -40,7 +44,9 @@ const canonical = new URL(Astro.url.pathname, SITE.url).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content="zh_CN" />
-    <meta name="twitter:card" content="summary" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <link
