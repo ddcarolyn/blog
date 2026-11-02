@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getPublishedPosts } from '../../lib/posts';
+import { getCategory } from '../../lib/categories';
 
 // 构建时为每篇没有自定义 cover 的文章生成一张 16:9 的文字封面，
 // 首页 / 标签页的列表行卡用它当缩略图（对应 Wayne 站的 /covers/*.webp）。
@@ -12,7 +13,8 @@ export async function getStaticPaths() {
       params: { slug: p.slug },
       props: {
         title: p.data.title,
-        category: p.data.category ?? p.data.tags[0] ?? '',
+        category: getCategory(p.data.category)?.en ?? p.data.tags[0] ?? '',
+        accent: getCategory(p.data.category)?.accent,
       },
     }));
 }
@@ -77,8 +79,11 @@ function wrap(text: string, maxUnits: number, maxLines: number): string[] {
 }
 
 export const GET: APIRoute = ({ props }) => {
-  const { title, category } = props as { title: string; category: string };
-  const pal = PALETTES[hash(category || title) % PALETTES.length];
+  const { title, category, accent } = props as { title: string; category: string; accent?: string };
+  // 有专栏就用专栏强调色,没有就按标题哈希挑一套
+  const pal = accent
+    ? { bg: '#f6f3ec', fg: '#2b2118', accent }
+    : PALETTES[hash(category || title) % PALETTES.length];
 
   const W = 752;
   const H = 424;
@@ -103,6 +108,7 @@ export const GET: APIRoute = ({ props }) => {
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(title)}">
   <rect width="${W}" height="${H}" fill="${pal.bg}"/>
+  ${accent ? `<rect width="${W}" height="${H}" fill="${accent}" opacity="0.10"/>` : ''}
   <circle cx="${W - 40}" cy="${H + 60}" r="230" fill="${pal.accent}" opacity="0.14"/>
   <circle cx="${W - 150}" cy="${H - 20}" r="90" fill="${pal.accent}" opacity="0.18"/>
   <rect x="${PAD}" y="${PAD + 4}" width="28" height="4" fill="${pal.accent}"/>

@@ -3,7 +3,7 @@ title: 给内部站加「飞书登录」：让同事扫码就能进，爬虫和 
 date: 2026-07-28
 description: 公司内部的报表、看板放网上，既想让同事随时能看，又不想公开裸奔。最顺手的办法是让大家用自己的飞书扫码登录——零门槛、还自动只限公司内部。这篇讲清原理，附一段能直接复制给 AI 帮你落地的 Prompt，以及可复用的中间件代码。
 tags: [飞书, Cloudflare, 建站, 权限管理, SSO]
-category: 建站笔记
+category: build
 cover: /covers/feishu-login-cloudflare-pages.webp
 ---
 

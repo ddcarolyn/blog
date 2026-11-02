@@ -1,0 +1,36 @@
+---
+import CategoryPill from './CategoryPill.astro';
+import { coverSources, fmtDate, postUrl, type Post } from '../lib/posts';
+
+interface Props {
+  post: Post;
+  eager?: boolean;
+}
+const { post, eager = false } = Astro.props;
+const cover = coverSources(post);
+---
+
+<article class="post-card">
+  <a class="post-card-link" href={postUrl(post)}>
+    <span class="post-card-media">
+      <img
+        src={cover.mid}
+        srcset={cover.srcset}
+        sizes="(max-width: 600px) 100vw, (max-width: 960px) 50vw, 320px"
+        alt=""
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+        width="376"
+        height="212"
+      />
+    </span>
+    <span class="post-card-body">
+      <span class="post-card-meta">
+        <CategoryPill slug={post.data.category} plain />
+        <time datetime={post.data.date.toISOString()}>{fmtDate(post.data.date)}</time>
+      </span>
+      <h3>{post.data.title}</h3>
+      {post.data.description && <p>{post.data.description}</p>}
+    </span>
+  </a>
+</article>

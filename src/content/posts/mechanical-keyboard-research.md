@@ -3,7 +3,7 @@ title: 我把机械键盘从轴体讲到 Keychron，拆成了 26 页给小白看
 date: 2026-06-12
 description: 手感和声音线上买不到，术语墙又高。所以我用 Reddit 上两万多条真实吐槽做底料，把机械键盘拆成 26 个维度——从轴体、键帽、布局，到 Keychron 和它的竞品格局。
 tags: [机械键盘, Keychron, 轴体, 小白指南, AI调研]
-category: AI Research Lab
+category: ai
 cover: /covers/mechanical-keyboard-research.webp
 ---
 

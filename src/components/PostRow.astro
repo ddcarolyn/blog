@@ -1,5 +1,5 @@
 ---
-import { coverThumbUrl, coverUrl, postUrl, type Post } from '../lib/posts';
+import { coverSources, postUrl, type Post } from '../lib/posts';
 
 interface Props {
   post: Post;
@@ -8,16 +8,15 @@ interface Props {
 }
 const { post, index = 99 } = Astro.props;
 const eager = index < 3;
-const full = coverUrl(post);
-const thumb = coverThumbUrl(post);
+const cover = coverSources(post);
 ---
 
 <li>
   <a class="home-row" href={postUrl(post)}>
     <img
-      src={thumb}
-      srcset={thumb !== full ? `${thumb} 376w, ${full} 1536w` : undefined}
-      sizes={thumb !== full ? '(max-width: 600px) 92px, 188px' : undefined}
+      src={cover.thumb}
+      srcset={cover.srcset}
+      sizes="(max-width: 600px) 92px, 188px"
       alt=""
       loading={eager ? 'eager' : 'lazy'}
       fetchpriority={eager && index === 0 ? 'high' : undefined}

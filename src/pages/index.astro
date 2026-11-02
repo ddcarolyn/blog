@@ -1,19 +1,23 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PostRow from '../components/PostRow.astro';
-import Sidebar from '../components/Sidebar.astro';
-import { getPublishedPosts, SITE } from '../lib/posts';
+import CategoryTabs from '../components/CategoryTabs.astro';
+import FeaturedCard from '../components/FeaturedCard.astro';
+import CategorySection from '../components/CategorySection.astro';
+import { getPublishedPosts, postsByCategory, SITE } from '../lib/posts';
 
 const posts = await getPublishedPosts();
+const [hero, ...rest] = posts;
+const side = rest.slice(0, 3);
+const groups = postsByCategory(posts);
 ---
 
 <BaseLayout active="home" wide>
-  <div class="home-only">
+  <div class="home">
     <section class="home-intro">
       <h1>{SITE.tagline}</h1>
       <p class="home-bio">
-        像侦探一样追踪出海商业里的冷门信号：跨境电商、独立站、AI
-        调研、新产品增长。这里持续公开我的研究过程，从发现问题、整理线索到形成判断，靠近那些还没被充分看见的机会。
+        像侦探一样追踪出海商业里的冷门信号,也记录 AI
+        工作流、建站过程、学习方法和读过的书。这里持续公开我的研究过程:从发现问题、整理线索到形成判断。
       </p>
       <p class="home-contact">
         想交流或聊合作 →
@@ -21,23 +25,21 @@ const posts = await getPublishedPosts();
       </p>
     </section>
 
-    <div class="home-columns">
-      <section class="home-posts" id="articles">
-        <h2>文章</h2>
-        {
-          posts.length === 0 ? (
-            <p class="empty">还没有文章</p>
-          ) : (
-            <ul class="home-list">
-              {posts.map((post, i) => (
-                <PostRow post={post} index={i} />
-              ))}
-            </ul>
-          )
-        }
-      </section>
+    <CategoryTabs active="all" />
 
-      <Sidebar />
-    </div>
+    {
+      posts.length === 0 ? (
+        <p class="empty">还没有文章</p>
+      ) : (
+        <>
+          <FeaturedCard hero={hero} side={side} />
+          <div id="columns" class="home-columns-stack">
+            {groups.map((g) => (
+              <CategorySection category={g.category} posts={g.posts} />
+            ))}
+          </div>
+        </>
+      )
+    }
   </div>
 </BaseLayout>

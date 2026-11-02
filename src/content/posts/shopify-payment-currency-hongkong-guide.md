@@ -3,7 +3,7 @@ title: Shopify 收款避坑指南：香港公司、币种与「多币种销售�
 date: 2026-06-20
 description: 用香港公司开 Shopify 独立站，payout 默认是港币——这个新手想不到的细节，让我一个官方销售渠道死活开不了。收款工具、币种关系、和到底要不要花钱解决，一篇讲清。
 tags: [Shopify, 独立站, 跨境电商, 收款]
-category: 出海笔记
+category: work
 cover: /covers/shopify-payment-currency-hongkong-guide.webp
 ---
 

@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Sidebar from '../../components/Sidebar.astro';
-import { fmtDate, getPublishedPosts, SITE, tagUrl } from '../../lib/posts';
+import CategoryPill from '../../components/CategoryPill.astro';
+import { coverSources, fmtDate, getPublishedPosts, SITE, tagUrl } from '../../lib/posts';
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
@@ -13,6 +14,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+const cover = coverSources(post);
 ---
 
 <BaseLayout
@@ -26,6 +28,7 @@ const { Content } = await post.render();
     <div>
       <article class="visual-article">
         <header class="article-header">
+          {post.data.category && <p class="article-category"><CategoryPill slug={post.data.category} /></p>}
           <h1 class="article-title">{post.data.title}</h1>
           <div class="article-meta">
             <span>{SITE.author} · {fmtDate(post.data.date)}</span>
@@ -48,7 +51,9 @@ const { Content } = await post.render();
           post.data.cover && (
             <figure class="article-cover">
               <img
-                src={post.data.cover}
+                src={cover.mid}
+                srcset={cover.srcset}
+                sizes="(max-width: 960px) 100vw, 800px"
                 alt=""
                 width="1536"
                 height="864"

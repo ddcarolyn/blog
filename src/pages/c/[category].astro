@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CategoryTabs from '../../components/CategoryTabs.astro';
+import PostCard from '../../components/PostCard.astro';
+import { CATEGORIES } from '../../lib/categories';
+import { getPublishedPosts } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return CATEGORIES.map((category) => ({
+    params: { category: category.slug },
+    props: { category, posts: posts.filter((p) => p.data.category === category.slug) },
+  })).filter((x) => x.props.posts.length > 0);
+}
+
+const { category, posts } = Astro.props;
+---
+
+<BaseLayout
+  title={category.name}
+  description={`${category.blurb} ddcarolyn「${category.name}」专栏,共 ${posts.length} 篇。`}
+  image={posts[0]?.data.cover}
+  wide
+>
+  <div class="home">
+    <CategoryTabs active={category.slug} />
+    <header class="cat-hero" style={`--cat:${category.accent};--cat-dark:${category.accentDark}`}>
+      <p class="cat-en">{category.en}</p>
+      <h1>{category.name}</h1>
+      <p class="cat-hero-blurb">{category.blurb}</p>
+      <p class="cat-hero-count">{posts.length} 篇</p>
+    </header>
+    <div class="card-grid card-grid-3">
+      {posts.map((p, i) => <PostCard post={p} eager={i < 3} />)}
+    </div>
+    <p class="article-back"><a href="/">← 回到首页</a></p>
+  </div>
+</BaseLayout>
