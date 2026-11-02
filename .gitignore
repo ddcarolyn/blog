@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 scripts/covers/raw/
 __pycache__/
+
+# wrangler 本地状态
+.wrangler/
