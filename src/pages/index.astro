@@ -29,8 +29,8 @@ const posts = await getPublishedPosts();
             <p class="empty">还没有文章</p>
           ) : (
             <ul class="home-list">
-              {posts.map((post) => (
-                <PostRow post={post} />
+              {posts.map((post, i) => (
+                <PostRow post={post} index={i} />
               ))}
             </ul>
           )

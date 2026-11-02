@@ -3,8 +3,11 @@ import { coverThumbUrl, coverUrl, postUrl, type Post } from '../lib/posts';
 
 interface Props {
   post: Post;
+  /** 列表里的序号：前几行在首屏，封面不要懒加载，手机上才能跟着 HTML 一起出来 */
+  index?: number;
 }
-const { post } = Astro.props;
+const { post, index = 99 } = Astro.props;
+const eager = index < 3;
 const full = coverUrl(post);
 const thumb = coverThumbUrl(post);
 ---
@@ -16,7 +19,8 @@ const thumb = coverThumbUrl(post);
       srcset={thumb !== full ? `${thumb} 376w, ${full} 1536w` : undefined}
       sizes={thumb !== full ? '(max-width: 600px) 92px, 188px' : undefined}
       alt=""
-      loading="lazy"
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager && index === 0 ? 'high' : undefined}
       decoding="async"
       width="188"
       height="106"
