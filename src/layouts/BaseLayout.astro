@@ -5,7 +5,7 @@ import { SITE } from '../lib/posts';
 interface Props {
   title?: string;
   description?: string;
-  active?: 'home' | 'columns' | 'archive' | 'about' | 'rss';
+  active?: 'home' | 'archive' | 'about' | 'rss';
   /** 双栏宽版（首页、文章页、标签页） */
   wide?: boolean;
   ogType?: 'website' | 'article';
@@ -17,7 +17,7 @@ interface Props {
 
 const {
   title = SITE.name,
-  description = `${SITE.tagline}：出海实战、AI 工作流、建站手记、学习提升和读过的书。`,
+  description = `${SITE.tagline}：跨境电商、独立站、AI 调研、新品增长。`,
   active,
   wide = false,
   ogType = 'website',

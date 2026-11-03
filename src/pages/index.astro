@@ -16,9 +16,14 @@ const groups = postsByCategory(posts);
   <div class="home">
     <section class="home-intro">
       <h1>{SITE.tagline}</h1>
-      {LETTER_INTRO.map((line, i) => <p class={i === 0 ? 'home-lead' : 'home-bio'}>{line}</p>)}
+      <div class="home-banner">
+        <img src="/images/home-banner.webp" srcset="/images/home-banner-768.webp 768w, /images/home-banner.webp 1536w" sizes="(max-width: 600px) 100vw, 1048px" alt="" width="1536" height="720" fetchpriority="high" decoding="async" />
+        <div class="home-banner-text">
+          {LETTER_INTRO.map((line, i) => <p class={i === 0 ? 'lead' : undefined}>{line}</p>)}
+        </div>
+      </div>
       <p class="home-contact">
-        <a href="/letter/">读整封信 →</a> · 想交流或聊合作 →
+        想交流或聊合作 →
         <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
       </p>
     </section>
