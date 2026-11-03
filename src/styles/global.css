@@ -198,6 +198,12 @@ body.wide .container {
   font-size: clamp(1.65rem, 3vw, 2.15rem);
   line-height: 1.35;
 }
+.home-lead {
+  margin: 0 0 0.5rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
 .home-bio {
   margin: 0.65rem 0 0;
   color: var(--text);
@@ -697,13 +703,15 @@ body.wide .container {
 /* ---------- 专栏体系(颜色由 src/lib/categories.ts 注入 --cat / --cat-dark) ---------- */
 .cat-pill,
 .cat-tabs a,
-.col-section,
+.cat-section,
+.cat-hero,
 .sidebar-cats li {
   --c: var(--cat, var(--accent));
 }
 [data-theme='dark'] .cat-pill,
 [data-theme='dark'] .cat-tabs a,
-[data-theme='dark'] .col-section,
+[data-theme='dark'] .cat-section,
+[data-theme='dark'] .cat-hero,
 [data-theme='dark'] .sidebar-cats li {
   --c: var(--cat-dark, var(--accent));
 }
@@ -979,6 +987,34 @@ a.cat-pill:hover {
   text-underline-offset: 3px;
 }
 
+/* 专栏页头部:整块带专栏色的浅底 */
+.cat-hero {
+  margin: 0 0 2rem;
+  padding: 1.8rem 1.75rem 1.6rem;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--c) 9%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--c) 22%, var(--border));
+}
+.cat-hero .cat-en {
+  margin: 0 0 0.3rem;
+}
+.cat-hero h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  line-height: 1.25;
+}
+.cat-hero-blurb {
+  margin: 0;
+  max-width: 44em;
+  color: var(--excerpt-fg);
+}
+.cat-hero-count {
+  margin: 0.7rem 0 0;
+  font-size: 0.85rem;
+  color: var(--c);
+  font-weight: 600;
+}
+
 /* 侧栏专栏列表 */
 .sidebar-cats a {
   display: inline-flex;
@@ -1029,6 +1065,9 @@ a.cat-pill:hover {
   }
   .cat-section {
     padding: 1.8rem 0 2rem;
+  }
+  .cat-hero {
+    padding: 1.3rem 1.2rem;
   }
 }
 
@@ -1125,80 +1164,6 @@ a.cat-pill:hover {
 .letter-paper[data-lang='en'] .letter-head h1 [data-zh] { display: none; }
 .letter-paper:not([data-lang='en']) .letter-head h1 [data-en] { display: none; }
 
-/* ---------- 首页(2026-11-03 A 版):信带字写进图里 + tab + 全部卡片 ---------- */
-/* 信带:字写在图里。底图 21:9,主体在右,左侧留白放字 */
-.letter-band {
-  position: relative;
-  border-radius: 14px;
-  overflow: hidden;
-  margin: 0 0 2rem;
-  background: var(--band-bg, #f4f3ee) var(--band-img) right center / auto 100% no-repeat;
-  min-height: 250px;
-  display: flex;
-  align-items: center;
-}
-.band-text {
-  width: 58%;
-  padding: 2rem 2.4rem;
-  font-family: 'Letter WenKai', 'Kaiti SC', 'KaiTi', serif;
-  font-size: 1.02rem;
-  line-height: 1.85;
-  color: #2b3330;
-}
-.band-text p { margin: 0 0 0.35em; }
-.band-text p:first-child { font-size: 1.18rem; }
-.band-foot { font-family: var(--sans); font-size: 0.84rem; color: #5b6763; margin-top: 0.6em !important; }
-.band-foot a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.band-foot a:hover { color: #111; }
-.tone-a { --band-bg: #feeedd; }
-.tone-b { --band-bg: #dce6e0; }
-.tone-a .band-text { color: #3a3330; }
-.tone-a .band-foot { color: #7a6f68; }
-[data-theme='dark'] .letter-band { background-color: #1f1f1d; }
-[data-theme='dark'] .letter-band::before { content: ''; position: absolute; inset: 0; background: rgba(20, 20, 20, 0.45); }
-[data-theme='dark'] .band-text { position: relative; color: #e7e7e7; }
-[data-theme='dark'] .band-foot { color: #bdbdbd; }
-
-/* 索引:tab + 卡片网格 */
-.index .cat-tabs { margin-bottom: 1.4rem; }
-.index-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.6rem 1.25rem; }
-.index-grid .post-card-media img { aspect-ratio: 16 / 10; border-radius: 6px; border: 0; }
-.index-grid .post-card-link:hover img { transform: scale(1.03); }
-.index-grid .post-card-body { display: flex; flex-direction: column; padding-top: 0.6rem; }
-.index-grid .post-card-meta { order: 2; margin-top: 0.35rem; }
-.index-grid .post-card-meta time { display: none; }
-.index-grid .post-card h3 { margin: 0; font-size: 0.95rem; line-height: 1.45; }
-.index-grid .post-card p { display: none; }
-/* 暗色:中性深灰,不配彩色 */
-[data-theme='dark'] .letter-band { background: #1f1f1d; }
-[data-theme='dark'] .band-short, [data-theme='dark'] .band-full { color: #cfd6d2; }
-
-@media (max-width: 960px) {
-  .index-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.3rem 1rem; }
-}
-@media (max-width: 640px) {
-  .letter-band { min-height: 0; background-position: right top; background-size: auto 50vw; align-items: flex-end; padding-top: 44vw; }
-  .band-text { width: 100%; padding: 0.9rem 1.1rem 1rem; font-size: 0.94rem; line-height: 1.7; background: linear-gradient(to bottom, rgba(244, 243, 238, 0) 0, rgba(244, 243, 238, 0.96) 14%, rgba(244, 243, 238, 0.98) 100%); }
-  .band-text p:first-child { font-size: 1.08rem; }
-  [data-theme='dark'] .band-text { background: linear-gradient(to bottom, rgba(31, 31, 29, 0) 0, rgba(31, 31, 29, 0.96) 14%, rgba(31, 31, 29, 0.98) 100%); }
-  .index-grid { grid-template-columns: 1fr 1fr; gap: 1.1rem 0.8rem; }
-  .index-grid .post-card h3 { font-size: 0.9rem; }
-}
-
-/* ---------- 分类页 /c/:标题行 + 网格 ---------- */
-.columns-page .cat-tabs { margin-bottom: 0.5rem; }
-.col-section { padding: 2.2rem 0 2.6rem; border-top: 1px solid var(--border); }
-.col-section:first-of-type { border-top: 0; padding-top: 1.2rem; }
-.col-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1rem; margin-bottom: 1.2rem; }
-.col-head h1, .col-head h2 { margin: 0; font-size: 1.25rem; line-height: 1.3; }
-.col-head h1 { font-size: 1.5rem; }
-.col-head h2 a { color: var(--text); text-decoration: none; }
-.col-head h2 a:hover { color: var(--c); }
-.col-head .cat-en { margin-left: 0.45rem; }
-.col-blurb { margin: 0; flex: 1 1 100%; color: var(--muted); font-size: 0.88rem; }
-.col-more { margin-left: auto; font-size: 0.84rem; color: var(--muted); text-decoration: none; white-space: nowrap; }
-.col-more:hover { color: var(--c); }
-
 /* 文章页文末:相关 3 篇 + 订阅句 */
 .related { margin: 3rem 0 1rem; padding-top: 1.8rem; border-top: 1px solid var(--border); }
 .related h2 { margin: 0 0 1rem; font-size: 1.15rem; }
@@ -1213,5 +1178,4 @@ a.cat-pill:hover {
 @media (max-width: 640px) {
   .related-grid { grid-template-columns: 1fr 1fr; gap: 1rem 0.8rem; }
   .related-grid .post-card:nth-child(3) { display: none; }
-  .col-section { padding: 1.6rem 0 1.8rem; }
 }
