@@ -7,7 +7,8 @@ export type Post = CollectionEntry<'posts'>;
 export const SITE = {
   name: 'ddcarolyn',
   author: 'Carolyn',
-  tagline: 'Carolyn 的出海笔记',
+  /** 站名,全站只改这一处(11-03 候选:Carolyn 的线索本 / 小侦探卡洛琳 / Dear Detective) */
+  tagline: 'Carolyn 的线索本',
   email: 'gracerosedd@gmail.com',
   url: 'https://ddcarolyn.com',
 };

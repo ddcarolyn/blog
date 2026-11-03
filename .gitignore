@@ -27,3 +27,6 @@ __pycache__/
 
 # wrangler 本地状态
 .wrangler/
+
+# 风格选型页的第三方参考图,不进仓库
+docs/style-lab/

@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Content as Zh } from '../letters/zh.md';
+import { Content as En } from '../letters/en.md';
+---
+
+<BaseLayout title="给来到这里的你" active="about">
+  <div class="letter-page">
+    <div class="letter-paper" data-lang="zh">
+      <header class="letter-head">
+        <h1><span data-zh>给来到这里的你</span><span data-en>A Letter to You</span></h1>
+        <div class="letter-tools">
+          <button type="button" class="letter-lang" data-set="zh" aria-pressed="true">中文</button>
+          <button type="button" class="letter-lang" data-set="en" aria-pressed="false">English</button>
+        </div>
+      </header>
+      <div class="letter-body" data-zh><Zh /></div>
+      <div class="letter-body" data-en><En /></div>
+      <p class="letter-sign">Carolyn</p>
+    </div>
+    <p class="article-back"><a href="/">← 回到首页</a></p>
+  </div>
+</BaseLayout>
+
+<script>
+  const paper = document.querySelector<HTMLElement>('.letter-paper');
+  if (paper) {
+    const apply = (lang: string) => {
+      paper.dataset.lang = lang;
+      paper.querySelectorAll<HTMLButtonElement>('.letter-lang').forEach((b) => {
+        b.setAttribute('aria-pressed', String(b.dataset.set === lang));
+      });
+    };
+    try {
+      if (localStorage.getItem('letter-lang') === 'en') apply('en');
+    } catch {}
+    paper.querySelectorAll<HTMLButtonElement>('.letter-lang').forEach((b) => {
+      b.addEventListener('click', () => {
+        apply(b.dataset.set || 'zh');
+        try {
+          localStorage.setItem('letter-lang', b.dataset.set || 'zh');
+        } catch {}
+      });
+    });
+  }
+</script>

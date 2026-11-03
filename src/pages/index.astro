@@ -1,45 +1,35 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CategoryTabs from '../components/CategoryTabs.astro';
-import FeaturedCard from '../components/FeaturedCard.astro';
-import CategorySection from '../components/CategorySection.astro';
+import LetterHero from '../components/LetterHero.astro';
+import DirectorySection from '../components/DirectorySection.astro';
 import { getPublishedPosts, postsByCategory, SITE } from '../lib/posts';
 
 const posts = await getPublishedPosts();
-const [hero, ...rest] = posts;
-const side = rest.slice(0, 3);
 const groups = postsByCategory(posts);
 ---
 
 <BaseLayout active="home" wide>
   <div class="home">
-    <section class="home-intro">
-      <h1>{SITE.tagline}</h1>
-      <p class="home-bio">
-        像侦探一样追踪出海商业里的冷门信号,也记录 AI
-        工作流、建站过程、学习方法和读过的书。这里持续公开我的研究过程:从发现问题、整理线索到形成判断。
-      </p>
-      <p class="home-contact">
-        想交流或聊合作 →
-        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
-      </p>
-    </section>
+    <LetterHero variant="l10" />
 
-    <CategoryTabs active="all" />
-
-    {
-      posts.length === 0 ? (
-        <p class="empty">还没有文章</p>
-      ) : (
-        <>
-          <FeaturedCard hero={hero} side={side} />
-          <div id="columns" class="home-columns-stack">
+    <section id="directory" class="directory" aria-label="目录">
+      <header class="directory-head">
+        <h2>目录</h2>
+        <p class="directory-note">按专栏排,新的在前。想交流或聊合作 → <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
+      </header>
+      <CategoryTabs active="all" />
+      {
+        posts.length === 0 ? (
+          <p class="empty">还没有文章</p>
+        ) : (
+          <div class="directory-grid">
             {groups.map((g) => (
-              <CategorySection category={g.category} posts={g.posts} />
+              <DirectorySection category={g.category} posts={g.posts} />
             ))}
           </div>
-        </>
-      )
-    }
+        )
+      }
+    </section>
   </div>
 </BaseLayout>
