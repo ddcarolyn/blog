@@ -1,0 +1,119 @@
+---
+/**
+ * 首屏「给来到这里的你」:同一封信的 10 个风格变体(L1–L10),variant 属性切换(首页用 L10 韩系杂志,2026-11-03 Carolyn 拍板);其余九个留着备用,改 index.astro 的 variant 即可换。
+ * 改文案:改 PARAS;改完重跑 scripts/fonts/subset_letter_font.sh 把新字补进四款字体子集。
+ * 完整版中英文在 /letter/。
+ */
+export type Variant = 'l1' | 'l2' | 'l3' | 'l4' | 'l5' | 'l6' | 'l7' | 'l8' | 'l9' | 'l10';
+type Font = 'xiaolai' | 'yozai' | 'wenkai';
+type Layout = 'paper' | 'envelope' | 'notes' | 'polaroid' | 'notebook' | 'magazine';
+interface Conf {
+  name: string;
+  desc: string;
+  font: Font;
+  layout: Layout;
+  /** [贴纸文件名, 位置类] */
+  stickers: [string, string][];
+}
+export const VARIANTS: Record<Variant, Conf> = {
+  l1: { name: '手帐贴纸', desc: '淡蓝点阵底、白纸斜放、和纸胶带、卡哇伊贴纸', font: 'xiaolai', layout: 'paper',
+    stickers: [['cloud-blue', 'st-tr'], ['plane', 'st-tl'], ['envelope', 'st-bl'], ['cat', 'st-br'], ['star', 'st-mr'], ['cup', 'st-ml']] },
+  l2: { name: '薄荷奶油', desc: '薄荷到奶油的渐变、大圆角卡片、花草贴纸、不歪', font: 'yozai', layout: 'paper',
+    stickers: [['tulip', 'st-tl'], ['daisy', 'st-br'], ['bow', 'st-tr']] },
+  l3: { name: '水彩云朵', desc: '水彩晕染底、半透明磨砂纸、月亮星星', font: 'wenkai', layout: 'paper',
+    stickers: [['moon', 'st-tr'], ['star', 'st-bl']] },
+  l4: { name: '极简白盒', desc: '纯白留白、细线框、无贴纸、字正着放。最接近 keychron.kr', font: 'wenkai', layout: 'paper', stickers: [] },
+  l5: { name: '信封邮票', desc: '信从淡蓝信封里抽出来,右上角邮票和邮戳', font: 'xiaolai', layout: 'envelope',
+    stickers: [['bow', 'st-bl']] },
+  l6: { name: '便签拼贴', desc: '每段写在一张彩色便签上,错落贴在淡紫底', font: 'yozai', layout: 'notes',
+    stickers: [['bubble', 'st-tr'], ['sun', 'st-bl']] },
+  l7: { name: '拍立得', desc: '左边一张拍立得照片,右边一张素纸写信', font: 'wenkai', layout: 'polaroid',
+    stickers: [['bow', 'st-tl']] },
+  l8: { name: '蓝格笔记本', desc: '活页本内页、天蓝方格、最后一句划荧光笔', font: 'xiaolai', layout: 'notebook',
+    stickers: [['glasses', 'st-br'], ['sun-round', 'st-tr']] },
+  l9: { name: '暮色蓝', desc: '长春花蓝渐变、细碎星点、米白信纸、月亮', font: 'yozai', layout: 'paper',
+    stickers: [['moon', 'st-tl'], ['cloud-sleepy', 'st-br'], ['star', 'st-mr']] },
+  l10: { name: '韩系杂志', desc: '淡鼠尾草色块、细黑体大标题、右边一张 K3 物件图、字正着放', font: 'wenkai', layout: 'magazine', stickers: [] },
+};
+
+interface Props {
+  variant?: Variant;
+}
+const { variant = 'l10' } = Astro.props;
+const conf = VARIANTS[variant];
+const TITLE = '给来到这里的你';
+/** 每个子数组是一段 */
+const PARAS: string[][] = [
+  ['你好，我是 Carolyn。'],
+  [
+    '我的主业是出海，另一个爱好是读侦探推理小说。',
+    '读得多了才发现，这两件事有同一种乐趣：',
+    '你总是先看到结果，却不知道它为什么发生。',
+  ],
+  ['回到现场，分清哪些是巧合、哪些是线索，', '提出解释，再去找推翻它的证据。'],
+  ['后来 AI 来了。我带着这些年的经验开始学它，', '把它放进自己熟悉的真实问题里，看它能推进到哪一步。'],
+  ['这里记的，就是这些线索：', '出海的经验、学 AI 的过程，还有读过的书。'],
+  ['毕竟，找到一条线索的快乐，', '如果能让另一个人也往前走一步，就更值得写下来了。'],
+];
+const NOTE_COLORS = ['#fff6c4', '#dcf3ea', '#e2ecff', '#fde3ea', '#ebe2ff', '#ffffff'];
+---
+
+<section class={`letter-hero lh-${variant} font-${conf.font} layout-${conf.layout}`} aria-label={TITLE}>
+  {conf.stickers.map(([s, cls]) => (
+    <img class={`sticker ${cls}`} src={`/images/stickers/${s}.png`} alt="" width="200" height="200" loading="eager" decoding="async" />
+  ))}
+
+  {conf.layout === 'notes' ? (
+    <div class="notes">
+      <div class="note note-title" style={`--note:${NOTE_COLORS[5]}`}><h1>{TITLE}</h1></div>
+      {PARAS.map((lines, i) => (
+        <div class="note" style={`--note:${NOTE_COLORS[i % 5]}`}>
+          <p>{lines.map((l) => <span class="letter-line">{l}</span>)}</p>
+        </div>
+      ))}
+      <div class="note note-sign" style={`--note:${NOTE_COLORS[0]}`}>
+        <p class="letter-ink-sign">Carolyn</p>
+        <a class="letter-ink-more" href="/letter/">读完整的信 →</a>
+      </div>
+    </div>
+  ) : (
+    <div class="scene">
+      {conf.layout === 'envelope' && <span class="env-back" aria-hidden="true"></span>}
+      {conf.layout === 'polaroid' && (
+        <figure class="polaroid">
+          <img src="/images/letter/letter-k1-window-600.webp" alt="" width="600" height="800" loading="eager" decoding="async" />
+          <figcaption>Carolyn · 2026</figcaption>
+        </figure>
+      )}
+      {conf.layout === 'magazine' && (
+        <figure class="mag-figure">
+          <img src="/images/letter/obj-hourglass.webp" alt="" width="1200" height="675" loading="eager" decoding="async" />
+        </figure>
+      )}
+      <div class="letter-paper-card">
+        {conf.layout === 'notebook' && <span class="rings" aria-hidden="true"></span>}
+        {(variant === 'l1' || variant === 'l3' || variant === 'l9') && (
+          <>
+            <span class="tape tape-tl" aria-hidden="true"></span>
+            <span class="tape tape-br" aria-hidden="true"></span>
+          </>
+        )}
+        {conf.layout === 'envelope' && (
+          <span class="stamp" aria-hidden="true">
+            <img src="/images/stickers/daisy.png" alt="" width="120" height="120" />
+            <i class="postmark"></i>
+          </span>
+        )}
+        <div class="letter-ink">
+          <h1>{TITLE}</h1>
+          {PARAS.map((lines) => (
+            <p>{lines.map((l) => <span class="letter-line">{l}</span>)}</p>
+          ))}
+          <p class="letter-ink-sign">Carolyn</p>
+          <a class="letter-ink-more" href="/letter/">读完整的信 →</a>
+        </div>
+      </div>
+      {conf.layout === 'envelope' && <span class="env-front" aria-hidden="true"></span>}
+    </div>
+  )}
+</section>
