@@ -1,0 +1,27 @@
+---
+import PostCard from './PostCard.astro';
+import { categoryUrl, type Category } from '../lib/categories';
+import type { Post } from '../lib/posts';
+
+interface Props {
+  category: Category;
+  posts: Post[];
+  /** 首页每个区块最多放几张 */
+  limit?: number;
+}
+const { category, posts, limit = 4 } = Astro.props;
+const shown = posts.slice(0, limit);
+---
+
+<section class="cat-section" style={`--cat:${category.accent};--cat-dark:${category.accentDark}`}>
+  <header class="cat-section-head">
+    <div>
+      <h2><a href={categoryUrl(category)}>{category.name}</a> <span class="cat-en">{category.en}</span></h2>
+      <p>{category.blurb}</p>
+    </div>
+    <a class="cat-more" href={categoryUrl(category)}>查看全部 {posts.length} 篇 →</a>
+  </header>
+  <div class="card-grid">
+    {shown.map((p) => <PostCard post={p} />)}
+  </div>
+</section>
