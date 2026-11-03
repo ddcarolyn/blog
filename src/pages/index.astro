@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import LetterBand from '../components/LetterBand.astro';
 import CategoryTabs from '../components/CategoryTabs.astro';
 import FeaturedCard from '../components/FeaturedCard.astro';
 import CategorySection from '../components/CategorySection.astro';
-import { getPublishedPosts, postsByCategory } from '../lib/posts';
+import { getPublishedPosts, postsByCategory, SITE } from '../lib/posts';
+import { LETTER_INTRO } from '../lib/letter';
 
 const posts = await getPublishedPosts();
 const [hero, ...rest] = posts;
@@ -14,7 +14,14 @@ const groups = postsByCategory(posts);
 
 <BaseLayout active="home" wide>
   <div class="home">
-    <LetterBand img="/images/letter/band-a.webp" tone="a" />
+    <section class="home-intro">
+      <h1>{SITE.tagline}</h1>
+      {LETTER_INTRO.map((line, i) => <p class={i === 0 ? 'home-lead' : 'home-bio'}>{line}</p>)}
+      <p class="home-contact">
+        <a href="/letter/">读整封信 →</a> · 想交流或聊合作 →
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      </p>
+    </section>
 
     <CategoryTabs active="all" />
 
