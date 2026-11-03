@@ -20,19 +20,19 @@ const { category, posts } = Astro.props;
   title={category.name}
   description={`${category.blurb} ddcarolyn「${category.name}」专栏,共 ${posts.length} 篇。`}
   image={posts[0]?.data.cover}
+  active="columns"
   wide
 >
-  <div class="home">
+  <div class="home columns-page">
     <CategoryTabs active={category.slug} />
-    <header class="cat-hero" style={`--cat:${category.accent};--cat-dark:${category.accentDark}`}>
-      <p class="cat-en">{category.en}</p>
-      <h1>{category.name}</h1>
-      <p class="cat-hero-blurb">{category.blurb}</p>
-      <p class="cat-hero-count">{posts.length} 篇</p>
-    </header>
-    <div class="card-grid card-grid-3">
-      {posts.map((p, i) => <PostCard post={p} eager={i < 3} />)}
-    </div>
-    <p class="article-back"><a href="/">← 回到首页</a></p>
+    <section class="col-section" style={`--cat:${category.accent};--cat-dark:${category.accentDark}`}>
+      <header class="col-head">
+        <h1>{category.name} <span class="cat-en">{category.en}</span></h1>
+        <p class="col-blurb">{category.blurb} · {posts.length} 篇</p>
+      </header>
+      <div class="index-grid">
+        {posts.map((p, i) => <PostCard post={p} eager={i < 4} />)}
+      </div>
+    </section>
   </div>
 </BaseLayout>

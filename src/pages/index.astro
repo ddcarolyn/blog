@@ -1,35 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CategoryTabs from '../components/CategoryTabs.astro';
-import LetterHero from '../components/LetterHero.astro';
-import DirectorySection from '../components/DirectorySection.astro';
-import { getPublishedPosts, postsByCategory, SITE } from '../lib/posts';
+import LetterBand from '../components/LetterBand.astro';
+import IndexGrid from '../components/IndexGrid.astro';
+import { getPublishedPosts } from '../lib/posts';
 
 const posts = await getPublishedPosts();
-const groups = postsByCategory(posts);
 ---
 
 <BaseLayout active="home" wide>
   <div class="home">
-    <LetterHero variant="l10" />
-
-    <section id="directory" class="directory" aria-label="目录">
-      <header class="directory-head">
-        <h2>目录</h2>
-        <p class="directory-note">按专栏排,新的在前。想交流或聊合作 → <a href={`mailto:${SITE.email}`}>{SITE.email}</a></p>
-      </header>
-      <CategoryTabs active="all" />
-      {
-        posts.length === 0 ? (
-          <p class="empty">还没有文章</p>
-        ) : (
-          <div class="directory-grid">
-            {groups.map((g) => (
-              <DirectorySection category={g.category} posts={g.posts} />
-            ))}
-          </div>
-        )
-      }
-    </section>
+    <LetterBand img="/images/letter/band-a.webp" tone="a" />
+    {posts.length === 0 ? <p class="empty">还没有文章</p> : <IndexGrid posts={posts} />}
   </div>
 </BaseLayout>
