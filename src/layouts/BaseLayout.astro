@@ -75,7 +75,7 @@ const ogImage = image ? new URL(image, SITE.url).href : undefined;
         <a href="/" class="brand"><strong>{SITE.name}</strong></a>
         <nav class="site-nav">
           <a href="/" class={active === 'home' ? 'active' : ''}>首页</a>
-          <a href="/columns/" class={active === 'columns' ? 'active' : ''}>专栏</a>
+          <a href="/#columns">专栏</a>
           <a href="/archive/" class={active === 'archive' ? 'active' : ''}
             >归档</a
           >

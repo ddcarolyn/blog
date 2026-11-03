@@ -1,15 +1,36 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LetterBand from '../components/LetterBand.astro';
-import IndexGrid from '../components/IndexGrid.astro';
-import { getPublishedPosts } from '../lib/posts';
+import CategoryTabs from '../components/CategoryTabs.astro';
+import FeaturedCard from '../components/FeaturedCard.astro';
+import CategorySection from '../components/CategorySection.astro';
+import { getPublishedPosts, postsByCategory } from '../lib/posts';
 
 const posts = await getPublishedPosts();
+const [hero, ...rest] = posts;
+const side = rest.slice(0, 3);
+const groups = postsByCategory(posts);
 ---
 
 <BaseLayout active="home" wide>
   <div class="home">
     <LetterBand img="/images/letter/band-a.webp" tone="a" />
-    {posts.length === 0 ? <p class="empty">还没有文章</p> : <IndexGrid posts={posts} />}
+
+    <CategoryTabs active="all" />
+
+    {
+      posts.length === 0 ? (
+        <p class="empty">还没有文章</p>
+      ) : (
+        <>
+          <FeaturedCard hero={hero} side={side} />
+          <div id="columns" class="home-columns-stack">
+            {groups.map((g) => (
+              <CategorySection category={g.category} posts={g.posts} />
+            ))}
+          </div>
+        </>
+      )
+    }
   </div>
 </BaseLayout>

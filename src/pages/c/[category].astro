@@ -20,7 +20,6 @@ const { category, posts } = Astro.props;
   title={category.name}
   description={`${category.blurb} ddcarolyn「${category.name}」专栏,共 ${posts.length} 篇。`}
   image={posts[0]?.data.cover}
-  active="columns"
   wide
 >
   <div class="home columns-page">
