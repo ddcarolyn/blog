@@ -147,6 +147,12 @@ body.wide .container {
   color: var(--text-muted);
   text-decoration: none;
 }
+/* 手机上多了「🏓 乒乓情报站」一项,收窄间距让深浅色按钮仍在同一行(360 宽也够) */
+@media (max-width: 420px) {
+  .site-nav {
+    gap: 0.5rem;
+  }
+}
 .site-nav a:hover,
 .site-nav a.active {
   color: var(--link);
